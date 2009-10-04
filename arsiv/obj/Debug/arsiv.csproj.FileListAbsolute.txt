@@ -1,0 +1,11 @@
+D:\projeler\fototakip\arsiv\arsiv\bin\Debug\arsiv.exe.config
+D:\projeler\fototakip\arsiv\arsiv\bin\Debug\arsiv.exe
+D:\projeler\fototakip\arsiv\arsiv\bin\Debug\arsiv.pdb
+D:\projeler\fototakip\arsiv\arsiv\obj\Debug\ResolveAssemblyReference.cache
+D:\projeler\fototakip\arsiv\arsiv\obj\Debug\arsiv.Form1.resources
+D:\projeler\fototakip\arsiv\arsiv\obj\Debug\arsiv.Properties.Resources.resources
+D:\projeler\fototakip\arsiv\arsiv\obj\Debug\arsiv.csproj.GenerateResource.Cache
+D:\projeler\fototakip\arsiv\arsiv\obj\Debug\arsiv.exe
+D:\projeler\fototakip\arsiv\arsiv\obj\Debug\arsiv.pdb
+D:\projeler\fototakip\arsiv\arsiv\obj\Debug\arsiv.FormNewRecord.resources
+D:\projeler\fototakip\arsiv\arsiv\obj\Debug\arsiv.FormAddProduct.resources
