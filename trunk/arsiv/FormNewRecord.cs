@@ -407,6 +407,7 @@ namespace arsiv
                     if (arsiv > 0 && arsivTipiSelected < 0)
                     {
                         saveAll();
+                        this.Close();
                     }
                 }
             }

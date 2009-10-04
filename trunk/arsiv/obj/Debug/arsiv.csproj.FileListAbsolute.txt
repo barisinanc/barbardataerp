@@ -31,3 +31,4 @@ D:\projeler\fototakip\barbardataerp\arsiv\obj\Debug\arsiv.Properties.Resources.r
 D:\projeler\fototakip\barbardataerp\arsiv\obj\Debug\arsiv.csproj.GenerateResource.Cache
 D:\projeler\fototakip\barbardataerp\arsiv\bin\Debug\arsiv.exe
 D:\projeler\fototakip\barbardataerp\arsiv\bin\Debug\arsiv.pdb
+D:\projeler\fototakip\barbardataerp\arsiv\obj\Debug\arsiv.FormEnterance.resources
