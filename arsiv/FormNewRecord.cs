@@ -76,19 +76,8 @@ namespace arsiv
 
         private void productSearch()
         {
-            conn = new SqlConnection(connectionString);
-            conn.Open();
-            SqlCommand cmd = new SqlCommand("UrunAra", conn);
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@veri", textBoxProductSearch.Text);
-            DataTable dataTable = new DataTable();
-            cmd.ExecuteNonQuery();
-            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-            adapter.Fill(dataTable);
-            conn.Close();
-            conn.Dispose();
-            cmd.Dispose();
-            adapter.Dispose();
+            BarisGorselDLL.Product engProduct = new arsiv.BarisGorselDLL.Product(connectionString);
+            DataTable dataTable = engProduct.productSearch(textBoxProductSearch.Text);
             Urunler.Clear();
             foreach (DataRow row in dataTable.Rows)
             {
@@ -106,7 +95,7 @@ namespace arsiv
                 Urunler.Add(yeniUrun);
             }
             var selectedProducts = from x in Urunler
-                                    select new { Barkod_No = x.BarkodNo, Ürün = x.Adi, Marka = x.Marka, Model = x.Model, Fiyat = x.Fiyat };
+                                    select new { Barkod_No = x.BarkodNo, Ürün = x.Adi+" "+x.Marka+" "+x.Model, Fiyat = x.Fiyat };
             
             dataGridViewProductSelect.DataSource = selectedProducts.ToList();
             
