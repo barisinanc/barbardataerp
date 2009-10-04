@@ -9,11 +9,6 @@ namespace arsiv.BarisGorselDLL
 {
     class Product : ConnectionImporter
     {
-        public Product(string connectionString)
-            :base(connectionString)
-        {
-        }
-
         public DataTable productSearch(string srchString) {
             
             SqlCommand cmd = new SqlCommand("UrunAra", Connection);
@@ -27,6 +22,8 @@ namespace arsiv.BarisGorselDLL
             adapter.Dispose();
             return dataTable;
         }
+
+        
 
 
     }

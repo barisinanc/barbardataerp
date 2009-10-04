@@ -76,7 +76,7 @@ namespace arsiv
 
         private void productSearch()
         {
-            BarisGorselDLL.Product engProduct = new arsiv.BarisGorselDLL.Product(connectionString);
+            BarisGorselDLL.Product engProduct = new arsiv.BarisGorselDLL.Product();
             DataTable dataTable = engProduct.productSearch(textBoxProductSearch.Text);
             Urunler.Clear();
             foreach (DataRow row in dataTable.Rows)
