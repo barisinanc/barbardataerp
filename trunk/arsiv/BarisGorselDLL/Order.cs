@@ -31,9 +31,10 @@ namespace arsiv.BarisGorselDLL
             cmd.Parameters.AddWithValue("@SubeId", SubeId);
             cmd.Parameters.AddWithValue("@TeslimTarihi", TeslimTarihi);
             cmd.Parameters.Add("@SepetNo", SqlDbType.Int);
-            //cmd.Parameters["@SepetNoDonen"].Direction = ParameterDirection.Output;
-            //cmd.Parameters["@SepetNo"].Value = SepetNo;
-            SepetNo = Convert.ToInt32(cmd.ExecuteScalar());
+            cmd.Parameters["@SepetNo"].Direction = ParameterDirection.InputOutput;
+            cmd.Parameters["@SepetNo"].Value = SepetNo;
+            cmd.ExecuteNonQuery();
+            SepetNo = Convert.ToInt32(cmd.Parameters["@SepetNo"].Value.ToString());
             cmd.Dispose();
             return SepetNo;
         }

@@ -41,6 +41,7 @@
             this.textBoxCariEposta = new System.Windows.Forms.TextBox();
             this.dateTimePickerDelivery = new System.Windows.Forms.DateTimePicker();
             this.groupBoxCari = new System.Windows.Forms.GroupBox();
+            this.buttonCariGuncelle = new System.Windows.Forms.Button();
             this.buttonCariAra = new System.Windows.Forms.Button();
             this.buttonCariBirak = new System.Windows.Forms.Button();
             this.buttonCariSec = new System.Windows.Forms.Button();
@@ -79,7 +80,6 @@
             this.comboBoxArchiveType = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.groupBoxArchive = new System.Windows.Forms.GroupBox();
-            this.buttonCariGuncelle = new System.Windows.Forms.Button();
             this.groupBoxCari.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCari)).BeginInit();
             this.groupBoxUrun.SuspendLayout();
@@ -121,6 +121,7 @@
             // 
             // textBoxArchiveNo
             // 
+            this.textBoxArchiveNo.Enabled = false;
             this.textBoxArchiveNo.Location = new System.Drawing.Point(79, 39);
             this.textBoxArchiveNo.Name = "textBoxArchiveNo";
             this.textBoxArchiveNo.Size = new System.Drawing.Size(96, 20);
@@ -206,6 +207,15 @@
             this.groupBoxCari.TabIndex = 11;
             this.groupBoxCari.TabStop = false;
             this.groupBoxCari.Text = "Müşteri Bilgileri";
+            // 
+            // buttonCariGuncelle
+            // 
+            this.buttonCariGuncelle.Location = new System.Drawing.Point(210, 100);
+            this.buttonCariGuncelle.Name = "buttonCariGuncelle";
+            this.buttonCariGuncelle.Size = new System.Drawing.Size(43, 53);
+            this.buttonCariGuncelle.TabIndex = 16;
+            this.buttonCariGuncelle.Text = "Guncelle";
+            this.buttonCariGuncelle.UseVisualStyleBackColor = true;
             // 
             // buttonCariAra
             // 
@@ -567,6 +577,7 @@
             this.comboBoxArchiveType.Name = "comboBoxArchiveType";
             this.comboBoxArchiveType.Size = new System.Drawing.Size(96, 21);
             this.comboBoxArchiveType.TabIndex = 60;
+            this.comboBoxArchiveType.SelectedIndexChanged += new System.EventHandler(this.comboBoxArchiveType_SelectedIndexChanged);
             // 
             // label5
             // 
@@ -591,15 +602,6 @@
             this.groupBoxArchive.Text = "Arşiv Bilgileri";
             this.groupBoxArchive.Visible = false;
             // 
-            // buttonCariGuncelle
-            // 
-            this.buttonCariGuncelle.Location = new System.Drawing.Point(210, 100);
-            this.buttonCariGuncelle.Name = "buttonCariGuncelle";
-            this.buttonCariGuncelle.Size = new System.Drawing.Size(43, 53);
-            this.buttonCariGuncelle.TabIndex = 16;
-            this.buttonCariGuncelle.Text = "Guncelle";
-            this.buttonCariGuncelle.UseVisualStyleBackColor = true;
-            // 
             // FormNewRecord
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -613,7 +615,6 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormNewRecord";
             this.Text = "Yeni Kayıt";
-            this.TopMost = true;
             this.groupBoxCari.ResumeLayout(false);
             this.groupBoxCari.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCari)).EndInit();

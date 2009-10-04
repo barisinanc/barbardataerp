@@ -173,16 +173,27 @@ namespace arsiv
                 { groupBoxArchive.Visible = false; }
             
         }
-        ArchiveTypes arsivTipi = new ArchiveTypes();
+        int arsivTipiSelected;
+        
         private void archivLoader()
         {
+            ArchiveTypes arsivTipi = new ArchiveTypes();
             groupBoxArchive.Visible = true;
             foreach (ArchiveTypes tip in arsivTipi.readTypes())
             {
                 comboBoxArchiveType.Items.Add(tip.Ad);
             }
+            comboBoxArchiveType.SelectedIndex = Properties.Settings.Default.ArsivTipi - 1;
+            arsivTipiSelected = Properties.Settings.Default.ArsivTipi;
+            arsivTipi.Dispose();
         }
 
+        private void comboBoxArchiveType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            arsivTipiSelected = comboBoxArchiveType.SelectedIndex + 1;
+            Properties.Settings.Default.ArsivTipi = arsivTipiSelected;
+            Properties.Settings.Default.Save();
+        }
         
 
         private void buttonCancel_Click(object sender, EventArgs e)
@@ -384,7 +395,25 @@ namespace arsiv
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
-            saveAll();
+            if (Sepet.Count > 0)
+            {
+                int arsiv = (from x in Sepet
+                             where x.Arsivle == true
+                             select x).Count();
+                if (arsiv > 0 && selectedCari.CariNo == null)
+                { MessageBox.Show("Müşteri bilgileri arşiv kaydı içeren ürünlerde zorunludur!"); }
+                else
+                {
+                    if (arsiv > 0 && arsivTipiSelected < 0)
+                    {
+                        saveAll();
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Ürün seçilmeden kayıt yapılamaz!");
+            }
         }
 
         private void saveAll()
@@ -421,18 +450,20 @@ namespace arsiv
             yeniHesap.CariNo = CariNo;
             yeniHesap.Alacak=(from x in Sepet
                              select new{ Alacak=x.Fiyat}).Sum(p=>p.Alacak);
-            //yeniHesap.Borc=....;Ödeme sekmesi olunca düzelt!
+            yeniHesap.Borc=0;//Ödeme sekmesi olunca düzelt!
+            yeniHesap.addAccount();
             if (arsivle)
             {
                 Archive yeniArsiv = new Archive();
                 yeniArsiv.CariNo = CariNo;
                 yeniArsiv.SepetNo = sepetNo;
                 yeniArsiv.SubeId = Properties.Settings.Default.SubeId;
-                arsivTipi.Id = comboBoxArchiveType.SelectedIndex + 1;
-                yeniArsiv.TurId=arsivTipi.Id;
+                yeniArsiv.TurId=arsivTipiSelected;
                 yeniArsiv.addArchive();
             }
         }
+
+       
 
         
     }

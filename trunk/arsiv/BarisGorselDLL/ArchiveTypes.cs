@@ -13,6 +13,8 @@ namespace arsiv.BarisGorselDLL
         public string Ad;
         public List<ArchiveTypes> readTypes()
         {
+            if (Connection.State == ConnectionState.Closed)
+            { Connection.Open(); }
             SqlCommand cmd = new SqlCommand("ArsivTipleri", Connection);
             cmd.CommandType = CommandType.StoredProcedure;
             DataTable dataTable = new DataTable();
