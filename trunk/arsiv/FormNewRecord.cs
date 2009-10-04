@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using arsiv.BarisGorselDLL;
 
 namespace arsiv
 {
@@ -172,12 +173,14 @@ namespace arsiv
                 { groupBoxArchive.Visible = false; }
             
         }
-
+        ArchiveTypes arsivTipi = new ArchiveTypes();
         private void archivLoader()
         {
             groupBoxArchive.Visible = true;
-            foreach (DataRow row in DataRead("Listeler").Rows)
-            { comboBoxArchiveType.Items.Add(row[1]); }
+            foreach (ArchiveTypes tip in arsivTipi.readTypes())
+            {
+                comboBoxArchiveType.Items.Add(tip.Ad);
+            }
         }
 
         
@@ -391,32 +394,44 @@ namespace arsiv
             conn.Open();
             if (selectedCari == null)
             {
-                SqlCommand cmd = new SqlCommand("CariEkle", conn);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@Isim", textBoxCariAd.Text);
-                cmd.Parameters.AddWithValue("@TelNo", textBoxCariTel.Text);
-                cmd.Parameters.AddWithValue("@CepNo", textBoxCariCep.Text);
-                cmd.Parameters.AddWithValue("@Eposta", textBoxCariEposta.Text);
-                cmd.Parameters.AddWithValue("@Aciklama", textBoxCariAciklama.Text);
-                cmd.Parameters.Add("@CariNo", SqlDbType.NVarChar);
-                cmd.Parameters["@CariNo"].Direction = ParameterDirection.Output;
-                cmd.ExecuteNonQuery();
-                CariNo = cmd.Parameters["@CariNo"].Value.ToString();
-                cmd.Dispose();
+                CariNo = selectedCari.addCari();
                 Cariler.Clear();
             }
             else
             { CariNo = selectedCari.CariNo; }
-            SqlCommand cmd2 = new SqlCommand("KayitEkle", conn);
-            cmd2.CommandType = CommandType.StoredProcedure;
-            cmd2.Parameters.AddWithValue("@Isim", textBoxCariAd.Text);
-            cmd2.Parameters.AddWithValue("@TelNo", textBoxCariTel.Text);
-            cmd2.Parameters.AddWithValue("@CepNo", textBoxCariCep.Text);
-            cmd2.Parameters.AddWithValue("@Eposta", textBoxCariEposta.Text);
-            cmd2.Parameters.AddWithValue("@Aciklama", textBoxCariAciklama.Text);
-            cmd2.ExecuteNonQuery();
-            cmd2.Dispose();
-
+            bool arsivle = false;
+            int sepetNo=0;
+            foreach (Urun x in Sepet)
+            {
+                Order yeniCikis = new Order();
+                if (x.Arsivle) { arsivle = true; }
+                yeniCikis.CariNo = CariNo;
+                yeniCikis.UrunBarkodNo = x.BarkodNo;
+                yeniCikis.Adet = x.Adet;
+                yeniCikis.Indirim = x.Indirim;
+                yeniCikis.Tutar = x.Fiyat;
+                yeniCikis.SubeId = Properties.Settings.Default.SubeId;
+                yeniCikis.SepetNo = sepetNo;
+                yeniCikis.TeslimTarihi = x.TeslimTarihi;
+                sepetNo = yeniCikis.addOrder();
+            }
+            Account yeniHesap = new Account();
+            yeniHesap.SepetNo = sepetNo;
+            yeniHesap.SubeId = Properties.Settings.Default.SubeId;
+            yeniHesap.CariNo = CariNo;
+            yeniHesap.Alacak=(from x in Sepet
+                             select new{ Alacak=x.Fiyat}).Sum(p=>p.Alacak);
+            //yeniHesap.Borc=....;Ödeme sekmesi olunca düzelt!
+            if (arsivle)
+            {
+                Archive yeniArsiv = new Archive();
+                yeniArsiv.CariNo = CariNo;
+                yeniArsiv.SepetNo = sepetNo;
+                yeniArsiv.SubeId = Properties.Settings.Default.SubeId;
+                arsivTipi.Id = comboBoxArchiveType.SelectedIndex + 1;
+                yeniArsiv.TurId=arsivTipi.Id;
+                yeniArsiv.addArchive();
+            }
         }
 
         
