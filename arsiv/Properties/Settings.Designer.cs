@@ -50,5 +50,17 @@ namespace arsiv.Properties {
                 return ((string)(this["connectionStringDis"]));
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int SubeId {
+            get {
+                return ((int)(this["SubeId"]));
+            }
+            set {
+                this["SubeId"] = value;
+            }
+        }
     }
 }

@@ -38,14 +38,4 @@ namespace arsiv
         public DateTime TeslimTarihi;
     }
 
-    public class Cari
-    {
-        public string CariNo;
-        public DateTime Tarih;
-        public string Isim;
-        public string TelNo;
-        public string CepNo;
-        public string Eposta;
-        public string Aciklama;
-    }
 }
