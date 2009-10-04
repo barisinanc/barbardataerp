@@ -22,8 +22,8 @@ namespace arsiv.BarisGorselDLL
             cmd.Parameters.AddWithValue("@TurId", TurId);
             cmd.Parameters.AddWithValue("@SubeId", SubeId);
             cmd.Parameters.AddWithValue("@SepetNo", SepetNo);
-            
-            cmd.Parameters["@ArsivNo"].Direction = ParameterDirection.Output;
+            cmd.Parameters.Add("@ArsivNo", SqlDbType.NVarChar,20);
+            cmd.Parameters["@ArsivNo"].Direction = ParameterDirection.InputOutput;
             cmd.Parameters["@ArsivNo"].Value = ArsivNo;
             cmd.ExecuteNonQuery();
             cmd.Dispose();
