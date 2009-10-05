@@ -772,6 +772,7 @@
             this.Controls.Add(this.groupBoxArchive);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormNewRecord";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Yeni Kayıt";
             this.Load += new System.EventHandler(this.FormNewRecord_Load);
             this.groupBoxCari.ResumeLayout(false);
