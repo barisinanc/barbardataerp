@@ -32,7 +32,7 @@ namespace arsiv
             this.textBoxValue.KeyPress += new KeyPressEventHandler(textBoxValue_KeyPress);
             if (connectionControl())
             {
-                loadForms();
+                //loadForms();
             }
             else
             {

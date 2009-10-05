@@ -84,6 +84,8 @@
             this.groupBoxArchive = new System.Windows.Forms.GroupBox();
             this.groupBoxOrders = new System.Windows.Forms.GroupBox();
             this.groupBoxHesap = new System.Windows.Forms.GroupBox();
+            this.labelBorc = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.textBoxAlinanTutar = new System.Windows.Forms.TextBox();
             this.labelParaUstu = new System.Windows.Forms.Label();
@@ -91,8 +93,6 @@
             this.label16 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.labelBorc = new System.Windows.Forms.Label();
             this.groupBoxCari.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCari)).BeginInit();
             this.groupBoxUrun.SuspendLayout();
@@ -110,7 +110,6 @@
             // 
             // textBoxCariAd
             // 
-            this.textBoxCariAd.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.textBoxCariAd.Location = new System.Drawing.Point(74, 14);
             this.textBoxCariAd.Name = "textBoxCariAd";
             this.textBoxCariAd.Size = new System.Drawing.Size(129, 20);
@@ -678,6 +677,24 @@
             this.groupBoxHesap.TabStop = false;
             this.groupBoxHesap.Text = "Bakiye";
             // 
+            // labelBorc
+            // 
+            this.labelBorc.AutoSize = true;
+            this.labelBorc.Location = new System.Drawing.Point(88, 120);
+            this.labelBorc.Name = "labelBorc";
+            this.labelBorc.Size = new System.Drawing.Size(29, 13);
+            this.labelBorc.TabIndex = 8;
+            this.labelBorc.Text = "0 TL";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(47, 120);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(32, 13);
+            this.label17.TabIndex = 7;
+            this.label17.Text = "Borç:";
+            // 
             // label19
             // 
             this.label19.AutoSize = true;
@@ -740,24 +757,6 @@
             this.label14.Size = new System.Drawing.Size(73, 13);
             this.label14.TabIndex = 0;
             this.label14.Text = "Toplam Tutar:";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(47, 120);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(32, 13);
-            this.label17.TabIndex = 7;
-            this.label17.Text = "Borç:";
-            // 
-            // labelBorc
-            // 
-            this.labelBorc.AutoSize = true;
-            this.labelBorc.Location = new System.Drawing.Point(88, 120);
-            this.labelBorc.Name = "labelBorc";
-            this.labelBorc.Size = new System.Drawing.Size(29, 13);
-            this.labelBorc.TabIndex = 8;
-            this.labelBorc.Text = "0 TL";
             // 
             // FormNewRecord
             // 
