@@ -52,7 +52,7 @@
             // textBoxBarcodeNo
             // 
             this.textBoxBarcodeNo.Location = new System.Drawing.Point(86, 25);
-            this.textBoxBarcodeNo.MaxLength = 12;
+            this.textBoxBarcodeNo.MaxLength = 14;
             this.textBoxBarcodeNo.Name = "textBoxBarcodeNo";
             this.textBoxBarcodeNo.Size = new System.Drawing.Size(100, 20);
             this.textBoxBarcodeNo.TabIndex = 0;
