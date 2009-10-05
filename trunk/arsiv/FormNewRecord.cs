@@ -18,6 +18,13 @@ namespace arsiv
             InitializeComponent();
             connectionString = Properties.Settings.Default.connectionStringDis;
         }
+
+        private void FormNewRecord_Load(object sender, EventArgs e)
+        {
+            textBoxProductSearch.Focus();
+            otoBoyutDegistir();
+        }
+
         string connectionString;
         
         private DataTable DataRead(string procedureName)
@@ -97,9 +104,10 @@ namespace arsiv
             }
             var selectedProducts = from x in Urunler
                                     select new { Barkod_No = x.BarkodNo, Ürün = x.Adi+" "+x.Marka+" "+x.Model, Fiyat = x.Fiyat };
-            
+            dataGridViewProductSelect.SelectionChanged -= new EventHandler(dataGridViewProductSelect_SelectionChanged);
             dataGridViewProductSelect.DataSource = selectedProducts.ToList();
-            
+            dataGridViewProductSelect.SelectionChanged += new EventHandler(dataGridViewProductSelect_SelectionChanged);
+            dataGridViewProductSelect.Rows[0].Selected = true;
         }
 
         private void dataGridViewProductSelect_SelectionChanged(object sender, EventArgs e)
@@ -137,7 +145,21 @@ namespace arsiv
             }
         }
 
-        
+        private void textBoxProductPrice_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBoxProductDiscount_TextChanged(object sender, EventArgs e)
+        {
+            if (textBoxProductDiscount.Text == null || textBoxProductDiscount.Text=="") { textBoxProductDiscount.Text = "0"; }
+            if (Convert.ToDecimal(textBoxProductDiscount.Text) <= SecilenUrun.Fiyat)
+            {
+                textBoxProductPrice.Text = (SecilenUrun.Fiyat - Convert.ToDecimal(textBoxProductDiscount.Text)).ToString();
+            }
+            else
+            { textBoxProductPrice.Text = "0"; }
+        }
 
         private void buttonProductInsert_Click(object sender, EventArgs e)
         {
@@ -147,16 +169,40 @@ namespace arsiv
             yeniUrun.Marka = labelProductSelectedBrand.Text;
             yeniUrun.Model = labelProductSelectedModel.Text;
             yeniUrun.Arsivle = checkBoxArchived.Checked;
-            try { yeniUrun.Fiyat = Convert.ToDecimal(textBoxProductPrice.Text); }
-            catch { yeniUrun.Fiyat = 0; }
+            decimal indirim = 0;
+            decimal fiyat = 0;
+            if (textBoxProductDiscount.Text == null || textBoxProductDiscount.Text == "") { indirim = 0; }
+            else { indirim = Convert.ToDecimal(textBoxProductPrice.Text); }
+            if (textBoxProductPrice.Text == null || textBoxProductPrice.Text == "") { fiyat = 0; }
+            else { fiyat = Convert.ToDecimal(textBoxProductPrice.Text); }
+            if (fiyat + indirim != SecilenUrun.Fiyat)
+            {
+                yeniUrun.Fiyat = Convert.ToDecimal(textBoxProductPrice.Text);
+                if (fiyat >= SecilenUrun.Fiyat)
+                {
+                    yeniUrun.Fiyat = SecilenUrun.Fiyat;
+                    yeniUrun.Indirim = 0;
+                }
+                else
+                {
+                    yeniUrun.Indirim = SecilenUrun.Fiyat - fiyat;
+                    yeniUrun.Fiyat = fiyat;
+                }
+            }
+            else
+            {
+                yeniUrun.Fiyat = fiyat;
+                yeniUrun.Indirim = indirim;
+            }
             yeniUrun.TeslimTarihi = DateTime.Parse(dateTimePickerDelivery.Value.ToShortDateString() +" "+ numericHour.Value.ToString() +":"+ numericMinute.Value.ToString());
             try { yeniUrun.Adet = Convert.ToInt32(numericProductCount.Value); }
             catch { yeniUrun.Adet = 1; }
-            try { yeniUrun.Indirim = Convert.ToInt32(textBoxProductDiscount.Text); }
-            catch { yeniUrun.Indirim = 0; }
+            
             Sepet.Add(yeniUrun);
             sepetGridRefresh();
         }
+
+        
 
         private void sepetGridRefresh()
         {
@@ -171,7 +217,12 @@ namespace arsiv
                 { groupBoxArchive.Visible = true; archivLoader(); }
                 else
                 { groupBoxArchive.Visible = false; }
-            
+            decimal bakiye= (from x in Sepet
+                        select new {Tutar = x.Fiyat}).Sum(p=>p.Tutar);
+            labelBakiye.Text = bakiye.ToString() + " TL";
+            textBoxAlinanTutar.TextAlignChanged -= new EventHandler(textBoxAlinanTutar_TextChanged);
+            textBoxAlinanTutar.Text = bakiye.ToString();
+            textBoxAlinanTutar.TextAlignChanged += new EventHandler(textBoxAlinanTutar_TextChanged);
         }
         int arsivTipiSelected;
         
@@ -215,6 +266,7 @@ namespace arsiv
         {
             if (Sepet.Count > 0)
             {
+
                 SecilenUrun = Sepet[dataGridViewProductSelected.CurrentRow.Index];
 
                 labelProductSelectedName.Text = SecilenUrun.Adi;
@@ -222,6 +274,9 @@ namespace arsiv
                 labelProductSelectedModel.Text = SecilenUrun.Model;
                 labelProductSelectedBarcode.Text = SecilenUrun.BarkodNo;
                 textBoxProductPrice.Text = SecilenUrun.Fiyat.ToString();
+                textBoxProductDiscount.TextChanged -= new EventHandler(textBoxProductDiscount_TextChanged);
+                textBoxProductDiscount.Text = SecilenUrun.Indirim.ToString();
+                textBoxProductDiscount.TextChanged += new EventHandler(textBoxProductDiscount_TextChanged);
                 dateTimePickerDelivery.Value = SecilenUrun.TeslimTarihi;
                 numericHour.Value = SecilenUrun.TeslimTarihi.Hour;
                 numericMinute.Value = SecilenUrun.TeslimTarihi.Minute;
@@ -402,9 +457,24 @@ namespace arsiv
                              select x).Count();
                 if (arsiv > 0 && selectedCari.CariNo == null)
                 { MessageBox.Show("Müşteri bilgileri arşiv kaydı içeren ürünlerde zorunludur!"); }
-                else
+
+                else if (arsiv > 0 && selectedCari.CariNo != null)
                 {
-                    if (arsiv > 0 && arsivTipiSelected < 0)
+                    saveAll();
+                    this.Close();
+                }
+                else if (arsiv == 0 && selectedCari.CariNo != null)
+                {
+                    saveAll();
+                    this.Close();
+                }
+                else if (arsiv == 0 && selectedCari.CariNo == null)
+                {
+                    if (borc > 0)
+                    {
+                        MessageBox.Show("Müşteri bilgileri girilmeyen satışta borç olamaz!");
+                    }
+                    else
                     {
                         saveAll();
                         this.Close();
@@ -449,9 +519,9 @@ namespace arsiv
             yeniHesap.SepetNo = sepetNo;
             yeniHesap.SubeId = Properties.Settings.Default.SubeId;
             yeniHesap.CariNo = CariNo;
-            yeniHesap.Alacak=(from x in Sepet
-                             select new{ Alacak=x.Fiyat}).Sum(p=>p.Alacak);
-            yeniHesap.Borc=0;//Ödeme sekmesi olunca düzelt!
+            yeniHesap.Borc=borc;
+            yeniHesap.Alinan = (from x in Sepet
+                                select new { Tutar = x.Fiyat }).Sum(p => p.Tutar)-borc;
             yeniHesap.addAccount();
             if (arsivle)
             {
@@ -463,9 +533,63 @@ namespace arsiv
                 yeniArsiv.addArchive();
             }
         }
+        #region Tasarım
+        private void otoBoyutDegistir()
+        {
+            groupBoxProductDetails.MouseEnter += new EventHandler(groupBoxProductDetails_Buyut);
+            groupBoxProductDetails.GotFocus += new EventHandler(groupBoxProductDetails_Buyut);
+            groupBoxProductDetails.LostFocus += new EventHandler(groupBoxProductDetails_Kucult);
+            groupBoxProductDetails.MouseLeave += new EventHandler(groupBoxProductDetails_Kucult);
+            foreach (Control x in groupBoxProductDetails.Controls)
+            {
+                x.MouseEnter += new EventHandler(groupBoxProductDetails_Buyut);
+                x.GotFocus += new EventHandler(groupBoxProductDetails_Buyut);
+                x.LostFocus += new EventHandler(groupBoxProductDetails_Kucult);
+                x.MouseLeave += new EventHandler(groupBoxProductDetails_Kucult);
+            }
+        }
+        private void groupBoxProductDetails_Buyut(object sender, EventArgs e)
+        {
+            groupBoxUrun.BringToFront();
+            groupBoxUrun.Size = new Size { Height = 400, Width = groupBoxUrun.Size.Width };
+            //groupBoxProductDetails.Size = new Size { Height = 150, Width = groupBoxProductDetails.Size.Width };
+            groupBoxProductDetails.MouseLeave += new EventHandler(groupBoxProductDetails_Kucult);
+        }
 
-       
+        void groupBoxProductDetails_Kucult(object sender, EventArgs e)
+        {
+            groupBoxUrun.Size = new Size { Height = 281, Width = groupBoxUrun.Size.Width };
+            //groupBoxProductDetails.Size = new Size { Height = 88, Width = groupBoxProductDetails.Size.Width };
+        }
+
+        #endregion Tasarım
+        decimal alinanTutar=0;
+        decimal borc = 0;
+        private void textBoxAlinanTutar_TextChanged(object sender, EventArgs e)
+        {
+            decimal toplam = (from x in Sepet
+                              select new { Tutar = x.Fiyat }).Sum(p => p.Tutar);
+            if (textBoxAlinanTutar.Text == null || textBoxAlinanTutar.Text == "")
+            {
+                textBoxAlinanTutar.TextAlignChanged -= new EventHandler(textBoxAlinanTutar_TextChanged);
+                textBoxAlinanTutar.Text = "0";
+                textBoxAlinanTutar.TextAlignChanged -= new EventHandler(textBoxAlinanTutar_TextChanged);
+            }
+            if ((Convert.ToDecimal(textBoxAlinanTutar.Text) < toplam))
+            {
+                borc = (toplam - (Convert.ToDecimal(textBoxAlinanTutar.Text)));
+                labelBorc.Text = (borc).ToString();
+            }
+            else
+            {
+                labelParaUstu.Text = (Convert.ToDecimal(textBoxAlinanTutar.Text) - toplam).ToString() + " TL";
+                borc = 0;
+                labelBorc.Text = "0 TL";
+            }
+            alinanTutar = Convert.ToDecimal(textBoxAlinanTutar.Text);
+        }
 
         
+
     }
 }
