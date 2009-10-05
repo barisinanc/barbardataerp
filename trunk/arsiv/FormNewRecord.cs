@@ -450,6 +450,18 @@ namespace arsiv
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
+            if(selectedCari.CariNo==null)
+            {
+                if (textBoxCariAd.Text.Trim() != "")
+                {
+                    selectedCari.Isim = textBoxCariAd.Text.Trim().ToUpper();
+                    selectedCari.CepNo = textBoxCariCep.Text.Trim().ToUpper();
+                    selectedCari.TelNo = textBoxCariTel.Text.Trim().ToUpper();
+                    selectedCari.Aciklama = textBoxCariAciklama.Text.Trim().ToUpper();
+                    selectedCari.Eposta = textBoxCariEposta.Text.Trim().ToUpper();
+                    selectedCari.addCari();
+                }
+            }
             if (Sepet.Count > 0)
             {
                 int arsiv = (from x in Sepet
@@ -492,13 +504,7 @@ namespace arsiv
             string CariNo = "";
             conn = new SqlConnection(connectionString);
             conn.Open();
-            if (selectedCari == null)
-            {
-                CariNo = selectedCari.addCari();
-                Cariler.Clear();
-            }
-            else
-            { CariNo = selectedCari.CariNo; }
+            CariNo = selectedCari.CariNo;
             bool arsivle = false;
             int sepetNo=0;
             foreach (Urun x in Sepet)

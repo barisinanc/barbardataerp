@@ -45,11 +45,13 @@ namespace arsiv.BarisGorselDLL
             cmd.Parameters.AddWithValue("@GrupNo2", GrupNo2);
             cmd.Parameters.AddWithValue("@GrupNo3", GrupNo3);
             cmd.Parameters.AddWithValue("@SubeId", Properties.Settings.Default.SubeId);
-            cmd.Parameters.Add("@CariNo", SqlDbType.NVarChar);
-            cmd.Parameters["@CariNo"].Direction = ParameterDirection.Output;
+            cmd.Parameters.Add("@CariNo", SqlDbType.NVarChar,16);
+            cmd.Parameters["@CariNo"].Direction = ParameterDirection.InputOutput;
+            cmd.Parameters["@CariNo"].Value = CariNo;
             cmd.ExecuteNonQuery();
             cmd.Dispose();
-            return cmd.Parameters["@CariNo"].Value.ToString();
+            CariNo = cmd.Parameters["@CariNo"].Value.ToString();
+            return CariNo;
         }
     }
 }
