@@ -86,5 +86,17 @@ namespace arsiv.Properties {
                 this["ConnectionId"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int SonKullaniciId {
+            get {
+                return ((int)(this["SonKullaniciId"]));
+            }
+            set {
+                this["SonKullaniciId"] = value;
+            }
+        }
     }
 }

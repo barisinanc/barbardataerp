@@ -9,6 +9,20 @@ namespace arsiv.BarisGorselDLL
 {
     class Product : ConnectionImporter
     {
+        public string BarkodNo;
+        public string Adi;
+        public string Marka;
+        public string Model;
+        public decimal Fiyat;
+        public decimal AnaFiyat;
+        public decimal Indirim;
+        public int Kdv;
+        public int Adet;
+        public bool Arsivle;
+        public DateTime TeslimTarihi;
+        public int SepetIndex = -1;
+        public int KullaniciId;
+
         public DataTable productSearch(string srchString) {
             Connect();
             SqlCommand cmd = new SqlCommand("UrunAra", Connection);

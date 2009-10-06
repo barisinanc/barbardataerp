@@ -57,6 +57,7 @@
             this.buttonProductSearch = new System.Windows.Forms.Button();
             this.dataGridViewProductSelect = new System.Windows.Forms.DataGridView();
             this.groupBoxProductDetails = new System.Windows.Forms.GroupBox();
+            this.comboBoxKullanici = new System.Windows.Forms.ComboBox();
             this.numericMinute = new System.Windows.Forms.NumericUpDown();
             this.numericHour = new System.Windows.Forms.NumericUpDown();
             this.labelProductSelectedBarcode = new System.Windows.Forms.Label();
@@ -93,7 +94,8 @@
             this.label16 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.comboBoxKullanici = new System.Windows.Forms.ComboBox();
+            this.comboBoxOdemeTipi = new System.Windows.Forms.ComboBox();
+            this.label18 = new System.Windows.Forms.Label();
             this.groupBoxCari.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCari)).BeginInit();
             this.groupBoxUrun.SuspendLayout();
@@ -114,14 +116,14 @@
             this.textBoxCariAd.Location = new System.Drawing.Point(74, 14);
             this.textBoxCariAd.Name = "textBoxCariAd";
             this.textBoxCariAd.Size = new System.Drawing.Size(129, 20);
-            this.textBoxCariAd.TabIndex = 0;
+            this.textBoxCariAd.TabIndex = 888;
             // 
             // buttonSave
             // 
             this.buttonSave.Location = new System.Drawing.Point(592, 618);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(232, 23);
-            this.buttonSave.TabIndex = 1;
+            this.buttonSave.TabIndex = 500;
             this.buttonSave.Text = "Kaydet";
             this.buttonSave.UseVisualStyleBackColor = true;
             this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
@@ -131,7 +133,7 @@
             this.buttonCancel.Location = new System.Drawing.Point(830, 618);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(36, 23);
-            this.buttonCancel.TabIndex = 2;
+            this.buttonCancel.TabIndex = 200;
             this.buttonCancel.Text = "İptal";
             this.buttonCancel.UseVisualStyleBackColor = true;
             this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
@@ -142,7 +144,7 @@
             this.textBoxArchiveNo.Location = new System.Drawing.Point(237, 11);
             this.textBoxArchiveNo.Name = "textBoxArchiveNo";
             this.textBoxArchiveNo.Size = new System.Drawing.Size(96, 20);
-            this.textBoxArchiveNo.TabIndex = 70;
+            this.textBoxArchiveNo.TabIndex = 777;
             // 
             // label1
             // 
@@ -176,7 +178,7 @@
             this.textBoxCariTel.Location = new System.Drawing.Point(74, 67);
             this.textBoxCariTel.Name = "textBoxCariTel";
             this.textBoxCariTel.Size = new System.Drawing.Size(129, 20);
-            this.textBoxCariTel.TabIndex = 7;
+            this.textBoxCariTel.TabIndex = 777;
             // 
             // label4
             // 
@@ -193,7 +195,7 @@
             this.textBoxCariEposta.Location = new System.Drawing.Point(74, 92);
             this.textBoxCariEposta.Name = "textBoxCariEposta";
             this.textBoxCariEposta.Size = new System.Drawing.Size(129, 20);
-            this.textBoxCariEposta.TabIndex = 9;
+            this.textBoxCariEposta.TabIndex = 777;
             // 
             // dateTimePickerDelivery
             // 
@@ -223,7 +225,7 @@
             this.groupBoxCari.Location = new System.Drawing.Point(12, 449);
             this.groupBoxCari.Name = "groupBoxCari";
             this.groupBoxCari.Size = new System.Drawing.Size(671, 159);
-            this.groupBoxCari.TabIndex = 11;
+            this.groupBoxCari.TabIndex = 300;
             this.groupBoxCari.TabStop = false;
             this.groupBoxCari.Text = "Müşteri Bilgileri";
             // 
@@ -233,7 +235,7 @@
             this.buttonCariBoyutla.Location = new System.Drawing.Point(3, 138);
             this.buttonCariBoyutla.Name = "buttonCariBoyutla";
             this.buttonCariBoyutla.Size = new System.Drawing.Size(665, 18);
-            this.buttonCariBoyutla.TabIndex = 17;
+            this.buttonCariBoyutla.TabIndex = 777;
             this.buttonCariBoyutla.Text = "˅-˄";
             this.buttonCariBoyutla.UseVisualStyleBackColor = true;
             // 
@@ -242,7 +244,7 @@
             this.buttonCariGuncelle.Location = new System.Drawing.Point(209, 63);
             this.buttonCariGuncelle.Name = "buttonCariGuncelle";
             this.buttonCariGuncelle.Size = new System.Drawing.Size(58, 38);
-            this.buttonCariGuncelle.TabIndex = 16;
+            this.buttonCariGuncelle.TabIndex = 777;
             this.buttonCariGuncelle.Text = "Guncelle";
             this.buttonCariGuncelle.UseVisualStyleBackColor = true;
             // 
@@ -251,7 +253,7 @@
             this.buttonCariAra.Location = new System.Drawing.Point(210, 15);
             this.buttonCariAra.Name = "buttonCariAra";
             this.buttonCariAra.Size = new System.Drawing.Size(57, 42);
-            this.buttonCariAra.TabIndex = 15;
+            this.buttonCariAra.TabIndex = 777;
             this.buttonCariAra.Text = "Ara";
             this.buttonCariAra.UseVisualStyleBackColor = true;
             this.buttonCariAra.Click += new System.EventHandler(this.buttonCariAra_Click);
@@ -261,7 +263,7 @@
             this.buttonCariBirak.Location = new System.Drawing.Point(615, 79);
             this.buttonCariBirak.Name = "buttonCariBirak";
             this.buttonCariBirak.Size = new System.Drawing.Size(47, 53);
-            this.buttonCariBirak.TabIndex = 14;
+            this.buttonCariBirak.TabIndex = 777;
             this.buttonCariBirak.Text = "Bırak";
             this.buttonCariBirak.UseVisualStyleBackColor = true;
             this.buttonCariBirak.Click += new System.EventHandler(this.buttonCariBirak_Click);
@@ -271,7 +273,7 @@
             this.buttonCariSec.Location = new System.Drawing.Point(615, 15);
             this.buttonCariSec.Name = "buttonCariSec";
             this.buttonCariSec.Size = new System.Drawing.Size(47, 60);
-            this.buttonCariSec.TabIndex = 13;
+            this.buttonCariSec.TabIndex = 777;
             this.buttonCariSec.Text = "Seç";
             this.buttonCariSec.UseVisualStyleBackColor = true;
             this.buttonCariSec.Click += new System.EventHandler(this.buttonCariSec_Click);
@@ -281,7 +283,7 @@
             this.textBoxCariAciklama.Location = new System.Drawing.Point(73, 117);
             this.textBoxCariAciklama.Name = "textBoxCariAciklama";
             this.textBoxCariAciklama.Size = new System.Drawing.Size(130, 20);
-            this.textBoxCariAciklama.TabIndex = 9;
+            this.textBoxCariAciklama.TabIndex = 777;
             // 
             // label10
             // 
@@ -297,7 +299,7 @@
             this.textBoxCariCep.Location = new System.Drawing.Point(74, 40);
             this.textBoxCariCep.Name = "textBoxCariCep";
             this.textBoxCariCep.Size = new System.Drawing.Size(129, 20);
-            this.textBoxCariCep.TabIndex = 7;
+            this.textBoxCariCep.TabIndex = 777;
             // 
             // label7
             // 
@@ -316,7 +318,7 @@
             this.dataGridViewCari.Name = "dataGridViewCari";
             this.dataGridViewCari.RowHeadersWidth = 20;
             this.dataGridViewCari.Size = new System.Drawing.Size(336, 119);
-            this.dataGridViewCari.TabIndex = 12;
+            this.dataGridViewCari.TabIndex = 777;
             this.dataGridViewCari.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewCari_CellContentDoubleClick);
             // 
             // groupBoxUrun
@@ -328,7 +330,7 @@
             this.groupBoxUrun.Location = new System.Drawing.Point(12, 12);
             this.groupBoxUrun.Name = "groupBoxUrun";
             this.groupBoxUrun.Size = new System.Drawing.Size(854, 281);
-            this.groupBoxUrun.TabIndex = 12;
+            this.groupBoxUrun.TabIndex = 0;
             this.groupBoxUrun.TabStop = false;
             this.groupBoxUrun.Text = "Ürün Bilgileri";
             // 
@@ -340,7 +342,7 @@
             this.groupBoxSearch.Location = new System.Drawing.Point(6, 16);
             this.groupBoxSearch.Name = "groupBoxSearch";
             this.groupBoxSearch.Size = new System.Drawing.Size(737, 163);
-            this.groupBoxSearch.TabIndex = 93;
+            this.groupBoxSearch.TabIndex = 0;
             this.groupBoxSearch.TabStop = false;
             this.groupBoxSearch.Text = "Ürün Arama";
             // 
@@ -349,7 +351,7 @@
             this.textBoxProductSearch.Location = new System.Drawing.Point(6, 19);
             this.textBoxProductSearch.Name = "textBoxProductSearch";
             this.textBoxProductSearch.Size = new System.Drawing.Size(147, 20);
-            this.textBoxProductSearch.TabIndex = 10;
+            this.textBoxProductSearch.TabIndex = 0;
             this.textBoxProductSearch.TextChanged += new System.EventHandler(this.textBoxProductSearch_TextChanged);
             // 
             // buttonProductSearch
@@ -402,9 +404,18 @@
             this.groupBoxProductDetails.Location = new System.Drawing.Point(6, 185);
             this.groupBoxProductDetails.Name = "groupBoxProductDetails";
             this.groupBoxProductDetails.Size = new System.Drawing.Size(848, 88);
-            this.groupBoxProductDetails.TabIndex = 92;
+            this.groupBoxProductDetails.TabIndex = 100;
             this.groupBoxProductDetails.TabStop = false;
             this.groupBoxProductDetails.Text = "Ürün Detayları";
+            // 
+            // comboBoxKullanici
+            // 
+            this.comboBoxKullanici.FormattingEnabled = true;
+            this.comboBoxKullanici.Location = new System.Drawing.Point(625, 36);
+            this.comboBoxKullanici.Name = "comboBoxKullanici";
+            this.comboBoxKullanici.Size = new System.Drawing.Size(105, 21);
+            this.comboBoxKullanici.TabIndex = 50;
+            this.comboBoxKullanici.SelectedIndexChanged += new System.EventHandler(this.comboBoxKullanici_SelectedIndexChanged);
             // 
             // numericMinute
             // 
@@ -499,7 +510,7 @@
             this.buttonProductInsert.Location = new System.Drawing.Point(743, 18);
             this.buttonProductInsert.Name = "buttonProductInsert";
             this.buttonProductInsert.Size = new System.Drawing.Size(96, 64);
-            this.buttonProductInsert.TabIndex = 90;
+            this.buttonProductInsert.TabIndex = 60;
             this.buttonProductInsert.Text = "Kaydet";
             this.buttonProductInsert.UseVisualStyleBackColor = true;
             this.buttonProductInsert.Click += new System.EventHandler(this.buttonProductInsert_Click);
@@ -553,7 +564,7 @@
             this.textBoxProductDiscount.Location = new System.Drawing.Point(480, 65);
             this.textBoxProductDiscount.Name = "textBoxProductDiscount";
             this.textBoxProductDiscount.Size = new System.Drawing.Size(88, 20);
-            this.textBoxProductDiscount.TabIndex = 50;
+            this.textBoxProductDiscount.TabIndex = 500;
             this.textBoxProductDiscount.TextChanged += new System.EventHandler(this.textBoxProductDiscount_TextChanged);
             // 
             // label13
@@ -570,7 +581,7 @@
             this.buttonProductEdit.Location = new System.Drawing.Point(749, 46);
             this.buttonProductEdit.Name = "buttonProductEdit";
             this.buttonProductEdit.Size = new System.Drawing.Size(96, 23);
-            this.buttonProductEdit.TabIndex = 19;
+            this.buttonProductEdit.TabIndex = 777;
             this.buttonProductEdit.Text = "Ürünü Düzenle";
             this.buttonProductEdit.UseVisualStyleBackColor = true;
             // 
@@ -579,7 +590,7 @@
             this.buttonProductAdd.Location = new System.Drawing.Point(749, 156);
             this.buttonProductAdd.Name = "buttonProductAdd";
             this.buttonProductAdd.Size = new System.Drawing.Size(96, 23);
-            this.buttonProductAdd.TabIndex = 18;
+            this.buttonProductAdd.TabIndex = 777;
             this.buttonProductAdd.Text = "Yeni Ürün";
             this.buttonProductAdd.UseVisualStyleBackColor = true;
             this.buttonProductAdd.Click += new System.EventHandler(this.buttonProductAdd_Click);
@@ -589,7 +600,7 @@
             this.buttonProductSelectedDelete.Location = new System.Drawing.Point(749, 66);
             this.buttonProductSelectedDelete.Name = "buttonProductSelectedDelete";
             this.buttonProductSelectedDelete.Size = new System.Drawing.Size(96, 23);
-            this.buttonProductSelectedDelete.TabIndex = 20;
+            this.buttonProductSelectedDelete.TabIndex = 777;
             this.buttonProductSelectedDelete.Text = "Siparişi İptal Et";
             this.buttonProductSelectedDelete.UseVisualStyleBackColor = true;
             this.buttonProductSelectedDelete.Click += new System.EventHandler(this.buttonProductSelectedDelete_Click);
@@ -599,7 +610,7 @@
             this.buttonProductSelectedEdit.Location = new System.Drawing.Point(749, 19);
             this.buttonProductSelectedEdit.Name = "buttonProductSelectedEdit";
             this.buttonProductSelectedEdit.Size = new System.Drawing.Size(96, 23);
-            this.buttonProductSelectedEdit.TabIndex = 15;
+            this.buttonProductSelectedEdit.TabIndex = 777;
             this.buttonProductSelectedEdit.Text = "Siparişi Düzenle";
             this.buttonProductSelectedEdit.UseVisualStyleBackColor = true;
             this.buttonProductSelectedEdit.Click += new System.EventHandler(this.buttonProductSelectedEdit_Click);
@@ -623,7 +634,7 @@
             this.comboBoxArchiveType.Location = new System.Drawing.Point(79, 11);
             this.comboBoxArchiveType.Name = "comboBoxArchiveType";
             this.comboBoxArchiveType.Size = new System.Drawing.Size(96, 21);
-            this.comboBoxArchiveType.TabIndex = 60;
+            this.comboBoxArchiveType.TabIndex = 777;
             this.comboBoxArchiveType.SelectedIndexChanged += new System.EventHandler(this.comboBoxArchiveType_SelectedIndexChanged);
             // 
             // label5
@@ -657,12 +668,14 @@
             this.groupBoxOrders.Location = new System.Drawing.Point(12, 299);
             this.groupBoxOrders.Name = "groupBoxOrders";
             this.groupBoxOrders.Size = new System.Drawing.Size(854, 144);
-            this.groupBoxOrders.TabIndex = 92;
+            this.groupBoxOrders.TabIndex = 200;
             this.groupBoxOrders.TabStop = false;
             this.groupBoxOrders.Text = "Siparişler";
             // 
             // groupBoxHesap
             // 
+            this.groupBoxHesap.Controls.Add(this.label18);
+            this.groupBoxHesap.Controls.Add(this.comboBoxOdemeTipi);
             this.groupBoxHesap.Controls.Add(this.labelBorc);
             this.groupBoxHesap.Controls.Add(this.label17);
             this.groupBoxHesap.Controls.Add(this.label19);
@@ -675,7 +688,7 @@
             this.groupBoxHesap.Location = new System.Drawing.Point(689, 449);
             this.groupBoxHesap.Name = "groupBoxHesap";
             this.groupBoxHesap.Size = new System.Drawing.Size(177, 159);
-            this.groupBoxHesap.TabIndex = 18;
+            this.groupBoxHesap.TabIndex = 400;
             this.groupBoxHesap.TabStop = false;
             this.groupBoxHesap.Text = "Bakiye";
             // 
@@ -711,7 +724,7 @@
             this.textBoxAlinanTutar.Location = new System.Drawing.Point(88, 63);
             this.textBoxAlinanTutar.Name = "textBoxAlinanTutar";
             this.textBoxAlinanTutar.Size = new System.Drawing.Size(54, 20);
-            this.textBoxAlinanTutar.TabIndex = 5;
+            this.textBoxAlinanTutar.TabIndex = 70;
             this.textBoxAlinanTutar.Text = "0";
             this.textBoxAlinanTutar.TextChanged += new System.EventHandler(this.textBoxAlinanTutar_TextChanged);
             // 
@@ -760,13 +773,22 @@
             this.label14.TabIndex = 0;
             this.label14.Text = "Toplam Tutar:";
             // 
-            // comboBoxKullanici
+            // comboBoxOdemeTipi
             // 
-            this.comboBoxKullanici.FormattingEnabled = true;
-            this.comboBoxKullanici.Location = new System.Drawing.Point(625, 36);
-            this.comboBoxKullanici.Name = "comboBoxKullanici";
-            this.comboBoxKullanici.Size = new System.Drawing.Size(105, 21);
-            this.comboBoxKullanici.TabIndex = 97;
+            this.comboBoxOdemeTipi.FormattingEnabled = true;
+            this.comboBoxOdemeTipi.Location = new System.Drawing.Point(91, 138);
+            this.comboBoxOdemeTipi.Name = "comboBoxOdemeTipi";
+            this.comboBoxOdemeTipi.Size = new System.Drawing.Size(77, 21);
+            this.comboBoxOdemeTipi.TabIndex = 71;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(15, 141);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(64, 13);
+            this.label18.TabIndex = 72;
+            this.label18.Text = "Ödeme Tipi:";
             // 
             // FormNewRecord
             // 
@@ -874,5 +896,7 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label labelBorc;
         private System.Windows.Forms.ComboBox comboBoxKullanici;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.ComboBox comboBoxOdemeTipi;
     }
 }

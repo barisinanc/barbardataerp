@@ -11,10 +11,6 @@ namespace arsiv
 
     }
 
-    public static class Ayarlar
-    {
-       public static string SubeId;
-    }
 
     public static class StringEdit
     {
@@ -22,22 +18,6 @@ namespace arsiv
         {
             return text.Substring(0, 1).ToUpper() + text.Substring(1, text.Length - 1).ToLower();
         }
-    }
-
-    public class Urun
-    {
-        public string BarkodNo;
-        public string Adi;
-        public string Marka;
-        public string Model;
-        public decimal Fiyat;
-        public decimal AnaFiyat;
-        public decimal Indirim;
-        public int Kdv;
-        public int Adet;
-        public bool Arsivle;
-        public DateTime TeslimTarihi;
-        public int SepetIndex = -1;
     }
 
 }
