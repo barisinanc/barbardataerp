@@ -28,6 +28,7 @@ namespace arsiv.BarisGorselDLL
             cmd.ExecuteNonQuery();
             cmd.Dispose();
             ArsivNo = cmd.Parameters["@ArsivNo"].Value.ToString();
+            Connection.Dispose();
             return ArsivNo;
         }
     }

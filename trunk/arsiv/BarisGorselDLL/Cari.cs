@@ -11,7 +11,8 @@ namespace arsiv.BarisGorselDLL
     {
         public string CariNo;
         public DateTime Tarih;
-        public string Isim;
+        private string _Isim;
+        public string Isim { get { return _Isim; } set { _Isim = value; _Isim = _Isim.ToUpper(); } }
         public string TelNo;
         public string CepNo;
         public string Eposta;
@@ -31,7 +32,7 @@ namespace arsiv.BarisGorselDLL
             CariNo = null;
             SqlCommand cmd = new SqlCommand("CariEkle", Connection);
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@Isim", Isim);
+            cmd.Parameters.AddWithValue("@Isim", _Isim);
             cmd.Parameters.AddWithValue("@TelNo", TelNo);
             cmd.Parameters.AddWithValue("@CepNo", CepNo);
             cmd.Parameters.AddWithValue("@Eposta", Eposta);
@@ -51,7 +52,43 @@ namespace arsiv.BarisGorselDLL
             cmd.ExecuteNonQuery();
             cmd.Dispose();
             CariNo = cmd.Parameters["@CariNo"].Value.ToString();
+            Connection.Dispose();
             return CariNo;
+        }
+
+        public List<Cari> araCariler()
+        {
+            List<Cari> tumCariler = new List<Cari>();
+            SqlCommand cmd = new SqlCommand("CariAra", Connection);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@Isim", _Isim);
+            cmd.Parameters.AddWithValue("@TelNo", TelNo);
+            cmd.Parameters.AddWithValue("@CepNo", CepNo);
+            cmd.Parameters.AddWithValue("@Eposta", Eposta);
+            cmd.Parameters.AddWithValue("@Aciklama", Aciklama);
+            DataTable dataTable = new DataTable();
+            cmd.ExecuteNonQuery();
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+            adapter.Fill(dataTable);
+            Connection.Close();
+            Connection.Dispose();
+            cmd.Dispose();
+            adapter.Dispose();
+            foreach (DataRow satir in dataTable.Rows)
+            {
+                Cari yeniCari = new Cari();
+                yeniCari.CariNo = satir["CariNo"].ToString();
+                //yeniCari.Tarih = DateTime.Parse(satir["Tarih"].ToString());
+                yeniCari.Isim = satir["Isim"].ToString();
+                yeniCari.TelNo = satir["TelNo"].ToString();
+                yeniCari.CepNo = satir["CepNo"].ToString();
+                yeniCari.Eposta = satir["Eposta"].ToString();
+                yeniCari.Aciklama = satir["Aciklama"].ToString();
+                tumCariler.Add(yeniCari);
+                yeniCari = null;
+            }
+            dataTable.Dispose();
+            return tumCariler;
         }
     }
 }

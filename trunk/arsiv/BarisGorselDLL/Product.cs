@@ -20,6 +20,7 @@ namespace arsiv.BarisGorselDLL
             adapter.Fill(dataTable);
             cmd.Dispose();
             adapter.Dispose();
+            Connection.Dispose();
             return dataTable;
         }
 

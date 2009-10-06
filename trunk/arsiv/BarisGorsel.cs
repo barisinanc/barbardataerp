@@ -31,11 +31,13 @@ namespace arsiv
         public string Marka;
         public string Model;
         public decimal Fiyat;
+        public decimal AnaFiyat;
         public decimal Indirim;
         public int Kdv;
         public int Adet;
         public bool Arsivle;
         public DateTime TeslimTarihi;
+        public int SepetIndex = -1;
     }
 
 }
