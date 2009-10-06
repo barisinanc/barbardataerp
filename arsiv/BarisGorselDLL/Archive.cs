@@ -10,10 +10,10 @@ namespace arsiv.BarisGorselDLL
     class Archive:ConnectionImporter
     {
         public string ArsivNo;
-        public string CariNo;
+        public long CariNo;
         public int TurId;
         public int SubeId;
-        public int SepetNo;
+        public long SepetNo;
         public string addArchive()
         {
             Connect();

@@ -9,8 +9,8 @@ namespace arsiv.BarisGorselDLL
 {
     class Account:ConnectionImporter
     {
-        public string CariNo;
-        public int SepetNo;
+        public long CariNo;
+        public long SepetNo;
         public decimal Alinan;
         public decimal Borc;
         public string FaturaNo;
