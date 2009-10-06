@@ -17,6 +17,10 @@ namespace arsiv.BarisGorselDLL
         public int SubeId;
         public int SepetNo;
         public DateTime TeslimTarihi;
+        
+        public int devam;
+        public int toplam;
+
 
         public int addOrder()
         {
@@ -39,6 +43,28 @@ namespace arsiv.BarisGorselDLL
             cmd.Dispose();
             Disconnect();
             return SepetNo;
+        }
+
+        public DataTable getMainScreen(int SubeNo, int Sayfa, int Adet) 
+        {
+            Connect();
+            SqlCommand cmd = new SqlCommand("AnaEkran", Connection);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@SubeId", SubeNo);
+            cmd.Parameters.AddWithValue("@sayfa", Sayfa);
+            cmd.Parameters.AddWithValue("@adet", Adet);
+            cmd.Parameters.Add("@toplam", SqlDbType.Int);
+            cmd.Parameters["@toplam"].Direction = ParameterDirection.Output;
+            cmd.Parameters.Add("@devam", SqlDbType.TinyInt);
+            cmd.Parameters["@devam"].Direction = ParameterDirection.Output;
+            SqlDataAdapter adapt = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            adapt.Fill(dt);
+            toplam = Convert.ToInt32(cmd.Parameters["@toplam"].Value.ToString());
+            devam = Convert.ToInt32(cmd.Parameters["@devam"].Value.ToString());
+            cmd.Dispose();
+            Disconnect();
+            return dt;
         }
     }
 }

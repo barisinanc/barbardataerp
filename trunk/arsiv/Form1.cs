@@ -13,10 +13,20 @@ namespace arsiv
 {
     public partial class Form1 : Form
     {
+        public bool isSearch=false;
         public Form1()
         {
             InitializeComponent();
             connectionString = Properties.Settings.Default.connectionStringDis;
+            BarisGorselDLL.Order engOrder = new BarisGorselDLL.Order();
+            GuncelleGridMethod(dataGridViewResult, engOrder.getMainScreen(Properties.Settings.Default.SubeId, 1, 30));
+            GuncelleMethod(labelPage, "1/" + ((engOrder.toplam / 20) + 1));
+            if (page >= (engOrder.toplam / pageLimit))
+                buttonPageForward.Enabled = false;
+            if (page == 1)
+                buttonPageBacward.Enabled = false;
+
+
         }
 
         int page = 1;
@@ -32,7 +42,7 @@ namespace arsiv
             this.textBoxValue.KeyPress += new KeyPressEventHandler(textBoxValue_KeyPress);
             if (connectionControl())
             {
-                //loadForms();
+                loadForms();
             }
             else
             {
@@ -45,6 +55,7 @@ namespace arsiv
         {
             if (e.KeyChar == (char)13)
             {
+                isSearch = true;
                 search();
             }
         }
@@ -57,67 +68,76 @@ namespace arsiv
 
         private void makeSearch()
         {
-            GuncelleMethod(labelStatus, "Aranıyor...");
-            count = 0;
-            conn = new SqlConnection(connectionString);
-            conn.Open();
+            if (isSearch)
+            {
+                GuncelleMethod(labelStatus, "Aranıyor...");
+                count = 0;
+                conn = new SqlConnection(connectionString);
+                conn.Open();
 
-            SqlCommand cmd = new SqlCommand("Listele", conn);
+                SqlCommand cmd = new SqlCommand("Listele2", conn);
 
-            cmd.CommandType = CommandType.StoredProcedure;
-            if (textBoxValue.Text != null)
-            {
-                cmd.Parameters.AddWithValue("@veri", textBoxValue.Text.Trim());
-            }
-            else
-            {
-                cmd.Parameters.AddWithValue("@veri", "");
-            }
-            string selectedDepartments="";
-            for (int i = 0; i < checkedListBoxDepartment.Items.Count; i++)
-            {
-                if (checkedListBoxDepartment.GetItemChecked(i))
+                cmd.CommandType = CommandType.StoredProcedure;
+                if (textBoxValue.Text != null)
                 {
-                    selectedDepartments += (i+1) + ",";
+                    cmd.Parameters.AddWithValue("@veri", textBoxValue.Text.Trim());
                 }
+                else
+                {
+                    cmd.Parameters.AddWithValue("@veri", "");
+                }
+                string selectedDepartments = "";
+                for (int i = 0; i < checkedListBoxDepartment.Items.Count; i++)
+                {
+                    if (checkedListBoxDepartment.GetItemChecked(i))
+                    {
+                        selectedDepartments += (i + 1) + ",";
+                    }
+                }
+                cmd.Parameters.AddWithValue("@SubeId", selectedDepartments);
+                cmd.Parameters.AddWithValue("@sayfa", page);
+                cmd.Parameters.AddWithValue("@adet", pageLimit);
+                cmd.Parameters.Add("@toplam", SqlDbType.Int);
+                cmd.Parameters["@toplam"].Direction = ParameterDirection.Output;
+                cmd.Parameters.Add("@devam", SqlDbType.Int);
+                cmd.Parameters["@devam"].Direction = ParameterDirection.Output;
+                DataTable dataTable = new DataTable();
+                cmd.ExecuteNonQuery();
+                count = (int)cmd.Parameters["@toplam"].Value;
+                int devam = (int)cmd.Parameters["@devam"].Value;
+                if (page == 1)
+                {
+                    GuncelleButtonMethod(buttonPageBacward, false);
+                }
+                else
+                { GuncelleButtonMethod(buttonPageBacward, true); }
+                if (devam == 0)
+                {
+                    GuncelleButtonMethod(buttonPageForward, false);
+                }
+                else
+                {
+                    GuncelleButtonMethod(buttonPageForward, true);
+                }
+                if ((count % pageLimit) == 0)
+                { GuncelleMethod(labelPage, page + "/" + (count / pageLimit)); }
+                else
+                { GuncelleMethod(labelPage, page + "/" + ((count / pageLimit) + 1)); }
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                adapter.Fill(dataTable);
+                conn.Close();
+                conn.Dispose();
+                cmd.Dispose();
+                adapter.Dispose();
+                GuncelleGridMethod(dataGridViewResult, dataTable);
+                GuncelleMethod(labelStatus, count + " adet kayıt bulundu!");
             }
-            cmd.Parameters.AddWithValue("@SubeId", selectedDepartments);
-            cmd.Parameters.AddWithValue("@sayfa", page);
-            cmd.Parameters.AddWithValue("@adet", pageLimit);
-            cmd.Parameters.Add("@toplam", SqlDbType.Int);
-            cmd.Parameters["@toplam"].Direction = ParameterDirection.Output;
-            cmd.Parameters.Add("@devam", SqlDbType.Int);
-            cmd.Parameters["@devam"].Direction = ParameterDirection.Output;
-            DataTable dataTable = new DataTable();
-            cmd.ExecuteNonQuery();
-            count = (int)cmd.Parameters["@toplam"].Value;
-            int devam = (int)cmd.Parameters["@devam"].Value;
-            if (page == 1)
+            else 
             {
-               GuncelleButtonMethod(buttonPageBacward, false);
+                BarisGorselDLL.Order engOrder = new BarisGorselDLL.Order();
+                GuncelleGridMethod(dataGridViewResult, engOrder.getMainScreen(Properties.Settings.Default.SubeId, page, pageLimit));
+                GuncelleMethod(labelPage, page + "/" + ((engOrder.toplam / pageLimit) + 1));
             }
-            else
-            { GuncelleButtonMethod(buttonPageBacward, true); }
-            if (devam == 0)
-            {
-                GuncelleButtonMethod(buttonPageForward, false);
-            }
-            else
-            {
-                GuncelleButtonMethod(buttonPageForward, true);
-            }
-            if ((count % pageLimit) == 0)
-            { GuncelleMethod(labelPage, page + "/" + (count / pageLimit)); }
-            else
-            { GuncelleMethod(labelPage, page + "/" + ((count / pageLimit) + 1)); }
-            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-            adapter.Fill(dataTable);
-            conn.Close();
-            conn.Dispose();
-            cmd.Dispose();
-            adapter.Dispose();
-            GuncelleGridMethod(dataGridViewResult, dataTable);
-            GuncelleMethod(labelStatus, count + " adet kayıt bulundu!");
         }
 
         public delegate void GuncelleButton(Button button, bool state);
@@ -227,6 +247,7 @@ namespace arsiv
         private void comboBoxPageLimit_SelectedIndexChanged(object sender, EventArgs e)
         {
             pageLimit = Convert.ToInt32(comboBoxPageLimit.SelectedItem);
+            makeSearch();
         }
 
         private void buttonNewRecord_Click(object sender, EventArgs e)
