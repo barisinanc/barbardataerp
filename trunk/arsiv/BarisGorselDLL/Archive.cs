@@ -16,6 +16,7 @@ namespace arsiv.BarisGorselDLL
         public int SepetNo;
         public string addArchive()
         {
+            Connect();
             SqlCommand cmd = new SqlCommand("ArsivEkle", Connection);
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("@CariNo", CariNo);
@@ -28,7 +29,7 @@ namespace arsiv.BarisGorselDLL
             cmd.ExecuteNonQuery();
             cmd.Dispose();
             ArsivNo = cmd.Parameters["@ArsivNo"].Value.ToString();
-            Connection.Dispose();
+            Disconnect();
             return ArsivNo;
         }
     }

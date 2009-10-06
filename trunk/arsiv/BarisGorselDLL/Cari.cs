@@ -30,6 +30,7 @@ namespace arsiv.BarisGorselDLL
         public string addCari()
         {
             CariNo = null;
+            Connect();
             SqlCommand cmd = new SqlCommand("CariEkle", Connection);
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("@Isim", _Isim);
@@ -52,12 +53,13 @@ namespace arsiv.BarisGorselDLL
             cmd.ExecuteNonQuery();
             cmd.Dispose();
             CariNo = cmd.Parameters["@CariNo"].Value.ToString();
-            Connection.Dispose();
+            Disconnect();
             return CariNo;
         }
 
         public List<Cari> araCariler()
         {
+            Connect();
             List<Cari> tumCariler = new List<Cari>();
             SqlCommand cmd = new SqlCommand("CariAra", Connection);
             cmd.CommandType = CommandType.StoredProcedure;
@@ -88,6 +90,7 @@ namespace arsiv.BarisGorselDLL
                 yeniCari = null;
             }
             dataTable.Dispose();
+            Disconnect();
             return tumCariler;
         }
     }

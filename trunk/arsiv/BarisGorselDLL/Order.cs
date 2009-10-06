@@ -20,6 +20,7 @@ namespace arsiv.BarisGorselDLL
 
         public int addOrder()
         {
+            Connect();
             SqlCommand cmd = new SqlCommand("KayitEkle", Connection);
             cmd.CommandType = CommandType.StoredProcedure;
             if (CariNo != null)
@@ -36,7 +37,7 @@ namespace arsiv.BarisGorselDLL
             cmd.ExecuteNonQuery();
             SepetNo = Convert.ToInt32(cmd.Parameters["@SepetNo"].Value.ToString());
             cmd.Dispose();
-            Connection.Dispose();
+            Disconnect();
             return SepetNo;
         }
     }

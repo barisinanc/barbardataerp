@@ -55,8 +55,12 @@
     <Compile Include="BarisGorselDLL\ArchiveTypes.cs" />
     <Compile Include="BarisGorselDLL\Cari.cs" />
     <Compile Include="BarisGorselDLL\ConnectionImporter.cs" />
+    <Compile Include="BarisGorselDLL\ConnectionStrings.cs" />
+    <Compile Include="BarisGorselDLL\ConnectionTest.cs" />
     <Compile Include="BarisGorselDLL\Order.cs" />
     <Compile Include="BarisGorselDLL\Product.cs" />
+    <Compile Include="BarisGorselDLL\Settings.cs" />
+    <Compile Include="BarisGorselDLL\Sube.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

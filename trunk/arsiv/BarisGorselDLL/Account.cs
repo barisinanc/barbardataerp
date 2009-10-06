@@ -18,6 +18,7 @@ namespace arsiv.BarisGorselDLL
         public int OdemeTuru=0;
         public void addAccount()
         {
+            Connect();
             SqlCommand cmd = new SqlCommand("HesapEkle", Connection);
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("@CariNo", CariNo);
@@ -29,6 +30,7 @@ namespace arsiv.BarisGorselDLL
             cmd.Parameters.AddWithValue("@OdemeTuru", OdemeTuru);
             cmd.ExecuteNonQuery();
             cmd.Dispose();
+            Disconnect();
         }
     }
 

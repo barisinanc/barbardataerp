@@ -10,7 +10,7 @@ namespace arsiv.BarisGorselDLL
     class Product : ConnectionImporter
     {
         public DataTable productSearch(string srchString) {
-            
+            Connect();
             SqlCommand cmd = new SqlCommand("UrunAra", Connection);
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("@veri", srchString);
@@ -20,12 +20,8 @@ namespace arsiv.BarisGorselDLL
             adapter.Fill(dataTable);
             cmd.Dispose();
             adapter.Dispose();
-            Connection.Dispose();
+            Disconnect();
             return dataTable;
         }
-
-        
-
-
     }
 }
