@@ -18,7 +18,13 @@ namespace arsiv
 
         private void FormEnterance_Load(object sender, EventArgs e)
         {
+
             subeDoldur();
+        }
+
+        private void ayarOkut()
+        {
+
         }
 
         private void subeDoldur()
@@ -42,23 +48,28 @@ namespace arsiv
 
         private void baglanti()
         {
-            if (comboBoxConnection.SelectedIndex == 0)
-            {  }
-            else if (comboBoxConnection.SelectedIndex == 1)
-            { }
-            else if (comboBoxConnection.SelectedIndex == 2)
-            { }
+            ConnectionStrings liste = new ConnectionStrings();
+            foreach (ConnectionString cs in liste.ConnectionStringList())
+            {
+                comboBoxConnection.Items.Add(cs.ConectionString);
+            }
+
+            ConnectionTest test = new ConnectionTest();
+            if (test.Test())
+            {
+                Settings.ConnectionId = comboBoxConnection.SelectedIndex;
+            }
         }
 
         private void buttonEnter_Click(object sender, EventArgs e)
         {
+            baglanti();
             gir();
         }
 
         private void gir()
         {
-            Properties.Settings.Default.SubeId = comboBoxSubeListe.SelectedIndex+1;
-            Properties.Settings.Default.Save();
+            Settings.SelectedSube.SubeId = comboBoxSubeListe.SelectedIndex + 1;
             Form1 form = new Form1();
             form.Show();
             this.Close();

@@ -32,14 +32,27 @@ public class ConnectionImporter : System.IDisposable
     {
         get
         {
-            if (_conn == null)
-            {
-                _conn = new SqlConnection(_connStr);
-                _conn.Open();
-            }
             return _conn;
         }
     }
+    public void Connect()
+    {
+        
+        if (_conn == null)
+        {
+                _conn = new SqlConnection(_connStr);
+                _conn.Open();
+                Connected = true;
+        }
+    }
+
+    public void Disconnect()
+    {
+        _conn.Close();
+        _conn = null;
+    }
+    
+    public bool Connected;
 
     public ConnectionImporter()
     {

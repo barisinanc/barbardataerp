@@ -13,6 +13,7 @@ namespace arsiv.BarisGorselDLL
         public string SubeAdi;
         public List<Sube> tumSubeler()
         {
+            Connect();
             SqlCommand cmd = new SqlCommand("Subeler", Connection);
             cmd.CommandType = CommandType.StoredProcedure;
             DataTable dataTable = new DataTable();
@@ -29,7 +30,7 @@ namespace arsiv.BarisGorselDLL
                 liste.Add(new Sube { SubeId = Convert.ToInt32(row["SubeId"].ToString()), SubeAdi = row["Sube"].ToString() });
             }
             dataTable.Dispose();
-            Connection.Dispose();
+            Disconnect();
             return liste;
         }
     }

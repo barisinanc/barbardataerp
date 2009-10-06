@@ -74,5 +74,17 @@ namespace arsiv.Properties {
                 this["ArsivTipi"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int ConnectionId {
+            get {
+                return ((int)(this["ConnectionId"]));
+            }
+            set {
+                this["ConnectionId"] = value;
+            }
+        }
     }
 }

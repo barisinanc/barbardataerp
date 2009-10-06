@@ -33,12 +33,14 @@
             this.buttonEnter = new System.Windows.Forms.Button();
             this.comboBoxConnection = new System.Windows.Forms.ComboBox();
             this.labelConnection = new System.Windows.Forms.Label();
+            this.labelStatus = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // comboBoxSubeListe
             // 
             this.comboBoxSubeListe.FormattingEnabled = true;
-            this.comboBoxSubeListe.Location = new System.Drawing.Point(104, 102);
+            this.comboBoxSubeListe.Location = new System.Drawing.Point(104, 130);
             this.comboBoxSubeListe.Name = "comboBoxSubeListe";
             this.comboBoxSubeListe.Size = new System.Drawing.Size(95, 21);
             this.comboBoxSubeListe.TabIndex = 0;
@@ -46,7 +48,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(63, 105);
+            this.label1.Location = new System.Drawing.Point(63, 133);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(35, 13);
             this.label1.TabIndex = 1;
@@ -54,7 +56,7 @@
             // 
             // buttonEnter
             // 
-            this.buttonEnter.Location = new System.Drawing.Point(242, 99);
+            this.buttonEnter.Location = new System.Drawing.Point(228, 128);
             this.buttonEnter.Name = "buttonEnter";
             this.buttonEnter.Size = new System.Drawing.Size(75, 23);
             this.buttonEnter.TabIndex = 2;
@@ -73,17 +75,37 @@
             // labelConnection
             // 
             this.labelConnection.AutoSize = true;
-            this.labelConnection.Location = new System.Drawing.Point(50, 74);
+            this.labelConnection.Location = new System.Drawing.Point(50, 78);
             this.labelConnection.Name = "labelConnection";
             this.labelConnection.Size = new System.Drawing.Size(48, 13);
             this.labelConnection.TabIndex = 4;
             this.labelConnection.Text = "Bağlantı:";
+            // 
+            // labelStatus
+            // 
+            this.labelStatus.AutoSize = true;
+            this.labelStatus.Location = new System.Drawing.Point(101, 38);
+            this.labelStatus.Name = "labelStatus";
+            this.labelStatus.Size = new System.Drawing.Size(39, 13);
+            this.labelStatus.TabIndex = 5;
+            this.labelStatus.Text = "Ayarlar";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(228, 69);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 6;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // FormEnterance
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(424, 210);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.labelStatus);
             this.Controls.Add(this.labelConnection);
             this.Controls.Add(this.comboBoxConnection);
             this.Controls.Add(this.buttonEnter);
@@ -104,5 +126,7 @@
         private System.Windows.Forms.Button buttonEnter;
         private System.Windows.Forms.ComboBox comboBoxConnection;
         private System.Windows.Forms.Label labelConnection;
+        private System.Windows.Forms.Label labelStatus;
+        private System.Windows.Forms.Button button1;
     }
 }
