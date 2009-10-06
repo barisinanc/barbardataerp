@@ -9,25 +9,23 @@ namespace arsiv.BarisGorselDLL
 {
     class Order:ConnectionImporter
     {
-        public string CariNo;
+        public long CariNo;
         public string UrunBarkodNo;
         public int Adet;
         public decimal Indirim;
         public decimal Tutar;
         public int SubeId;
-        public int SepetNo;
+        public long SepetNo;
         public DateTime TeslimTarihi;
-        
         public int devam;
         public int toplam;
 
-
-        public int addOrder()
+        public long addOrder()
         {
             Connect();
             SqlCommand cmd = new SqlCommand("KayitEkle", Connection);
             cmd.CommandType = CommandType.StoredProcedure;
-            if (CariNo != null)
+            if (CariNo != 0)
             { cmd.Parameters.AddWithValue("@CariNo", CariNo); }
             cmd.Parameters.AddWithValue("@UrunBarkodNo", UrunBarkodNo);
             cmd.Parameters.AddWithValue("@Adet", Adet);
@@ -35,11 +33,11 @@ namespace arsiv.BarisGorselDLL
             cmd.Parameters.AddWithValue("@Tutar", Tutar);
             cmd.Parameters.AddWithValue("@SubeId", SubeId);
             cmd.Parameters.AddWithValue("@TeslimTarihi", TeslimTarihi);
-            cmd.Parameters.Add("@SepetNo", SqlDbType.Int);
+            cmd.Parameters.Add("@SepetNo", SqlDbType.BigInt);
             cmd.Parameters["@SepetNo"].Direction = ParameterDirection.InputOutput;
             cmd.Parameters["@SepetNo"].Value = SepetNo;
             cmd.ExecuteNonQuery();
-            SepetNo = Convert.ToInt32(cmd.Parameters["@SepetNo"].Value.ToString());
+            SepetNo = (long)cmd.Parameters["@SepetNo"].Value;
             cmd.Dispose();
             Disconnect();
             return SepetNo;
