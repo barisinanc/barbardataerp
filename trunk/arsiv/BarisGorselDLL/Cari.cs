@@ -9,7 +9,7 @@ namespace arsiv.BarisGorselDLL
 {
     class Cari : ConnectionImporter
     {
-        public string CariNo;
+        public long CariNo;
         public DateTime Tarih;
         private string _Isim;
         public string Isim { get { return _Isim; } set { _Isim = value; _Isim = _Isim.ToUpper(); } }
@@ -27,9 +27,9 @@ namespace arsiv.BarisGorselDLL
         public int GrupNo2;
         public int GrupNo3;
 
-        public string addCari()
+        public long addCari()
         {
-            CariNo = null;
+            CariNo = 0;
             Connect();
             SqlCommand cmd = new SqlCommand("CariEkle", Connection);
             cmd.CommandType = CommandType.StoredProcedure;
@@ -47,12 +47,12 @@ namespace arsiv.BarisGorselDLL
             cmd.Parameters.AddWithValue("@GrupNo2", GrupNo2);
             cmd.Parameters.AddWithValue("@GrupNo3", GrupNo3);
             cmd.Parameters.AddWithValue("@SubeId", Properties.Settings.Default.SubeId);
-            cmd.Parameters.Add("@CariNo", SqlDbType.NVarChar,16);
+            cmd.Parameters.Add("@CariNo", SqlDbType.BigInt);
             cmd.Parameters["@CariNo"].Direction = ParameterDirection.InputOutput;
             cmd.Parameters["@CariNo"].Value = CariNo;
             cmd.ExecuteNonQuery();
             cmd.Dispose();
-            CariNo = cmd.Parameters["@CariNo"].Value.ToString();
+            CariNo = (long)cmd.Parameters["@CariNo"].Value;
             Disconnect();
             return CariNo;
         }
@@ -79,7 +79,7 @@ namespace arsiv.BarisGorselDLL
             foreach (DataRow satir in dataTable.Rows)
             {
                 Cari yeniCari = new Cari();
-                yeniCari.CariNo = satir["CariNo"].ToString();
+                yeniCari.CariNo = long.Parse(satir["CariNo"].ToString());
                 //yeniCari.Tarih = DateTime.Parse(satir["Tarih"].ToString());
                 yeniCari.Isim = satir["Isim"].ToString();
                 yeniCari.TelNo = satir["TelNo"].ToString();
