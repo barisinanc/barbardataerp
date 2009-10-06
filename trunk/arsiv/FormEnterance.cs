@@ -24,6 +24,11 @@ namespace arsiv
 
         private void ayarOkut()
         {
+            Settings.ConnectionId = Properties.Settings.Default.ConnectionId;
+            ConnectionStrings cns=new ConnectionStrings();
+            string connstr = (from x in cns.ConnectionStringList()
+                             where x.ConnectionId == Settings.ConnectionId
+                             select x.ConectionString).Single();
 
         }
 
