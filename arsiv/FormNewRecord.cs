@@ -146,50 +146,53 @@ namespace arsiv
 
         private void buttonProductInsert_Click(object sender, EventArgs e)
         {
-            Urun yeniUrun = new Urun();
-            yeniUrun.BarkodNo = labelProductSelectedBarcode.Text;
-            yeniUrun.Adi = labelProductSelectedName.Text;
-            yeniUrun.Marka = labelProductSelectedBrand.Text;
-            yeniUrun.Model = labelProductSelectedModel.Text;
-            yeniUrun.Arsivle = checkBoxArchived.Checked;
-            yeniUrun.AnaFiyat = SecilenUrun.AnaFiyat;
-            decimal indirim = 0;
-            decimal fiyat = 0;
-            if (textBoxProductDiscount.Text == null || textBoxProductDiscount.Text == "") { indirim = 0; }
-            else { indirim = Convert.ToDecimal(textBoxProductPrice.Text); }
-            if (textBoxProductPrice.Text == null || textBoxProductPrice.Text == "") { fiyat = 0; }
-            else { fiyat = Convert.ToDecimal(textBoxProductPrice.Text); }
-            if (fiyat + indirim != SecilenUrun.AnaFiyat)
+            if (labelProductSelectedBarcode.Text.Trim() != "")
             {
-                yeniUrun.Fiyat = Convert.ToDecimal(textBoxProductPrice.Text);
-                if (fiyat >= SecilenUrun.AnaFiyat)
+                Urun yeniUrun = new Urun();
+                yeniUrun.BarkodNo = labelProductSelectedBarcode.Text;
+                yeniUrun.Adi = labelProductSelectedName.Text;
+                yeniUrun.Marka = labelProductSelectedBrand.Text;
+                yeniUrun.Model = labelProductSelectedModel.Text;
+                yeniUrun.Arsivle = checkBoxArchived.Checked;
+                yeniUrun.AnaFiyat = SecilenUrun.AnaFiyat;
+                decimal indirim = 0;
+                decimal fiyat = 0;
+                if (textBoxProductDiscount.Text == null || textBoxProductDiscount.Text == "") { indirim = 0; }
+                else { indirim = Convert.ToDecimal(textBoxProductPrice.Text); }
+                if (textBoxProductPrice.Text == null || textBoxProductPrice.Text == "") { fiyat = 0; }
+                else { fiyat = Convert.ToDecimal(textBoxProductPrice.Text); }
+                if (fiyat + indirim != SecilenUrun.AnaFiyat)
                 {
-                    yeniUrun.Fiyat = SecilenUrun.AnaFiyat;
-                    yeniUrun.Indirim = 0;
+                    yeniUrun.Fiyat = Convert.ToDecimal(textBoxProductPrice.Text);
+                    if (fiyat >= SecilenUrun.AnaFiyat)
+                    {
+                        yeniUrun.Fiyat = SecilenUrun.AnaFiyat;
+                        yeniUrun.Indirim = 0;
+                    }
+                    else
+                    {
+                        yeniUrun.Indirim = SecilenUrun.AnaFiyat - fiyat;
+                        yeniUrun.Fiyat = fiyat;
+                    }
                 }
                 else
                 {
-                    yeniUrun.Indirim = SecilenUrun.AnaFiyat - fiyat;
                     yeniUrun.Fiyat = fiyat;
+                    yeniUrun.Indirim = indirim;
                 }
+                yeniUrun.TeslimTarihi = DateTime.Parse(dateTimePickerDelivery.Value.ToShortDateString() + " " + numericHour.Value.ToString() + ":" + numericMinute.Value.ToString());
+                try { yeniUrun.Adet = Convert.ToInt32(numericProductCount.Value); }
+                catch { yeniUrun.Adet = 1; }
+                if (SecilenUrun.SepetIndex == -1)
+                {
+                    Sepet.Add(yeniUrun);
+                }
+                else
+                {
+                    Sepet[SecilenUrun.SepetIndex] = yeniUrun;
+                }
+                sepetGridRefresh();
             }
-            else
-            {
-                yeniUrun.Fiyat = fiyat;
-                yeniUrun.Indirim = indirim;
-            }
-            yeniUrun.TeslimTarihi = DateTime.Parse(dateTimePickerDelivery.Value.ToShortDateString() +" "+ numericHour.Value.ToString() +":"+ numericMinute.Value.ToString());
-            try { yeniUrun.Adet = Convert.ToInt32(numericProductCount.Value); }
-            catch { yeniUrun.Adet = 1; }
-            if (SecilenUrun.SepetIndex == -1)
-            {
-                Sepet.Add(yeniUrun);
-            }
-            else
-            {
-                Sepet[SecilenUrun.SepetIndex] = yeniUrun;
-            }
-            sepetGridRefresh();
         }
 
         
@@ -296,7 +299,23 @@ namespace arsiv
             {
                 Sepet.Remove(Sepet[dataGridViewProductSelected.CurrentRow.Index]);
                 sepetGridRefresh();
+                detailsClean();
             }
+        }
+
+        private void detailsClean()
+        {
+            labelProductSelectedName.Text = "Bir ürün seçiniz!";
+            labelProductSelectedBrand.Text = null;
+            labelProductSelectedModel.Text = null;
+            labelProductSelectedBarcode.Text = null;
+            textBoxProductPrice.Text = null;
+            textBoxProductDiscount.TextChanged -= new EventHandler(textBoxProductDiscount_TextChanged);
+            textBoxProductDiscount.Text = "0";
+            textBoxProductDiscount.TextChanged += new EventHandler(textBoxProductDiscount_TextChanged);
+            dateTimePickerDelivery.Value = DateTime.Now;
+            numericHour.Value = DateTime.Now.Hour;
+            numericMinute.Value = DateTime.Now.Minute;
         }
 
         #endregion Product
@@ -467,11 +486,11 @@ namespace arsiv
 
         private void saveAll()
         {
-            string CariNo = "";
+            long CariNo = 0;
             
             CariNo = selectedCari.CariNo;
             bool arsivle = false;
-            int sepetNo=0;
+            long sepetNo=0;
             foreach (Urun x in Sepet)
             {
                 Order yeniCikis = new Order();
