@@ -182,6 +182,7 @@
             // dataGridViewResult
             // 
             this.dataGridViewResult.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridViewResult.BackgroundColor = System.Drawing.Color.MistyRose;
             this.dataGridViewResult.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewResult.Location = new System.Drawing.Point(12, 50);
             this.dataGridViewResult.Name = "dataGridViewResult";

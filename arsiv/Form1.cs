@@ -138,6 +138,10 @@ namespace arsiv
                 BarisGorselDLL.Order engOrder = new BarisGorselDLL.Order();
                 GuncelleGridMethod(dataGridViewResult, engOrder.getMainScreen(Properties.Settings.Default.SubeId, page, pageLimit));
                 GuncelleMethod(labelPage, page + "/" + ((engOrder.toplam / pageLimit) + 1));
+                if (page >= (engOrder.toplam / pageLimit))
+                    buttonPageForward.Enabled = false;
+                if (page == 1)
+                    buttonPageBacward.Enabled = false;
             }
         }
 
