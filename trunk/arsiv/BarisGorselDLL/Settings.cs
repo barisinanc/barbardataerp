@@ -24,6 +24,7 @@ namespace arsiv.BarisGorselDLL
         {
             get
             {
+                _Sube.SubeId = Properties.Settings.Default.SubeId;
                 return _Sube;
             }
             set
