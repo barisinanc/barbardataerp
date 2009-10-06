@@ -111,6 +111,7 @@
             this.buttonSearch.TabIndex = 13;
             this.buttonSearch.Text = "Ara";
             this.buttonSearch.UseVisualStyleBackColor = true;
+            this.buttonSearch.Click += new System.EventHandler(this.buttonSearch_Click_1);
             // 
             // checkedListBoxDepartment
             // 
