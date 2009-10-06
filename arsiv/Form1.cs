@@ -59,6 +59,7 @@ namespace arsiv
                 search();
             }
         }
+
         int count = 0;
         private void search()
         {
@@ -254,6 +255,12 @@ namespace arsiv
         {
             Form newRecordForm = new FormNewRecord();
             newRecordForm.Show();
+        }
+
+        private void buttonSearch_Click_1(object sender, EventArgs e)
+        {
+            isSearch = true;
+            makeSearch();
         }
     }
 }
