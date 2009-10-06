@@ -36,6 +36,7 @@ namespace arsiv.BarisGorselDLL
             cmd.ExecuteNonQuery();
             SepetNo = Convert.ToInt32(cmd.Parameters["@SepetNo"].Value.ToString());
             cmd.Dispose();
+            Connection.Dispose();
             return SepetNo;
         }
     }

@@ -16,7 +16,6 @@ namespace arsiv
         public FormNewRecord()
         {
             InitializeComponent();
-            connectionString = Properties.Settings.Default.connectionStringDis;
         }
 
         private void FormNewRecord_Load(object sender, EventArgs e)
@@ -25,25 +24,7 @@ namespace arsiv
             otoBoyutDegistir();
         }
 
-        string connectionString;
         
-        private DataTable DataRead(string procedureName)
-        {
-            conn = new SqlConnection(connectionString);
-            conn.Open();
-            SqlCommand cmd = new SqlCommand(procedureName, conn);
-            cmd.CommandType = CommandType.StoredProcedure;
-            DataTable dataTable = new DataTable();
-            cmd.ExecuteNonQuery();
-            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-            adapter.Fill(dataTable);
-            conn.Close();
-            conn.Dispose();
-            cmd.Dispose();
-            adapter.Dispose();
-            return dataTable;
-        }
-        SqlConnection conn;
         
         #region Product
         List<Urun> Urunler = new List<Urun>();
@@ -96,6 +77,8 @@ namespace arsiv
                 yeniUrun.Model = row["Model"].ToString();
                 try { yeniUrun.Fiyat = Convert.ToDecimal(row["Fiyat"]); }
                 catch { yeniUrun.Fiyat = 0; }
+                try { yeniUrun.AnaFiyat = Convert.ToDecimal(row["Fiyat"]); }
+                catch { yeniUrun.AnaFiyat = 0; }
                 try { yeniUrun.Kdv = Convert.ToInt32(row["Kdv"]); }
                 catch { yeniUrun.Kdv = 0; }
                 try { yeniUrun.Arsivle = Convert.ToBoolean(row["Arsivle"]); }
@@ -155,7 +138,7 @@ namespace arsiv
             if (textBoxProductDiscount.Text == null || textBoxProductDiscount.Text=="") { textBoxProductDiscount.Text = "0"; }
             if (Convert.ToDecimal(textBoxProductDiscount.Text) <= SecilenUrun.Fiyat)
             {
-                textBoxProductPrice.Text = (SecilenUrun.Fiyat - Convert.ToDecimal(textBoxProductDiscount.Text)).ToString();
+                textBoxProductPrice.Text = (SecilenUrun.AnaFiyat - Convert.ToDecimal(textBoxProductDiscount.Text)).ToString();
             }
             else
             { textBoxProductPrice.Text = "0"; }
@@ -169,23 +152,24 @@ namespace arsiv
             yeniUrun.Marka = labelProductSelectedBrand.Text;
             yeniUrun.Model = labelProductSelectedModel.Text;
             yeniUrun.Arsivle = checkBoxArchived.Checked;
+            yeniUrun.AnaFiyat = SecilenUrun.AnaFiyat;
             decimal indirim = 0;
             decimal fiyat = 0;
             if (textBoxProductDiscount.Text == null || textBoxProductDiscount.Text == "") { indirim = 0; }
             else { indirim = Convert.ToDecimal(textBoxProductPrice.Text); }
             if (textBoxProductPrice.Text == null || textBoxProductPrice.Text == "") { fiyat = 0; }
             else { fiyat = Convert.ToDecimal(textBoxProductPrice.Text); }
-            if (fiyat + indirim != SecilenUrun.Fiyat)
+            if (fiyat + indirim != SecilenUrun.AnaFiyat)
             {
                 yeniUrun.Fiyat = Convert.ToDecimal(textBoxProductPrice.Text);
-                if (fiyat >= SecilenUrun.Fiyat)
+                if (fiyat >= SecilenUrun.AnaFiyat)
                 {
-                    yeniUrun.Fiyat = SecilenUrun.Fiyat;
+                    yeniUrun.Fiyat = SecilenUrun.AnaFiyat;
                     yeniUrun.Indirim = 0;
                 }
                 else
                 {
-                    yeniUrun.Indirim = SecilenUrun.Fiyat - fiyat;
+                    yeniUrun.Indirim = SecilenUrun.AnaFiyat - fiyat;
                     yeniUrun.Fiyat = fiyat;
                 }
             }
@@ -197,8 +181,14 @@ namespace arsiv
             yeniUrun.TeslimTarihi = DateTime.Parse(dateTimePickerDelivery.Value.ToShortDateString() +" "+ numericHour.Value.ToString() +":"+ numericMinute.Value.ToString());
             try { yeniUrun.Adet = Convert.ToInt32(numericProductCount.Value); }
             catch { yeniUrun.Adet = 1; }
-            
-            Sepet.Add(yeniUrun);
+            if (SecilenUrun.SepetIndex == -1)
+            {
+                Sepet.Add(yeniUrun);
+            }
+            else
+            {
+                Sepet[SecilenUrun.SepetIndex] = yeniUrun;
+            }
             sepetGridRefresh();
         }
 
@@ -284,13 +274,13 @@ namespace arsiv
                 {
                     checkBoxArchived.Visible = true;
                     checkBoxArchived.Checked = true;
-
                 }
                 else
                 {
                     checkBoxArchived.Visible = false;
                     checkBoxArchived.Checked = false;
                 }
+                SecilenUrun.SepetIndex = dataGridViewProductSelected.CurrentRow.Index;
             }
         }
 
@@ -356,43 +346,19 @@ namespace arsiv
         List<Cari> Cariler = new List<Cari>();
         private void cariAra()
         {
-                conn = new SqlConnection(connectionString);
-                conn.Open();
-                SqlCommand cmd = new SqlCommand("CariAra", conn);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@Isim", textBoxCariAd.Text);
-                cmd.Parameters.AddWithValue("@TelNo", textBoxCariTel.Text);
-                cmd.Parameters.AddWithValue("@CepNo", textBoxCariCep.Text);
-                cmd.Parameters.AddWithValue("@Eposta", textBoxCariEposta.Text);
-                cmd.Parameters.AddWithValue("@Aciklama", textBoxCariAciklama.Text);
-                DataTable dataTable = new DataTable();
-                cmd.ExecuteNonQuery();
-                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-                adapter.Fill(dataTable);
-                conn.Close();
-                conn.Dispose();
-                cmd.Dispose();
-                adapter.Dispose();
-                Cariler.Clear();
-                foreach (DataRow satir in dataTable.Rows)
-                {
-                    Cari yeniCari = new Cari();
-                    yeniCari.CariNo = satir["CariNo"].ToString();
-                    //yeniCari.Tarih = DateTime.Parse(satir["Tarih"].ToString());
-                    yeniCari.Isim = satir["Isim"].ToString();
-                    yeniCari.TelNo = satir["TelNo"].ToString();
-                    yeniCari.CepNo = satir["CepNo"].ToString();
-                    yeniCari.Eposta = satir["Eposta"].ToString();
-                    yeniCari.Aciklama = satir["Aciklama"].ToString();
-                    Cariler.Add(yeniCari);
-                    yeniCari = null;
-                }
+            Cariler.Clear();
+            Cari cariAra = new Cari();
+            cariAra.Isim = textBoxCariAd.Text;
+            cariAra.TelNo = textBoxCariTel.Text.Trim().Replace(" ", "");
+            cariAra.CepNo = textBoxCariCep.Text;
+            cariAra.Eposta = textBoxCariEposta.Text.Trim();
+            cariAra.Aciklama = textBoxCariAciklama.Text.Trim();
+            Cariler = cariAra.araCariler();
 
-                var cariList = from x in Cariler
-                               select new { İsim = x.Isim, Cep_Tel = x.CepNo, Telefon = x.TelNo, Eposta = x.Eposta, Açıklama = x.Aciklama };
-                dataGridViewCari.DataSource = cariList.ToList();
-                cariList = null;
-                dataTable.Dispose();
+            var cariList = from x in Cariler
+                           select new { İsim = x.Isim, Cep_Tel = x.CepNo, Telefon = x.TelNo, Eposta = x.Eposta, Açıklama = x.Aciklama };
+            dataGridViewCari.DataSource = cariList.ToList();
+            cariList = null;
         }
 
         Cari selectedCari = new Cari();
@@ -502,8 +468,7 @@ namespace arsiv
         private void saveAll()
         {
             string CariNo = "";
-            conn = new SqlConnection(connectionString);
-            conn.Open();
+            
             CariNo = selectedCari.CariNo;
             bool arsivle = false;
             int sepetNo=0;

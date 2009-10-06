@@ -34,6 +34,7 @@ namespace arsiv.BarisGorselDLL
                 ArsivTipleri.Add(yeniArsivTipi);
                 yeniArsivTipi = null;
             }
+            Connection.Dispose();
             return ArsivTipleri;
         }
     }
