@@ -93,6 +93,7 @@
             this.label16 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
+            this.comboBoxKullanici = new System.Windows.Forms.ComboBox();
             this.groupBoxCari.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCari)).BeginInit();
             this.groupBoxUrun.SuspendLayout();
@@ -196,7 +197,7 @@
             // 
             // dateTimePickerDelivery
             // 
-            this.dateTimePickerDelivery.Location = new System.Drawing.Point(231, 62);
+            this.dateTimePickerDelivery.Location = new System.Drawing.Point(219, 40);
             this.dateTimePickerDelivery.Name = "dateTimePickerDelivery";
             this.dateTimePickerDelivery.Size = new System.Drawing.Size(179, 20);
             this.dateTimePickerDelivery.TabIndex = 80;
@@ -379,6 +380,7 @@
             // 
             this.groupBoxProductDetails.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)));
+            this.groupBoxProductDetails.Controls.Add(this.comboBoxKullanici);
             this.groupBoxProductDetails.Controls.Add(this.numericMinute);
             this.groupBoxProductDetails.Controls.Add(this.numericHour);
             this.groupBoxProductDetails.Controls.Add(this.labelProductSelectedBarcode);
@@ -399,14 +401,14 @@
             this.groupBoxProductDetails.Controls.Add(this.label13);
             this.groupBoxProductDetails.Location = new System.Drawing.Point(6, 185);
             this.groupBoxProductDetails.Name = "groupBoxProductDetails";
-            this.groupBoxProductDetails.Size = new System.Drawing.Size(736, 88);
+            this.groupBoxProductDetails.Size = new System.Drawing.Size(848, 88);
             this.groupBoxProductDetails.TabIndex = 92;
             this.groupBoxProductDetails.TabStop = false;
             this.groupBoxProductDetails.Text = "Ürün Detayları";
             // 
             // numericMinute
             // 
-            this.numericMinute.Location = new System.Drawing.Point(529, 59);
+            this.numericMinute.Location = new System.Drawing.Point(267, 66);
             this.numericMinute.Maximum = new decimal(new int[] {
             59,
             0,
@@ -418,7 +420,7 @@
             // 
             // numericHour
             // 
-            this.numericHour.Location = new System.Drawing.Point(481, 59);
+            this.numericHour.Location = new System.Drawing.Point(219, 66);
             this.numericHour.Maximum = new decimal(new int[] {
             23,
             0,
@@ -431,7 +433,7 @@
             // labelProductSelectedBarcode
             // 
             this.labelProductSelectedBarcode.AutoSize = true;
-            this.labelProductSelectedBarcode.Location = new System.Drawing.Point(162, 18);
+            this.labelProductSelectedBarcode.Location = new System.Drawing.Point(175, 20);
             this.labelProductSelectedBarcode.Name = "labelProductSelectedBarcode";
             this.labelProductSelectedBarcode.Size = new System.Drawing.Size(0, 13);
             this.labelProductSelectedBarcode.TabIndex = 94;
@@ -464,7 +466,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(165, 67);
+            this.label11.Location = new System.Drawing.Point(141, 45);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(69, 13);
             this.label11.TabIndex = 81;
@@ -473,7 +475,7 @@
             // checkBoxArchived
             // 
             this.checkBoxArchived.AutoSize = true;
-            this.checkBoxArchived.Location = new System.Drawing.Point(590, 66);
+            this.checkBoxArchived.Location = new System.Drawing.Point(634, 67);
             this.checkBoxArchived.Name = "checkBoxArchived";
             this.checkBoxArchived.Size = new System.Drawing.Size(57, 17);
             this.checkBoxArchived.TabIndex = 92;
@@ -482,7 +484,7 @@
             // 
             // numericProductCount
             // 
-            this.numericProductCount.Location = new System.Drawing.Point(203, 34);
+            this.numericProductCount.Location = new System.Drawing.Point(480, 13);
             this.numericProductCount.Name = "numericProductCount";
             this.numericProductCount.Size = new System.Drawing.Size(75, 20);
             this.numericProductCount.TabIndex = 30;
@@ -494,9 +496,9 @@
             // 
             // buttonProductInsert
             // 
-            this.buttonProductInsert.Location = new System.Drawing.Point(590, 36);
+            this.buttonProductInsert.Location = new System.Drawing.Point(743, 18);
             this.buttonProductInsert.Name = "buttonProductInsert";
-            this.buttonProductInsert.Size = new System.Drawing.Size(105, 22);
+            this.buttonProductInsert.Size = new System.Drawing.Size(96, 64);
             this.buttonProductInsert.TabIndex = 90;
             this.buttonProductInsert.Text = "Kaydet";
             this.buttonProductInsert.UseVisualStyleBackColor = true;
@@ -505,7 +507,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(165, 36);
+            this.label6.Location = new System.Drawing.Point(442, 15);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(32, 13);
             this.label6.TabIndex = 4;
@@ -513,7 +515,7 @@
             // 
             // textBoxProductPrice
             // 
-            this.textBoxProductPrice.Location = new System.Drawing.Point(322, 34);
+            this.textBoxProductPrice.Location = new System.Drawing.Point(480, 39);
             this.textBoxProductPrice.Name = "textBoxProductPrice";
             this.textBoxProductPrice.Size = new System.Drawing.Size(88, 20);
             this.textBoxProductPrice.TabIndex = 40;
@@ -522,7 +524,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(407, 64);
+            this.label12.Location = new System.Drawing.Point(143, 69);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(67, 13);
             this.label12.TabIndex = 17;
@@ -531,7 +533,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(434, 37);
+            this.label9.Location = new System.Drawing.Point(434, 68);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(40, 13);
             this.label9.TabIndex = 17;
@@ -540,7 +542,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(284, 37);
+            this.label8.Location = new System.Drawing.Point(442, 42);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(32, 13);
             this.label8.TabIndex = 17;
@@ -548,7 +550,7 @@
             // 
             // textBoxProductDiscount
             // 
-            this.textBoxProductDiscount.Location = new System.Drawing.Point(480, 34);
+            this.textBoxProductDiscount.Location = new System.Drawing.Point(480, 65);
             this.textBoxProductDiscount.Name = "textBoxProductDiscount";
             this.textBoxProductDiscount.Size = new System.Drawing.Size(88, 20);
             this.textBoxProductDiscount.TabIndex = 50;
@@ -557,7 +559,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(519, 62);
+            this.label13.Location = new System.Drawing.Point(257, 69);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(10, 13);
             this.label13.TabIndex = 96;
@@ -758,6 +760,14 @@
             this.label14.TabIndex = 0;
             this.label14.Text = "Toplam Tutar:";
             // 
+            // comboBoxKullanici
+            // 
+            this.comboBoxKullanici.FormattingEnabled = true;
+            this.comboBoxKullanici.Location = new System.Drawing.Point(625, 36);
+            this.comboBoxKullanici.Name = "comboBoxKullanici";
+            this.comboBoxKullanici.Size = new System.Drawing.Size(105, 21);
+            this.comboBoxKullanici.TabIndex = 97;
+            // 
             // FormNewRecord
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -863,5 +873,6 @@
         private System.Windows.Forms.TextBox textBoxAlinanTutar;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label labelBorc;
+        private System.Windows.Forms.ComboBox comboBoxKullanici;
     }
 }
