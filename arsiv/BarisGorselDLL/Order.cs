@@ -19,6 +19,7 @@ namespace arsiv.BarisGorselDLL
         public DateTime TeslimTarihi;
         public int devam;
         public int toplam;
+        public int KullaniciId;
 
         public long addOrder()
         {
@@ -33,6 +34,7 @@ namespace arsiv.BarisGorselDLL
             cmd.Parameters.AddWithValue("@Tutar", Tutar);
             cmd.Parameters.AddWithValue("@SubeId", SubeId);
             cmd.Parameters.AddWithValue("@TeslimTarihi", TeslimTarihi);
+            cmd.Parameters.AddWithValue("@KullaniciId", KullaniciId);
             cmd.Parameters.Add("@SepetNo", SqlDbType.BigInt);
             cmd.Parameters["@SepetNo"].Direction = ParameterDirection.InputOutput;
             cmd.Parameters["@SepetNo"].Value = SepetNo;

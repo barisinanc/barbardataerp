@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.21022</ProductVersion>
+    <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{8FD06618-E7CC-4F8D-9D8E-D6DE2321D208}</ProjectGuid>
     <OutputType>WinExe</OutputType>
@@ -57,6 +57,7 @@
     <Compile Include="BarisGorselDLL\ConnectionImporter.cs" />
     <Compile Include="BarisGorselDLL\ConnectionStrings.cs" />
     <Compile Include="BarisGorselDLL\ConnectionTest.cs" />
+    <Compile Include="BarisGorselDLL\Kullanici.cs" />
     <Compile Include="BarisGorselDLL\Order.cs" />
     <Compile Include="BarisGorselDLL\Product.cs" />
     <Compile Include="BarisGorselDLL\Settings.cs" />

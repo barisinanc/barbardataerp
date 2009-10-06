@@ -20,16 +20,33 @@ namespace arsiv
 
         private void FormNewRecord_Load(object sender, EventArgs e)
         {
-            textBoxProductSearch.Focus();
+            personelListesiDoldur();
             otoBoyutDegistir();
+            textBoxProductSearch.Focus();
         }
 
-        
+        private void personelListesiDoldur()
+        {
+            Kullanici kullanici = new Kullanici();
+            foreach (Kullanici k in kullanici.kullanicilar())
+            {
+                comboBoxKullanici.Items.Add(k.Ad);
+            }
+            if (Properties.Settings.Default.SonKullaniciId != 0)
+            {
+                comboBoxKullanici.SelectedIndex = Properties.Settings.Default.SonKullaniciId-1;
+            }
+            else
+            {
+                comboBoxKullanici.SelectedIndex = 0;
+            }
+
+        }
         
         #region Product
-        List<Urun> Urunler = new List<Urun>();
-        Urun SecilenUrun = new Urun();
-        List<Urun> Sepet = new List<Urun>();
+        List<Product> Urunler = new List<Product>();
+        Product SecilenUrun = new Product();
+        List<Product> Sepet = new List<Product>();
         private void textBoxProductSearch_TextChanged(object sender, EventArgs e)
         {
             if (textBoxProductSearch.Text.Length >= 3)
@@ -70,7 +87,7 @@ namespace arsiv
             Urunler.Clear();
             foreach (DataRow row in dataTable.Rows)
             {
-                Urun yeniUrun = new Urun();
+                Product yeniUrun = new Product();
                 yeniUrun.BarkodNo = row["BarkodNo"].ToString();
                 yeniUrun.Adi = row["Urun"].ToString();
                 yeniUrun.Marka = row["Marka"].ToString();
@@ -148,13 +165,14 @@ namespace arsiv
         {
             if (labelProductSelectedBarcode.Text.Trim() != "")
             {
-                Urun yeniUrun = new Urun();
+                Product yeniUrun = new Product();
                 yeniUrun.BarkodNo = labelProductSelectedBarcode.Text;
                 yeniUrun.Adi = labelProductSelectedName.Text;
                 yeniUrun.Marka = labelProductSelectedBrand.Text;
                 yeniUrun.Model = labelProductSelectedModel.Text;
                 yeniUrun.Arsivle = checkBoxArchived.Checked;
                 yeniUrun.AnaFiyat = SecilenUrun.AnaFiyat;
+                yeniUrun.KullaniciId = comboBoxKullanici.SelectedIndex + 1;
                 decimal indirim = 0;
                 decimal fiyat = 0;
                 if (textBoxProductDiscount.Text == null || textBoxProductDiscount.Text == "") { indirim = 0; }
@@ -273,6 +291,7 @@ namespace arsiv
                 dateTimePickerDelivery.Value = SecilenUrun.TeslimTarihi;
                 numericHour.Value = SecilenUrun.TeslimTarihi.Hour;
                 numericMinute.Value = SecilenUrun.TeslimTarihi.Minute;
+                comboBoxKullanici.SelectedIndex = SecilenUrun.KullaniciId-1;
                 if (SecilenUrun.Arsivle)
                 {
                     checkBoxArchived.Visible = true;
@@ -284,6 +303,8 @@ namespace arsiv
                     checkBoxArchived.Checked = false;
                 }
                 SecilenUrun.SepetIndex = dataGridViewProductSelected.CurrentRow.Index;
+                
+
             }
         }
 
@@ -491,7 +512,7 @@ namespace arsiv
             CariNo = selectedCari.CariNo;
             bool arsivle = false;
             long sepetNo=0;
-            foreach (Urun x in Sepet)
+            foreach (Product x in Sepet)
             {
                 Order yeniCikis = new Order();
                 if (x.Arsivle) { arsivle = true; }
@@ -578,6 +599,14 @@ namespace arsiv
             }
             alinanTutar = Convert.ToDecimal(textBoxAlinanTutar.Text);
         }
+
+        private void comboBoxKullanici_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.SonKullaniciId = comboBoxKullanici.SelectedIndex + 1;
+            Properties.Settings.Default.Save();
+        }
+
+     
 
         
 
