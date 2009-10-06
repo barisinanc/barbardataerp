@@ -56,7 +56,7 @@ public class ConnectionImporter : System.IDisposable
 
     public ConnectionImporter()
     {
-        _connStr = arsiv.Properties.Settings.Default.connectionStringMerkez;
+        _connStr = arsiv.Properties.Settings.Default.connectionStringDis;
     }
 
     public static object CN(object inObj)
