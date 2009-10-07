@@ -249,6 +249,8 @@
                 labelStatus.Text = "";
                 dataGridViewResult.Location = new System.Drawing.Point(12, 50);
                 dataGridViewResult.Size = new System.Drawing.Size(959, 553);
+                if(comboBoxCategory.SelectedItem==null)
+                    comboBoxCategory.SelectedIndex = 0;
             }
             else
             {
