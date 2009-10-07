@@ -51,5 +51,15 @@ namespace arsiv.BarisGorselDLL
             cmd.Dispose();
             return yeniArsiv;
         }
+
+        public void TurGuncelle()
+        {
+            Connect();
+            SqlCommand cmd = new SqlCommand("ArsivTipiGuncelle", Connection);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@SepetNo", ArsivNo);
+            cmd.ExecuteNonQuery();
+            Disconnect();
+        }
     }
 }

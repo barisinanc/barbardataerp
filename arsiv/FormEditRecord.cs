@@ -67,7 +67,7 @@ namespace arsiv
                 {
                     arsiv = new Archive();
                     arsiv = arsiv.sepettenArsiv(SepetId);
-                    //
+                    archivLoader();
                 }
             }
             sepetGridRefresh();
@@ -288,8 +288,6 @@ namespace arsiv
             textBoxAlinanTutar.Text = bakiye.ToString();
             textBoxAlinanTutar.TextAlignChanged += new EventHandler(textBoxAlinanTutar_TextChanged);
         }
-        int arsivTipiSelected;
-        
         private void archivLoader()
         {
             ArchiveTypes arsivTipi = new ArchiveTypes();
@@ -299,15 +297,12 @@ namespace arsiv
                 comboBoxArchiveType.Items.Add(tip.Ad);
             }
             comboBoxArchiveType.SelectedIndex = arsiv.TurId - 1;
-            arsivTipiSelected = Properties.Settings.Default.ArsivTipi;
             arsivTipi.Dispose();
         }
 
         private void comboBoxArchiveType_SelectedIndexChanged(object sender, EventArgs e)
         {
-            arsivTipiSelected = comboBoxArchiveType.SelectedIndex + 1;
-            Properties.Settings.Default.ArsivTipi = arsivTipiSelected;
-            Properties.Settings.Default.Save();
+            arsiv.TurId = comboBoxArchiveType.SelectedIndex + 1;
         }
         
 
@@ -519,6 +514,10 @@ namespace arsiv
                 yeniCikis.SepetNo = sepetNo;
                 yeniCikis.TeslimTarihi = x.TeslimTarihi;
                 sepetNo = yeniCikis.Guncelle();
+            }
+            if (arsiv != null)
+            {
+                arsiv.TurGuncelle();
             }
             Account yeniHesap = new Account();
             yeniHesap.SepetNo = sepetNo;
