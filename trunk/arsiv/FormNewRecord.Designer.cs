@@ -85,6 +85,8 @@
             this.groupBoxArchive = new System.Windows.Forms.GroupBox();
             this.groupBoxOrders = new System.Windows.Forms.GroupBox();
             this.groupBoxHesap = new System.Windows.Forms.GroupBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.comboBoxOdemeTipi = new System.Windows.Forms.ComboBox();
             this.labelBorc = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
@@ -94,8 +96,8 @@
             this.label16 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.comboBoxOdemeTipi = new System.Windows.Forms.ComboBox();
-            this.label18 = new System.Windows.Forms.Label();
+            this.textBoxAciklama = new System.Windows.Forms.TextBox();
+            this.label20 = new System.Windows.Forms.Label();
             this.groupBoxCari.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCari)).BeginInit();
             this.groupBoxUrun.SuspendLayout();
@@ -324,9 +326,9 @@
             // groupBoxUrun
             // 
             this.groupBoxUrun.Controls.Add(this.groupBoxSearch);
-            this.groupBoxUrun.Controls.Add(this.groupBoxProductDetails);
             this.groupBoxUrun.Controls.Add(this.buttonProductEdit);
             this.groupBoxUrun.Controls.Add(this.buttonProductAdd);
+            this.groupBoxUrun.Controls.Add(this.groupBoxProductDetails);
             this.groupBoxUrun.Location = new System.Drawing.Point(12, 12);
             this.groupBoxUrun.Name = "groupBoxUrun";
             this.groupBoxUrun.Size = new System.Drawing.Size(854, 281);
@@ -382,6 +384,8 @@
             // 
             this.groupBoxProductDetails.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)));
+            this.groupBoxProductDetails.Controls.Add(this.label20);
+            this.groupBoxProductDetails.Controls.Add(this.textBoxAciklama);
             this.groupBoxProductDetails.Controls.Add(this.comboBoxKullanici);
             this.groupBoxProductDetails.Controls.Add(this.numericMinute);
             this.groupBoxProductDetails.Controls.Add(this.numericHour);
@@ -416,6 +420,7 @@
             this.comboBoxKullanici.Size = new System.Drawing.Size(105, 21);
             this.comboBoxKullanici.TabIndex = 50;
             this.comboBoxKullanici.SelectedIndexChanged += new System.EventHandler(this.comboBoxKullanici_SelectedIndexChanged);
+            this.comboBoxKullanici.Click += new System.EventHandler(this.comboBoxKullanici_Click);
             // 
             // numericMinute
             // 
@@ -692,6 +697,23 @@
             this.groupBoxHesap.TabStop = false;
             this.groupBoxHesap.Text = "Bakiye";
             // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(15, 141);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(64, 13);
+            this.label18.TabIndex = 72;
+            this.label18.Text = "Ödeme Tipi:";
+            // 
+            // comboBoxOdemeTipi
+            // 
+            this.comboBoxOdemeTipi.FormattingEnabled = true;
+            this.comboBoxOdemeTipi.Location = new System.Drawing.Point(91, 138);
+            this.comboBoxOdemeTipi.Name = "comboBoxOdemeTipi";
+            this.comboBoxOdemeTipi.Size = new System.Drawing.Size(77, 21);
+            this.comboBoxOdemeTipi.TabIndex = 71;
+            // 
             // labelBorc
             // 
             this.labelBorc.AutoSize = true;
@@ -773,22 +795,23 @@
             this.label14.TabIndex = 0;
             this.label14.Text = "Toplam Tutar:";
             // 
-            // comboBoxOdemeTipi
+            // textBoxAciklama
             // 
-            this.comboBoxOdemeTipi.FormattingEnabled = true;
-            this.comboBoxOdemeTipi.Location = new System.Drawing.Point(91, 138);
-            this.comboBoxOdemeTipi.Name = "comboBoxOdemeTipi";
-            this.comboBoxOdemeTipi.Size = new System.Drawing.Size(77, 21);
-            this.comboBoxOdemeTipi.TabIndex = 71;
+            this.textBoxAciklama.Location = new System.Drawing.Point(216, 102);
+            this.textBoxAciklama.MaxLength = 150;
+            this.textBoxAciklama.Multiline = true;
+            this.textBoxAciklama.Name = "textBoxAciklama";
+            this.textBoxAciklama.Size = new System.Drawing.Size(255, 89);
+            this.textBoxAciklama.TabIndex = 501;
             // 
-            // label18
+            // label20
             // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(15, 141);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(64, 13);
-            this.label18.TabIndex = 72;
-            this.label18.Text = "Ödeme Tipi:";
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(157, 105);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(53, 13);
+            this.label20.TabIndex = 502;
+            this.label20.Text = "Açıklama:";
             // 
             // FormNewRecord
             // 
@@ -797,11 +820,11 @@
             this.ClientSize = new System.Drawing.Size(869, 642);
             this.Controls.Add(this.groupBoxHesap);
             this.Controls.Add(this.groupBoxCari);
-            this.Controls.Add(this.groupBoxOrders);
-            this.Controls.Add(this.groupBoxUrun);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.groupBoxArchive);
+            this.Controls.Add(this.groupBoxOrders);
+            this.Controls.Add(this.groupBoxUrun);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormNewRecord";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -898,5 +921,7 @@
         private System.Windows.Forms.ComboBox comboBoxKullanici;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.ComboBox comboBoxOdemeTipi;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.TextBox textBoxAciklama;
     }
 }
