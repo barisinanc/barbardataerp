@@ -44,6 +44,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridViewResult = new System.Windows.Forms.DataGridView();
             this.comboBoxPageLimit = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.dateBitis = new System.Windows.Forms.DateTimePicker();
+            this.dateBaslangic = new System.Windows.Forms.DateTimePicker();
+            this.label3 = new System.Windows.Forms.Label();
             this.groupBoxSearch.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewResult)).BeginInit();
@@ -63,6 +67,10 @@
             this.groupBoxSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBoxSearch.Controls.Add(this.label3);
+            this.groupBoxSearch.Controls.Add(this.dateBaslangic);
+            this.groupBoxSearch.Controls.Add(this.dateBitis);
+            this.groupBoxSearch.Controls.Add(this.label2);
             this.groupBoxSearch.Controls.Add(this.comboBoxCategory);
             this.groupBoxSearch.Controls.Add(this.labelStatus);
             this.groupBoxSearch.Controls.Add(this.textBoxValue);
@@ -74,12 +82,11 @@
             this.groupBoxSearch.TabIndex = 14;
             this.groupBoxSearch.TabStop = false;
             this.groupBoxSearch.Text = "Arama";
-            this.groupBoxSearch.Visible = false;
             // 
             // comboBoxCategory
             // 
             this.comboBoxCategory.FormattingEnabled = true;
-            this.comboBoxCategory.Location = new System.Drawing.Point(478, 13);
+            this.comboBoxCategory.Location = new System.Drawing.Point(452, 19);
             this.comboBoxCategory.Name = "comboBoxCategory";
             this.comboBoxCategory.Size = new System.Drawing.Size(121, 21);
             this.comboBoxCategory.TabIndex = 14;
@@ -88,7 +95,7 @@
             // 
             this.labelStatus.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.labelStatus.AutoSize = true;
-            this.labelStatus.Location = new System.Drawing.Point(13, 74);
+            this.labelStatus.Location = new System.Drawing.Point(15, 47);
             this.labelStatus.Name = "labelStatus";
             this.labelStatus.Size = new System.Drawing.Size(350, 13);
             this.labelStatus.TabIndex = 16;
@@ -97,7 +104,7 @@
             // textBoxValue
             // 
             this.textBoxValue.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.textBoxValue.Location = new System.Drawing.Point(16, 48);
+            this.textBoxValue.Location = new System.Drawing.Point(18, 19);
             this.textBoxValue.Name = "textBoxValue";
             this.textBoxValue.Size = new System.Drawing.Size(281, 20);
             this.textBoxValue.TabIndex = 12;
@@ -105,7 +112,7 @@
             // buttonSearch
             // 
             this.buttonSearch.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.buttonSearch.Location = new System.Drawing.Point(303, 48);
+            this.buttonSearch.Location = new System.Drawing.Point(305, 17);
             this.buttonSearch.Name = "buttonSearch";
             this.buttonSearch.Size = new System.Drawing.Size(75, 23);
             this.buttonSearch.TabIndex = 13;
@@ -184,11 +191,11 @@
             this.dataGridViewResult.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridViewResult.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.dataGridViewResult.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewResult.Location = new System.Drawing.Point(12, 50);
+            this.dataGridViewResult.Location = new System.Drawing.Point(12, 160);
             this.dataGridViewResult.MultiSelect = false;
             this.dataGridViewResult.Name = "dataGridViewResult";
             this.dataGridViewResult.ReadOnly = true;
-            this.dataGridViewResult.Size = new System.Drawing.Size(959, 553);
+            this.dataGridViewResult.Size = new System.Drawing.Size(959, 443);
             this.dataGridViewResult.TabIndex = 17;
             this.dataGridViewResult.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewResult_CellDoubleClick);
             this.dataGridViewResult.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewResult_CellClick);
@@ -209,6 +216,41 @@
             this.comboBoxPageLimit.Size = new System.Drawing.Size(63, 21);
             this.comboBoxPageLimit.TabIndex = 20;
             this.comboBoxPageLimit.SelectedValueChanged += new System.EventHandler(this.comboBoxPageLimit_SelectedIndexChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(405, 22);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(41, 13);
+            this.label2.TabIndex = 17;
+            this.label2.Text = "Aranan";
+            // 
+            // dateBitis
+            // 
+            this.dateBitis.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateBitis.Location = new System.Drawing.Point(551, 46);
+            this.dateBitis.Name = "dateBitis";
+            this.dateBitis.Size = new System.Drawing.Size(93, 20);
+            this.dateBitis.TabIndex = 18;
+            // 
+            // dateBaslangic
+            // 
+            this.dateBaslangic.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateBaslangic.Location = new System.Drawing.Point(452, 47);
+            this.dateBaslangic.Name = "dateBaslangic";
+            this.dateBaslangic.Size = new System.Drawing.Size(93, 20);
+            this.dateBaslangic.TabIndex = 19;
+            this.dateBaslangic.Value = new System.DateTime(1996, 1, 1, 0, 0, 0, 0);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(405, 53);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(31, 13);
+            this.label3.TabIndex = 20;
+            this.label3.Text = "Tarih";
             // 
             // Form1
             // 
@@ -240,13 +282,13 @@
 
         void tsbtnSearch_Click(object sender, System.EventArgs e)
         {
+
             if (tsbtnSearch.Checked == true)
             {
                 groupBoxSearch.Visible = false;
                 tsbtnSearch.Checked = false;
                 isSearch = false;
-                if (comboBoxCategory.SelectedItem == null)
-                    comboBoxCategory.SelectedIndex = 0;
+                
                 makeSearch();
                 labelStatus.Text = "";
                 dataGridViewResult.Location = new System.Drawing.Point(12, 50);
@@ -256,6 +298,8 @@
             {
                 tsbtnSearch.Checked = true;
                 groupBoxSearch.Visible = true;
+                if (comboBoxCategory.SelectedItem == null)
+                    comboBoxCategory.SelectedIndex = 0;
                 dataGridViewResult.Location = new System.Drawing.Point(12, 160);
                 dataGridViewResult.Size = new System.Drawing.Size(959, 443);
             }
@@ -278,6 +322,10 @@
         private System.Windows.Forms.TextBox textBoxValue;
         private System.Windows.Forms.Button buttonSearch;
         private System.Windows.Forms.CheckedListBox checkedListBoxDepartment;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.DateTimePicker dateBaslangic;
+        private System.Windows.Forms.DateTimePicker dateBitis;
     }
 }
 
