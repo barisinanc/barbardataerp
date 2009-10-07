@@ -49,22 +49,27 @@ namespace arsiv
 
         private void FormNewRecord_Load(object sender, EventArgs e)
         {
-            cariDoldur();
+            cariFillMethod();
             sepetDoldur();
             personelListesiDoldur();
             otoBoyutDegistir();
             textBoxProductSearch.Focus();
+            this.Text += " - Sepet No:" + SepetId + " - Cari No:" + selectedCari.CariNo;
         }
-
-        private void cariDoldur()
-        {
-           
-        }
-
+        Archive arsiv;
         private void sepetDoldur()
         {
             BarisGorselDLL.Sepet liste = new Sepet();
             Sepet.AddRange(liste.sepetGetir(SepetId));
+            foreach (Product p in Sepet)
+            {
+                if (p.Arsivle)
+                {
+                    arsiv = new Archive();
+                    arsiv = arsiv.sepettenArsiv(SepetId);
+                    //
+                }
+            }
             sepetGridRefresh();
         }
 
@@ -120,7 +125,7 @@ namespace arsiv
             checkBoxArchived.Visible = false;
             numericProductCount.Value = 1;
             textBoxProductDiscount.Text = "0";
-            dateTimePickerDelivery.Value = DateTime.Now.AddHours(2);
+            dateTimePickerDelivery.Value = DateTime.Now;
         }
 
         private void buttonProductSearch_Click(object sender, EventArgs e)
@@ -435,7 +440,15 @@ namespace arsiv
    
         Cari selectedCari = new Cari();
 
-
+        private void cariFillMethod()
+        {
+            selectedCari = selectedCari.sepetNodanCari(SepetId);
+            textBoxCariAd.Text = selectedCari.Isim;
+            textBoxCariCep.Text = selectedCari.CepNo;
+            textBoxCariTel.Text = selectedCari.TelNo;
+            textBoxCariEposta.Text = selectedCari.Eposta;
+            textBoxCariAciklama.Text = selectedCari.Aciklama;
+        }
 
  
 
@@ -452,18 +465,7 @@ namespace arsiv
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
-            if(selectedCari.CariNo==0)
-            {
-                if (textBoxCariAd.Text.Trim() != "")
-                {
-                    selectedCari.Isim = textBoxCariAd.Text.Trim().ToUpper();
-                    selectedCari.CepNo = textBoxCariCep.Text.Trim().ToUpper();
-                    selectedCari.TelNo = textBoxCariTel.Text.Trim().ToUpper();
-                    selectedCari.Aciklama = textBoxCariAciklama.Text.Trim().ToUpper();
-                    selectedCari.Eposta = textBoxCariEposta.Text.Trim().ToUpper();
-                    selectedCari.addCari();
-                }
-            }
+            
             if (Sepet.Count > 0)
             {
                 int arsiv = (from x in Sepet
@@ -503,15 +505,11 @@ namespace arsiv
 
         private void saveAll()
         {
-            long CariNo = 0;
-            
-            CariNo = selectedCari.CariNo;
-            bool arsivle = false;
-            long sepetNo=0;
+            long CariNo = selectedCari.CariNo;
+            long sepetNo = SepetId;
             foreach (Product x in Sepet)
             {
                 Order yeniCikis = new Order();
-                if (x.Arsivle) { arsivle = true; }
                 yeniCikis.CariNo = CariNo;
                 yeniCikis.UrunBarkodNo = x.BarkodNo;
                 yeniCikis.Adet = x.Adet;
@@ -520,7 +518,7 @@ namespace arsiv
                 yeniCikis.SubeId = Properties.Settings.Default.SubeId;
                 yeniCikis.SepetNo = sepetNo;
                 yeniCikis.TeslimTarihi = x.TeslimTarihi;
-                sepetNo = yeniCikis.addOrder();
+                sepetNo = yeniCikis.Guncelle();
             }
             Account yeniHesap = new Account();
             yeniHesap.SepetNo = sepetNo;
@@ -530,15 +528,7 @@ namespace arsiv
             yeniHesap.Alinan = (from x in Sepet
                                 select new { Tutar = x.Fiyat }).Sum(p => p.Tutar)-borc;
             yeniHesap.addAccount();
-            if (arsivle)
-            {
-                Archive yeniArsiv = new Archive();
-                yeniArsiv.CariNo = CariNo;
-                yeniArsiv.SepetNo = sepetNo;
-                yeniArsiv.SubeId = Properties.Settings.Default.SubeId;
-                yeniArsiv.TurId=arsivTipiSelected;
-                yeniArsiv.addArchive();
-            }
+            
         }
         #region Tasarım
         private void otoBoyutDegistir()
@@ -606,6 +596,11 @@ namespace arsiv
         {
             Properties.Settings.Default.SonKullaniciId = comboBoxKullanici.SelectedIndex + 1;
             Properties.Settings.Default.Save();
+        }
+
+        private void buttonCariGuncelle_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

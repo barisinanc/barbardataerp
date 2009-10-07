@@ -93,5 +93,36 @@ namespace arsiv.BarisGorselDLL
             Disconnect();
             return tumCariler;
         }
+
+        public Cari sepetNodanCari(long sepetno)
+        {
+            Connect();
+            SqlCommand cmd = new SqlCommand("SepetNodanCari", Connection);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@SepetNo", sepetno);
+            DataTable dataTable = new DataTable();
+            cmd.ExecuteNonQuery();
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+            adapter.Fill(dataTable);
+            Connection.Close();
+            Connection.Dispose();
+            cmd.Dispose();
+            adapter.Dispose();
+            Disconnect();
+            Cari yeniCari = new Cari();
+            foreach (DataRow satir in dataTable.Rows)
+            {
+                yeniCari.CariNo = long.Parse(satir["CariNo"].ToString());
+                //yeniCari.Tarih = DateTime.Parse(satir["Tarih"].ToString());
+                yeniCari.Isim = satir["Isim"].ToString();
+                yeniCari.TelNo = satir["TelNo"].ToString();
+                yeniCari.CepNo = satir["CepNo"].ToString();
+                yeniCari.Eposta = satir["Eposta"].ToString();
+                yeniCari.Aciklama = satir["Aciklama"].ToString();
+                break;
+            }
+            dataTable.Dispose();
+            return yeniCari;
+        }
     }
 }

@@ -32,5 +32,24 @@ namespace arsiv.BarisGorselDLL
             Disconnect();
             return ArsivNo;
         }
+
+        public Archive sepettenArsiv(long sepetNo)
+        {
+            Archive yeniArsiv = new Archive();
+            Connect();
+            SqlCommand cmd = new SqlCommand("SepetNodanArsiv", Connection);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@SepetNo", SepetNo);
+            cmd.Parameters.Add("@ArsivNo", SqlDbType.Int);
+            cmd.Parameters["@ArsivNo"].Direction = ParameterDirection.Output;
+            cmd.Parameters.Add("@ArsivTuru", SqlDbType.Int);
+            cmd.Parameters["@ArsivTuru"].Direction = ParameterDirection.Output;
+            cmd.ExecuteNonQuery();
+            yeniArsiv.ArsivNo=cmd.Parameters["@ArsivNo"].Value.ToString();
+            yeniArsiv.TurId = Convert.ToInt32(cmd.Parameters["@ArsivTuru"].Value.ToString());
+            Disconnect();
+            cmd.Dispose();
+            return yeniArsiv;
+        }
     }
 }

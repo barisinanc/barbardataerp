@@ -66,5 +66,10 @@ namespace arsiv.BarisGorselDLL
             Disconnect();
             return dt;
         }
+
+        internal long Guncelle()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
