@@ -33,3 +33,4 @@ D:\projeler\fototakip\barbardataerp\arsiv\bin\Debug\arsiv.exe
 D:\projeler\fototakip\barbardataerp\arsiv\bin\Debug\arsiv.pdb
 D:\projeler\fototakip\barbardataerp\arsiv\obj\Debug\arsiv.FormEnterance.resources
 C:\barbardataerp\arsiv\obj\Debug\arsiv.FormEnterance.resources
+D:\projeler\fototakip\barbardataerp\arsiv\obj\Debug\arsiv.FormEditRecord.resources

@@ -182,12 +182,15 @@
             // dataGridViewResult
             // 
             this.dataGridViewResult.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridViewResult.BackgroundColor = System.Drawing.Color.MistyRose;
+            this.dataGridViewResult.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.dataGridViewResult.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewResult.Location = new System.Drawing.Point(12, 50);
+            this.dataGridViewResult.MultiSelect = false;
             this.dataGridViewResult.Name = "dataGridViewResult";
+            this.dataGridViewResult.ReadOnly = true;
             this.dataGridViewResult.Size = new System.Drawing.Size(959, 553);
             this.dataGridViewResult.TabIndex = 17;
+            this.dataGridViewResult.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewResult_CellDoubleClick);
             // 
             // comboBoxPageLimit
             // 
