@@ -293,7 +293,7 @@ namespace arsiv
                 if (isSearch == false)
                 {
                     FormEditRecord duzenle = new FormEditRecord();
-                    if (dataGridViewResult.CurrentRow.Cells[0].Value == null)
+                    if (dataGridViewResult.CurrentRow.Cells[0].Value != null)
                         duzenle.SepetId = long.Parse(dataGridViewResult.CurrentRow.Cells[0].Value.ToString());
                     duzenle.Show();
                 }
