@@ -191,6 +191,8 @@
             this.dataGridViewResult.Size = new System.Drawing.Size(959, 553);
             this.dataGridViewResult.TabIndex = 17;
             this.dataGridViewResult.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewResult_CellDoubleClick);
+            this.dataGridViewResult.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewResult_CellClick);
+            this.dataGridViewResult.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dataGridViewResult_KeyPress);
             // 
             // comboBoxPageLimit
             // 
