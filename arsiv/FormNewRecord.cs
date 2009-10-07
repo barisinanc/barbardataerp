@@ -42,6 +42,11 @@ namespace arsiv
             }
 
         }
+
+        private void comboBoxKullanici_Click(object sender, EventArgs e)
+        {
+            comboBoxKullanici.DroppedDown = true;
+        }
         
         #region Product
         List<Product> Urunler = new List<Product>();
@@ -553,11 +558,13 @@ namespace arsiv
             groupBoxProductDetails.MouseLeave += new EventHandler(groupBoxProductDetails_Kucult);
             foreach (Control x in groupBoxProductDetails.Controls)
             {
+                x.MouseMove += new MouseEventHandler(groupBoxProductDetails_Buyut);
                 x.MouseEnter += new EventHandler(groupBoxProductDetails_Buyut);
                 x.GotFocus += new EventHandler(groupBoxProductDetails_Buyut);
                 x.LostFocus += new EventHandler(groupBoxProductDetails_Kucult);
                 x.MouseLeave += new EventHandler(groupBoxProductDetails_Kucult);
             }
+            textBoxAciklama.Parent = groupBoxProductDetails;
         }
         private void groupBoxProductDetails_Buyut(object sender, EventArgs e)
         {
@@ -605,6 +612,8 @@ namespace arsiv
             Properties.Settings.Default.SonKullaniciId = comboBoxKullanici.SelectedIndex + 1;
             Properties.Settings.Default.Save();
         }
+
+        
 
      
 
