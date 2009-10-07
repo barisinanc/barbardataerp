@@ -107,7 +107,7 @@ namespace arsiv
             checkBoxArchived.Visible = false;
             numericProductCount.Value = 1;
             textBoxProductDiscount.Text = "0";
-            dateTimePickerDelivery.Value = DateTime.Now.AddHours(2);
+            dateTimePickerDelivery.Value = DateTime.Now;
         }
 
         private void buttonProductSearch_Click(object sender, EventArgs e)
@@ -164,7 +164,7 @@ namespace arsiv
                 labelProductSelectedBarcode.Text = SecilenUrun.BarkodNo;
                 textBoxProductPrice.Text = SecilenUrun.Fiyat.ToString();
                 dateTimePickerDelivery.Value = DateTime.Today;
-                numericHour.Value = DateTime.Now.AddHours(1).Hour;
+                numericHour.Value = DateTime.Now.Hour;
                 numericMinute.Value = DateTime.Now.Minute;
                 if (SecilenUrun.Arsivle)
                 {

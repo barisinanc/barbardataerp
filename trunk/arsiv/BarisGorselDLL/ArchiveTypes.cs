@@ -20,8 +20,6 @@ namespace arsiv.BarisGorselDLL
             cmd.ExecuteNonQuery();
             SqlDataAdapter adapter = new SqlDataAdapter(cmd);
             adapter.Fill(dataTable);
-            Connection.Close();
-            Connection.Dispose();
             cmd.Dispose();
             adapter.Dispose();
             List<ArchiveTypes> ArsivTipleri = new List<ArchiveTypes>();
@@ -35,6 +33,22 @@ namespace arsiv.BarisGorselDLL
             }
             Disconnect();
             return ArsivTipleri;
+        }
+
+        public int sepetNodanArsivTipi(long SepetNo)
+        {
+            int tip=0;
+            Connect();
+            SqlCommand cmd = new SqlCommand("SepetNodanArsivTipi", Connection);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@SepetNo", SepetNo);
+            cmd.Parameters.Add("@ArsivTipi", SqlDbType.Int);
+            cmd.Parameters["@ArsivTipi"].Direction = ParameterDirection.Output;
+            cmd.ExecuteNonQuery();
+            tip= Convert.ToInt32(cmd.Parameters["@ArsivTipi"].Value.ToString());
+            Disconnect();
+            cmd.Dispose();
+            return tip;
         }
     }
 }

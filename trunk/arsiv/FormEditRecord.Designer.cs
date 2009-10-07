@@ -224,6 +224,7 @@
             this.buttonCariGuncelle.TabIndex = 777;
             this.buttonCariGuncelle.Text = "Guncelle";
             this.buttonCariGuncelle.UseVisualStyleBackColor = true;
+            this.buttonCariGuncelle.Click += new System.EventHandler(this.buttonCariGuncelle_Click);
             // 
             // textBoxCariAciklama
             // 
