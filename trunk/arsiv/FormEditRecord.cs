@@ -298,7 +298,7 @@ namespace arsiv
             {
                 comboBoxArchiveType.Items.Add(tip.Ad);
             }
-            comboBoxArchiveType.SelectedIndex = Properties.Settings.Default.ArsivTipi - 1;
+            comboBoxArchiveType.SelectedIndex = arsiv.TurId - 1;
             arsivTipiSelected = Properties.Settings.Default.ArsivTipi;
             arsivTipi.Dispose();
         }
