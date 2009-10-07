@@ -13,6 +13,7 @@ namespace arsiv
 {
     public partial class FormEditRecord : Form
     {
+        public long SepetId;
 
         public FormEditRecord()
         {
