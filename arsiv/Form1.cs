@@ -26,7 +26,6 @@ namespace arsiv
             if (page == 1)
                 buttonPageBacward.Enabled = false;
 
-
         }
 
         int page = 1;
@@ -76,7 +75,7 @@ namespace arsiv
                 conn = new SqlConnection(connectionString);
                 conn.Open();
 
-                SqlCommand cmd = new SqlCommand("Listele2", conn);
+                SqlCommand cmd = new SqlCommand("ArsivArama", conn);
 
                 cmd.CommandType = CommandType.StoredProcedure;
                 if (textBoxValue.Text != null)
@@ -98,6 +97,7 @@ namespace arsiv
                 cmd.Parameters.AddWithValue("@SubeId", selectedDepartments);
                 cmd.Parameters.AddWithValue("@sayfa", page);
                 cmd.Parameters.AddWithValue("@adet", pageLimit);
+                cmd.Parameters.AddWithValue("@turId", comboBoxCategory.SelectedItem.ToString());
                 cmd.Parameters.Add("@toplam", SqlDbType.Int);
                 cmd.Parameters["@toplam"].Direction = ParameterDirection.Output;
                 cmd.Parameters.Add("@devam", SqlDbType.Int);
@@ -270,18 +270,33 @@ namespace arsiv
 
         private void dataGridViewResult_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-
-            FormEditRecord duzenle = new FormEditRecord();
-            duzenle.SepetId = long.Parse(dataGridViewResult.CurrentRow.Cells[0].Value.ToString());
-            duzenle.Show();
+            if (isSearch == false)
+            {
+                FormEditRecord duzenle = new FormEditRecord();
+                if (dataGridViewResult.CurrentRow.Cells[0].Value==null)
+                    duzenle.SepetId = long.Parse(dataGridViewResult.CurrentRow.Cells[0].Value.ToString());
+                duzenle.Show();
+            }
+            else 
+            {
+                //TODO 
+            }
         }
 
         private void dataGridViewResult_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (char)13) {
-                FormEditRecord duzenle = new FormEditRecord();
-                duzenle.SepetId = long.Parse(dataGridViewResult.CurrentRow.Cells[0].Value.ToString());
-                duzenle.Show();
+                if (isSearch == false)
+                {
+                    FormEditRecord duzenle = new FormEditRecord();
+                    if (dataGridViewResult.CurrentRow.Cells[0].Value == null)
+                        duzenle.SepetId = long.Parse(dataGridViewResult.CurrentRow.Cells[0].Value.ToString());
+                    duzenle.Show();
+                }
+                else
+                {
+                    //TODO 
+                }
             }
         }
 
