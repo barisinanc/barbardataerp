@@ -100,6 +100,8 @@ namespace arsiv
                 cmd.Parameters.AddWithValue("@adet", pageLimit);
                 string tur = comboBoxCategory.SelectedItem.ToString();
                 cmd.Parameters.AddWithValue("@turId", tur);
+                cmd.Parameters.AddWithValue("@tarihbas", dateBaslangic.Text.ToString());
+                cmd.Parameters.AddWithValue("@tarihbit", dateBitis.Text.ToString());
                 cmd.Parameters.Add("@toplam", SqlDbType.Int);
                 cmd.Parameters["@toplam"].Direction = ParameterDirection.Output;
                 cmd.Parameters.Add("@devam", SqlDbType.Int);
@@ -275,7 +277,7 @@ namespace arsiv
             if (isSearch == false)
             {
                 FormEditRecord duzenle = new FormEditRecord();
-                if (dataGridViewResult.CurrentRow.Cells[0].Value==null)
+                if (dataGridViewResult.CurrentRow.Cells[0].Value!=null)
                     duzenle.SepetId = long.Parse(dataGridViewResult.CurrentRow.Cells[0].Value.ToString());
                 duzenle.Show();
             }
