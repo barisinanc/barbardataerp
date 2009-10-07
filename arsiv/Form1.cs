@@ -270,7 +270,24 @@ namespace arsiv
 
         private void dataGridViewResult_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            //dataGridViewResult.CurrentRow.Index
+
+            FormEditRecord duzenle = new FormEditRecord();
+            duzenle.SepetId = long.Parse(dataGridViewResult.CurrentRow.Cells[0].Value.ToString());
+            duzenle.Show();
+        }
+
+        private void dataGridViewResult_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)13) {
+                FormEditRecord duzenle = new FormEditRecord();
+                duzenle.SepetId = long.Parse(dataGridViewResult.CurrentRow.Cells[0].Value.ToString());
+                duzenle.Show();
+            }
+        }
+
+        private void dataGridViewResult_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //TODO
         }
     }
 }
