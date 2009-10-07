@@ -26,6 +26,7 @@ namespace arsiv
             if (page == 1)
                 buttonPageBacward.Enabled = false;
 
+
         }
 
         int page = 1;
@@ -97,7 +98,8 @@ namespace arsiv
                 cmd.Parameters.AddWithValue("@SubeId", selectedDepartments);
                 cmd.Parameters.AddWithValue("@sayfa", page);
                 cmd.Parameters.AddWithValue("@adet", pageLimit);
-                cmd.Parameters.AddWithValue("@turId", comboBoxCategory.SelectedItem.ToString());
+                string tur = comboBoxCategory.SelectedItem.ToString();
+                cmd.Parameters.AddWithValue("@turId", tur);
                 cmd.Parameters.Add("@toplam", SqlDbType.Int);
                 cmd.Parameters["@toplam"].Direction = ParameterDirection.Output;
                 cmd.Parameters.Add("@devam", SqlDbType.Int);
