@@ -49,9 +49,23 @@ namespace arsiv
 
         private void FormNewRecord_Load(object sender, EventArgs e)
         {
+            cariDoldur();
+            sepetDoldur();
             personelListesiDoldur();
             otoBoyutDegistir();
             textBoxProductSearch.Focus();
+        }
+
+        private void cariDoldur()
+        {
+           
+        }
+
+        private void sepetDoldur()
+        {
+            BarisGorselDLL.Sepet liste = new Sepet();
+            Sepet.AddRange(liste.sepetGetir(SepetId));
+            sepetGridRefresh();
         }
 
         private void personelListesiDoldur()

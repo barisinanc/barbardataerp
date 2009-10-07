@@ -60,6 +60,7 @@
     <Compile Include="BarisGorselDLL\Kullanici.cs" />
     <Compile Include="BarisGorselDLL\Order.cs" />
     <Compile Include="BarisGorselDLL\Product.cs" />
+    <Compile Include="BarisGorselDLL\Sepet.cs" />
     <Compile Include="BarisGorselDLL\Settings.cs" />
     <Compile Include="BarisGorselDLL\Sube.cs" />
     <Compile Include="FormEditRecord.cs">
