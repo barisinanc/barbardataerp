@@ -11,11 +11,10 @@ using arsiv.BarisGorselDLL;
 
 namespace arsiv
 {
-    public partial class FormNewRecord : Form
+    public partial class FormEditRecord : Form
     {
 
-
-        public FormNewRecord()
+        public FormEditRecord()
         {
             InitializeComponent();
         }
@@ -57,14 +56,13 @@ namespace arsiv
         private void personelListesiDoldur()
         {
             Kullanici kullanici = new Kullanici();
-            comboBoxKullanici.Items.Add("Kaydı alan");
             foreach (Kullanici k in kullanici.kullanicilar())
             {
                 comboBoxKullanici.Items.Add(k.Ad);
             }
             if (Properties.Settings.Default.SonKullaniciId != 0)
             {
-                comboBoxKullanici.SelectedIndex = Properties.Settings.Default.SonKullaniciId;
+                comboBoxKullanici.SelectedIndex = Properties.Settings.Default.SonKullaniciId-1;
             }
             else
             {
@@ -207,7 +205,7 @@ namespace arsiv
                 yeniUrun.Model = labelProductSelectedModel.Text;
                 yeniUrun.Arsivle = checkBoxArchived.Checked;
                 yeniUrun.AnaFiyat = SecilenUrun.AnaFiyat;
-                yeniUrun.KullaniciId = comboBoxKullanici.SelectedIndex;
+                yeniUrun.KullaniciId = comboBoxKullanici.SelectedIndex + 1;
                 decimal indirim = 0;
                 decimal fiyat = 0;
                 if (textBoxProductDiscount.Text == null || textBoxProductDiscount.Text == "") { indirim = 0; }
@@ -326,7 +324,7 @@ namespace arsiv
                 dateTimePickerDelivery.Value = SecilenUrun.TeslimTarihi;
                 numericHour.Value = SecilenUrun.TeslimTarihi.Hour;
                 numericMinute.Value = SecilenUrun.TeslimTarihi.Minute;
-                comboBoxKullanici.SelectedIndex = SecilenUrun.KullaniciId;
+                comboBoxKullanici.SelectedIndex = SecilenUrun.KullaniciId-1;
                 if (SecilenUrun.Arsivle)
                 {
                     checkBoxArchived.Visible = true;
@@ -419,47 +417,12 @@ namespace arsiv
             }
         }*/
         List<Cari> Cariler = new List<Cari>();
-        private void cariAra()
-        {
-            Cariler.Clear();
-            Cari cariAra = new Cari();
-            cariAra.Isim = textBoxCariAd.Text;
-            cariAra.TelNo = textBoxCariTel.Text.Trim().Replace(" ", "");
-            cariAra.CepNo = textBoxCariCep.Text;
-            cariAra.Eposta = textBoxCariEposta.Text.Trim();
-            cariAra.Aciklama = textBoxCariAciklama.Text.Trim();
-            Cariler = cariAra.araCariler();
-
-            var cariList = from x in Cariler
-                           select new { İsim = x.Isim, Cep_Tel = x.CepNo, Telefon = x.TelNo, Eposta = x.Eposta, Açıklama = x.Aciklama };
-            dataGridViewCari.DataSource = cariList.ToList();
-            cariList = null;
-        }
-
+   
         Cari selectedCari = new Cari();
 
-        private void dataGridViewCari_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            cariSelectedMethod();
-        }
 
-        private void buttonCariSec_Click(object sender, EventArgs e)
-        {
-            cariSelectedMethod();
-        }
 
-        private void cariSelectedMethod()
-        {
-            selectedCari = Cariler[dataGridViewCari.CurrentRow.Index];
-            textBoxCariAd.Text = selectedCari.Isim;
-            textBoxCariCep.Text = selectedCari.CepNo;
-            textBoxCariTel.Text = selectedCari.TelNo;
-            textBoxCariEposta.Text = selectedCari.Eposta;
-            textBoxCariAciklama.Text = selectedCari.Aciklama;
-            dataGridColorSelected(dataGridViewCari);
-        }
-
-        
+ 
 
         private void dataGridColorSelected(DataGridView grid)
         {
@@ -469,24 +432,7 @@ namespace arsiv
             }
         }
 
-        private void buttonCariBirak_Click(object sender, EventArgs e)
-        {
-            selectedCari = null;
-            foreach (DataGridViewCell hucre in dataGridViewCari.Rows[dataGridViewCari.CurrentRow.Index].Cells)
-            {
-                hucre.Style.BackColor = Color.White;
-            }
-            textBoxCariAd.Text = null;
-            textBoxCariCep.Text = null;
-            textBoxCariTel.Text = null;
-            textBoxCariEposta.Text = null;
-            textBoxCariAciklama.Text = null;
-        }
-        private void buttonCariAra_Click(object sender, EventArgs e)
-        {
-            cariAra();
-        }
-       
+
         #endregion Cari
 
         private void buttonSave_Click(object sender, EventArgs e)
@@ -559,7 +505,6 @@ namespace arsiv
                 yeniCikis.SubeId = Properties.Settings.Default.SubeId;
                 yeniCikis.SepetNo = sepetNo;
                 yeniCikis.TeslimTarihi = x.TeslimTarihi;
-                yeniCikis.KullaniciId = x.KullaniciId;
                 sepetNo = yeniCikis.addOrder();
             }
             Account yeniHesap = new Account();
@@ -588,7 +533,7 @@ namespace arsiv
             groupBoxProductDetails.GotFocus += new EventHandler(groupBoxProductDetails_Buyut);
             groupBoxProductDetails.LostFocus += new EventHandler(groupBoxProductDetails_Kucult);
             groupBoxProductDetails.MouseLeave += new EventHandler(groupBoxProductDetails_Kucult);
-            
+            groupBoxProductDetails.MouseCaptureChanged += new EventHandler(groupBoxProductDetails_Kucult);
             foreach (Control x in groupBoxProductDetails.Controls)
             {
                 x.MouseMove += new MouseEventHandler(groupBoxProductDetails_Buyut);
@@ -597,7 +542,7 @@ namespace arsiv
                 x.GotFocus += new EventHandler(groupBoxProductDetails_Buyut);
                 x.LostFocus += new EventHandler(groupBoxProductDetails_Kucult);
                 x.MouseLeave += new EventHandler(groupBoxProductDetails_Kucult);
-                
+                x.MouseCaptureChanged += new EventHandler(groupBoxProductDetails_Buyut);
             }
             textBoxAciklama.Parent = groupBoxProductDetails;
         }
@@ -644,7 +589,7 @@ namespace arsiv
 
         private void comboBoxKullanici_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Properties.Settings.Default.SonKullaniciId = comboBoxKullanici.SelectedIndex;
+            Properties.Settings.Default.SonKullaniciId = comboBoxKullanici.SelectedIndex + 1;
             Properties.Settings.Default.Save();
         }
     }

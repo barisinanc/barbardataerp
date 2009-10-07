@@ -223,6 +223,7 @@ namespace arsiv
             return false;
         }
         int pageLimit = 30;
+        //List<>
         private void loadForms()
         {
             foreach (DataRow row in DataRead("Listeler").Rows)
@@ -265,6 +266,11 @@ namespace arsiv
         {
             isSearch = true;
             makeSearch();
+        }
+
+        private void dataGridViewResult_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //dataGridViewResult.CurrentRow.Index
         }
     }
 }
