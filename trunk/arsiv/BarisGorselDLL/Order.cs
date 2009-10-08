@@ -7,19 +7,13 @@ using System.Data;
 
 namespace arsiv.BarisGorselDLL
 {
-    class Order:ConnectionImporter
+    class Order:Sepet
     {
         public long CariNo;
-        public string UrunBarkodNo;
-        public int Adet;
-        public decimal Indirim;
-        public decimal Tutar;
         public int SubeId;
         public long SepetNo;
-        public DateTime TeslimTarihi;
         public int devam;
         public int toplam;
-        public int KullaniciId;
 
         public long addOrder()
         {
@@ -28,10 +22,10 @@ namespace arsiv.BarisGorselDLL
             cmd.CommandType = CommandType.StoredProcedure;
             if (CariNo != 0)
             { cmd.Parameters.AddWithValue("@CariNo", CariNo); }
-            cmd.Parameters.AddWithValue("@UrunBarkodNo", UrunBarkodNo);
+            cmd.Parameters.AddWithValue("@UrunBarkodNo", BarkodNo);
             cmd.Parameters.AddWithValue("@Adet", Adet);
             cmd.Parameters.AddWithValue("@Indirim", Indirim);
-            cmd.Parameters.AddWithValue("@Tutar", Tutar);
+            cmd.Parameters.AddWithValue("@Tutar", Fiyat);
             cmd.Parameters.AddWithValue("@SubeId", SubeId);
             cmd.Parameters.AddWithValue("@TeslimTarihi", TeslimTarihi);
             cmd.Parameters.AddWithValue("@KullaniciId", KullaniciId);
@@ -69,7 +63,24 @@ namespace arsiv.BarisGorselDLL
 
         public void Guncelle()
         {
-            //throw new NotImplementedException();
+            Connect();
+            SqlCommand cmd = new SqlCommand("SiparisGuncelle", Connection);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@Id", Id);
+            cmd.Parameters.AddWithValue("@CariNo", CariNo);
+            cmd.Parameters.AddWithValue("@UrunBarkodNo", BarkodNo);
+            cmd.Parameters.AddWithValue("@Adet", Adet);
+            cmd.Parameters.AddWithValue("@Indirim", Indirim);
+            cmd.Parameters.AddWithValue("@Tutar", Fiyat);
+            cmd.Parameters.AddWithValue("@SubeId", Properties.Settings.Default.SubeId);
+            cmd.Parameters.AddWithValue("@SepetNo", SepetNo);
+            cmd.Parameters.AddWithValue("@TeslimTarihi", TeslimTarihi);
+            cmd.Parameters.AddWithValue("@Aciklama", Aciklama);
+            cmd.Parameters.AddWithValue("@KullaniciId", KullaniciId);
+            cmd.ExecuteNonQuery();
+            cmd.Dispose();
+            Disconnect();
         }
+       
     }
 }
