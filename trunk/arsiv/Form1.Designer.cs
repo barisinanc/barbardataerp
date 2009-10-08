@@ -31,6 +31,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.labelPage = new System.Windows.Forms.Label();
             this.groupBoxSearch = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.dateBaslangic = new System.Windows.Forms.DateTimePicker();
+            this.dateBitis = new System.Windows.Forms.DateTimePicker();
+            this.label2 = new System.Windows.Forms.Label();
             this.comboBoxCategory = new System.Windows.Forms.ComboBox();
             this.labelStatus = new System.Windows.Forms.Label();
             this.textBoxValue = new System.Windows.Forms.TextBox();
@@ -44,10 +48,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridViewResult = new System.Windows.Forms.DataGridView();
             this.comboBoxPageLimit = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.dateBitis = new System.Windows.Forms.DateTimePicker();
-            this.dateBaslangic = new System.Windows.Forms.DateTimePicker();
-            this.label3 = new System.Windows.Forms.Label();
             this.groupBoxSearch.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewResult)).BeginInit();
@@ -82,6 +82,41 @@
             this.groupBoxSearch.TabIndex = 14;
             this.groupBoxSearch.TabStop = false;
             this.groupBoxSearch.Text = "Arama";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(405, 50);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(31, 13);
+            this.label3.TabIndex = 20;
+            this.label3.Text = "Tarih";
+            // 
+            // dateBaslangic
+            // 
+            this.dateBaslangic.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateBaslangic.Location = new System.Drawing.Point(452, 46);
+            this.dateBaslangic.Name = "dateBaslangic";
+            this.dateBaslangic.Size = new System.Drawing.Size(93, 20);
+            this.dateBaslangic.TabIndex = 19;
+            this.dateBaslangic.Value = new System.DateTime(1996, 1, 1, 0, 0, 0, 0);
+            // 
+            // dateBitis
+            // 
+            this.dateBitis.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateBitis.Location = new System.Drawing.Point(551, 47);
+            this.dateBitis.Name = "dateBitis";
+            this.dateBitis.Size = new System.Drawing.Size(93, 20);
+            this.dateBitis.TabIndex = 18;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(405, 22);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(41, 13);
+            this.label2.TabIndex = 17;
+            this.label2.Text = "Aranan";
             // 
             // comboBoxCategory
             // 
@@ -217,41 +252,6 @@
             this.comboBoxPageLimit.TabIndex = 20;
             this.comboBoxPageLimit.SelectedValueChanged += new System.EventHandler(this.comboBoxPageLimit_SelectedIndexChanged);
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(405, 22);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(41, 13);
-            this.label2.TabIndex = 17;
-            this.label2.Text = "Aranan";
-            // 
-            // dateBitis
-            // 
-            this.dateBitis.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateBitis.Location = new System.Drawing.Point(551, 46);
-            this.dateBitis.Name = "dateBitis";
-            this.dateBitis.Size = new System.Drawing.Size(93, 20);
-            this.dateBitis.TabIndex = 18;
-            // 
-            // dateBaslangic
-            // 
-            this.dateBaslangic.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateBaslangic.Location = new System.Drawing.Point(452, 47);
-            this.dateBaslangic.Name = "dateBaslangic";
-            this.dateBaslangic.Size = new System.Drawing.Size(93, 20);
-            this.dateBaslangic.TabIndex = 19;
-            this.dateBaslangic.Value = new System.DateTime(1996, 1, 1, 0, 0, 0, 0);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(405, 53);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(31, 13);
-            this.label3.TabIndex = 20;
-            this.label3.Text = "Tarih";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -277,6 +277,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewResult)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
+            groupBoxSearch.Visible = false;
+            dataGridViewResult.Location = new System.Drawing.Point(12, 50);
+            dataGridViewResult.Size = new System.Drawing.Size(959, 553);
 
         }
 
