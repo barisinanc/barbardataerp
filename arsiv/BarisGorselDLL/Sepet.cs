@@ -7,25 +7,15 @@ using System.Data;
 
 namespace arsiv.BarisGorselDLL
 {
-    class Sepet:ConnectionImporter
+    class Sepet:Product
     {
-        public string BarkodNo;
-        public string Adi;
-        public string Marka;
-        public string Model;
-        public decimal Fiyat;
-        public decimal AnaFiyat;
-        public decimal Indirim;
-        public int Kdv;
-        public int Adet;
-        public bool Arsivle;
-        public DateTime TeslimTarihi;
-        public int SepetIndex = -1;
-        public int KullaniciId;
+        public int Id;
+        public bool Degisti;
+        public string Aciklama;
 
-        public List<Product> sepetGetir(long SepetNo)
+        public List<Sepet> sepetGetir(long SepetNo)
         {
-            List<Product> liste = new List<Product>();
+            List<Sepet> liste = new List<Sepet>();
             Connect();
             SqlCommand cmd = new SqlCommand("SepetGetir", Connection);
             cmd.CommandType = CommandType.StoredProcedure;
@@ -39,11 +29,12 @@ namespace arsiv.BarisGorselDLL
             int i=0;
             foreach (DataRow satir in dataTable.Rows)
             {
-                Product yeniSepet = new Product();
+                Sepet yeniSepet = new Sepet();
+                yeniSepet.Id = Convert.ToInt32(satir["Id"].ToString());
                 yeniSepet.BarkodNo = satir["BarkodNo"].ToString();
                 yeniSepet.Adi = satir["Adi"].ToString();
                 yeniSepet.Marka = satir["Marka"].ToString();
-                yeniSepet.Model = satir["Fiyat"].ToString();
+                yeniSepet.Model = satir["Model"].ToString();
                 yeniSepet.Fiyat = decimal.Parse(satir["Fiyat"].ToString());
                 yeniSepet.AnaFiyat = decimal.Parse(satir["AnaFiyat"].ToString());
                 yeniSepet.Indirim = decimal.Parse(satir["Indirim"].ToString());
@@ -62,5 +53,47 @@ namespace arsiv.BarisGorselDLL
             Disconnect();
             return liste;
         }
+
+        public Sepet()
+        {
+        }
+
+        public Sepet(Product product)
+        {
+            this.Adet = 1;
+            this.Adi = product.Adi;
+            this.AnaFiyat = product.AnaFiyat;
+            this.Arsivle = product.Arsivle;
+            this.BarkodNo = product.BarkodNo;
+            this.Degisti = false;
+            this.Fiyat = product.Fiyat;
+            this.Id = 0;
+            this.Indirim = product.Indirim;
+            this.Kdv = product.Kdv;
+            this.Marka = product.Marka;
+            this.Model = product.Model;
+            this.TeslimTarihi = product.TeslimTarihi;
+            this.SepetIndex=product.SepetIndex;
+        }
+
+        public void AddProduct(Product product)
+        {
+            this.Adet = 1;
+            this.Adi = product.Adi;
+            this.AnaFiyat = product.AnaFiyat;
+            this.Arsivle = product.Arsivle;
+            this.BarkodNo = product.BarkodNo;
+            this.Degisti = false;
+            this.Fiyat = product.Fiyat;
+            this.Id = 0;
+            this.Indirim = product.Indirim;
+            this.Kdv = product.Kdv;
+            this.Marka = product.Marka;
+            this.Model = product.Model;
+            this.TeslimTarihi = product.TeslimTarihi;
+            this.SepetIndex = product.SepetIndex;
+        }
+
+        
     }
 }

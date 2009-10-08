@@ -552,10 +552,10 @@ namespace arsiv
                 Order yeniCikis = new Order();
                 if (x.Arsivle) { arsivle = true; }
                 yeniCikis.CariNo = CariNo;
-                yeniCikis.UrunBarkodNo = x.BarkodNo;
+                yeniCikis.BarkodNo = x.BarkodNo;
                 yeniCikis.Adet = x.Adet;
                 yeniCikis.Indirim = x.Indirim;
-                yeniCikis.Tutar = x.Fiyat;
+                yeniCikis.Fiyat= x.Fiyat;
                 yeniCikis.SubeId = Properties.Settings.Default.SubeId;
                 yeniCikis.SepetNo = sepetNo;
                 yeniCikis.TeslimTarihi = x.TeslimTarihi;

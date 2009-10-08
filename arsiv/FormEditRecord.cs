@@ -98,8 +98,8 @@ namespace arsiv
         
         #region Product
         List<Product> Urunler = new List<Product>();
-        Product SecilenUrun = new Product();
-        List<Product> Sepet = new List<Product>();
+        Sepet SecilenUrun = new Sepet();
+        List<Sepet> Sepet = new List<Sepet>();
         private void textBoxProductSearch_TextChanged(object sender, EventArgs e)
         {
             if (textBoxProductSearch.Text.Length >= 3)
@@ -135,7 +135,7 @@ namespace arsiv
 
         private void productSearch()
         {
-            BarisGorselDLL.Product engProduct = new arsiv.BarisGorselDLL.Product();
+            BarisGorselDLL.Product engProduct = new BarisGorselDLL.Product();
             DataTable dataTable = engProduct.productSearch(textBoxProductSearch.Text);
             Urunler.Clear();
             foreach (DataRow row in dataTable.Rows)
@@ -167,7 +167,7 @@ namespace arsiv
         {
             if (Urunler.Count > 0)
             {
-                SecilenUrun = Urunler[(dataGridViewProductSelect.CurrentRow.Index)];
+                SecilenUrun.AddProduct(Urunler[(dataGridViewProductSelect.CurrentRow.Index)]);
                 fillProductDetails();
             }
         }
@@ -218,7 +218,7 @@ namespace arsiv
         {
             if (labelProductSelectedBarcode.Text.Trim() != "")
             {
-                Product yeniUrun = new Product();
+                Sepet yeniUrun = new Sepet();
                 yeniUrun.BarkodNo = labelProductSelectedBarcode.Text;
                 yeniUrun.Adi = labelProductSelectedName.Text;
                 yeniUrun.Marka = labelProductSelectedBrand.Text;
@@ -226,6 +226,9 @@ namespace arsiv
                 yeniUrun.Arsivle = checkBoxArchived.Checked;
                 yeniUrun.AnaFiyat = SecilenUrun.AnaFiyat;
                 yeniUrun.KullaniciId = comboBoxKullanici.SelectedIndex + 1;
+                yeniUrun.Id = SecilenUrun.Id;
+                if (yeniUrun.Id != 0)
+                { yeniUrun.Degisti = true; }
                 decimal indirim = 0;
                 decimal fiyat = 0;
                 if (textBoxProductDiscount.Text == null || textBoxProductDiscount.Text == "") { indirim = 0; }
@@ -285,7 +288,7 @@ namespace arsiv
                         select new {Tutar = x.Fiyat}).Sum(p=>p.Tutar);
             labelBakiye.Text = bakiye.ToString() + " TL";
             textBoxAlinanTutar.TextAlignChanged -= new EventHandler(textBoxAlinanTutar_TextChanged);
-            textBoxAlinanTutar.Text = bakiye.ToString();
+            textBoxAlinanTutar.Text = "0";
             textBoxAlinanTutar.TextAlignChanged += new EventHandler(textBoxAlinanTutar_TextChanged);
         }
         private void archivLoader()
@@ -501,18 +504,22 @@ namespace arsiv
         private void saveAll()
         {
             long CariNo = selectedCari.CariNo;
-            foreach (Product x in Sepet)
+            foreach (Sepet x in Sepet)
             {
                 Order yeniCikis = new Order();
                 yeniCikis.CariNo = CariNo;
-                yeniCikis.UrunBarkodNo = x.BarkodNo;
+                yeniCikis.BarkodNo = x.BarkodNo;
                 yeniCikis.Adet = x.Adet;
                 yeniCikis.Indirim = x.Indirim;
-                yeniCikis.Tutar = x.Fiyat;
+                yeniCikis.Fiyat = x.Fiyat;
                 yeniCikis.SubeId = Properties.Settings.Default.SubeId;
                 yeniCikis.SepetNo = SepetId;
+                yeniCikis.Id = x.Id;
                 yeniCikis.TeslimTarihi = x.TeslimTarihi;
-                yeniCikis.Guncelle();
+                if (x.Degisti)
+                { yeniCikis.Guncelle(); }
+                else
+                { yeniCikis.addOrder(); }
             }
             if (arsiv != null)
             {
@@ -525,7 +532,10 @@ namespace arsiv
             yeniHesap.Borc=borc;
             yeniHesap.Alinan = (from x in Sepet
                                 select new { Tutar = x.Fiyat }).Sum(p => p.Tutar)-borc;
-            yeniHesap.addAccount();
+            if (yeniHesap.Alinan > decimal.Parse("0"))
+            {
+                yeniHesap.addAccount();
+            }
             
         }
         #region Tasarım
