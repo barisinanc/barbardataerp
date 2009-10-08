@@ -39,8 +39,8 @@ namespace arsiv.BarisGorselDLL
             Connect();
             SqlCommand cmd = new SqlCommand("SepetNodanArsiv", Connection);
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@SepetNo", SepetNo);
-            cmd.Parameters.Add("@ArsivNo", SqlDbType.Int);
+            cmd.Parameters.AddWithValue("@SepetNo", sepetNo);
+            cmd.Parameters.Add("@ArsivNo", SqlDbType.NVarChar,20);
             cmd.Parameters["@ArsivNo"].Direction = ParameterDirection.Output;
             cmd.Parameters.Add("@ArsivTuru", SqlDbType.Int);
             cmd.Parameters["@ArsivTuru"].Direction = ParameterDirection.Output;
@@ -57,7 +57,8 @@ namespace arsiv.BarisGorselDLL
             Connect();
             SqlCommand cmd = new SqlCommand("ArsivTipiGuncelle", Connection);
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@SepetNo", ArsivNo);
+            cmd.Parameters.AddWithValue("@ArsivNo", ArsivNo);
+            cmd.Parameters.AddWithValue("@TurId", TurId);
             cmd.ExecuteNonQuery();
             Disconnect();
         }

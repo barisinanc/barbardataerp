@@ -278,7 +278,7 @@ namespace arsiv
                                     where x.Arsivle==true
                                    select new { adet = x.Arsivle }).Count();
                 if (arsivlenecek > 0)
-                { groupBoxArchive.Visible = true; archivLoader(); }
+                { groupBoxArchive.Visible = true;  }
                 else
                 { groupBoxArchive.Visible = false; }
             decimal bakiye= (from x in Sepet
@@ -501,7 +501,6 @@ namespace arsiv
         private void saveAll()
         {
             long CariNo = selectedCari.CariNo;
-            long sepetNo = SepetId;
             foreach (Product x in Sepet)
             {
                 Order yeniCikis = new Order();
@@ -511,16 +510,16 @@ namespace arsiv
                 yeniCikis.Indirim = x.Indirim;
                 yeniCikis.Tutar = x.Fiyat;
                 yeniCikis.SubeId = Properties.Settings.Default.SubeId;
-                yeniCikis.SepetNo = sepetNo;
+                yeniCikis.SepetNo = SepetId;
                 yeniCikis.TeslimTarihi = x.TeslimTarihi;
-                sepetNo = yeniCikis.Guncelle();
+                yeniCikis.Guncelle();
             }
             if (arsiv != null)
             {
                 arsiv.TurGuncelle();
             }
             Account yeniHesap = new Account();
-            yeniHesap.SepetNo = sepetNo;
+            yeniHesap.SepetNo = SepetId;
             yeniHesap.SubeId = Properties.Settings.Default.SubeId;
             yeniHesap.CariNo = CariNo;
             yeniHesap.Borc=borc;
