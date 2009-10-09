@@ -49,6 +49,8 @@ namespace arsiv
 
         private void FormNewRecord_Load(object sender, EventArgs e)
         {
+            //Lodoskaraktersizi baslat = new Lodoskaraktersizi();
+            //baslat.Show();
             personelListesiDoldur();
             otoBoyutDegistir();
             textBoxProductSearch.Focus();

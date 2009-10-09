@@ -93,6 +93,12 @@
     <Compile Include="FormNewRecord.Designer.cs">
       <DependentUpon>FormNewRecord.cs</DependentUpon>
     </Compile>
+    <Compile Include="Lodoskaraktersizi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Lodoskaraktersizi.Designer.cs">
+      <DependentUpon>Lodoskaraktersizi.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormEditRecord.resx">
@@ -114,6 +120,9 @@
     <EmbeddedResource Include="FormNewRecord.resx">
       <DependentUpon>FormNewRecord.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Lodoskaraktersizi.resx">
+      <DependentUpon>Lodoskaraktersizi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
