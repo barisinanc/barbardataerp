@@ -35,3 +35,4 @@ D:\projeler\fototakip\barbardataerp\arsiv\obj\Debug\arsiv.FormEnterance.resource
 C:\barbardataerp\arsiv\obj\Debug\arsiv.FormEnterance.resources
 D:\projeler\fototakip\barbardataerp\arsiv\obj\Debug\arsiv.FormEditRecord.resources
 C:\barbardataerp\arsiv\obj\Debug\arsiv.FormEditRecord.resources
+D:\projeler\fototakip\barbardataerp\arsiv\obj\Debug\arsiv.Lodoskaraktersizi.resources

@@ -62,5 +62,33 @@ namespace arsiv.BarisGorselDLL
             cmd.ExecuteNonQuery();
             Disconnect();
         }
+
+        public DataTable LodosUyuzu()
+        {
+            Connect();
+            SqlCommand cmd = new SqlCommand("Karaktersiz", Connection);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.ExecuteNonQuery();
+            SqlDataAdapter adapt = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            adapt.Fill(dt);
+            cmd.Dispose();
+            Disconnect();
+            return dt;
+        }
+
+        public void LodosUpdate(int Id, string Name, string Description, string Phone, string Email)
+        {
+            Connect();
+            SqlCommand cmd = new SqlCommand("LodosUpdate", Connection);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@Id", Id);
+            cmd.Parameters.AddWithValue("@Name", Name);
+            cmd.Parameters.AddWithValue("@Description", Description);
+            cmd.Parameters.AddWithValue("@Phone", Phone);
+            cmd.Parameters.AddWithValue("@Email", Email);
+            cmd.ExecuteNonQuery();
+            Disconnect();
+        }
     }
 }
