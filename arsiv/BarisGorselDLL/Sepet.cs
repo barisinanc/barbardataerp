@@ -12,6 +12,7 @@ namespace arsiv.BarisGorselDLL
         public int Id;
         public bool Degisti;
         public string Aciklama;
+        public bool Sil;
 
         public List<Sepet> sepetGetir(long SepetNo)
         {

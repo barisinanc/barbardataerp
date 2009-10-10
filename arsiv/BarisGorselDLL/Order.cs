@@ -81,6 +81,17 @@ namespace arsiv.BarisGorselDLL
             cmd.Dispose();
             Disconnect();
         }
-       
+
+
+        public void Sil()
+        {
+            Connect();
+            SqlCommand cmd = new SqlCommand("SiparisSil", Connection);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@Id", Id);
+            cmd.ExecuteNonQuery();
+            cmd.Dispose();
+            Disconnect();
+        }
     }
 }

@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="arsiv.BarisGorselDLL.Order" Collapsed="true">
+    <Position X="1.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CCAAAAAQAAAAAAAAAAAAAAAAAAABAAEAAgABAAAAAAA=</HashCode>
+      <FileName>BarisGorselDLL\Order.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="arsiv.BarisGorselDLL.Account" Collapsed="true">
+    <Position X="4.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAEAAAAAAAAAAAAABAAYAAgABAAEIAAA=</HashCode>
+      <FileName>BarisGorselDLL\Account.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="arsiv.BarisGorselDLL.Sube" Collapsed="true">
+    <Position X="11.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAACAAAAAAAAAABAAAABAAAAAAA=</HashCode>
+      <FileName>BarisGorselDLL\Sube.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="arsiv.BarisGorselDLL.Archive" Collapsed="true">
+    <Position X="16" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAAAAAAAAQAAAAAAAAAAQDAAQAQgQBAAAAAAA=</HashCode>
+      <FileName>BarisGorselDLL\Archive.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="arsiv.BarisGorselDLL.ArchiveTypes" Collapsed="true">
+    <Position X="18.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAICAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAQAAAAA=</HashCode>
+      <FileName>BarisGorselDLL\ArchiveTypes.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="arsiv.BarisGorselDLL.Cari" Collapsed="true">
+    <Position X="7" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACEAAAQQAAAAgQAQAAAAAQACQggEBAAAAgAAYIEABAA=</HashCode>
+      <FileName>BarisGorselDLL\Cari.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="arsiv.BarisGorselDLL.ConnectionString" Collapsed="true">
+    <Position X="23" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAgAAAAABAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BarisGorselDLL\ConnectionStrings.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="arsiv.BarisGorselDLL.ConnectionStrings" Collapsed="true">
+    <Position X="24.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAQAAQAA=</HashCode>
+      <FileName>BarisGorselDLL\ConnectionStrings.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="arsiv.BarisGorselDLL.ConnectionTest" Collapsed="true">
+    <Position X="20.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAA=</HashCode>
+      <FileName>BarisGorselDLL\ConnectionTest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="arsiv.BarisGorselDLL.Kullanici" Collapsed="true">
+    <Position X="9.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIICAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAA=</HashCode>
+      <FileName>BarisGorselDLL\Kullanici.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="arsiv.BarisGorselDLL.OdemeTuru" Collapsed="true">
+    <Position X="6" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAICAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BarisGorselDLL\OdemeTuru.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="arsiv.BarisGorselDLL.Product" Collapsed="true">
+    <Position X="0.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIIEAAAIAQBAAEAAAAAAAAAAAgABAAAAAgAACCIAAA=</HashCode>
+      <FileName>BarisGorselDLL\Product.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="arsiv.BarisGorselDLL.Sepet" Collapsed="true">
+    <Position X="2.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAQAAAAAABAAAAEAAAAIAAAAA=</HashCode>
+      <FileName>BarisGorselDLL\Sepet.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="arsiv.BarisGorselDLL.Settings" Collapsed="true">
+    <Position X="23" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAAAAAgAAYAAAAAAAAAAAAAACAAAAAAAAA=</HashCode>
+      <FileName>BarisGorselDLL\Settings.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConnectionImporter" Collapsed="true">
+    <Position X="1.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEQAAAAAACAAQBEAAAAAAIAAAGAIAAAAECAAEAAAAAA=</HashCode>
+      <FileName>BarisGorselDLL\ConnectionImporter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.287" />
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

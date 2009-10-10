@@ -58,6 +58,7 @@
     <Compile Include="BarisGorselDLL\ConnectionStrings.cs" />
     <Compile Include="BarisGorselDLL\ConnectionTest.cs" />
     <Compile Include="BarisGorselDLL\Kullanici.cs" />
+    <Compile Include="BarisGorselDLL\OdemeTuru.cs" />
     <Compile Include="BarisGorselDLL\Order.cs" />
     <Compile Include="BarisGorselDLL\Product.cs" />
     <Compile Include="BarisGorselDLL\Sepet.cs" />
@@ -134,6 +135,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <None Include="app.config" />
+    <None Include="ClassDiagram1.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
