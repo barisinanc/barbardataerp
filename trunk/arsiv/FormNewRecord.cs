@@ -52,8 +52,19 @@ namespace arsiv
             //Lodoskaraktersizi baslat = new Lodoskaraktersizi();
             //baslat.Show();
             personelListesiDoldur();
+            odemeListesiDoldur();
             otoBoyutDegistir();
             textBoxProductSearch.Focus();
+        }
+
+        private void odemeListesiDoldur()
+        {
+            OdemeTuru tur = new OdemeTuru();
+            foreach (OdemeTuru x in tur.OdemeTurleri())
+            {
+                comboBoxOdemeTipi.Items.Add(x.Ad);
+            }
+            comboBoxOdemeTipi.SelectedIndex = 0;
         }
 
         private void personelListesiDoldur()
@@ -221,7 +232,7 @@ namespace arsiv
                     yeniUrun.Fiyat = Convert.ToDecimal(textBoxProductPrice.Text);
                     if (fiyat >= SecilenUrun.AnaFiyat)
                     {
-                        yeniUrun.Fiyat = SecilenUrun.AnaFiyat;
+                        //yeniUrun.Fiyat = SecilenUrun.AnaFiyat;//Fiyat normalden fazla olabilir
                         yeniUrun.Indirim = 0;
                     }
                     else
@@ -569,6 +580,7 @@ namespace arsiv
             yeniHesap.SubeId = Properties.Settings.Default.SubeId;
             yeniHesap.CariNo = CariNo;
             yeniHesap.Borc=borc;
+            yeniHesap.OdemeTuru = comboBoxOdemeTipi.SelectedIndex + 1;
             yeniHesap.Alinan = (from x in Sepet
                                 select new { Tutar = x.Fiyat }).Sum(p => p.Tutar)-borc;
             yeniHesap.addAccount();
