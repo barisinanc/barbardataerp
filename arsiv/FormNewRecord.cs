@@ -53,7 +53,7 @@ namespace arsiv
             //baslat.Show();
             personelListesiDoldur();
             odemeListesiDoldur();
-            otoBoyutDegistir();
+            //otoBoyutDegistir();
             textBoxProductSearch.Focus();
         }
 
@@ -105,7 +105,7 @@ namespace arsiv
             {
                 Urunler.Clear();
                 cleanProductDetails();
-                dataGridViewProductSelect.DataSource = Urunler;
+                //dataGridViewProductSelect.DataSource = Urunler;
             }
         }
 
@@ -149,13 +149,21 @@ namespace arsiv
                 try { yeniUrun.Arsivle = Convert.ToBoolean(row["Arsivle"]); }
                 catch { yeniUrun.Arsivle = false; }
                 Urunler.Add(yeniUrun);
+                yeniUrun.Dispose();
             }
-            var selectedProducts = from x in Urunler
-                                    select new { Barkod_No = x.BarkodNo, Ürün = x.Adi+" "+x.Marka+" "+x.Model, Fiyat = x.Fiyat };
-            dataGridViewProductSelect.SelectionChanged -= new EventHandler(dataGridViewProductSelect_SelectionChanged);
-            dataGridViewProductSelect.DataSource = selectedProducts.ToList();
-            dataGridViewProductSelect.SelectionChanged += new EventHandler(dataGridViewProductSelect_SelectionChanged);
-            dataGridViewProductSelect.Rows[0].Selected = true;
+            if (Urunler.Count > 0)
+            {
+                var selectedProducts = from x in Urunler
+                                       select new { Barkod_No = x.BarkodNo, Ürün = x.Adi + " " + x.Marka + " " + x.Model, Fiyat = x.Fiyat };
+                dataGridViewProductSelect.SelectionChanged -= new EventHandler(dataGridViewProductSelect_SelectionChanged);
+                dataGridViewProductSelect.DataSource = selectedProducts.ToList();
+                dataGridViewProductSelect.SelectionChanged += new EventHandler(dataGridViewProductSelect_SelectionChanged);
+                dataGridViewProductSelect.Rows[0].Selected = true;
+            }
+            else
+            {
+                dataGridViewProductSelect.DataSource = null;
+            }
         }
 
         private void dataGridViewProductSelect_SelectionChanged(object sender, EventArgs e)
@@ -484,11 +492,13 @@ namespace arsiv
 
         private void buttonCariBirak_Click(object sender, EventArgs e)
         {
-            selectedCari = null;
+            //selectedCari = null;
             foreach (DataGridViewCell hucre in dataGridViewCari.Rows[dataGridViewCari.CurrentRow.Index].Cells)
             {
                 hucre.Style.BackColor = Color.White;
             }
+            selectedCari.CariNo = 0;
+            selectedCari.Isim = "";
             textBoxCariAd.Text = null;
             textBoxCariCep.Text = null;
             textBoxCariTel.Text = null;
@@ -595,6 +605,7 @@ namespace arsiv
             }
         }
         #region Tasarım
+        /*
         private void otoBoyutDegistir()
         {
             groupBoxProductDetails.MouseEnter += new EventHandler(groupBoxProductDetails_Buyut);
@@ -615,6 +626,7 @@ namespace arsiv
             }
             textBoxAciklama.Parent = groupBoxProductDetails;
         }
+       
         private void groupBoxProductDetails_Buyut(object sender, EventArgs e)
         {
             groupBoxUrun.BringToFront();
@@ -628,7 +640,7 @@ namespace arsiv
             groupBoxUrun.Size = new Size { Height = 281, Width = groupBoxUrun.Size.Width };
             //groupBoxProductDetails.Size = new Size { Height = 88, Width = groupBoxProductDetails.Size.Width };
         }
-
+        */
         #endregion Tasarım
         decimal alinanTutar=0;
         decimal borc = 0;
@@ -661,5 +673,6 @@ namespace arsiv
             Properties.Settings.Default.SonKullaniciId = comboBoxKullanici.SelectedIndex;
             Properties.Settings.Default.Save();
         }
+
     }
 }

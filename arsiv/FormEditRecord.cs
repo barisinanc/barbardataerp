@@ -123,7 +123,6 @@ namespace arsiv
             {
                 Urunler.Clear();
                 cleanProductDetails();
-                dataGridViewProductSelect.DataSource = Urunler;
             }
         }
 
@@ -168,12 +167,19 @@ namespace arsiv
                 catch { yeniUrun.Arsivle = false; }
                 Urunler.Add(yeniUrun);
             }
+            if (Urunler.Count > 0)
+            {
             var selectedProducts = from x in Urunler
                                     select new { Barkod_No = x.BarkodNo, Ürün = x.Adi+" "+x.Marka+" "+x.Model, Fiyat = x.Fiyat };
             dataGridViewProductSelect.SelectionChanged -= new EventHandler(dataGridViewProductSelect_SelectionChanged);
             dataGridViewProductSelect.DataSource = selectedProducts.ToList();
             dataGridViewProductSelect.SelectionChanged += new EventHandler(dataGridViewProductSelect_SelectionChanged);
             dataGridViewProductSelect.Rows[0].Selected = true;
+            }
+            else
+            {
+                dataGridViewProductSelect.DataSource = null;
+            }
         }
 
         private void dataGridViewProductSelect_SelectionChanged(object sender, EventArgs e)
@@ -537,7 +543,7 @@ namespace arsiv
                     if (x.Sil == false)
                     { yeniCikis.Guncelle(); }
                     else
-                    { yeniCikis.Sil(); }
+                    { yeniCikis.SepetSil(); }
                 }
                 else
                 { yeniCikis.addOrder(); }

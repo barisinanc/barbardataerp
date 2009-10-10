@@ -32,8 +32,6 @@
             this.textBoxCariAd = new System.Windows.Forms.TextBox();
             this.buttonSave = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
-            this.textBoxArchiveNo = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.textBoxCariTel = new System.Windows.Forms.TextBox();
@@ -41,7 +39,6 @@
             this.textBoxCariEposta = new System.Windows.Forms.TextBox();
             this.dateTimePickerDelivery = new System.Windows.Forms.DateTimePicker();
             this.groupBoxCari = new System.Windows.Forms.GroupBox();
-            this.buttonCariBoyutla = new System.Windows.Forms.Button();
             this.buttonCariGuncelle = new System.Windows.Forms.Button();
             this.buttonCariAra = new System.Windows.Forms.Button();
             this.buttonCariBirak = new System.Windows.Forms.Button();
@@ -51,13 +48,12 @@
             this.textBoxCariCep = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.dataGridViewCari = new System.Windows.Forms.DataGridView();
-            this.groupBoxUrun = new System.Windows.Forms.GroupBox();
             this.groupBoxSearch = new System.Windows.Forms.GroupBox();
+            this.buttonProductEdit = new System.Windows.Forms.Button();
             this.textBoxProductSearch = new System.Windows.Forms.TextBox();
+            this.buttonProductAdd = new System.Windows.Forms.Button();
             this.buttonProductSearch = new System.Windows.Forms.Button();
             this.dataGridViewProductSelect = new System.Windows.Forms.DataGridView();
-            this.buttonProductEdit = new System.Windows.Forms.Button();
-            this.buttonProductAdd = new System.Windows.Forms.Button();
             this.groupBoxProductDetails = new System.Windows.Forms.GroupBox();
             this.label20 = new System.Windows.Forms.Label();
             this.textBoxAciklama = new System.Windows.Forms.TextBox();
@@ -98,9 +94,11 @@
             this.label16 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
+            this.listBoxProductFavorite = new System.Windows.Forms.ListBox();
+            this.buttonAddFavorite = new System.Windows.Forms.Button();
+            this.buttonRemoveFavorite = new System.Windows.Forms.Button();
             this.groupBoxCari.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCari)).BeginInit();
-            this.groupBoxUrun.SuspendLayout();
             this.groupBoxSearch.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProductSelect)).BeginInit();
             this.groupBoxProductDetails.SuspendLayout();
@@ -115,14 +113,14 @@
             // 
             // textBoxCariAd
             // 
-            this.textBoxCariAd.Location = new System.Drawing.Point(74, 14);
+            this.textBoxCariAd.Location = new System.Drawing.Point(81, 19);
             this.textBoxCariAd.Name = "textBoxCariAd";
             this.textBoxCariAd.Size = new System.Drawing.Size(129, 20);
             this.textBoxCariAd.TabIndex = 888;
             // 
             // buttonSave
             // 
-            this.buttonSave.Location = new System.Drawing.Point(592, 618);
+            this.buttonSave.Location = new System.Drawing.Point(15, 687);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(232, 23);
             this.buttonSave.TabIndex = 500;
@@ -132,7 +130,7 @@
             // 
             // buttonCancel
             // 
-            this.buttonCancel.Location = new System.Drawing.Point(830, 618);
+            this.buttonCancel.Location = new System.Drawing.Point(253, 687);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(36, 23);
             this.buttonCancel.TabIndex = 200;
@@ -140,27 +138,10 @@
             this.buttonCancel.UseVisualStyleBackColor = true;
             this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
-            // textBoxArchiveNo
-            // 
-            this.textBoxArchiveNo.Enabled = false;
-            this.textBoxArchiveNo.Location = new System.Drawing.Point(237, 11);
-            this.textBoxArchiveNo.Name = "textBoxArchiveNo";
-            this.textBoxArchiveNo.Size = new System.Drawing.Size(96, 20);
-            this.textBoxArchiveNo.TabIndex = 777;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(181, 14);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(50, 13);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Arşiv No:";
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(13, 20);
+            this.label2.Location = new System.Drawing.Point(20, 25);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(56, 13);
             this.label2.TabIndex = 5;
@@ -169,7 +150,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(23, 70);
+            this.label3.Location = new System.Drawing.Point(30, 75);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(46, 13);
             this.label3.TabIndex = 6;
@@ -177,7 +158,7 @@
             // 
             // textBoxCariTel
             // 
-            this.textBoxCariTel.Location = new System.Drawing.Point(74, 67);
+            this.textBoxCariTel.Location = new System.Drawing.Point(81, 72);
             this.textBoxCariTel.Name = "textBoxCariTel";
             this.textBoxCariTel.Size = new System.Drawing.Size(129, 20);
             this.textBoxCariTel.TabIndex = 777;
@@ -185,7 +166,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(23, 95);
+            this.label4.Location = new System.Drawing.Point(30, 100);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(46, 13);
             this.label4.TabIndex = 8;
@@ -194,21 +175,22 @@
             // textBoxCariEposta
             // 
             this.textBoxCariEposta.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
-            this.textBoxCariEposta.Location = new System.Drawing.Point(74, 92);
+            this.textBoxCariEposta.Location = new System.Drawing.Point(81, 97);
             this.textBoxCariEposta.Name = "textBoxCariEposta";
             this.textBoxCariEposta.Size = new System.Drawing.Size(129, 20);
             this.textBoxCariEposta.TabIndex = 777;
             // 
             // dateTimePickerDelivery
             // 
-            this.dateTimePickerDelivery.Location = new System.Drawing.Point(219, 40);
+            this.dateTimePickerDelivery.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.dateTimePickerDelivery.Location = new System.Drawing.Point(187, 138);
             this.dateTimePickerDelivery.Name = "dateTimePickerDelivery";
-            this.dateTimePickerDelivery.Size = new System.Drawing.Size(179, 20);
+            this.dateTimePickerDelivery.Size = new System.Drawing.Size(149, 20);
             this.dateTimePickerDelivery.TabIndex = 80;
             // 
             // groupBoxCari
             // 
-            this.groupBoxCari.Controls.Add(this.buttonCariBoyutla);
+            this.groupBoxCari.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.groupBoxCari.Controls.Add(this.buttonCariGuncelle);
             this.groupBoxCari.Controls.Add(this.buttonCariAra);
             this.groupBoxCari.Controls.Add(this.buttonCariBirak);
@@ -224,26 +206,16 @@
             this.groupBoxCari.Controls.Add(this.label7);
             this.groupBoxCari.Controls.Add(this.label3);
             this.groupBoxCari.Controls.Add(this.dataGridViewCari);
-            this.groupBoxCari.Location = new System.Drawing.Point(12, 449);
+            this.groupBoxCari.Location = new System.Drawing.Point(205, 471);
             this.groupBoxCari.Name = "groupBoxCari";
-            this.groupBoxCari.Size = new System.Drawing.Size(671, 159);
+            this.groupBoxCari.Size = new System.Drawing.Size(794, 193);
             this.groupBoxCari.TabIndex = 300;
             this.groupBoxCari.TabStop = false;
             this.groupBoxCari.Text = "Müşteri Bilgileri";
             // 
-            // buttonCariBoyutla
-            // 
-            this.buttonCariBoyutla.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.buttonCariBoyutla.Location = new System.Drawing.Point(3, 138);
-            this.buttonCariBoyutla.Name = "buttonCariBoyutla";
-            this.buttonCariBoyutla.Size = new System.Drawing.Size(665, 18);
-            this.buttonCariBoyutla.TabIndex = 777;
-            this.buttonCariBoyutla.Text = "˅-˄";
-            this.buttonCariBoyutla.UseVisualStyleBackColor = true;
-            // 
             // buttonCariGuncelle
             // 
-            this.buttonCariGuncelle.Location = new System.Drawing.Point(209, 63);
+            this.buttonCariGuncelle.Location = new System.Drawing.Point(216, 68);
             this.buttonCariGuncelle.Name = "buttonCariGuncelle";
             this.buttonCariGuncelle.Size = new System.Drawing.Size(58, 38);
             this.buttonCariGuncelle.TabIndex = 777;
@@ -252,7 +224,7 @@
             // 
             // buttonCariAra
             // 
-            this.buttonCariAra.Location = new System.Drawing.Point(210, 15);
+            this.buttonCariAra.Location = new System.Drawing.Point(217, 20);
             this.buttonCariAra.Name = "buttonCariAra";
             this.buttonCariAra.Size = new System.Drawing.Size(57, 42);
             this.buttonCariAra.TabIndex = 777;
@@ -262,9 +234,9 @@
             // 
             // buttonCariBirak
             // 
-            this.buttonCariBirak.Location = new System.Drawing.Point(615, 79);
+            this.buttonCariBirak.Location = new System.Drawing.Point(287, 68);
             this.buttonCariBirak.Name = "buttonCariBirak";
-            this.buttonCariBirak.Size = new System.Drawing.Size(47, 53);
+            this.buttonCariBirak.Size = new System.Drawing.Size(52, 38);
             this.buttonCariBirak.TabIndex = 777;
             this.buttonCariBirak.Text = "Bırak";
             this.buttonCariBirak.UseVisualStyleBackColor = true;
@@ -272,9 +244,9 @@
             // 
             // buttonCariSec
             // 
-            this.buttonCariSec.Location = new System.Drawing.Point(615, 15);
+            this.buttonCariSec.Location = new System.Drawing.Point(286, 20);
             this.buttonCariSec.Name = "buttonCariSec";
-            this.buttonCariSec.Size = new System.Drawing.Size(47, 60);
+            this.buttonCariSec.Size = new System.Drawing.Size(53, 42);
             this.buttonCariSec.TabIndex = 777;
             this.buttonCariSec.Text = "Seç";
             this.buttonCariSec.UseVisualStyleBackColor = true;
@@ -282,7 +254,7 @@
             // 
             // textBoxCariAciklama
             // 
-            this.textBoxCariAciklama.Location = new System.Drawing.Point(73, 117);
+            this.textBoxCariAciklama.Location = new System.Drawing.Point(80, 122);
             this.textBoxCariAciklama.Name = "textBoxCariAciklama";
             this.textBoxCariAciklama.Size = new System.Drawing.Size(130, 20);
             this.textBoxCariAciklama.TabIndex = 777;
@@ -290,7 +262,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(16, 120);
+            this.label10.Location = new System.Drawing.Point(23, 125);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(53, 13);
             this.label10.TabIndex = 8;
@@ -298,7 +270,7 @@
             // 
             // textBoxCariCep
             // 
-            this.textBoxCariCep.Location = new System.Drawing.Point(74, 40);
+            this.textBoxCariCep.Location = new System.Drawing.Point(81, 45);
             this.textBoxCariCep.Name = "textBoxCariCep";
             this.textBoxCariCep.Size = new System.Drawing.Size(129, 20);
             this.textBoxCariCep.TabIndex = 777;
@@ -306,7 +278,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(1, 44);
+            this.label7.Location = new System.Drawing.Point(8, 49);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(68, 13);
             this.label7.TabIndex = 6;
@@ -314,54 +286,66 @@
             // 
             // dataGridViewCari
             // 
+            this.dataGridViewCari.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.dataGridViewCari.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewCari.Location = new System.Drawing.Point(273, 14);
+            this.dataGridViewCari.Location = new System.Drawing.Point(345, 19);
             this.dataGridViewCari.MultiSelect = false;
             this.dataGridViewCari.Name = "dataGridViewCari";
             this.dataGridViewCari.ReadOnly = true;
             this.dataGridViewCari.RowHeadersWidth = 20;
-            this.dataGridViewCari.Size = new System.Drawing.Size(336, 119);
+            this.dataGridViewCari.Size = new System.Drawing.Size(443, 168);
             this.dataGridViewCari.TabIndex = 777;
             this.dataGridViewCari.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewCari_CellContentDoubleClick);
             // 
-            // groupBoxUrun
-            // 
-            this.groupBoxUrun.Controls.Add(this.groupBoxSearch);
-            this.groupBoxUrun.Controls.Add(this.buttonProductEdit);
-            this.groupBoxUrun.Controls.Add(this.buttonProductAdd);
-            this.groupBoxUrun.Controls.Add(this.groupBoxProductDetails);
-            this.groupBoxUrun.Location = new System.Drawing.Point(12, 12);
-            this.groupBoxUrun.Name = "groupBoxUrun";
-            this.groupBoxUrun.Size = new System.Drawing.Size(854, 281);
-            this.groupBoxUrun.TabIndex = 0;
-            this.groupBoxUrun.TabStop = false;
-            this.groupBoxUrun.Text = "Ürün Bilgileri";
-            // 
             // groupBoxSearch
             // 
+            this.groupBoxSearch.Controls.Add(this.buttonRemoveFavorite);
+            this.groupBoxSearch.Controls.Add(this.buttonAddFavorite);
+            this.groupBoxSearch.Controls.Add(this.listBoxProductFavorite);
+            this.groupBoxSearch.Controls.Add(this.buttonProductEdit);
             this.groupBoxSearch.Controls.Add(this.textBoxProductSearch);
+            this.groupBoxSearch.Controls.Add(this.buttonProductAdd);
             this.groupBoxSearch.Controls.Add(this.buttonProductSearch);
             this.groupBoxSearch.Controls.Add(this.dataGridViewProductSelect);
-            this.groupBoxSearch.Location = new System.Drawing.Point(6, 16);
+            this.groupBoxSearch.Location = new System.Drawing.Point(18, 12);
             this.groupBoxSearch.Name = "groupBoxSearch";
-            this.groupBoxSearch.Size = new System.Drawing.Size(737, 163);
+            this.groupBoxSearch.Size = new System.Drawing.Size(981, 163);
             this.groupBoxSearch.TabIndex = 0;
             this.groupBoxSearch.TabStop = false;
             this.groupBoxSearch.Text = "Ürün Arama";
             // 
+            // buttonProductEdit
+            // 
+            this.buttonProductEdit.Location = new System.Drawing.Point(241, 131);
+            this.buttonProductEdit.Name = "buttonProductEdit";
+            this.buttonProductEdit.Size = new System.Drawing.Size(135, 23);
+            this.buttonProductEdit.TabIndex = 777;
+            this.buttonProductEdit.Text = "Ürünü Düzenle";
+            this.buttonProductEdit.UseVisualStyleBackColor = true;
+            // 
             // textBoxProductSearch
             // 
-            this.textBoxProductSearch.Location = new System.Drawing.Point(6, 19);
+            this.textBoxProductSearch.Location = new System.Drawing.Point(171, 19);
             this.textBoxProductSearch.Name = "textBoxProductSearch";
-            this.textBoxProductSearch.Size = new System.Drawing.Size(147, 20);
+            this.textBoxProductSearch.Size = new System.Drawing.Size(140, 20);
             this.textBoxProductSearch.TabIndex = 0;
             this.textBoxProductSearch.TextChanged += new System.EventHandler(this.textBoxProductSearch_TextChanged);
             // 
+            // buttonProductAdd
+            // 
+            this.buttonProductAdd.Location = new System.Drawing.Point(241, 102);
+            this.buttonProductAdd.Name = "buttonProductAdd";
+            this.buttonProductAdd.Size = new System.Drawing.Size(135, 23);
+            this.buttonProductAdd.TabIndex = 777;
+            this.buttonProductAdd.Text = "Yeni Ürün";
+            this.buttonProductAdd.UseVisualStyleBackColor = true;
+            this.buttonProductAdd.Click += new System.EventHandler(this.buttonProductAdd_Click);
+            // 
             // buttonProductSearch
             // 
-            this.buttonProductSearch.Location = new System.Drawing.Point(171, 16);
+            this.buttonProductSearch.Location = new System.Drawing.Point(313, 19);
             this.buttonProductSearch.Name = "buttonProductSearch";
-            this.buttonProductSearch.Size = new System.Drawing.Size(51, 23);
+            this.buttonProductSearch.Size = new System.Drawing.Size(63, 23);
             this.buttonProductSearch.TabIndex = 15;
             this.buttonProductSearch.Text = "Ara";
             this.buttonProductSearch.UseVisualStyleBackColor = true;
@@ -371,40 +355,20 @@
             // 
             this.dataGridViewProductSelect.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)));
+            this.dataGridViewProductSelect.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewProductSelect.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewProductSelect.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dataGridViewProductSelect.Location = new System.Drawing.Point(4, 45);
+            this.dataGridViewProductSelect.Location = new System.Drawing.Point(382, 19);
             this.dataGridViewProductSelect.MultiSelect = false;
             this.dataGridViewProductSelect.Name = "dataGridViewProductSelect";
             this.dataGridViewProductSelect.ReadOnly = true;
             this.dataGridViewProductSelect.RowHeadersWidth = 20;
-            this.dataGridViewProductSelect.Size = new System.Drawing.Size(727, 112);
+            this.dataGridViewProductSelect.Size = new System.Drawing.Size(593, 138);
             this.dataGridViewProductSelect.TabIndex = 20;
             this.dataGridViewProductSelect.SelectionChanged += new System.EventHandler(this.dataGridViewProductSelect_SelectionChanged);
             // 
-            // buttonProductEdit
-            // 
-            this.buttonProductEdit.Location = new System.Drawing.Point(749, 46);
-            this.buttonProductEdit.Name = "buttonProductEdit";
-            this.buttonProductEdit.Size = new System.Drawing.Size(96, 23);
-            this.buttonProductEdit.TabIndex = 777;
-            this.buttonProductEdit.Text = "Ürünü Düzenle";
-            this.buttonProductEdit.UseVisualStyleBackColor = true;
-            // 
-            // buttonProductAdd
-            // 
-            this.buttonProductAdd.Location = new System.Drawing.Point(749, 156);
-            this.buttonProductAdd.Name = "buttonProductAdd";
-            this.buttonProductAdd.Size = new System.Drawing.Size(96, 23);
-            this.buttonProductAdd.TabIndex = 777;
-            this.buttonProductAdd.Text = "Yeni Ürün";
-            this.buttonProductAdd.UseVisualStyleBackColor = true;
-            this.buttonProductAdd.Click += new System.EventHandler(this.buttonProductAdd_Click);
-            // 
             // groupBoxProductDetails
             // 
-            this.groupBoxProductDetails.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)));
             this.groupBoxProductDetails.Controls.Add(this.label20);
             this.groupBoxProductDetails.Controls.Add(this.textBoxAciklama);
             this.groupBoxProductDetails.Controls.Add(this.comboBoxKullanici);
@@ -426,17 +390,18 @@
             this.groupBoxProductDetails.Controls.Add(this.label8);
             this.groupBoxProductDetails.Controls.Add(this.textBoxProductDiscount);
             this.groupBoxProductDetails.Controls.Add(this.label13);
-            this.groupBoxProductDetails.Location = new System.Drawing.Point(6, 185);
+            this.groupBoxProductDetails.Location = new System.Drawing.Point(15, 189);
             this.groupBoxProductDetails.Name = "groupBoxProductDetails";
-            this.groupBoxProductDetails.Size = new System.Drawing.Size(848, 88);
+            this.groupBoxProductDetails.Size = new System.Drawing.Size(379, 271);
             this.groupBoxProductDetails.TabIndex = 100;
             this.groupBoxProductDetails.TabStop = false;
             this.groupBoxProductDetails.Text = "Ürün Detayları";
             // 
             // label20
             // 
+            this.label20.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(157, 105);
+            this.label20.Location = new System.Drawing.Point(125, 190);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(53, 13);
             this.label20.TabIndex = 502;
@@ -444,26 +409,29 @@
             // 
             // textBoxAciklama
             // 
-            this.textBoxAciklama.Location = new System.Drawing.Point(216, 102);
+            this.textBoxAciklama.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxAciklama.Location = new System.Drawing.Point(187, 190);
             this.textBoxAciklama.MaxLength = 150;
             this.textBoxAciklama.Multiline = true;
             this.textBoxAciklama.Name = "textBoxAciklama";
-            this.textBoxAciklama.Size = new System.Drawing.Size(255, 89);
+            this.textBoxAciklama.Size = new System.Drawing.Size(186, 72);
             this.textBoxAciklama.TabIndex = 501;
             // 
             // comboBoxKullanici
             // 
+            this.comboBoxKullanici.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.comboBoxKullanici.FormattingEnabled = true;
-            this.comboBoxKullanici.Location = new System.Drawing.Point(625, 36);
+            this.comboBoxKullanici.Location = new System.Drawing.Point(187, 102);
             this.comboBoxKullanici.Name = "comboBoxKullanici";
-            this.comboBoxKullanici.Size = new System.Drawing.Size(105, 21);
+            this.comboBoxKullanici.Size = new System.Drawing.Size(92, 21);
             this.comboBoxKullanici.TabIndex = 50;
             this.comboBoxKullanici.SelectedIndexChanged += new System.EventHandler(this.comboBoxKullanici_SelectedIndexChanged);
             this.comboBoxKullanici.Click += new System.EventHandler(this.comboBoxKullanici_Click);
             // 
             // numericMinute
             // 
-            this.numericMinute.Location = new System.Drawing.Point(267, 66);
+            this.numericMinute.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.numericMinute.Location = new System.Drawing.Point(235, 164);
             this.numericMinute.Maximum = new decimal(new int[] {
             59,
             0,
@@ -475,7 +443,8 @@
             // 
             // numericHour
             // 
-            this.numericHour.Location = new System.Drawing.Point(219, 66);
+            this.numericHour.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.numericHour.Location = new System.Drawing.Point(187, 164);
             this.numericHour.Maximum = new decimal(new int[] {
             23,
             0,
@@ -488,7 +457,7 @@
             // labelProductSelectedBarcode
             // 
             this.labelProductSelectedBarcode.AutoSize = true;
-            this.labelProductSelectedBarcode.Location = new System.Drawing.Point(175, 20);
+            this.labelProductSelectedBarcode.Location = new System.Drawing.Point(6, 22);
             this.labelProductSelectedBarcode.Name = "labelProductSelectedBarcode";
             this.labelProductSelectedBarcode.Size = new System.Drawing.Size(0, 13);
             this.labelProductSelectedBarcode.TabIndex = 94;
@@ -496,7 +465,7 @@
             // labelProductSelectedModel
             // 
             this.labelProductSelectedModel.AutoSize = true;
-            this.labelProductSelectedModel.Location = new System.Drawing.Point(17, 62);
+            this.labelProductSelectedModel.Location = new System.Drawing.Point(6, 90);
             this.labelProductSelectedModel.Name = "labelProductSelectedModel";
             this.labelProductSelectedModel.Size = new System.Drawing.Size(0, 13);
             this.labelProductSelectedModel.TabIndex = 93;
@@ -504,7 +473,7 @@
             // labelProductSelectedBrand
             // 
             this.labelProductSelectedBrand.AutoSize = true;
-            this.labelProductSelectedBrand.Location = new System.Drawing.Point(17, 39);
+            this.labelProductSelectedBrand.Location = new System.Drawing.Point(6, 67);
             this.labelProductSelectedBrand.Name = "labelProductSelectedBrand";
             this.labelProductSelectedBrand.Size = new System.Drawing.Size(0, 13);
             this.labelProductSelectedBrand.TabIndex = 93;
@@ -512,7 +481,7 @@
             // labelProductSelectedName
             // 
             this.labelProductSelectedName.AutoSize = true;
-            this.labelProductSelectedName.Location = new System.Drawing.Point(17, 18);
+            this.labelProductSelectedName.Location = new System.Drawing.Point(6, 46);
             this.labelProductSelectedName.Name = "labelProductSelectedName";
             this.labelProductSelectedName.Size = new System.Drawing.Size(67, 13);
             this.labelProductSelectedName.TabIndex = 93;
@@ -520,8 +489,9 @@
             // 
             // label11
             // 
+            this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(141, 45);
+            this.label11.Location = new System.Drawing.Point(109, 143);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(69, 13);
             this.label11.TabIndex = 81;
@@ -529,8 +499,9 @@
             // 
             // checkBoxArchived
             // 
+            this.checkBoxArchived.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.checkBoxArchived.AutoSize = true;
-            this.checkBoxArchived.Location = new System.Drawing.Point(634, 67);
+            this.checkBoxArchived.Location = new System.Drawing.Point(316, 106);
             this.checkBoxArchived.Name = "checkBoxArchived";
             this.checkBoxArchived.Size = new System.Drawing.Size(57, 17);
             this.checkBoxArchived.TabIndex = 92;
@@ -539,7 +510,8 @@
             // 
             // numericProductCount
             // 
-            this.numericProductCount.Location = new System.Drawing.Point(480, 13);
+            this.numericProductCount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.numericProductCount.Location = new System.Drawing.Point(187, 20);
             this.numericProductCount.Name = "numericProductCount";
             this.numericProductCount.Size = new System.Drawing.Size(75, 20);
             this.numericProductCount.TabIndex = 30;
@@ -551,9 +523,10 @@
             // 
             // buttonProductInsert
             // 
-            this.buttonProductInsert.Location = new System.Drawing.Point(743, 18);
+            this.buttonProductInsert.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonProductInsert.Location = new System.Drawing.Point(281, 18);
             this.buttonProductInsert.Name = "buttonProductInsert";
-            this.buttonProductInsert.Size = new System.Drawing.Size(96, 64);
+            this.buttonProductInsert.Size = new System.Drawing.Size(92, 82);
             this.buttonProductInsert.TabIndex = 60;
             this.buttonProductInsert.Text = "Kaydet";
             this.buttonProductInsert.UseVisualStyleBackColor = true;
@@ -561,8 +534,9 @@
             // 
             // label6
             // 
+            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(442, 15);
+            this.label6.Location = new System.Drawing.Point(149, 22);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(32, 13);
             this.label6.TabIndex = 4;
@@ -570,7 +544,8 @@
             // 
             // textBoxProductPrice
             // 
-            this.textBoxProductPrice.Location = new System.Drawing.Point(480, 39);
+            this.textBoxProductPrice.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxProductPrice.Location = new System.Drawing.Point(187, 46);
             this.textBoxProductPrice.Name = "textBoxProductPrice";
             this.textBoxProductPrice.Size = new System.Drawing.Size(88, 20);
             this.textBoxProductPrice.TabIndex = 40;
@@ -578,8 +553,9 @@
             // 
             // label12
             // 
+            this.label12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(143, 69);
+            this.label12.Location = new System.Drawing.Point(111, 167);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(67, 13);
             this.label12.TabIndex = 17;
@@ -587,8 +563,9 @@
             // 
             // label9
             // 
+            this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(434, 68);
+            this.label9.Location = new System.Drawing.Point(141, 75);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(40, 13);
             this.label9.TabIndex = 17;
@@ -596,8 +573,9 @@
             // 
             // label8
             // 
+            this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(442, 42);
+            this.label8.Location = new System.Drawing.Point(149, 49);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(32, 13);
             this.label8.TabIndex = 17;
@@ -605,7 +583,8 @@
             // 
             // textBoxProductDiscount
             // 
-            this.textBoxProductDiscount.Location = new System.Drawing.Point(480, 65);
+            this.textBoxProductDiscount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxProductDiscount.Location = new System.Drawing.Point(187, 72);
             this.textBoxProductDiscount.Name = "textBoxProductDiscount";
             this.textBoxProductDiscount.Size = new System.Drawing.Size(88, 20);
             this.textBoxProductDiscount.TabIndex = 500;
@@ -613,8 +592,9 @@
             // 
             // label13
             // 
+            this.label13.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(257, 69);
+            this.label13.Location = new System.Drawing.Point(225, 167);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(10, 13);
             this.label13.TabIndex = 96;
@@ -622,9 +602,10 @@
             // 
             // buttonProductSelectedDelete
             // 
-            this.buttonProductSelectedDelete.Location = new System.Drawing.Point(749, 104);
+            this.buttonProductSelectedDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.buttonProductSelectedDelete.Location = new System.Drawing.Point(6, 228);
             this.buttonProductSelectedDelete.Name = "buttonProductSelectedDelete";
-            this.buttonProductSelectedDelete.Size = new System.Drawing.Size(96, 34);
+            this.buttonProductSelectedDelete.Size = new System.Drawing.Size(85, 34);
             this.buttonProductSelectedDelete.TabIndex = 777;
             this.buttonProductSelectedDelete.Text = "Siparişi İptal Et";
             this.buttonProductSelectedDelete.UseVisualStyleBackColor = true;
@@ -632,9 +613,10 @@
             // 
             // buttonProductSelectedEdit
             // 
-            this.buttonProductSelectedEdit.Location = new System.Drawing.Point(749, 19);
+            this.buttonProductSelectedEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonProductSelectedEdit.Location = new System.Drawing.Point(458, 231);
             this.buttonProductSelectedEdit.Name = "buttonProductSelectedEdit";
-            this.buttonProductSelectedEdit.Size = new System.Drawing.Size(96, 70);
+            this.buttonProductSelectedEdit.Size = new System.Drawing.Size(135, 34);
             this.buttonProductSelectedEdit.TabIndex = 777;
             this.buttonProductSelectedEdit.Text = "Siparişi Düzenle";
             this.buttonProductSelectedEdit.UseVisualStyleBackColor = true;
@@ -644,13 +626,14 @@
             // 
             this.dataGridViewProductSelected.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)));
+            this.dataGridViewProductSelected.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewProductSelected.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewProductSelected.Location = new System.Drawing.Point(4, 19);
             this.dataGridViewProductSelected.MultiSelect = false;
             this.dataGridViewProductSelected.Name = "dataGridViewProductSelected";
             this.dataGridViewProductSelected.ReadOnly = true;
             this.dataGridViewProductSelected.RowHeadersWidth = 20;
-            this.dataGridViewProductSelected.Size = new System.Drawing.Size(732, 119);
+            this.dataGridViewProductSelected.Size = new System.Drawing.Size(589, 205);
             this.dataGridViewProductSelected.TabIndex = 2;
             this.dataGridViewProductSelected.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewProductSelected_CellContentDoubleClick);
             // 
@@ -674,13 +657,11 @@
             // 
             // groupBoxArchive
             // 
-            this.groupBoxArchive.Controls.Add(this.label1);
-            this.groupBoxArchive.Controls.Add(this.textBoxArchiveNo);
             this.groupBoxArchive.Controls.Add(this.comboBoxArchiveType);
             this.groupBoxArchive.Controls.Add(this.label5);
-            this.groupBoxArchive.Location = new System.Drawing.Point(12, 610);
+            this.groupBoxArchive.Location = new System.Drawing.Point(319, 678);
             this.groupBoxArchive.Name = "groupBoxArchive";
-            this.groupBoxArchive.Size = new System.Drawing.Size(365, 32);
+            this.groupBoxArchive.Size = new System.Drawing.Size(192, 32);
             this.groupBoxArchive.TabIndex = 91;
             this.groupBoxArchive.TabStop = false;
             this.groupBoxArchive.Text = "Arşiv Bilgileri";
@@ -688,18 +669,19 @@
             // 
             // groupBoxOrders
             // 
-            this.groupBoxOrders.Controls.Add(this.dataGridViewProductSelected);
             this.groupBoxOrders.Controls.Add(this.buttonProductSelectedEdit);
             this.groupBoxOrders.Controls.Add(this.buttonProductSelectedDelete);
-            this.groupBoxOrders.Location = new System.Drawing.Point(12, 299);
+            this.groupBoxOrders.Controls.Add(this.dataGridViewProductSelected);
+            this.groupBoxOrders.Location = new System.Drawing.Point(400, 189);
             this.groupBoxOrders.Name = "groupBoxOrders";
-            this.groupBoxOrders.Size = new System.Drawing.Size(854, 144);
+            this.groupBoxOrders.Size = new System.Drawing.Size(599, 271);
             this.groupBoxOrders.TabIndex = 200;
             this.groupBoxOrders.TabStop = false;
             this.groupBoxOrders.Text = "Siparişler";
             // 
             // groupBoxHesap
             // 
+            this.groupBoxHesap.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.groupBoxHesap.Controls.Add(this.label18);
             this.groupBoxHesap.Controls.Add(this.comboBoxOdemeTipi);
             this.groupBoxHesap.Controls.Add(this.labelBorc);
@@ -711,9 +693,9 @@
             this.groupBoxHesap.Controls.Add(this.label16);
             this.groupBoxHesap.Controls.Add(this.label15);
             this.groupBoxHesap.Controls.Add(this.label14);
-            this.groupBoxHesap.Location = new System.Drawing.Point(689, 449);
+            this.groupBoxHesap.Location = new System.Drawing.Point(15, 466);
             this.groupBoxHesap.Name = "groupBoxHesap";
-            this.groupBoxHesap.Size = new System.Drawing.Size(177, 159);
+            this.groupBoxHesap.Size = new System.Drawing.Size(177, 198);
             this.groupBoxHesap.TabIndex = 400;
             this.groupBoxHesap.TabStop = false;
             this.groupBoxHesap.Text = "Bakiye";
@@ -816,18 +798,45 @@
             this.label14.TabIndex = 0;
             this.label14.Text = "Toplam Tutar:";
             // 
+            // listBoxProductFavorite
+            // 
+            this.listBoxProductFavorite.FormattingEnabled = true;
+            this.listBoxProductFavorite.Location = new System.Drawing.Point(6, 17);
+            this.listBoxProductFavorite.Name = "listBoxProductFavorite";
+            this.listBoxProductFavorite.Size = new System.Drawing.Size(159, 134);
+            this.listBoxProductFavorite.TabIndex = 778;
+            // 
+            // buttonAddFavorite
+            // 
+            this.buttonAddFavorite.Location = new System.Drawing.Point(278, 73);
+            this.buttonAddFavorite.Name = "buttonAddFavorite";
+            this.buttonAddFavorite.Size = new System.Drawing.Size(98, 23);
+            this.buttonAddFavorite.TabIndex = 779;
+            this.buttonAddFavorite.Text = "<< Listeye Ekle";
+            this.buttonAddFavorite.UseVisualStyleBackColor = true;
+            // 
+            // buttonRemoveFavorite
+            // 
+            this.buttonRemoveFavorite.Location = new System.Drawing.Point(171, 73);
+            this.buttonRemoveFavorite.Name = "buttonRemoveFavorite";
+            this.buttonRemoveFavorite.Size = new System.Drawing.Size(92, 23);
+            this.buttonRemoveFavorite.TabIndex = 780;
+            this.buttonRemoveFavorite.Text = "Listeden Sil>>";
+            this.buttonRemoveFavorite.UseVisualStyleBackColor = true;
+            // 
             // FormNewRecord
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(869, 642);
+            this.ClientSize = new System.Drawing.Size(1008, 717);
+            this.Controls.Add(this.groupBoxOrders);
+            this.Controls.Add(this.groupBoxProductDetails);
+            this.Controls.Add(this.groupBoxSearch);
             this.Controls.Add(this.groupBoxHesap);
             this.Controls.Add(this.groupBoxCari);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.groupBoxArchive);
-            this.Controls.Add(this.groupBoxOrders);
-            this.Controls.Add(this.groupBoxUrun);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormNewRecord";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -836,7 +845,6 @@
             this.groupBoxCari.ResumeLayout(false);
             this.groupBoxCari.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCari)).EndInit();
-            this.groupBoxUrun.ResumeLayout(false);
             this.groupBoxSearch.ResumeLayout(false);
             this.groupBoxSearch.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProductSelect)).EndInit();
@@ -860,8 +868,6 @@
         private System.Windows.Forms.TextBox textBoxCariAd;
         private System.Windows.Forms.Button buttonSave;
         private System.Windows.Forms.Button buttonCancel;
-        private System.Windows.Forms.TextBox textBoxArchiveNo;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBoxCariTel;
@@ -870,7 +876,6 @@
         private System.Windows.Forms.DateTimePicker dateTimePickerDelivery;
         private System.Windows.Forms.GroupBox groupBoxCari;
         private System.Windows.Forms.DataGridView dataGridViewCari;
-        private System.Windows.Forms.GroupBox groupBoxUrun;
         private System.Windows.Forms.ComboBox comboBoxArchiveType;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
@@ -910,7 +915,6 @@
         private System.Windows.Forms.Button buttonCariGuncelle;
         private System.Windows.Forms.GroupBox groupBoxSearch;
         private System.Windows.Forms.GroupBox groupBoxOrders;
-        private System.Windows.Forms.Button buttonCariBoyutla;
         private System.Windows.Forms.GroupBox groupBoxHesap;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label15;
@@ -926,5 +930,8 @@
         private System.Windows.Forms.ComboBox comboBoxOdemeTipi;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.TextBox textBoxAciklama;
+        private System.Windows.Forms.ListBox listBoxProductFavorite;
+        private System.Windows.Forms.Button buttonAddFavorite;
+        private System.Windows.Forms.Button buttonRemoveFavorite;
     }
 }
