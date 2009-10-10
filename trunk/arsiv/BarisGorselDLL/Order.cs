@@ -83,7 +83,7 @@ namespace arsiv.BarisGorselDLL
         }
 
 
-        public void Sil()
+        public void SepetSil()
         {
             Connect();
             SqlCommand cmd = new SqlCommand("SiparisSil", Connection);
