@@ -92,6 +92,11 @@
             this.label16 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
+            this.textBoxCariVergiDairesi = new System.Windows.Forms.TextBox();
+            this.label21 = new System.Windows.Forms.Label();
+            this.textBoxCariVergiNo = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
             this.groupBoxCari.SuspendLayout();
             this.groupBoxSearch.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProductSelect)).BeginInit();
@@ -108,7 +113,7 @@
             // 
             // textBoxCariAd
             // 
-            this.textBoxCariAd.Location = new System.Drawing.Point(74, 14);
+            this.textBoxCariAd.Location = new System.Drawing.Point(84, 14);
             this.textBoxCariAd.Name = "textBoxCariAd";
             this.textBoxCariAd.Size = new System.Drawing.Size(129, 20);
             this.textBoxCariAd.TabIndex = 888;
@@ -136,7 +141,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(13, 20);
+            this.label2.Location = new System.Drawing.Point(23, 20);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(56, 13);
             this.label2.TabIndex = 5;
@@ -145,7 +150,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(23, 70);
+            this.label3.Location = new System.Drawing.Point(33, 70);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(46, 13);
             this.label3.TabIndex = 6;
@@ -153,7 +158,7 @@
             // 
             // textBoxCariTel
             // 
-            this.textBoxCariTel.Location = new System.Drawing.Point(74, 67);
+            this.textBoxCariTel.Location = new System.Drawing.Point(84, 67);
             this.textBoxCariTel.Name = "textBoxCariTel";
             this.textBoxCariTel.Size = new System.Drawing.Size(129, 20);
             this.textBoxCariTel.TabIndex = 777;
@@ -161,7 +166,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(23, 95);
+            this.label4.Location = new System.Drawing.Point(33, 95);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(46, 13);
             this.label4.TabIndex = 8;
@@ -170,7 +175,7 @@
             // textBoxCariEposta
             // 
             this.textBoxCariEposta.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
-            this.textBoxCariEposta.Location = new System.Drawing.Point(74, 92);
+            this.textBoxCariEposta.Location = new System.Drawing.Point(84, 92);
             this.textBoxCariEposta.Name = "textBoxCariEposta";
             this.textBoxCariEposta.Size = new System.Drawing.Size(129, 20);
             this.textBoxCariEposta.TabIndex = 777;
@@ -178,13 +183,18 @@
             // dateTimePickerDelivery
             // 
             this.dateTimePickerDelivery.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.dateTimePickerDelivery.Location = new System.Drawing.Point(187, 127);
+            this.dateTimePickerDelivery.Location = new System.Drawing.Point(191, 127);
             this.dateTimePickerDelivery.Name = "dateTimePickerDelivery";
             this.dateTimePickerDelivery.Size = new System.Drawing.Size(179, 20);
             this.dateTimePickerDelivery.TabIndex = 80;
             // 
             // groupBoxCari
             // 
+            this.groupBoxCari.Controls.Add(this.label22);
+            this.groupBoxCari.Controls.Add(this.textBoxCariVergiDairesi);
+            this.groupBoxCari.Controls.Add(this.label21);
+            this.groupBoxCari.Controls.Add(this.textBoxCariVergiNo);
+            this.groupBoxCari.Controls.Add(this.label1);
             this.groupBoxCari.Controls.Add(this.buttonCariGuncelle);
             this.groupBoxCari.Controls.Add(this.textBoxCariAd);
             this.groupBoxCari.Controls.Add(this.textBoxCariAciklama);
@@ -198,16 +208,16 @@
             this.groupBoxCari.Controls.Add(this.label3);
             this.groupBoxCari.Location = new System.Drawing.Point(12, 8);
             this.groupBoxCari.Name = "groupBoxCari";
-            this.groupBoxCari.Size = new System.Drawing.Size(385, 175);
+            this.groupBoxCari.Size = new System.Drawing.Size(385, 193);
             this.groupBoxCari.TabIndex = 300;
             this.groupBoxCari.TabStop = false;
             this.groupBoxCari.Text = "Müşteri Bilgileri";
             // 
             // buttonCariGuncelle
             // 
-            this.buttonCariGuncelle.Location = new System.Drawing.Point(321, 14);
+            this.buttonCariGuncelle.Location = new System.Drawing.Point(222, 58);
             this.buttonCariGuncelle.Name = "buttonCariGuncelle";
-            this.buttonCariGuncelle.Size = new System.Drawing.Size(58, 38);
+            this.buttonCariGuncelle.Size = new System.Drawing.Size(78, 38);
             this.buttonCariGuncelle.TabIndex = 777;
             this.buttonCariGuncelle.Text = "Guncelle";
             this.buttonCariGuncelle.UseVisualStyleBackColor = true;
@@ -215,7 +225,7 @@
             // 
             // textBoxCariAciklama
             // 
-            this.textBoxCariAciklama.Location = new System.Drawing.Point(73, 117);
+            this.textBoxCariAciklama.Location = new System.Drawing.Point(83, 117);
             this.textBoxCariAciklama.Name = "textBoxCariAciklama";
             this.textBoxCariAciklama.Size = new System.Drawing.Size(130, 20);
             this.textBoxCariAciklama.TabIndex = 777;
@@ -223,7 +233,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(16, 120);
+            this.label10.Location = new System.Drawing.Point(26, 120);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(53, 13);
             this.label10.TabIndex = 8;
@@ -231,7 +241,7 @@
             // 
             // textBoxCariCep
             // 
-            this.textBoxCariCep.Location = new System.Drawing.Point(74, 40);
+            this.textBoxCariCep.Location = new System.Drawing.Point(84, 40);
             this.textBoxCariCep.Name = "textBoxCariCep";
             this.textBoxCariCep.Size = new System.Drawing.Size(129, 20);
             this.textBoxCariCep.TabIndex = 777;
@@ -239,7 +249,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(1, 44);
+            this.label7.Location = new System.Drawing.Point(11, 44);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(68, 13);
             this.label7.TabIndex = 6;
@@ -252,9 +262,9 @@
             this.groupBoxSearch.Controls.Add(this.buttonProductEdit);
             this.groupBoxSearch.Controls.Add(this.buttonProductSearch);
             this.groupBoxSearch.Controls.Add(this.dataGridViewProductSelect);
-            this.groupBoxSearch.Location = new System.Drawing.Point(12, 460);
+            this.groupBoxSearch.Location = new System.Drawing.Point(12, 482);
             this.groupBoxSearch.Name = "groupBoxSearch";
-            this.groupBoxSearch.Size = new System.Drawing.Size(984, 207);
+            this.groupBoxSearch.Size = new System.Drawing.Size(984, 190);
             this.groupBoxSearch.TabIndex = 0;
             this.groupBoxSearch.TabStop = false;
             this.groupBoxSearch.Text = "Ürün Arama";
@@ -269,7 +279,7 @@
             // 
             // buttonProductAdd
             // 
-            this.buttonProductAdd.Location = new System.Drawing.Point(126, 178);
+            this.buttonProductAdd.Location = new System.Drawing.Point(130, 149);
             this.buttonProductAdd.Name = "buttonProductAdd";
             this.buttonProductAdd.Size = new System.Drawing.Size(96, 23);
             this.buttonProductAdd.TabIndex = 777;
@@ -279,7 +289,7 @@
             // 
             // buttonProductEdit
             // 
-            this.buttonProductEdit.Location = new System.Drawing.Point(126, 149);
+            this.buttonProductEdit.Location = new System.Drawing.Point(130, 120);
             this.buttonProductEdit.Name = "buttonProductEdit";
             this.buttonProductEdit.Size = new System.Drawing.Size(96, 23);
             this.buttonProductEdit.TabIndex = 777;
@@ -308,7 +318,7 @@
             this.dataGridViewProductSelect.Name = "dataGridViewProductSelect";
             this.dataGridViewProductSelect.ReadOnly = true;
             this.dataGridViewProductSelect.RowHeadersWidth = 20;
-            this.dataGridViewProductSelect.Size = new System.Drawing.Size(883, 185);
+            this.dataGridViewProductSelect.Size = new System.Drawing.Size(883, 168);
             this.dataGridViewProductSelect.TabIndex = 20;
             this.dataGridViewProductSelect.SelectionChanged += new System.EventHandler(this.dataGridViewProductSelect_SelectionChanged);
             // 
@@ -337,9 +347,9 @@
             this.groupBoxProductDetails.Controls.Add(this.label8);
             this.groupBoxProductDetails.Controls.Add(this.textBoxProductDiscount);
             this.groupBoxProductDetails.Controls.Add(this.label13);
-            this.groupBoxProductDetails.Location = new System.Drawing.Point(12, 189);
+            this.groupBoxProductDetails.Location = new System.Drawing.Point(12, 208);
             this.groupBoxProductDetails.Name = "groupBoxProductDetails";
-            this.groupBoxProductDetails.Size = new System.Drawing.Size(381, 265);
+            this.groupBoxProductDetails.Size = new System.Drawing.Size(385, 265);
             this.groupBoxProductDetails.TabIndex = 100;
             this.groupBoxProductDetails.TabStop = false;
             this.groupBoxProductDetails.Text = "Ürün Detayları";
@@ -348,7 +358,7 @@
             // 
             this.label20.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(128, 193);
+            this.label20.Location = new System.Drawing.Point(132, 193);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(53, 13);
             this.label20.TabIndex = 502;
@@ -357,7 +367,7 @@
             // textBoxAciklama
             // 
             this.textBoxAciklama.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxAciklama.Location = new System.Drawing.Point(187, 190);
+            this.textBoxAciklama.Location = new System.Drawing.Point(191, 190);
             this.textBoxAciklama.MaxLength = 150;
             this.textBoxAciklama.Multiline = true;
             this.textBoxAciklama.Name = "textBoxAciklama";
@@ -368,7 +378,7 @@
             // 
             this.comboBoxKullanici.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.comboBoxKullanici.FormattingEnabled = true;
-            this.comboBoxKullanici.Location = new System.Drawing.Point(187, 98);
+            this.comboBoxKullanici.Location = new System.Drawing.Point(191, 98);
             this.comboBoxKullanici.Name = "comboBoxKullanici";
             this.comboBoxKullanici.Size = new System.Drawing.Size(75, 21);
             this.comboBoxKullanici.TabIndex = 50;
@@ -378,7 +388,7 @@
             // numericMinute
             // 
             this.numericMinute.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.numericMinute.Location = new System.Drawing.Point(235, 155);
+            this.numericMinute.Location = new System.Drawing.Point(239, 155);
             this.numericMinute.Maximum = new decimal(new int[] {
             59,
             0,
@@ -391,7 +401,7 @@
             // numericHour
             // 
             this.numericHour.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.numericHour.Location = new System.Drawing.Point(187, 155);
+            this.numericHour.Location = new System.Drawing.Point(191, 155);
             this.numericHour.Maximum = new decimal(new int[] {
             23,
             0,
@@ -438,7 +448,7 @@
             // 
             this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(112, 133);
+            this.label11.Location = new System.Drawing.Point(116, 133);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(69, 13);
             this.label11.TabIndex = 81;
@@ -448,7 +458,7 @@
             // 
             this.checkBoxArchived.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.checkBoxArchived.AutoSize = true;
-            this.checkBoxArchived.Location = new System.Drawing.Point(283, 88);
+            this.checkBoxArchived.Location = new System.Drawing.Point(287, 88);
             this.checkBoxArchived.Name = "checkBoxArchived";
             this.checkBoxArchived.Size = new System.Drawing.Size(57, 17);
             this.checkBoxArchived.TabIndex = 92;
@@ -458,7 +468,7 @@
             // numericProductCount
             // 
             this.numericProductCount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.numericProductCount.Location = new System.Drawing.Point(187, 20);
+            this.numericProductCount.Location = new System.Drawing.Point(191, 20);
             this.numericProductCount.Name = "numericProductCount";
             this.numericProductCount.Size = new System.Drawing.Size(75, 20);
             this.numericProductCount.TabIndex = 30;
@@ -472,7 +482,7 @@
             // buttonProductInsert
             // 
             this.buttonProductInsert.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonProductInsert.Location = new System.Drawing.Point(283, 18);
+            this.buttonProductInsert.Location = new System.Drawing.Point(287, 18);
             this.buttonProductInsert.Name = "buttonProductInsert";
             this.buttonProductInsert.Size = new System.Drawing.Size(86, 64);
             this.buttonProductInsert.TabIndex = 60;
@@ -484,7 +494,7 @@
             // 
             this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(149, 22);
+            this.label6.Location = new System.Drawing.Point(153, 22);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(32, 13);
             this.label6.TabIndex = 4;
@@ -493,7 +503,7 @@
             // textBoxProductPrice
             // 
             this.textBoxProductPrice.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxProductPrice.Location = new System.Drawing.Point(187, 46);
+            this.textBoxProductPrice.Location = new System.Drawing.Point(191, 46);
             this.textBoxProductPrice.Name = "textBoxProductPrice";
             this.textBoxProductPrice.Size = new System.Drawing.Size(75, 20);
             this.textBoxProductPrice.TabIndex = 40;
@@ -503,7 +513,7 @@
             // 
             this.label12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(114, 157);
+            this.label12.Location = new System.Drawing.Point(118, 157);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(67, 13);
             this.label12.TabIndex = 17;
@@ -513,7 +523,7 @@
             // 
             this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(141, 75);
+            this.label9.Location = new System.Drawing.Point(145, 75);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(40, 13);
             this.label9.TabIndex = 17;
@@ -523,7 +533,7 @@
             // 
             this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(149, 48);
+            this.label8.Location = new System.Drawing.Point(153, 48);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(32, 13);
             this.label8.TabIndex = 17;
@@ -532,7 +542,7 @@
             // textBoxProductDiscount
             // 
             this.textBoxProductDiscount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxProductDiscount.Location = new System.Drawing.Point(187, 72);
+            this.textBoxProductDiscount.Location = new System.Drawing.Point(191, 72);
             this.textBoxProductDiscount.Name = "textBoxProductDiscount";
             this.textBoxProductDiscount.Size = new System.Drawing.Size(75, 20);
             this.textBoxProductDiscount.TabIndex = 500;
@@ -542,7 +552,7 @@
             // 
             this.label13.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(225, 158);
+            this.label13.Location = new System.Drawing.Point(229, 158);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(10, 13);
             this.label13.TabIndex = 96;
@@ -620,7 +630,7 @@
             this.groupBoxOrders.Controls.Add(this.dataGridViewProductSelected);
             this.groupBoxOrders.Controls.Add(this.buttonProductSelectedEdit);
             this.groupBoxOrders.Controls.Add(this.buttonProductSelectedDelete);
-            this.groupBoxOrders.Location = new System.Drawing.Point(403, 189);
+            this.groupBoxOrders.Location = new System.Drawing.Point(403, 208);
             this.groupBoxOrders.Name = "groupBoxOrders";
             this.groupBoxOrders.Size = new System.Drawing.Size(593, 265);
             this.groupBoxOrders.TabIndex = 200;
@@ -644,7 +654,7 @@
             this.groupBoxHesap.Controls.Add(this.label14);
             this.groupBoxHesap.Location = new System.Drawing.Point(403, 8);
             this.groupBoxHesap.Name = "groupBoxHesap";
-            this.groupBoxHesap.Size = new System.Drawing.Size(593, 175);
+            this.groupBoxHesap.Size = new System.Drawing.Size(593, 194);
             this.groupBoxHesap.TabIndex = 400;
             this.groupBoxHesap.TabStop = false;
             this.groupBoxHesap.Text = "Bakiye";
@@ -670,7 +680,7 @@
             this.dataGridViewBakiye.Name = "dataGridViewBakiye";
             this.dataGridViewBakiye.ReadOnly = true;
             this.dataGridViewBakiye.RowHeadersWidth = 15;
-            this.dataGridViewBakiye.Size = new System.Drawing.Size(315, 155);
+            this.dataGridViewBakiye.Size = new System.Drawing.Size(315, 174);
             this.dataGridViewBakiye.TabIndex = 73;
             // 
             // label18
@@ -770,6 +780,48 @@
             this.label14.Size = new System.Drawing.Size(73, 13);
             this.label14.TabIndex = 0;
             this.label14.Text = "Toplam Tutar:";
+            // 
+            // textBoxCariVergiDairesi
+            // 
+            this.textBoxCariVergiDairesi.Location = new System.Drawing.Point(83, 168);
+            this.textBoxCariVergiDairesi.Name = "textBoxCariVergiDairesi";
+            this.textBoxCariVergiDairesi.Size = new System.Drawing.Size(130, 20);
+            this.textBoxCariVergiDairesi.TabIndex = 891;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(6, 171);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(69, 13);
+            this.label21.TabIndex = 890;
+            this.label21.Text = "Vergi Dairesi:";
+            // 
+            // textBoxCariVergiNo
+            // 
+            this.textBoxCariVergiNo.Location = new System.Drawing.Point(83, 143);
+            this.textBoxCariVergiNo.Name = "textBoxCariVergiNo";
+            this.textBoxCariVergiNo.Size = new System.Drawing.Size(130, 20);
+            this.textBoxCariVergiNo.TabIndex = 892;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(28, 146);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(51, 13);
+            this.label1.TabIndex = 889;
+            this.label1.Text = "Vergi No:";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(219, 16);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(154, 39);
+            this.label22.TabIndex = 893;
+            this.label22.Text = "Bu kısımda yapılan değişiklikler \r\nsadece kişi bilgilerini günceller.\r\nKİŞİYİ DEĞ" +
+                "İŞTİRMEZ!";
             // 
             // FormEditRecord
             // 
@@ -875,5 +927,10 @@
         private System.Windows.Forms.TextBox textBoxAciklama;
         private System.Windows.Forms.DataGridView dataGridViewBakiye;
         private System.Windows.Forms.Button buttonBakiyeSil;
+        private System.Windows.Forms.TextBox textBoxCariVergiDairesi;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.TextBox textBoxCariVergiNo;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label22;
     }
 }

@@ -97,6 +97,10 @@
             this.label16 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBoxCariVergiNo = new System.Windows.Forms.TextBox();
+            this.label21 = new System.Windows.Forms.Label();
+            this.textBoxCariVergiDairesi = new System.Windows.Forms.TextBox();
             this.groupBoxCari.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCari)).BeginInit();
             this.groupBoxSearch.SuspendLayout();
@@ -196,6 +200,10 @@
             this.groupBoxCari.Controls.Add(this.buttonCariBirak);
             this.groupBoxCari.Controls.Add(this.buttonCariSec);
             this.groupBoxCari.Controls.Add(this.textBoxCariAd);
+            this.groupBoxCari.Controls.Add(this.textBoxCariVergiDairesi);
+            this.groupBoxCari.Controls.Add(this.label21);
+            this.groupBoxCari.Controls.Add(this.textBoxCariVergiNo);
+            this.groupBoxCari.Controls.Add(this.label1);
             this.groupBoxCari.Controls.Add(this.textBoxCariAciklama);
             this.groupBoxCari.Controls.Add(this.label10);
             this.groupBoxCari.Controls.Add(this.textBoxCariEposta);
@@ -208,7 +216,7 @@
             this.groupBoxCari.Controls.Add(this.dataGridViewCari);
             this.groupBoxCari.Location = new System.Drawing.Point(205, 471);
             this.groupBoxCari.Name = "groupBoxCari";
-            this.groupBoxCari.Size = new System.Drawing.Size(794, 193);
+            this.groupBoxCari.Size = new System.Drawing.Size(794, 201);
             this.groupBoxCari.TabIndex = 300;
             this.groupBoxCari.TabStop = false;
             this.groupBoxCari.Text = "Müşteri Bilgileri";
@@ -219,8 +227,9 @@
             this.buttonCariGuncelle.Name = "buttonCariGuncelle";
             this.buttonCariGuncelle.Size = new System.Drawing.Size(58, 38);
             this.buttonCariGuncelle.TabIndex = 777;
-            this.buttonCariGuncelle.Text = "Guncelle";
+            this.buttonCariGuncelle.Text = "Güncelle";
             this.buttonCariGuncelle.UseVisualStyleBackColor = true;
+            this.buttonCariGuncelle.Click += new System.EventHandler(this.buttonCariGuncelle_Click);
             // 
             // buttonCariAra
             // 
@@ -725,7 +734,7 @@
             this.groupBoxHesap.Controls.Add(this.label14);
             this.groupBoxHesap.Location = new System.Drawing.Point(15, 466);
             this.groupBoxHesap.Name = "groupBoxHesap";
-            this.groupBoxHesap.Size = new System.Drawing.Size(177, 198);
+            this.groupBoxHesap.Size = new System.Drawing.Size(177, 206);
             this.groupBoxHesap.TabIndex = 400;
             this.groupBoxHesap.TabStop = false;
             this.groupBoxHesap.Text = "Bakiye";
@@ -827,6 +836,38 @@
             this.label14.Size = new System.Drawing.Size(73, 13);
             this.label14.TabIndex = 0;
             this.label14.Text = "Toplam Tutar:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(25, 151);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(51, 13);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "Vergi No:";
+            // 
+            // textBoxCariVergiNo
+            // 
+            this.textBoxCariVergiNo.Location = new System.Drawing.Point(80, 148);
+            this.textBoxCariVergiNo.Name = "textBoxCariVergiNo";
+            this.textBoxCariVergiNo.Size = new System.Drawing.Size(130, 20);
+            this.textBoxCariVergiNo.TabIndex = 777;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(3, 176);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(69, 13);
+            this.label21.TabIndex = 8;
+            this.label21.Text = "Vergi Dairesi:";
+            // 
+            // textBoxCariVergiDairesi
+            // 
+            this.textBoxCariVergiDairesi.Location = new System.Drawing.Point(80, 173);
+            this.textBoxCariVergiDairesi.Name = "textBoxCariVergiDairesi";
+            this.textBoxCariVergiDairesi.Size = new System.Drawing.Size(130, 20);
+            this.textBoxCariVergiDairesi.TabIndex = 777;
             // 
             // FormNewRecord
             // 
@@ -938,5 +979,9 @@
         private System.Windows.Forms.ListBox listBoxProductFavorite;
         private System.Windows.Forms.Button buttonAddFavorite;
         private System.Windows.Forms.Button buttonRemoveFavorite;
+        private System.Windows.Forms.TextBox textBoxCariVergiDairesi;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.TextBox textBoxCariVergiNo;
+        private System.Windows.Forms.Label label1;
     }
 }
