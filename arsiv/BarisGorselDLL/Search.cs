@@ -47,5 +47,30 @@ namespace arsiv.BarisGorselDLL
         }
 
 
+        public DataTable listeler()
+        {
+            Connect();
+            SqlCommand cmd = new SqlCommand("Listeler", Connection);
+            SqlDataAdapter adapt = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            adapt.Fill(dt);
+            Disconnect();
+            cmd.Dispose();
+            return dt;
+        }
+
+        public DataTable subeler()
+        {
+            Connect();
+            SqlCommand cmd = new SqlCommand("Subeler", Connection);
+            SqlDataAdapter adapt = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            adapt.Fill(dt);
+            Disconnect();
+            cmd.Dispose();
+            return dt;
+        }
+
+
     }
 }

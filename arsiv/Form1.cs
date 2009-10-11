@@ -20,7 +20,7 @@ namespace arsiv
             
             comboBoxPageLimit.SelectedIndex = 0;
 
-            connectionString = Properties.Settings.Default.connectionStringDis;
+            
             BarisGorselDLL.Order engOrder = new BarisGorselDLL.Order();
             GuncelleGridMethod(dataGridViewResult, engOrder.getMainScreen(Properties.Settings.Default.SubeId, 1, 30));
             GuncelleMethod(labelPage, "1/" + ((engOrder.toplam / 20) + 1));
@@ -39,18 +39,12 @@ namespace arsiv
             page = 1;
             search();
         }
-        string connectionString;
         private void Form1_Load(object sender, EventArgs e)
         {
             this.textBoxValue.KeyPress += new KeyPressEventHandler(textBoxValue_KeyPress);
-            if (connectionControl())
-            {
+            
                 loadForms();
-            }
-            else
-            {
-                MessageBox.Show("Sunucuyla bağlantı sağlanamadı!");
-            }
+            
             this.textBoxValue.Focus();
         }
 
@@ -192,23 +186,8 @@ namespace arsiv
             }
         }
 
-        private DataTable DataRead(string procedureName)
-        {
-            conn = new SqlConnection(connectionString);
-            conn.Open();
-            SqlCommand cmd = new SqlCommand(procedureName, conn);
-            cmd.CommandType = CommandType.StoredProcedure;
-            DataTable dataTable = new DataTable();
-            cmd.ExecuteNonQuery();
-            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-            adapter.Fill(dataTable);
-            conn.Close();
-            conn.Dispose();
-            cmd.Dispose();
-            adapter.Dispose();
-            return dataTable;
-        }
-        SqlConnection conn;
+        
+        
         private bool connectionControl()
         {
             SqlConnection conn = new SqlConnection(connectionString);
@@ -228,12 +207,13 @@ namespace arsiv
         //List<>
         private void loadForms()
         {
-            foreach (DataRow row in DataRead("Listeler").Rows)
+            BarisGorselDLL.Search doldurEng = new BarisGorselDLL.Search();
+            foreach (DataRow row in doldurEng.listeler().Rows)
             { comboBoxCategory.Items.Add(row[1]); }
             comboBoxCategory.Items.Add("Satış");
             comboBoxCategory.Items.Add("Ürün");
             comboBoxCategory.SelectedIndex = 0;
-            foreach (DataRow row in DataRead("Subeler").Rows)
+            foreach (DataRow row in doldurEng.subeler().Rows)
             { checkedListBoxDepartment.Items.Add(row[1]); }
 
             checkedListBoxDepartment.SetItemChecked(0,true);
