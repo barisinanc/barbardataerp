@@ -54,7 +54,6 @@ namespace arsiv
             cariFillMethod();
             sepetDoldur();
             personelListesiDoldur();
-            otoBoyutDegistir();
             textBoxProductSearch.Focus();
             this.Text += " - Sepet No:" + SepetId + " - Cari No:" + selectedCari.CariNo;
         }
@@ -222,12 +221,17 @@ namespace arsiv
 
         }
 
+        private void numericProductCount_ValueChanged(object sender, EventArgs e)
+        {
+            textBoxProductPrice.Text = (SecilenUrun.Fiyat * numericProductCount.Value).ToString();
+        }
+
         private void textBoxProductDiscount_TextChanged(object sender, EventArgs e)
         {
-            if (textBoxProductDiscount.Text == null || textBoxProductDiscount.Text=="") { textBoxProductDiscount.Text = "0"; }
-            if (Convert.ToDecimal(textBoxProductDiscount.Text) <= SecilenUrun.Fiyat)
+            if (textBoxProductDiscount.Text == null || textBoxProductDiscount.Text == "") { textBoxProductDiscount.Text = "0"; }
+            if (Convert.ToDecimal(textBoxProductDiscount.Text) <= SecilenUrun.Fiyat * numericProductCount.Value)
             {
-                textBoxProductPrice.Text = (SecilenUrun.AnaFiyat - Convert.ToDecimal(textBoxProductDiscount.Text)).ToString();
+                textBoxProductPrice.Text = ((SecilenUrun.AnaFiyat * numericProductCount.Value) - Convert.ToDecimal(textBoxProductDiscount.Text)).ToString();
             }
             else
             { textBoxProductPrice.Text = "0"; }
@@ -243,7 +247,7 @@ namespace arsiv
                 yeniUrun.Marka = labelProductSelectedBrand.Text;
                 yeniUrun.Model = labelProductSelectedModel.Text;
                 yeniUrun.Arsivle = checkBoxArchived.Checked;
-                yeniUrun.AnaFiyat = SecilenUrun.AnaFiyat;
+                yeniUrun.AnaFiyat = SecilenUrun.AnaFiyat * numericProductCount.Value;
                 yeniUrun.KullaniciId = comboBoxKullanici.SelectedIndex + 1;
                 yeniUrun.Id = SecilenUrun.Id;
                 if (yeniUrun.Id != 0)
@@ -254,17 +258,17 @@ namespace arsiv
                 else { indirim = Convert.ToDecimal(textBoxProductPrice.Text); }
                 if (textBoxProductPrice.Text == null || textBoxProductPrice.Text == "") { fiyat = 0; }
                 else { fiyat = Convert.ToDecimal(textBoxProductPrice.Text); }
-                if (fiyat + indirim != SecilenUrun.AnaFiyat)
+                if (fiyat + indirim != yeniUrun.AnaFiyat)
                 {
                     yeniUrun.Fiyat = Convert.ToDecimal(textBoxProductPrice.Text);
-                    if (fiyat >= SecilenUrun.AnaFiyat)
+                    if (fiyat >= yeniUrun.AnaFiyat)
                     {
                         //yeniUrun.Fiyat = SecilenUrun.AnaFiyat;
                         yeniUrun.Indirim = 0;
                     }
                     else
                     {
-                        yeniUrun.Indirim = SecilenUrun.AnaFiyat - fiyat;
+                        yeniUrun.Indirim = yeniUrun.AnaFiyat - fiyat;
                         yeniUrun.Fiyat = fiyat;
                     }
                 }
@@ -295,7 +299,7 @@ namespace arsiv
             
                 var sepetData = from x in Sepet
                                 where x.Sil==false
-                                select new { Barkod_No = x.BarkodNo, Ürün = x.Adi, Marka = x.Marka, Model = x.Model, Adet = x.Adet, Fiyat = x.Fiyat, İndirim = x.Indirim, Teslim_Tarihi =x.TeslimTarihi };
+                                select new { Barkod_No = x.BarkodNo, Ürün = x.Adi+" "+x.Marka+" "+x.Model, Adet = x.Adet, Fiyat = x.Fiyat, İndirim = x.Indirim, Teslim_Tarihi =x.TeslimTarihi };
                 dataGridViewProductSelected.DataSource = sepetData.ToList();
                 int arsivlenecek = (from x in Sepet
                                     where x.Arsivle==true
@@ -470,10 +474,17 @@ namespace arsiv
             textBoxCariAciklama.Text = selectedCari.Aciklama;
         }
 
- 
+
 
         private void dataGridColorSelected(DataGridView grid)
         {
+            foreach (DataGridViewRow satir in grid.Rows)
+            {
+                foreach (DataGridViewCell hucre in satir.Cells)
+                {
+                    hucre.Style.BackColor = Color.White;
+                }
+            }
             foreach (DataGridViewCell hucre in grid.Rows[grid.CurrentRow.Index].Cells)
             {
                 hucre.Style.BackColor = Color.Red;
@@ -566,42 +577,7 @@ namespace arsiv
             }
             
         }
-        #region Tasarım
-        private void otoBoyutDegistir()
-        {
-            groupBoxProductDetails.MouseEnter += new EventHandler(groupBoxProductDetails_Buyut);
-            groupBoxProductDetails.MouseHover += new EventHandler(groupBoxProductDetails_Buyut);
-            groupBoxProductDetails.GotFocus += new EventHandler(groupBoxProductDetails_Buyut);
-            groupBoxProductDetails.LostFocus += new EventHandler(groupBoxProductDetails_Kucult);
-            groupBoxProductDetails.MouseLeave += new EventHandler(groupBoxProductDetails_Kucult);
-            groupBoxProductDetails.MouseCaptureChanged += new EventHandler(groupBoxProductDetails_Kucult);
-            foreach (Control x in groupBoxProductDetails.Controls)
-            {
-                x.MouseMove += new MouseEventHandler(groupBoxProductDetails_Buyut);
-                x.MouseEnter += new EventHandler(groupBoxProductDetails_Buyut);
-                x.MouseHover += new EventHandler(groupBoxProductDetails_Buyut);
-                x.GotFocus += new EventHandler(groupBoxProductDetails_Buyut);
-                x.LostFocus += new EventHandler(groupBoxProductDetails_Kucult);
-                x.MouseLeave += new EventHandler(groupBoxProductDetails_Kucult);
-                x.MouseCaptureChanged += new EventHandler(groupBoxProductDetails_Buyut);
-            }
-            textBoxAciklama.Parent = groupBoxProductDetails;
-        }
-        private void groupBoxProductDetails_Buyut(object sender, EventArgs e)
-        {
-            groupBoxUrun.BringToFront();
-            groupBoxUrun.Size = new Size { Height = 400, Width = groupBoxUrun.Size.Width };
-            //groupBoxProductDetails.Size = new Size { Height = 150, Width = groupBoxProductDetails.Size.Width };
-            groupBoxProductDetails.MouseLeave += new EventHandler(groupBoxProductDetails_Kucult);
-        }
-
-        void groupBoxProductDetails_Kucult(object sender, EventArgs e)
-        {
-            groupBoxUrun.Size = new Size { Height = 281, Width = groupBoxUrun.Size.Width };
-            //groupBoxProductDetails.Size = new Size { Height = 88, Width = groupBoxProductDetails.Size.Width };
-        }
-
-        #endregion Tasarım
+        
         decimal alinanTutar=0;
         decimal borc = 0;
         private void textBoxAlinanTutar_TextChanged(object sender, EventArgs e)
@@ -638,5 +614,6 @@ namespace arsiv
         {
 
         }
+
     }
 }

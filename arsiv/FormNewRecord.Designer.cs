@@ -549,6 +549,7 @@
             0,
             0,
             0});
+            this.numericProductCount.ValueChanged += new System.EventHandler(this.numericProductCount_ValueChanged);
             // 
             // buttonProductInsert
             // 
