@@ -296,9 +296,12 @@
                 labelStatus.Text = "";
                 dataGridViewResult.Location = new System.Drawing.Point(12, 50);
                 dataGridViewResult.Size = new System.Drawing.Size(959, 553);
+                
+                
             }
             else
             {
+                comboBoxCategory.SelectedIndex = 0;
                 tsbtnSearch.Checked = true;
                 groupBoxSearch.Visible = true;
                 if (comboBoxCategory.SelectedItem == null)
