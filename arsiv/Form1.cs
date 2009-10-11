@@ -63,8 +63,11 @@ namespace arsiv
             }
         }
 
+        public string tur;
         private void search()
         {
+            pageLimit = Convert.ToInt32(comboBoxPageLimit.SelectedItem.ToString());
+            tur = comboBoxCategory.SelectedItem.ToString();
             Thread aramaIslemi = new Thread(makeSearch);
             aramaIslemi.Start();
             
@@ -74,6 +77,8 @@ namespace arsiv
         {
             if (isSearch)
             {
+                GuncelleMethod(labelStatus, "Aranıyor...");
+
                 BarisGorselDLL.Search archiveEng = new BarisGorselDLL.Search();
                 if (textBoxValue.Text == null)
                     archiveEng.veri = "";
@@ -86,9 +91,9 @@ namespace arsiv
                 if (dateBitis.Text == null)
                     archiveEng.dateBitis = DateTime.Now;
                 else
-                    archiveEng.dateBitis = Convert.ToDateTime(dateBitis.Text);
+                    archiveEng.dateBitis = Convert.ToDateTime(dateBitis.Text).AddDays(1);
                 archiveEng.page = page;
-                archiveEng.pageLimit = Convert.ToInt32(comboBoxPageLimit.SelectedItem.ToString());//comboBoxPageLimit
+                archiveEng.pageLimit = Convert.ToInt32(pageLimit);//comboBoxPageLimit
                 string selectedDepartments = "";
                 for (int i = 0; i < checkedListBoxDepartment.Items.Count; i++)
                 {
@@ -98,10 +103,10 @@ namespace arsiv
                     }
                 }
                 archiveEng.selectedDepartments = selectedDepartments;
-                archiveEng.tur = comboBoxCategory.SelectedItem.ToString();//comboBoxCategory
+                archiveEng.tur = tur;//comboBoxCategory
                 GuncelleGridMethod(dataGridViewResult, archiveEng.ArsivArama());
                 
-                GuncelleMethod(labelStatus, "Aranıyor...");
+                
                 
                 int devam = archiveEng.devam;
                 int count = archiveEng.count;
