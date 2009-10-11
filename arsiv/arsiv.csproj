@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.30729</ProductVersion>
+    <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{8FD06618-E7CC-4F8D-9D8E-D6DE2321D208}</ProjectGuid>
     <OutputType>WinExe</OutputType>
@@ -61,6 +61,7 @@
     <Compile Include="BarisGorselDLL\OdemeTuru.cs" />
     <Compile Include="BarisGorselDLL\Order.cs" />
     <Compile Include="BarisGorselDLL\Product.cs" />
+    <Compile Include="BarisGorselDLL\Search.cs" />
     <Compile Include="BarisGorselDLL\Sepet.cs" />
     <Compile Include="BarisGorselDLL\Settings.cs" />
     <Compile Include="BarisGorselDLL\Sube.cs" />
@@ -94,12 +95,6 @@
     <Compile Include="FormNewRecord.Designer.cs">
       <DependentUpon>FormNewRecord.cs</DependentUpon>
     </Compile>
-    <Compile Include="Lodoskaraktersizi.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Lodoskaraktersizi.Designer.cs">
-      <DependentUpon>Lodoskaraktersizi.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormEditRecord.resx">
@@ -121,9 +116,6 @@
     <EmbeddedResource Include="FormNewRecord.resx">
       <DependentUpon>FormNewRecord.cs</DependentUpon>
       <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Lodoskaraktersizi.resx">
-      <DependentUpon>Lodoskaraktersizi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

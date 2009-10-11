@@ -17,6 +17,9 @@ namespace arsiv
         public Form1()
         {
             InitializeComponent();
+            
+            comboBoxPageLimit.SelectedIndex = 0;
+
             connectionString = Properties.Settings.Default.connectionStringDis;
             BarisGorselDLL.Order engOrder = new BarisGorselDLL.Order();
             GuncelleGridMethod(dataGridViewResult, engOrder.getMainScreen(Properties.Settings.Default.SubeId, 1, 30));
@@ -63,30 +66,29 @@ namespace arsiv
         int count = 0;
         private void search()
         {
-            Thread islemAra = new Thread(makeSearch);
-            islemAra.Start();
+            makeSearch();
+            
         }
 
         private void makeSearch()
         {
             if (isSearch)
             {
-                GuncelleMethod(labelStatus, "Aranıyor...");
-                count = 0;
-                conn = new SqlConnection(connectionString);
-                conn.Open();
-
-                SqlCommand cmd = new SqlCommand("ArsivArama", conn);
-
-                cmd.CommandType = CommandType.StoredProcedure;
-                if (textBoxValue.Text != null)
-                {
-                    cmd.Parameters.AddWithValue("@veri", textBoxValue.Text.Trim());
-                }
+                BarisGorselDLL.Archive archiveEng = new BarisGorselDLL.Archive();
+                if (textBoxValue.Text == null)
+                    archiveEng.veri = "";
                 else
-                {
-                    cmd.Parameters.AddWithValue("@veri", "");
-                }
+                    archiveEng.veri = textBoxValue.Text;
+                if (dateBaslangic.Text == null)
+                    archiveEng.dateBaslangic = Convert.ToDateTime("01/01/1996");
+                else
+                    archiveEng.dateBaslangic = Convert.ToDateTime(dateBaslangic.Text);
+                if (dateBitis.Text == null)
+                    archiveEng.dateBitis = DateTime.Now;
+                else
+                    archiveEng.dateBitis = Convert.ToDateTime(dateBitis.Text);
+                archiveEng.page = page;
+                archiveEng.pageLimit = Convert.ToInt32("30");//comboBoxPageLimit
                 string selectedDepartments = "";
                 for (int i = 0; i < checkedListBoxDepartment.Items.Count; i++)
                 {
@@ -95,22 +97,18 @@ namespace arsiv
                         selectedDepartments += (i + 1) + ",";
                     }
                 }
-                cmd.Parameters.AddWithValue("@SubeId", selectedDepartments);
-                cmd.Parameters.AddWithValue("@sayfa", page);
-                cmd.Parameters.AddWithValue("@adet", pageLimit);
-                string tur = comboBoxCategory.SelectedItem.ToString();
-                cmd.Parameters.AddWithValue("@turId", tur);
-                cmd.Parameters.AddWithValue("@tarihbas", dateBaslangic.Text.ToString());
-                cmd.Parameters.AddWithValue("@tarihbit", dateBitis.Text.ToString());
-                cmd.Parameters.Add("@toplam", SqlDbType.Int);
-                cmd.Parameters["@toplam"].Direction = ParameterDirection.Output;
-                cmd.Parameters.Add("@devam", SqlDbType.Int);
-                cmd.Parameters["@devam"].Direction = ParameterDirection.Output;
-                DataTable dataTable = new DataTable();
-                cmd.ExecuteNonQuery();
-                count = (int)cmd.Parameters["@toplam"].Value;
-                int devam = (int)cmd.Parameters["@devam"].Value;
-                if (page == 1)
+                archiveEng.selectedDepartments = selectedDepartments;
+                archiveEng.tur = Convert.ToInt32("1");//comboBoxCategory
+                GuncelleGridMethod(dataGridViewResult, archiveEng.ArsivArama());
+                /*
+                #region baran
+                
+                GuncelleMethod(labelStatus, "Aranıyor...");
+                count = 0;
+                conn = new SqlConnection(connectionString);
+                conn.Open();
+
+                                if (page == 1)
                 {
                     GuncelleButtonMethod(buttonPageBacward, false);
                 }
@@ -136,6 +134,10 @@ namespace arsiv
                 adapter.Dispose();
                 GuncelleGridMethod(dataGridViewResult, dataTable);
                 GuncelleMethod(labelStatus, count + " adet kayıt bulundu!");
+                
+                #endregion
+
+                */
             }
             else 
             {
