@@ -627,8 +627,14 @@ namespace arsiv
 
         private void bakiyeDoldur()
         {
-
-            
+            Account hesap = new Account();
+            hesap.SepetNo = SepetId;
+            hesap.CariNo = selectedCari.CariNo;
+            decimal toplamAlinan = 0;
+            decimal toplamBorc = 0;
+            var sorgu = from x in  hesap.gecmisOdemeler(out toplamAlinan,out toplamBorc)
+                        select new { Tarih = x.Tarih, Alınan = x.Alinan, Borç = x.Borc, Ödeme_Türü=x.OdemeTuruAd };
+            dataGridViewBakiye.DataSource = sorgu.ToList();
         }
 
     }

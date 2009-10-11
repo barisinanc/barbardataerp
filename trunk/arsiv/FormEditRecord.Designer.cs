@@ -39,6 +39,11 @@
             this.textBoxCariEposta = new System.Windows.Forms.TextBox();
             this.dateTimePickerDelivery = new System.Windows.Forms.DateTimePicker();
             this.groupBoxCari = new System.Windows.Forms.GroupBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.textBoxCariVergiDairesi = new System.Windows.Forms.TextBox();
+            this.label21 = new System.Windows.Forms.Label();
+            this.textBoxCariVergiNo = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.buttonCariGuncelle = new System.Windows.Forms.Button();
             this.textBoxCariAciklama = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -92,11 +97,6 @@
             this.label16 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.textBoxCariVergiDairesi = new System.Windows.Forms.TextBox();
-            this.label21 = new System.Windows.Forms.Label();
-            this.textBoxCariVergiNo = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
             this.groupBoxCari.SuspendLayout();
             this.groupBoxSearch.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProductSelect)).BeginInit();
@@ -213,13 +213,55 @@
             this.groupBoxCari.TabStop = false;
             this.groupBoxCari.Text = "Müşteri Bilgileri";
             // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(219, 16);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(154, 39);
+            this.label22.TabIndex = 893;
+            this.label22.Text = "Bu kısımda yapılan değişiklikler \r\nsadece kişi bilgilerini günceller.\r\nKİŞİYİ DEĞ" +
+                "İŞTİRMEZ!";
+            // 
+            // textBoxCariVergiDairesi
+            // 
+            this.textBoxCariVergiDairesi.Location = new System.Drawing.Point(83, 168);
+            this.textBoxCariVergiDairesi.Name = "textBoxCariVergiDairesi";
+            this.textBoxCariVergiDairesi.Size = new System.Drawing.Size(130, 20);
+            this.textBoxCariVergiDairesi.TabIndex = 891;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(6, 171);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(69, 13);
+            this.label21.TabIndex = 890;
+            this.label21.Text = "Vergi Dairesi:";
+            // 
+            // textBoxCariVergiNo
+            // 
+            this.textBoxCariVergiNo.Location = new System.Drawing.Point(83, 143);
+            this.textBoxCariVergiNo.Name = "textBoxCariVergiNo";
+            this.textBoxCariVergiNo.Size = new System.Drawing.Size(130, 20);
+            this.textBoxCariVergiNo.TabIndex = 892;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(28, 146);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(51, 13);
+            this.label1.TabIndex = 889;
+            this.label1.Text = "Vergi No:";
+            // 
             // buttonCariGuncelle
             // 
             this.buttonCariGuncelle.Location = new System.Drawing.Point(222, 58);
             this.buttonCariGuncelle.Name = "buttonCariGuncelle";
             this.buttonCariGuncelle.Size = new System.Drawing.Size(78, 38);
             this.buttonCariGuncelle.TabIndex = 777;
-            this.buttonCariGuncelle.Text = "Guncelle";
+            this.buttonCariGuncelle.Text = "Güncelle";
             this.buttonCariGuncelle.UseVisualStyleBackColor = true;
             this.buttonCariGuncelle.Click += new System.EventHandler(this.buttonCariGuncelle_Click);
             // 
@@ -780,48 +822,6 @@
             this.label14.Size = new System.Drawing.Size(73, 13);
             this.label14.TabIndex = 0;
             this.label14.Text = "Toplam Tutar:";
-            // 
-            // textBoxCariVergiDairesi
-            // 
-            this.textBoxCariVergiDairesi.Location = new System.Drawing.Point(83, 168);
-            this.textBoxCariVergiDairesi.Name = "textBoxCariVergiDairesi";
-            this.textBoxCariVergiDairesi.Size = new System.Drawing.Size(130, 20);
-            this.textBoxCariVergiDairesi.TabIndex = 891;
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(6, 171);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(69, 13);
-            this.label21.TabIndex = 890;
-            this.label21.Text = "Vergi Dairesi:";
-            // 
-            // textBoxCariVergiNo
-            // 
-            this.textBoxCariVergiNo.Location = new System.Drawing.Point(83, 143);
-            this.textBoxCariVergiNo.Name = "textBoxCariVergiNo";
-            this.textBoxCariVergiNo.Size = new System.Drawing.Size(130, 20);
-            this.textBoxCariVergiNo.TabIndex = 892;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(28, 146);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(51, 13);
-            this.label1.TabIndex = 889;
-            this.label1.Text = "Vergi No:";
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(219, 16);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(154, 39);
-            this.label22.TabIndex = 893;
-            this.label22.Text = "Bu kısımda yapılan değişiklikler \r\nsadece kişi bilgilerini günceller.\r\nKİŞİYİ DEĞ" +
-                "İŞTİRMEZ!";
             // 
             // FormEditRecord
             // 
