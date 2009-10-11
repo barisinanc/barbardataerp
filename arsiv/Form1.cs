@@ -65,7 +65,8 @@ namespace arsiv
 
         private void search()
         {
-            makeSearch();
+            Thread aramaIslemi = new Thread(makeSearch);
+            aramaIslemi.Start();
             
         }
 
@@ -87,7 +88,7 @@ namespace arsiv
                 else
                     archiveEng.dateBitis = Convert.ToDateTime(dateBitis.Text);
                 archiveEng.page = page;
-                archiveEng.pageLimit = Convert.ToInt32("30");//comboBoxPageLimit
+                archiveEng.pageLimit = Convert.ToInt32(comboBoxPageLimit.SelectedItem.ToString());//comboBoxPageLimit
                 string selectedDepartments = "";
                 for (int i = 0; i < checkedListBoxDepartment.Items.Count; i++)
                 {
@@ -97,7 +98,7 @@ namespace arsiv
                     }
                 }
                 archiveEng.selectedDepartments = selectedDepartments;
-                archiveEng.tur = Convert.ToInt32("1");//comboBoxCategory
+                archiveEng.tur = comboBoxCategory.SelectedItem.ToString();//comboBoxCategory
                 GuncelleGridMethod(dataGridViewResult, archiveEng.ArsivArama());
                 
                 GuncelleMethod(labelStatus, "Aranıyor...");

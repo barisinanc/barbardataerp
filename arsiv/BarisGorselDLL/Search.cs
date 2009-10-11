@@ -13,7 +13,7 @@ namespace arsiv.BarisGorselDLL
         public string selectedDepartments;
         public int page;
         public int pageLimit;
-        public int tur;
+        public string tur;
         public int count;
         public int devam;
         public DateTime dateBaslangic;
