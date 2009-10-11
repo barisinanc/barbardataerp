@@ -702,32 +702,8 @@ namespace arsiv
             {
                 Product urun = new Product();
                 favoriteList.Clear();
-                foreach (string x in Properties.Settings.Default.FavouriteProducts.Split(';'))
-                {
-                    foreach (DataRow row in urun.productSearch(x).Rows)
-                    {
-                        if (x != "")
-                        {
-                            Product yeniUrun = new Product();
-                            yeniUrun.BarkodNo = row["BarkodNo"].ToString();
-                            yeniUrun.Adi = row["Urun"].ToString();
-                            yeniUrun.Marka = row["Marka"].ToString();
-                            yeniUrun.Model = row["Model"].ToString();
-                            try { yeniUrun.Fiyat = Convert.ToDecimal(row["Fiyat"]); }
-                            catch { yeniUrun.Fiyat = 0; }
-                            try { yeniUrun.AnaFiyat = Convert.ToDecimal(row["Fiyat"]); }
-                            catch { yeniUrun.AnaFiyat = 0; }
-                            try { yeniUrun.Kdv = Convert.ToInt32(row["Kdv"]); }
-                            catch { yeniUrun.Kdv = 0; }
-                            try { yeniUrun.Arsivle = Convert.ToBoolean(row["Arsivle"]); }
-                            catch { yeniUrun.Arsivle = false; }
-
-                            favoriteList.Add(yeniUrun);
-                            yeniUrun.Dispose();
-                        }
-                        break;
-                    }
-                }
+                favoriteList.AddRange(
+                urun.sikKullanilan(Properties.Settings.Default.FavouriteProducts));
                 favoriteDoldur();
             }
             catch { }
@@ -736,9 +712,18 @@ namespace arsiv
         private void favouriteSave()
         {
             string sakla = "";
+            int i =0;
             foreach (Product p in favoriteList)
             {
-                sakla += p.BarkodNo+";";
+                i++;
+                if (i == favoriteList.Count)
+                {
+                    sakla += p.BarkodNo;
+                }
+                else
+                {
+                    sakla += p.BarkodNo + ";";
+                }
             }
             Properties.Settings.Default.FavouriteProducts = sakla;
             Properties.Settings.Default.Save();

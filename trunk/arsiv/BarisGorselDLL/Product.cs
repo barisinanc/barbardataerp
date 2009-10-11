@@ -37,5 +37,40 @@ namespace arsiv.BarisGorselDLL
             Disconnect();
             return dataTable;
         }
+
+        public List<Product> sikKullanilan(string gelen)
+        {
+            Connect();
+            SqlCommand cmd = new SqlCommand("UrunSikKullanilan", Connection);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@BarkodNo", gelen);
+            DataTable dataTable = new DataTable();
+            cmd.ExecuteNonQuery();
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+            adapter.Fill(dataTable);
+            cmd.Dispose();
+            adapter.Dispose();
+            Disconnect();
+            List<Product> urunler = new List<Product>();
+            foreach (DataRow row in dataTable.Rows)
+            {
+                Product yeniUrun = new Product();
+                yeniUrun.BarkodNo = row["BarkodNo"].ToString();
+                yeniUrun.Adi = row["Urun"].ToString();
+                yeniUrun.Marka = row["Marka"].ToString();
+                yeniUrun.Model = row["Model"].ToString();
+                try { yeniUrun.Fiyat = Convert.ToDecimal(row["Fiyat"]); }
+                catch { yeniUrun.Fiyat = 0; }
+                try { yeniUrun.AnaFiyat = Convert.ToDecimal(row["Fiyat"]); }
+                catch { yeniUrun.AnaFiyat = 0; }
+                try { yeniUrun.Kdv = Convert.ToInt32(row["Kdv"]); }
+                catch { yeniUrun.Kdv = 0; }
+                try { yeniUrun.Arsivle = Convert.ToBoolean(row["Arsivle"]); }
+                catch { yeniUrun.Arsivle = false; }
+                urunler.Add(yeniUrun);
+                yeniUrun.Dispose();
+            }
+            return urunler;
+        }
     }
 }
