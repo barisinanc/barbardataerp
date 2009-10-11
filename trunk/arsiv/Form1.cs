@@ -188,21 +188,7 @@ namespace arsiv
 
         
         
-        private bool connectionControl()
-        {
-            SqlConnection conn = new SqlConnection(connectionString);
-            try
-            {
-                conn.Open();
-                return true;
-            }
-            catch
-            {
-                //MessageBox.Show("Bağlantı sağlanamadı!");
-            }
-
-            return false;
-        }
+        
         int pageLimit = 30;
         //List<>
         private void loadForms()

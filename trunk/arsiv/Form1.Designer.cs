@@ -225,12 +225,15 @@
             // dataGridViewResult
             // 
             this.dataGridViewResult.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridViewResult.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            this.dataGridViewResult.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.dataGridViewResult.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.dataGridViewResult.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewResult.Location = new System.Drawing.Point(12, 28);
             this.dataGridViewResult.MultiSelect = false;
             this.dataGridViewResult.Name = "dataGridViewResult";
             this.dataGridViewResult.ReadOnly = true;
+            this.dataGridViewResult.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewResult.Size = new System.Drawing.Size(984, 650);
             this.dataGridViewResult.TabIndex = 17;
             this.dataGridViewResult.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewResult_CellDoubleClick);
