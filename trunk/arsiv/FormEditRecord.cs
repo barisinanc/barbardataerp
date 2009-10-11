@@ -52,6 +52,7 @@ namespace arsiv
         {
             odemeListesiDoldur();
             cariFillMethod();
+            bakiyeDoldur();
             sepetDoldur();
             personelListesiDoldur();
             textBoxProductSearch.Focus();
@@ -622,6 +623,12 @@ namespace arsiv
             selectedCari.VergiDairesi = textBoxCariVergiDairesi.Text.Trim();
             selectedCari.CariGuncelle();
             MessageBox.Show("Cari bilgileri güncellendi!");
+        }
+
+        private void bakiyeDoldur()
+        {
+
+            
         }
 
     }

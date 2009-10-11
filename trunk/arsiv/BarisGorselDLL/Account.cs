@@ -15,7 +15,9 @@ namespace arsiv.BarisGorselDLL
         public decimal Borc;
         public string FaturaNo;
         public int SubeId;
+        public DateTime Tarih;
         public int OdemeTuru=0;
+        public string OdemeTuruAd;
         public void addAccount()
         {
             Connect();
@@ -31,6 +33,43 @@ namespace arsiv.BarisGorselDLL
             cmd.ExecuteNonQuery();
             cmd.Dispose();
             Disconnect();
+        }
+
+        public List<Account> gecmisOdemeler(out decimal toplamAlinan, out decimal toplamBorc)
+        {
+            Connect();
+            List<Account> tumHesap = new List<Account>();
+            SqlCommand cmd = new SqlCommand("CariHesap", Connection);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@CariNo", CariNo);
+            cmd.Parameters.AddWithValue("@SepetNo", SepetNo);
+            cmd.Parameters.Add("@Alinan", SqlDbType.Money);
+            cmd.Parameters["@Alinan"].Direction = ParameterDirection.Output;
+            cmd.Parameters.Add("@Borc", SqlDbType.Money);
+            cmd.Parameters["@Borc"].Direction = ParameterDirection.Output;
+            DataTable dataTable = new DataTable();
+            cmd.ExecuteNonQuery();
+            toplamAlinan = (decimal)cmd.Parameters["@Alinan"].Value;
+            toplamBorc = (decimal)cmd.Parameters["@Borc"].Value;
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+            adapter.Fill(dataTable);
+            Connection.Close();
+            Connection.Dispose();
+            cmd.Dispose();
+            adapter.Dispose();
+            foreach (DataRow satir in dataTable.Rows)
+            {
+                Account yeniHesap = new Account();
+                yeniHesap.Tarih = DateTime.Parse(satir["Tarih"].ToString());
+                yeniHesap.Alinan = (decimal)satir["Alinan"];
+                yeniHesap.Borc = (decimal)satir["Borc"];
+                yeniHesap.OdemeTuruAd = (string)satir["OdemeTuru"];
+                tumHesap.Add(yeniHesap);
+                yeniHesap = null;
+            }
+            dataTable.Dispose();
+            Disconnect();
+            return tumHesap;
         }
     }
 
