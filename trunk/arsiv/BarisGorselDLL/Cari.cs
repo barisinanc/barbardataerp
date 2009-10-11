@@ -94,6 +94,30 @@ namespace arsiv.BarisGorselDLL
             return tumCariler;
         }
 
+        public void CariGuncelle()
+        {
+            Connect();
+            SqlCommand cmd = new SqlCommand("CariGuncelle", Connection);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@CariNo", CariNo);
+            cmd.Parameters.AddWithValue("@Isim", _Isim);
+            cmd.Parameters.AddWithValue("@TelNo", TelNo);
+            cmd.Parameters.AddWithValue("@CepNo", CepNo);
+            cmd.Parameters.AddWithValue("@Eposta", Eposta);
+            cmd.Parameters.AddWithValue("@Aciklama", Aciklama);
+            cmd.Parameters.AddWithValue("@VergiNo", VergiNo);
+            cmd.Parameters.AddWithValue("@VergiDairesi", VergiDairesi);
+            cmd.Parameters.AddWithValue("@Adres", Adres);
+            cmd.Parameters.AddWithValue("@IlKod", IlKod);
+            cmd.Parameters.AddWithValue("@Ilce", Ilce);
+            cmd.Parameters.AddWithValue("@GrupNo1", GrupNo1);
+            cmd.Parameters.AddWithValue("@GrupNo2", GrupNo2);
+            cmd.Parameters.AddWithValue("@GrupNo3", GrupNo3);
+            cmd.ExecuteNonQuery();
+            cmd.Dispose();
+            Disconnect();
+        }
+
         public Cari sepetNodanCari(long sepetno)
         {
             Connect();
