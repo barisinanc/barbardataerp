@@ -57,7 +57,7 @@
             // 
             this.labelPage.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.labelPage.AutoSize = true;
-            this.labelPage.Location = new System.Drawing.Point(809, 621);
+            this.labelPage.Location = new System.Drawing.Point(834, 651);
             this.labelPage.Name = "labelPage";
             this.labelPage.Size = new System.Drawing.Size(0, 13);
             this.labelPage.TabIndex = 10;
@@ -76,12 +76,13 @@
             this.groupBoxSearch.Controls.Add(this.textBoxValue);
             this.groupBoxSearch.Controls.Add(this.buttonSearch);
             this.groupBoxSearch.Controls.Add(this.checkedListBoxDepartment);
-            this.groupBoxSearch.Location = new System.Drawing.Point(12, 50);
+            this.groupBoxSearch.Location = new System.Drawing.Point(12, 28);
             this.groupBoxSearch.Name = "groupBoxSearch";
-            this.groupBoxSearch.Size = new System.Drawing.Size(959, 101);
+            this.groupBoxSearch.Size = new System.Drawing.Size(984, 89);
             this.groupBoxSearch.TabIndex = 14;
             this.groupBoxSearch.TabStop = false;
             this.groupBoxSearch.Text = "Arama";
+            this.groupBoxSearch.Visible = false;
             // 
             // label3
             // 
@@ -130,7 +131,7 @@
             // 
             this.labelStatus.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.labelStatus.AutoSize = true;
-            this.labelStatus.Location = new System.Drawing.Point(15, 47);
+            this.labelStatus.Location = new System.Drawing.Point(3, 50);
             this.labelStatus.Name = "labelStatus";
             this.labelStatus.Size = new System.Drawing.Size(350, 13);
             this.labelStatus.TabIndex = 16;
@@ -139,7 +140,7 @@
             // textBoxValue
             // 
             this.textBoxValue.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.textBoxValue.Location = new System.Drawing.Point(18, 19);
+            this.textBoxValue.Location = new System.Drawing.Point(6, 22);
             this.textBoxValue.Name = "textBoxValue";
             this.textBoxValue.Size = new System.Drawing.Size(281, 20);
             this.textBoxValue.TabIndex = 12;
@@ -147,7 +148,7 @@
             // buttonSearch
             // 
             this.buttonSearch.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.buttonSearch.Location = new System.Drawing.Point(305, 17);
+            this.buttonSearch.Location = new System.Drawing.Point(293, 20);
             this.buttonSearch.Name = "buttonSearch";
             this.buttonSearch.Size = new System.Drawing.Size(75, 23);
             this.buttonSearch.TabIndex = 13;
@@ -159,9 +160,9 @@
             // 
             this.checkedListBoxDepartment.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.checkedListBoxDepartment.FormattingEnabled = true;
-            this.checkedListBoxDepartment.Location = new System.Drawing.Point(822, 38);
+            this.checkedListBoxDepartment.Location = new System.Drawing.Point(746, 19);
             this.checkedListBoxDepartment.Name = "checkedListBoxDepartment";
-            this.checkedListBoxDepartment.Size = new System.Drawing.Size(123, 49);
+            this.checkedListBoxDepartment.Size = new System.Drawing.Size(125, 64);
             this.checkedListBoxDepartment.TabIndex = 15;
             // 
             // buttonNewRecord
@@ -178,7 +179,7 @@
             this.tsbtnSearch});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(983, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(1008, 25);
             this.toolStrip1.TabIndex = 16;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -192,7 +193,7 @@
             // buttonPageBacward
             // 
             this.buttonPageBacward.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.buttonPageBacward.Location = new System.Drawing.Point(848, 616);
+            this.buttonPageBacward.Location = new System.Drawing.Point(878, 682);
             this.buttonPageBacward.Name = "buttonPageBacward";
             this.buttonPageBacward.Size = new System.Drawing.Size(54, 23);
             this.buttonPageBacward.TabIndex = 18;
@@ -203,7 +204,7 @@
             // buttonPageForward
             // 
             this.buttonPageForward.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.buttonPageForward.Location = new System.Drawing.Point(903, 616);
+            this.buttonPageForward.Location = new System.Drawing.Point(933, 682);
             this.buttonPageForward.Name = "buttonPageForward";
             this.buttonPageForward.Size = new System.Drawing.Size(54, 23);
             this.buttonPageForward.TabIndex = 19;
@@ -215,7 +216,7 @@
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(81, 621);
+            this.label1.Location = new System.Drawing.Point(86, 687);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(58, 13);
             this.label1.TabIndex = 21;
@@ -226,11 +227,11 @@
             this.dataGridViewResult.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridViewResult.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.dataGridViewResult.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewResult.Location = new System.Drawing.Point(12, 160);
+            this.dataGridViewResult.Location = new System.Drawing.Point(12, 28);
             this.dataGridViewResult.MultiSelect = false;
             this.dataGridViewResult.Name = "dataGridViewResult";
             this.dataGridViewResult.ReadOnly = true;
-            this.dataGridViewResult.Size = new System.Drawing.Size(959, 443);
+            this.dataGridViewResult.Size = new System.Drawing.Size(984, 650);
             this.dataGridViewResult.TabIndex = 17;
             this.dataGridViewResult.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewResult_CellDoubleClick);
             this.dataGridViewResult.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewResult_CellClick);
@@ -246,7 +247,7 @@
             "30",
             "40",
             "50"});
-            this.comboBoxPageLimit.Location = new System.Drawing.Point(12, 618);
+            this.comboBoxPageLimit.Location = new System.Drawing.Point(17, 684);
             this.comboBoxPageLimit.Name = "comboBoxPageLimit";
             this.comboBoxPageLimit.Size = new System.Drawing.Size(63, 21);
             this.comboBoxPageLimit.TabIndex = 20;
@@ -256,7 +257,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(983, 656);
+            this.ClientSize = new System.Drawing.Size(1008, 717);
             this.Controls.Add(this.buttonPageBacward);
             this.Controls.Add(this.buttonPageForward);
             this.Controls.Add(this.label1);
@@ -277,9 +278,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewResult)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
-            groupBoxSearch.Visible = false;
-            dataGridViewResult.Location = new System.Drawing.Point(12, 50);
-            dataGridViewResult.Size = new System.Drawing.Size(959, 553);
 
         }
 
@@ -295,7 +293,8 @@
                 makeSearch();
                 labelStatus.Text = "";
                 dataGridViewResult.Location = new System.Drawing.Point(12, 50);
-                dataGridViewResult.Size = new System.Drawing.Size(959, 553);
+                dataGridViewResult.Size = new System.Drawing.Size(984, 630);
+                dataGridViewResult.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
                 
                 
             }
@@ -306,8 +305,9 @@
                 groupBoxSearch.Visible = true;
                 if (comboBoxCategory.SelectedItem == null)
                     comboBoxCategory.SelectedIndex = 0;
-                dataGridViewResult.Location = new System.Drawing.Point(12, 160);
-                dataGridViewResult.Size = new System.Drawing.Size(959, 443);
+                dataGridViewResult.Location = new System.Drawing.Point(12, 120);
+                dataGridViewResult.Size = new System.Drawing.Size(984, 560);
+                dataGridViewResult.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             }
         }
 
