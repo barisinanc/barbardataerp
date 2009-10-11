@@ -93,6 +93,9 @@ namespace arsiv
                 else
                     archiveEng.dateBitis = Convert.ToDateTime(dateBitis.Text).AddDays(1);
                 archiveEng.page = page;
+
+                
+                archiveEng.tur = tur;//comboBoxCategory
                 archiveEng.pageLimit = Convert.ToInt32(pageLimit);//comboBoxPageLimit
                 string selectedDepartments = "";
                 for (int i = 0; i < checkedListBoxDepartment.Items.Count; i++)
@@ -103,7 +106,6 @@ namespace arsiv
                     }
                 }
                 archiveEng.selectedDepartments = selectedDepartments;
-                archiveEng.tur = tur;//comboBoxCategory
                 GuncelleGridMethod(dataGridViewResult, archiveEng.ArsivArama());
                 
                 
@@ -228,6 +230,8 @@ namespace arsiv
         {
             foreach (DataRow row in DataRead("Listeler").Rows)
             { comboBoxCategory.Items.Add(row[1]); }
+            comboBoxCategory.Items.Add("Satış");
+            comboBoxCategory.Items.Add("Ürün");
             comboBoxCategory.SelectedIndex = 0;
             foreach (DataRow row in DataRead("Subeler").Rows)
             { checkedListBoxDepartment.Items.Add(row[1]); }
@@ -277,7 +281,7 @@ namespace arsiv
         private void buttonSearch_Click_1(object sender, EventArgs e)
         {
             isSearch = true;
-            makeSearch();
+            search();
         }
 
         private void dataGridViewResult_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
