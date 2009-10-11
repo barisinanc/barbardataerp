@@ -51,6 +51,7 @@ namespace arsiv
         {
             //Lodoskaraktersizi baslat = new Lodoskaraktersizi();
             //baslat.Show();
+            favouriteRead();
             personelListesiDoldur();
             odemeListesiDoldur();
             //otoBoyutDegistir();
@@ -672,6 +673,82 @@ namespace arsiv
         {
             Properties.Settings.Default.SonKullaniciId = comboBoxKullanici.SelectedIndex;
             Properties.Settings.Default.Save();
+        }
+        List<Product> favoriteList = new List<Product>();
+        private void buttonAddFavorite_Click(object sender, EventArgs e)
+        {
+            favoriteList.Add(SecilenUrun);
+            favoriteDoldur();
+        }
+
+        private void buttonRemoveFavorite_Click(object sender, EventArgs e)
+        {
+            favoriteList.Remove(SecilenUrun);
+            favoriteDoldur();
+        }
+
+        private void favoriteDoldur()
+        {
+            listBoxProductFavorite.Items.Clear();
+            foreach(Product p in favoriteList)
+            {
+                listBoxProductFavorite.Items.Add(p.Adi + " " + p.Marka + " " + p.Model);
+            }
+            favouriteSave();
+        }
+
+        private void favouriteRead()
+        {
+            try
+            {
+                Product urun = new Product();
+                favoriteList.Clear();
+                foreach (string x in Properties.Settings.Default.FavouriteProducts.Split(';'))
+                {
+                    foreach (DataRow row in urun.productSearch(x).Rows)
+                    {
+                        Product yeniUrun = new Product();
+                        yeniUrun.BarkodNo = row["BarkodNo"].ToString();
+                        yeniUrun.Adi = row["Urun"].ToString();
+                        yeniUrun.Marka = row["Marka"].ToString();
+                        yeniUrun.Model = row["Model"].ToString();
+                        try { yeniUrun.Fiyat = Convert.ToDecimal(row["Fiyat"]); }
+                        catch { yeniUrun.Fiyat = 0; }
+                        try { yeniUrun.AnaFiyat = Convert.ToDecimal(row["Fiyat"]); }
+                        catch { yeniUrun.AnaFiyat = 0; }
+                        try { yeniUrun.Kdv = Convert.ToInt32(row["Kdv"]); }
+                        catch { yeniUrun.Kdv = 0; }
+                        try { yeniUrun.Arsivle = Convert.ToBoolean(row["Arsivle"]); }
+                        catch { yeniUrun.Arsivle = false; }
+                        
+                        favoriteList.Add(yeniUrun);
+                        yeniUrun.Dispose();
+                        break;
+                    }
+                }
+                favoriteDoldur();
+            }
+            catch { }
+        }
+
+        private void favouriteSave()
+        {
+            string sakla = "";
+            foreach (Product p in favoriteList)
+            {
+                sakla += p.BarkodNo+";";
+            }
+            Properties.Settings.Default.FavouriteProducts = sakla;
+            Properties.Settings.Default.Save();
+
+        }
+
+        private void listBoxProductFavorite_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (listBoxProductFavorite.SelectedIndex >= 0)
+            {
+                SecilenUrun = favoriteList[listBoxProductFavorite.SelectedIndex];
+            }
         }
 
     }

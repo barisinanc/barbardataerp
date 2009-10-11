@@ -98,5 +98,17 @@ namespace arsiv.Properties {
                 this["SonKullaniciId"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string FavouriteProducts {
+            get {
+                return ((string)(this["FavouriteProducts"]));
+            }
+            set {
+                this["FavouriteProducts"] = value;
+            }
+        }
     }
 }
