@@ -95,6 +95,7 @@ namespace arsiv.BarisGorselDLL
             this.SepetIndex = product.SepetIndex;
         }
 
+
         
     }
 }
