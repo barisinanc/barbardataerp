@@ -100,20 +100,18 @@ namespace arsiv
                 archiveEng.selectedDepartments = selectedDepartments;
                 archiveEng.tur = Convert.ToInt32("1");//comboBoxCategory
                 GuncelleGridMethod(dataGridViewResult, archiveEng.ArsivArama());
-                /*
-                #region baran
                 
                 GuncelleMethod(labelStatus, "Aranıyor...");
-                count = 0;
-                conn = new SqlConnection(connectionString);
-                conn.Open();
-
+                
+                int devam = archiveEng.devam;
+                int count = archiveEng.count;
                                 if (page == 1)
                 {
                     GuncelleButtonMethod(buttonPageBacward, false);
                 }
                 else
                 { GuncelleButtonMethod(buttonPageBacward, true); }
+                                
                 if (devam == 0)
                 {
                     GuncelleButtonMethod(buttonPageForward, false);
@@ -122,22 +120,13 @@ namespace arsiv
                 {
                     GuncelleButtonMethod(buttonPageForward, true);
                 }
+                
                 if ((count % pageLimit) == 0)
                 { GuncelleMethod(labelPage, page + "/" + (count / pageLimit)); }
                 else
                 { GuncelleMethod(labelPage, page + "/" + ((count / pageLimit) + 1)); }
-                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-                adapter.Fill(dataTable);
-                conn.Close();
-                conn.Dispose();
-                cmd.Dispose();
-                adapter.Dispose();
-                GuncelleGridMethod(dataGridViewResult, dataTable);
                 GuncelleMethod(labelStatus, count + " adet kayıt bulundu!");
                 
-                #endregion
-
-                */
             }
             else 
             {
