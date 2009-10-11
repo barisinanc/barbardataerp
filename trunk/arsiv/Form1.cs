@@ -63,7 +63,6 @@ namespace arsiv
             }
         }
 
-        int count = 0;
         private void search()
         {
             makeSearch();
@@ -74,7 +73,7 @@ namespace arsiv
         {
             if (isSearch)
             {
-                BarisGorselDLL.Archive archiveEng = new BarisGorselDLL.Archive();
+                BarisGorselDLL.Search archiveEng = new BarisGorselDLL.Search();
                 if (textBoxValue.Text == null)
                     archiveEng.veri = "";
                 else
