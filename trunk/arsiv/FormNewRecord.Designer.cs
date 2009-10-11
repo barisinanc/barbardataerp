@@ -49,6 +49,9 @@
             this.label7 = new System.Windows.Forms.Label();
             this.dataGridViewCari = new System.Windows.Forms.DataGridView();
             this.groupBoxSearch = new System.Windows.Forms.GroupBox();
+            this.buttonRemoveFavorite = new System.Windows.Forms.Button();
+            this.buttonAddFavorite = new System.Windows.Forms.Button();
+            this.listBoxProductFavorite = new System.Windows.Forms.ListBox();
             this.buttonProductEdit = new System.Windows.Forms.Button();
             this.textBoxProductSearch = new System.Windows.Forms.TextBox();
             this.buttonProductAdd = new System.Windows.Forms.Button();
@@ -94,9 +97,6 @@
             this.label16 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.listBoxProductFavorite = new System.Windows.Forms.ListBox();
-            this.buttonAddFavorite = new System.Windows.Forms.Button();
-            this.buttonRemoveFavorite = new System.Windows.Forms.Button();
             this.groupBoxCari.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCari)).BeginInit();
             this.groupBoxSearch.SuspendLayout();
@@ -313,6 +313,35 @@
             this.groupBoxSearch.TabIndex = 0;
             this.groupBoxSearch.TabStop = false;
             this.groupBoxSearch.Text = "Ürün Arama";
+            // 
+            // buttonRemoveFavorite
+            // 
+            this.buttonRemoveFavorite.Location = new System.Drawing.Point(171, 73);
+            this.buttonRemoveFavorite.Name = "buttonRemoveFavorite";
+            this.buttonRemoveFavorite.Size = new System.Drawing.Size(92, 23);
+            this.buttonRemoveFavorite.TabIndex = 780;
+            this.buttonRemoveFavorite.Text = "Listeden Sil>>";
+            this.buttonRemoveFavorite.UseVisualStyleBackColor = true;
+            this.buttonRemoveFavorite.Click += new System.EventHandler(this.buttonRemoveFavorite_Click);
+            // 
+            // buttonAddFavorite
+            // 
+            this.buttonAddFavorite.Location = new System.Drawing.Point(278, 73);
+            this.buttonAddFavorite.Name = "buttonAddFavorite";
+            this.buttonAddFavorite.Size = new System.Drawing.Size(98, 23);
+            this.buttonAddFavorite.TabIndex = 779;
+            this.buttonAddFavorite.Text = "<< Listeye Ekle";
+            this.buttonAddFavorite.UseVisualStyleBackColor = true;
+            this.buttonAddFavorite.Click += new System.EventHandler(this.buttonAddFavorite_Click);
+            // 
+            // listBoxProductFavorite
+            // 
+            this.listBoxProductFavorite.FormattingEnabled = true;
+            this.listBoxProductFavorite.Location = new System.Drawing.Point(6, 17);
+            this.listBoxProductFavorite.Name = "listBoxProductFavorite";
+            this.listBoxProductFavorite.Size = new System.Drawing.Size(159, 134);
+            this.listBoxProductFavorite.TabIndex = 778;
+            this.listBoxProductFavorite.SelectedIndexChanged += new System.EventHandler(this.listBoxProductFavorite_SelectedIndexChanged);
             // 
             // buttonProductEdit
             // 
@@ -797,32 +826,6 @@
             this.label14.Size = new System.Drawing.Size(73, 13);
             this.label14.TabIndex = 0;
             this.label14.Text = "Toplam Tutar:";
-            // 
-            // listBoxProductFavorite
-            // 
-            this.listBoxProductFavorite.FormattingEnabled = true;
-            this.listBoxProductFavorite.Location = new System.Drawing.Point(6, 17);
-            this.listBoxProductFavorite.Name = "listBoxProductFavorite";
-            this.listBoxProductFavorite.Size = new System.Drawing.Size(159, 134);
-            this.listBoxProductFavorite.TabIndex = 778;
-            // 
-            // buttonAddFavorite
-            // 
-            this.buttonAddFavorite.Location = new System.Drawing.Point(278, 73);
-            this.buttonAddFavorite.Name = "buttonAddFavorite";
-            this.buttonAddFavorite.Size = new System.Drawing.Size(98, 23);
-            this.buttonAddFavorite.TabIndex = 779;
-            this.buttonAddFavorite.Text = "<< Listeye Ekle";
-            this.buttonAddFavorite.UseVisualStyleBackColor = true;
-            // 
-            // buttonRemoveFavorite
-            // 
-            this.buttonRemoveFavorite.Location = new System.Drawing.Point(171, 73);
-            this.buttonRemoveFavorite.Name = "buttonRemoveFavorite";
-            this.buttonRemoveFavorite.Size = new System.Drawing.Size(92, 23);
-            this.buttonRemoveFavorite.TabIndex = 780;
-            this.buttonRemoveFavorite.Text = "Listeden Sil>>";
-            this.buttonRemoveFavorite.UseVisualStyleBackColor = true;
             // 
             // FormNewRecord
             // 
