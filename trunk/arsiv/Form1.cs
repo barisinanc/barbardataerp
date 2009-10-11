@@ -259,7 +259,19 @@ namespace arsiv
         private void buttonNewRecord_Click(object sender, EventArgs e)
         {
             Form newRecordForm = new FormNewRecord();
+            newRecordForm.FormClosed += new FormClosedEventHandler(newRecordForm_FormClosed);
             newRecordForm.Show();
+        }
+
+        void newRecordForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            BarisGorselDLL.Order engOrder = new BarisGorselDLL.Order();
+            GuncelleGridMethod(dataGridViewResult, engOrder.getMainScreen(Properties.Settings.Default.SubeId, 1, 30));
+            GuncelleMethod(labelPage, "1/" + ((engOrder.toplam / 20) + 1));
+            if (page >= (engOrder.toplam / pageLimit))
+                buttonPageForward.Enabled = false;
+            if (page == 1)
+                buttonPageBacward.Enabled = false;
         }
 
         private void buttonSearch_Click_1(object sender, EventArgs e)
