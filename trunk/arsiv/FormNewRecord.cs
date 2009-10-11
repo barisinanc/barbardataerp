@@ -694,7 +694,6 @@ namespace arsiv
             {
                 listBoxProductFavorite.Items.Add(p.Adi + " " + p.Marka + " " + p.Model);
             }
-            favouriteSave();
         }
 
         private void favouriteRead()
@@ -707,22 +706,25 @@ namespace arsiv
                 {
                     foreach (DataRow row in urun.productSearch(x).Rows)
                     {
-                        Product yeniUrun = new Product();
-                        yeniUrun.BarkodNo = row["BarkodNo"].ToString();
-                        yeniUrun.Adi = row["Urun"].ToString();
-                        yeniUrun.Marka = row["Marka"].ToString();
-                        yeniUrun.Model = row["Model"].ToString();
-                        try { yeniUrun.Fiyat = Convert.ToDecimal(row["Fiyat"]); }
-                        catch { yeniUrun.Fiyat = 0; }
-                        try { yeniUrun.AnaFiyat = Convert.ToDecimal(row["Fiyat"]); }
-                        catch { yeniUrun.AnaFiyat = 0; }
-                        try { yeniUrun.Kdv = Convert.ToInt32(row["Kdv"]); }
-                        catch { yeniUrun.Kdv = 0; }
-                        try { yeniUrun.Arsivle = Convert.ToBoolean(row["Arsivle"]); }
-                        catch { yeniUrun.Arsivle = false; }
-                        
-                        favoriteList.Add(yeniUrun);
-                        yeniUrun.Dispose();
+                        if (x != "")
+                        {
+                            Product yeniUrun = new Product();
+                            yeniUrun.BarkodNo = row["BarkodNo"].ToString();
+                            yeniUrun.Adi = row["Urun"].ToString();
+                            yeniUrun.Marka = row["Marka"].ToString();
+                            yeniUrun.Model = row["Model"].ToString();
+                            try { yeniUrun.Fiyat = Convert.ToDecimal(row["Fiyat"]); }
+                            catch { yeniUrun.Fiyat = 0; }
+                            try { yeniUrun.AnaFiyat = Convert.ToDecimal(row["Fiyat"]); }
+                            catch { yeniUrun.AnaFiyat = 0; }
+                            try { yeniUrun.Kdv = Convert.ToInt32(row["Kdv"]); }
+                            catch { yeniUrun.Kdv = 0; }
+                            try { yeniUrun.Arsivle = Convert.ToBoolean(row["Arsivle"]); }
+                            catch { yeniUrun.Arsivle = false; }
+
+                            favoriteList.Add(yeniUrun);
+                            yeniUrun.Dispose();
+                        }
                         break;
                     }
                 }
@@ -749,6 +751,11 @@ namespace arsiv
             {
                 SecilenUrun = favoriteList[listBoxProductFavorite.SelectedIndex];
             }
+        }
+
+        private void FormNewRecord_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            favouriteSave();
         }
 
     }

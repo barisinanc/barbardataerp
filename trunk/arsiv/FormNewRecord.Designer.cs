@@ -845,6 +845,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Yeni Kayıt";
             this.Load += new System.EventHandler(this.FormNewRecord_Load);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormNewRecord_FormClosed);
             this.groupBoxCari.ResumeLayout(false);
             this.groupBoxCari.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCari)).EndInit();
