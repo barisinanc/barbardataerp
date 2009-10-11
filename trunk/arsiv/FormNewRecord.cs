@@ -210,12 +210,17 @@ namespace arsiv
         private void textBoxProductDiscount_TextChanged(object sender, EventArgs e)
         {
             if (textBoxProductDiscount.Text == null || textBoxProductDiscount.Text=="") { textBoxProductDiscount.Text = "0"; }
-            if (Convert.ToDecimal(textBoxProductDiscount.Text) <= SecilenUrun.Fiyat)
+            if (Convert.ToDecimal(textBoxProductDiscount.Text) <= SecilenUrun.Fiyat*numericProductCount.Value)
             {
-                textBoxProductPrice.Text = (SecilenUrun.AnaFiyat - Convert.ToDecimal(textBoxProductDiscount.Text)).ToString();
+                textBoxProductPrice.Text = ((SecilenUrun.AnaFiyat * numericProductCount.Value) - Convert.ToDecimal(textBoxProductDiscount.Text)).ToString();
             }
             else
             { textBoxProductPrice.Text = "0"; }
+        }
+
+        private void numericProductCount_ValueChanged(object sender, EventArgs e)
+        {
+            textBoxProductPrice.Text = (SecilenUrun.Fiyat * numericProductCount.Value).ToString();
         }
 
         private void buttonProductInsert_Click(object sender, EventArgs e)
@@ -228,25 +233,25 @@ namespace arsiv
                 yeniUrun.Marka = labelProductSelectedBrand.Text;
                 yeniUrun.Model = labelProductSelectedModel.Text;
                 yeniUrun.Arsivle = checkBoxArchived.Checked;
-                yeniUrun.AnaFiyat = SecilenUrun.AnaFiyat;
+                yeniUrun.AnaFiyat = SecilenUrun.AnaFiyat * numericProductCount.Value;
                 yeniUrun.KullaniciId = comboBoxKullanici.SelectedIndex;
                 decimal indirim = 0;
                 decimal fiyat = 0;
                 if (textBoxProductDiscount.Text == null || textBoxProductDiscount.Text == "") { indirim = 0; }
-                else { indirim = Convert.ToDecimal(textBoxProductPrice.Text); }
+                else { indirim = Convert.ToDecimal(textBoxProductDiscount.Text); }
                 if (textBoxProductPrice.Text == null || textBoxProductPrice.Text == "") { fiyat = 0; }
                 else { fiyat = Convert.ToDecimal(textBoxProductPrice.Text); }
                 if (fiyat + indirim != SecilenUrun.AnaFiyat)
                 {
                     yeniUrun.Fiyat = Convert.ToDecimal(textBoxProductPrice.Text);
-                    if (fiyat >= SecilenUrun.AnaFiyat)
+                    if (fiyat >= yeniUrun.AnaFiyat)
                     {
                         //yeniUrun.Fiyat = SecilenUrun.AnaFiyat;//Fiyat normalden fazla olabilir
                         yeniUrun.Indirim = 0;
                     }
                     else
                     {
-                        yeniUrun.Indirim = SecilenUrun.AnaFiyat - fiyat;
+                        yeniUrun.Indirim = yeniUrun.AnaFiyat - fiyat;
                         yeniUrun.Fiyat = fiyat;
                     }
                 }
@@ -485,6 +490,13 @@ namespace arsiv
 
         private void dataGridColorSelected(DataGridView grid)
         {
+            foreach (DataGridViewRow satir in grid.Rows)
+            {
+                foreach (DataGridViewCell hucre in satir.Cells)
+                {
+                    hucre.Style.BackColor = Color.White;
+                }
+            }
             foreach (DataGridViewCell hucre in grid.Rows[grid.CurrentRow.Index].Cells)
             {
                 hucre.Style.BackColor = Color.Red;
@@ -735,6 +747,7 @@ namespace arsiv
             if (listBoxProductFavorite.SelectedIndex >= 0)
             {
                 SecilenUrun = favoriteList[listBoxProductFavorite.SelectedIndex];
+                fillProductDetails();
             }
         }
 
