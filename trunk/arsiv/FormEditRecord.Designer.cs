@@ -704,7 +704,7 @@
             // buttonBakiyeSil
             // 
             this.buttonBakiyeSil.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonBakiyeSil.Location = new System.Drawing.Point(198, 14);
+            this.buttonBakiyeSil.Location = new System.Drawing.Point(198, 165);
             this.buttonBakiyeSil.Name = "buttonBakiyeSil";
             this.buttonBakiyeSil.Size = new System.Drawing.Size(68, 23);
             this.buttonBakiyeSil.TabIndex = 74;
@@ -728,7 +728,7 @@
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(22, 123);
+            this.label18.Location = new System.Drawing.Point(16, 123);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(64, 13);
             this.label18.TabIndex = 72;
@@ -737,7 +737,7 @@
             // comboBoxOdemeTipi
             // 
             this.comboBoxOdemeTipi.FormattingEnabled = true;
-            this.comboBoxOdemeTipi.Location = new System.Drawing.Point(98, 120);
+            this.comboBoxOdemeTipi.Location = new System.Drawing.Point(92, 120);
             this.comboBoxOdemeTipi.Name = "comboBoxOdemeTipi";
             this.comboBoxOdemeTipi.Size = new System.Drawing.Size(77, 21);
             this.comboBoxOdemeTipi.TabIndex = 71;
@@ -745,7 +745,7 @@
             // labelBorc
             // 
             this.labelBorc.AutoSize = true;
-            this.labelBorc.Location = new System.Drawing.Point(95, 101);
+            this.labelBorc.Location = new System.Drawing.Point(89, 101);
             this.labelBorc.Name = "labelBorc";
             this.labelBorc.Size = new System.Drawing.Size(29, 13);
             this.labelBorc.TabIndex = 8;
@@ -754,7 +754,7 @@
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(54, 101);
+            this.label17.Location = new System.Drawing.Point(48, 101);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(32, 13);
             this.label17.TabIndex = 7;
@@ -763,7 +763,7 @@
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(155, 47);
+            this.label19.Location = new System.Drawing.Point(149, 47);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(20, 13);
             this.label19.TabIndex = 6;
@@ -771,7 +771,7 @@
             // 
             // textBoxAlinanTutar
             // 
-            this.textBoxAlinanTutar.Location = new System.Drawing.Point(95, 44);
+            this.textBoxAlinanTutar.Location = new System.Drawing.Point(89, 44);
             this.textBoxAlinanTutar.Name = "textBoxAlinanTutar";
             this.textBoxAlinanTutar.Size = new System.Drawing.Size(54, 20);
             this.textBoxAlinanTutar.TabIndex = 70;
@@ -781,7 +781,7 @@
             // labelParaUstu
             // 
             this.labelParaUstu.AutoSize = true;
-            this.labelParaUstu.Location = new System.Drawing.Point(95, 76);
+            this.labelParaUstu.Location = new System.Drawing.Point(89, 76);
             this.labelParaUstu.Name = "labelParaUstu";
             this.labelParaUstu.Size = new System.Drawing.Size(29, 13);
             this.labelParaUstu.TabIndex = 4;
@@ -790,7 +790,7 @@
             // labelBakiye
             // 
             this.labelBakiye.AutoSize = true;
-            this.labelBakiye.Location = new System.Drawing.Point(92, 18);
+            this.labelBakiye.Location = new System.Drawing.Point(89, 21);
             this.labelBakiye.Name = "labelBakiye";
             this.labelBakiye.Size = new System.Drawing.Size(29, 13);
             this.labelBakiye.TabIndex = 3;
@@ -799,7 +799,7 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(29, 76);
+            this.label16.Location = new System.Drawing.Point(23, 76);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(57, 13);
             this.label16.TabIndex = 2;
@@ -808,7 +808,7 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(47, 47);
+            this.label15.Location = new System.Drawing.Point(41, 47);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(39, 13);
             this.label15.TabIndex = 1;
@@ -817,11 +817,11 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(13, 18);
+            this.label14.Location = new System.Drawing.Point(10, 21);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(73, 13);
+            this.label14.Size = new System.Drawing.Size(70, 13);
             this.label14.TabIndex = 0;
-            this.label14.Text = "Toplam Tutar:";
+            this.label14.Text = "Toplam Borç:";
             // 
             // FormEditRecord
             // 

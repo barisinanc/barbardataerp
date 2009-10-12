@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using arsiv.BarisGorselDLL;
 
 namespace arsiv
 {
@@ -15,34 +16,14 @@ namespace arsiv
         public FormAddProduct()
         {
             InitializeComponent();
-            connectionString = Properties.Settings.Default.connectionStringDis;
-            
         }
-        string connectionString;
-        private DataTable DataRead(string procedureName, string veri)
-        {
-            conn = new SqlConnection(connectionString);
-            conn.Open();
-            SqlCommand cmd = new SqlCommand(procedureName, conn);
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@veri", veri);
-            DataTable dataTable = new DataTable();
-            cmd.ExecuteNonQuery();
-            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-            adapter.Fill(dataTable);
-            conn.Close();
-            conn.Dispose();
-            cmd.Dispose();
-            adapter.Dispose();
-            return dataTable;
-        }
-        SqlConnection conn;
 
         private void textBoxName_TextChanged(object sender, EventArgs e)
         {
             if (textBoxName.Text.Length >= 3)
             {
-                dataGridViewNames.DataSource = DataRead("Urunler", textBoxName.Text);
+                urun.Adi = textBoxName.Text.Trim();
+                dataGridViewNames.DataSource = urun.urunBul();
             }
         }
 
@@ -50,7 +31,8 @@ namespace arsiv
         {
             if (textBoxBrand.Text.Length >= 3)
             {
-                dataGridViewBrand.DataSource = DataRead("Markalar", textBoxName.Text);
+                urun.Marka = textBoxBrand.Text.Trim();
+                dataGridViewBrand.DataSource = urun.markaBul();
             }
         }
 
@@ -58,67 +40,55 @@ namespace arsiv
         {
             saveProduct();
         }
-
+        Product urun = new Product();
         private void saveProduct()
         {
-            conn = new SqlConnection(connectionString);
-            SqlCommand command = new SqlCommand("UrunEkle", conn);
-            command.CommandType = System.Data.CommandType.StoredProcedure;
-            command.Parameters.Add("@BarkodNo", SqlDbType.NVarChar);
-            command.Parameters["@BarkodNo"].Value = StringEdit.FirstUpper(textBoxBarcodeNo.Text.Trim());
-            command.Parameters.Add("@Urun", SqlDbType.NVarChar);
-            command.Parameters["@Urun"].Value = StringEdit.FirstUpper(textBoxName.Text.Trim());
-            command.Parameters.Add("@Marka", SqlDbType.NVarChar);
-            command.Parameters["@Marka"].Value = StringEdit.FirstUpper(textBoxBrand.Text.Trim());
-            command.Parameters.Add("@Model", SqlDbType.NVarChar);
-            command.Parameters["@Model"].Value = StringEdit.FirstUpper(textBoxModel.Text.Trim());
-            command.Parameters.Add("@Fiyat", SqlDbType.Money);
-            command.Parameters["@Fiyat"].Value = textBoxPrice.Text.Trim();
-            command.Parameters.Add("@Kdv", SqlDbType.Int);
-            command.Parameters["@Kdv"].Value = textBoxKdv.Text.Trim();
-            command.Parameters.Add("@Arsivle", SqlDbType.TinyInt);
-            command.Parameters["@Arsivle"].Value = checkBoxArchived.Checked;
-            int durum = 0;
-            try
+           
+            urun.Adi = textBoxName.Text.Trim();
+            urun.BarkodNo = textBoxBarcodeNo.Text.Trim();
+            urun.Marka = textBoxBrand.Text.Trim();
+            urun.Model = textBoxModel.Text.Trim();
+            urun.Kdv = int.Parse(textBoxKdv.Text.Trim());
+            urun.Arsivle = checkBoxArchived.Checked;
+            urun.Fiyat = decimal.Parse(textBoxPrice.Text.Trim());
+            bool varmi = urun.productAdd();
+            if (varmi)
             {
-                conn.Open();
-                durum = command.ExecuteNonQuery();
+                MessageBox.Show("Ürün önceden girilmiş!");
             }
-            catch (Exception ex)
-            { MessageBox.Show(ex.Message); }
-            finally
+            else
             {
-                conn.Close();
-                if (durum == 1)
-                {
-                    cleanForm();
-                }
-                else
-                {
-                    MessageBox.Show("Bu kayıt önceden eklenmiş!");
-                }
+                cleanForm();
             }
         }
 
         private void cleanForm()
         {
             textBoxBarcodeNo.Text = null;
+            textBoxBrand.TextChanged -= new EventHandler(textBoxBrand_TextChanged);
             textBoxBrand.Text = null;
+            textBoxBrand.TextChanged += new EventHandler(textBoxBrand_TextChanged);
             textBoxKdv.Text = null;
             textBoxModel.Text = null;
+            textBoxName.TextChanged -= new EventHandler(textBoxName_TextChanged);
             textBoxName.Text = null;
+            textBoxName.TextChanged += new EventHandler(textBoxName_TextChanged);
             textBoxPrice.Name = null;
             checkBoxArchived.Checked = false;
         }
 
         private void dataGridViewNames_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            textBoxName.TextChanged -= new EventHandler(textBoxName_TextChanged);
             textBoxName.Text = dataGridViewNames.SelectedCells[0].Value.ToString();
+            textBoxName.TextChanged += new EventHandler(textBoxName_TextChanged);
         }
 
         private void dataGridViewBrand_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            textBoxBrand.TextChanged -= new EventHandler(textBoxBrand_TextChanged);
             textBoxBrand.Text = dataGridViewBrand.SelectedCells[0].Value.ToString();
+            textBoxBrand.TextChanged += new EventHandler(textBoxBrand_TextChanged);
         }
 
         private void buttonCancel_Click(object sender, EventArgs e)

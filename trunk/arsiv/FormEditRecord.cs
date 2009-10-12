@@ -311,7 +311,7 @@ namespace arsiv
                 { groupBoxArchive.Visible = false; }
             decimal bakiye= (from x in Sepet
                              where x.Sil == false
-                        select new {Tutar = x.Fiyat}).Sum(p=>p.Tutar);
+                        select new {Tutar = x.Fiyat}).Sum(p=>p.Tutar)-toplamAlinan;
             labelBakiye.Text = bakiye.ToString() + " TL";
             textBoxAlinanTutar.TextAlignChanged -= new EventHandler(textBoxAlinanTutar_TextChanged);
             textBoxAlinanTutar.Text = "0";
@@ -570,8 +570,9 @@ namespace arsiv
             yeniHesap.CariNo = CariNo;
             yeniHesap.OdemeTuru = comboBoxOdemeTipi.SelectedIndex + 1;
             yeniHesap.Borc=borc;
-            yeniHesap.Alinan = (from x in Sepet
-                                select new { Tutar = x.Fiyat }).Sum(p => p.Tutar)-borc;
+            yeniHesap.Alinan = alinanTutar;
+                /*(from x in Sepet
+                                select new { Tutar = x.Fiyat }).Sum(p => p.Tutar)-borc;*/
             if (yeniHesap.Alinan > decimal.Parse("0"))
             {
                 yeniHesap.addAccount();
@@ -584,7 +585,7 @@ namespace arsiv
         private void textBoxAlinanTutar_TextChanged(object sender, EventArgs e)
         {
             decimal toplam = (from x in Sepet
-                              select new { Tutar = x.Fiyat }).Sum(p => p.Tutar);
+                              select new { Tutar = x.Fiyat }).Sum(p => p.Tutar)-toplamAlinan;
             if (textBoxAlinanTutar.Text == null || textBoxAlinanTutar.Text == "")
             {
                 textBoxAlinanTutar.TextAlignChanged -= new EventHandler(textBoxAlinanTutar_TextChanged);
@@ -624,14 +625,14 @@ namespace arsiv
             selectedCari.CariGuncelle();
             MessageBox.Show("Cari bilgileri güncellendi!");
         }
-
+        decimal toplamAlinan = 0;
+        decimal toplamBorc = 0;
         private void bakiyeDoldur()
         {
             Account hesap = new Account();
             hesap.SepetNo = SepetId;
             hesap.CariNo = selectedCari.CariNo;
-            decimal toplamAlinan = 0;
-            decimal toplamBorc = 0;
+            
             var sorgu = from x in  hesap.gecmisOdemeler(out toplamAlinan,out toplamBorc)
                         select new { Tarih = x.Tarih, Alınan = x.Alinan, Borç = x.Borc, Ödeme_Türü=x.OdemeTuruAd };
             dataGridViewBakiye.DataSource = sorgu.ToList();

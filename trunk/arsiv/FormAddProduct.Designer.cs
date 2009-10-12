@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAddProduct));
             this.textBoxBarcodeNo = new System.Windows.Forms.TextBox();
             this.labelBarcodeNo = new System.Windows.Forms.Label();
             this.textBoxName = new System.Windows.Forms.TextBox();
@@ -72,7 +73,7 @@
             this.textBoxName.MaxLength = 50;
             this.textBoxName.Name = "textBoxName";
             this.textBoxName.Size = new System.Drawing.Size(100, 20);
-            this.textBoxName.TabIndex = 0;
+            this.textBoxName.TabIndex = 10;
             this.textBoxName.TextChanged += new System.EventHandler(this.textBoxName_TextChanged);
             // 
             // labelName
@@ -86,17 +87,17 @@
             // 
             // textBoxBrand
             // 
-            this.textBoxBrand.Location = new System.Drawing.Point(86, 216);
+            this.textBoxBrand.Location = new System.Drawing.Point(86, 155);
             this.textBoxBrand.MaxLength = 50;
             this.textBoxBrand.Name = "textBoxBrand";
             this.textBoxBrand.Size = new System.Drawing.Size(100, 20);
-            this.textBoxBrand.TabIndex = 0;
+            this.textBoxBrand.TabIndex = 20;
             this.textBoxBrand.TextChanged += new System.EventHandler(this.textBoxBrand_TextChanged);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(28, 219);
+            this.label3.Location = new System.Drawing.Point(28, 158);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(40, 13);
             this.label3.TabIndex = 1;
@@ -106,32 +107,36 @@
             // 
             this.dataGridViewNames.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewNames.Location = new System.Drawing.Point(201, 51);
+            this.dataGridViewNames.MultiSelect = false;
             this.dataGridViewNames.Name = "dataGridViewNames";
-            this.dataGridViewNames.Size = new System.Drawing.Size(240, 150);
+            this.dataGridViewNames.ReadOnly = true;
+            this.dataGridViewNames.Size = new System.Drawing.Size(165, 87);
             this.dataGridViewNames.TabIndex = 2;
             this.dataGridViewNames.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewNames_CellContentDoubleClick);
             // 
             // dataGridViewBrand
             // 
             this.dataGridViewBrand.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewBrand.Location = new System.Drawing.Point(201, 216);
+            this.dataGridViewBrand.Location = new System.Drawing.Point(201, 155);
+            this.dataGridViewBrand.MultiSelect = false;
             this.dataGridViewBrand.Name = "dataGridViewBrand";
-            this.dataGridViewBrand.Size = new System.Drawing.Size(240, 150);
+            this.dataGridViewBrand.ReadOnly = true;
+            this.dataGridViewBrand.Size = new System.Drawing.Size(165, 87);
             this.dataGridViewBrand.TabIndex = 3;
             this.dataGridViewBrand.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewBrand_CellContentDoubleClick);
             // 
             // textBoxModel
             // 
-            this.textBoxModel.Location = new System.Drawing.Point(86, 379);
+            this.textBoxModel.Location = new System.Drawing.Point(86, 255);
             this.textBoxModel.MaxLength = 50;
             this.textBoxModel.Name = "textBoxModel";
             this.textBoxModel.Size = new System.Drawing.Size(100, 20);
-            this.textBoxModel.TabIndex = 0;
+            this.textBoxModel.TabIndex = 30;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(28, 382);
+            this.label4.Location = new System.Drawing.Point(28, 258);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(39, 13);
             this.label4.TabIndex = 1;
@@ -139,16 +144,16 @@
             // 
             // textBoxPrice
             // 
-            this.textBoxPrice.Location = new System.Drawing.Point(86, 418);
+            this.textBoxPrice.Location = new System.Drawing.Point(86, 294);
             this.textBoxPrice.MaxLength = 100;
             this.textBoxPrice.Name = "textBoxPrice";
             this.textBoxPrice.Size = new System.Drawing.Size(100, 20);
-            this.textBoxPrice.TabIndex = 0;
+            this.textBoxPrice.TabIndex = 40;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(28, 421);
+            this.label5.Location = new System.Drawing.Point(28, 297);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(32, 13);
             this.label5.TabIndex = 1;
@@ -157,7 +162,7 @@
             // checkBoxArchived
             // 
             this.checkBoxArchived.AutoSize = true;
-            this.checkBoxArchived.Location = new System.Drawing.Point(31, 456);
+            this.checkBoxArchived.Location = new System.Drawing.Point(31, 359);
             this.checkBoxArchived.Name = "checkBoxArchived";
             this.checkBoxArchived.Size = new System.Drawing.Size(87, 17);
             this.checkBoxArchived.TabIndex = 4;
@@ -166,7 +171,7 @@
             // 
             // buttonCancel
             // 
-            this.buttonCancel.Location = new System.Drawing.Point(316, 475);
+            this.buttonCancel.Location = new System.Drawing.Point(246, 375);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(39, 23);
             this.buttonCancel.TabIndex = 5;
@@ -176,17 +181,17 @@
             // 
             // buttonSave
             // 
-            this.buttonSave.Location = new System.Drawing.Point(366, 434);
+            this.buttonSave.Location = new System.Drawing.Point(291, 334);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(75, 64);
-            this.buttonSave.TabIndex = 6;
+            this.buttonSave.TabIndex = 50;
             this.buttonSave.Text = "Kaydet";
             this.buttonSave.UseVisualStyleBackColor = true;
             this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
             // 
             // textBoxKdv
             // 
-            this.textBoxKdv.Location = new System.Drawing.Point(261, 418);
+            this.textBoxKdv.Location = new System.Drawing.Point(261, 298);
             this.textBoxKdv.MaxLength = 3;
             this.textBoxKdv.Name = "textBoxKdv";
             this.textBoxKdv.Size = new System.Drawing.Size(81, 20);
@@ -196,7 +201,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(226, 425);
+            this.label1.Location = new System.Drawing.Point(226, 301);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(29, 13);
             this.label1.TabIndex = 8;
@@ -206,7 +211,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(472, 510);
+            this.ClientSize = new System.Drawing.Size(391, 430);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBoxKdv);
             this.Controls.Add(this.buttonSave);
@@ -224,8 +229,9 @@
             this.Controls.Add(this.textBoxName);
             this.Controls.Add(this.labelBarcodeNo);
             this.Controls.Add(this.textBoxBarcodeNo);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormAddProduct";
-            this.Text = "FormAddProduct";
+            this.Text = "Ürün Ekleme";
             this.TopMost = true;
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewNames)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBrand)).EndInit();
