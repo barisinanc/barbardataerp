@@ -675,9 +675,9 @@
             // buttonProductSelectedDelete
             // 
             this.buttonProductSelectedDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.buttonProductSelectedDelete.Location = new System.Drawing.Point(6, 228);
+            this.buttonProductSelectedDelete.Location = new System.Drawing.Point(488, 231);
             this.buttonProductSelectedDelete.Name = "buttonProductSelectedDelete";
-            this.buttonProductSelectedDelete.Size = new System.Drawing.Size(85, 34);
+            this.buttonProductSelectedDelete.Size = new System.Drawing.Size(105, 34);
             this.buttonProductSelectedDelete.TabIndex = 777;
             this.buttonProductSelectedDelete.Text = "Siparişi İptal Et";
             this.buttonProductSelectedDelete.UseVisualStyleBackColor = true;
@@ -686,9 +686,9 @@
             // buttonProductSelectedEdit
             // 
             this.buttonProductSelectedEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonProductSelectedEdit.Location = new System.Drawing.Point(458, 231);
+            this.buttonProductSelectedEdit.Location = new System.Drawing.Point(6, 231);
             this.buttonProductSelectedEdit.Name = "buttonProductSelectedEdit";
-            this.buttonProductSelectedEdit.Size = new System.Drawing.Size(135, 34);
+            this.buttonProductSelectedEdit.Size = new System.Drawing.Size(105, 34);
             this.buttonProductSelectedEdit.TabIndex = 777;
             this.buttonProductSelectedEdit.Text = "Siparişi Düzenle";
             this.buttonProductSelectedEdit.UseVisualStyleBackColor = true;

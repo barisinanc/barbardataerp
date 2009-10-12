@@ -367,8 +367,6 @@ namespace arsiv
                     checkBoxArchived.Checked = false;
                 }
                 SecilenUrun.SepetIndex = dataGridViewProductSelected.CurrentRow.Index;
-                
-
             }
         }
 
