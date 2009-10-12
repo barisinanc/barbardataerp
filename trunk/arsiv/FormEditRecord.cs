@@ -187,6 +187,7 @@ namespace arsiv
             if (Urunler.Count > 0)
             {
                 SecilenUrun.AddProduct(Urunler[(dataGridViewProductSelect.CurrentRow.Index)]);
+                SecilenUrun.Yeni = true;
                 fillProductDetails();
             }
         }
@@ -293,25 +294,25 @@ namespace arsiv
             }
         }
 
-        
+
 
         private void sepetGridRefresh()
         {
-            
-                var sepetData = from x in Sepet
-                                where x.Sil==false
-                                select new { Barkod_No = x.BarkodNo, Ürün = x.Adi+" "+x.Marka+" "+x.Model, Adet = x.Adet, Fiyat = x.Fiyat, İndirim = x.Indirim, Teslim_Tarihi =x.TeslimTarihi };
-                dataGridViewProductSelected.DataSource = sepetData.ToList();
-                int arsivlenecek = (from x in Sepet
-                                    where x.Arsivle==true
-                                   select new { adet = x.Arsivle }).Count();
-                if (arsivlenecek > 0)
-                { groupBoxArchive.Visible = true;  }
-                else
-                { groupBoxArchive.Visible = false; }
-            decimal bakiye= (from x in Sepet
-                             where x.Sil == false
-                        select new {Tutar = x.Fiyat}).Sum(p=>p.Tutar)-toplamAlinan;
+
+            var sepetData = from x in Sepet
+                            where x.Sil == false
+                            select new { Barkod_No = x.BarkodNo, Ürün = x.Adi + " " + x.Marka + " " + x.Model, Adet = x.Adet, Fiyat = x.Fiyat, İndirim = x.Indirim, Teslim_Tarihi = x.TeslimTarihi };
+            dataGridViewProductSelected.DataSource = sepetData.ToList();
+            int arsivlenecek = (from x in Sepet
+                                where x.Arsivle == true
+                                select new { adet = x.Arsivle }).Count();
+            if (arsivlenecek > 0)
+            { groupBoxArchive.Visible = true; }
+            else
+            { groupBoxArchive.Visible = false; }
+            decimal bakiye = (from x in Sepet
+                              where x.Sil == false
+                              select new { Tutar = x.Fiyat }).Sum(p => p.Tutar) - toplamAlinan;
             labelBakiye.Text = bakiye.ToString() + " TL";
             textBoxAlinanTutar.TextAlignChanged -= new EventHandler(textBoxAlinanTutar_TextChanged);
             textBoxAlinanTutar.Text = "0";
@@ -557,7 +558,7 @@ namespace arsiv
                     else
                     { yeniCikis.SepetSil(); }
                 }
-                else
+                if(x.Yeni)
                 { yeniCikis.addOrder(); }
             }
             if (arsiv != null)
