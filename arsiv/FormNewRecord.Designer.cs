@@ -43,6 +43,10 @@
             this.buttonCariAra = new System.Windows.Forms.Button();
             this.buttonCariBirak = new System.Windows.Forms.Button();
             this.buttonCariSec = new System.Windows.Forms.Button();
+            this.textBoxCariVergiDairesi = new System.Windows.Forms.TextBox();
+            this.label21 = new System.Windows.Forms.Label();
+            this.textBoxCariVergiNo = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.textBoxCariAciklama = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.textBoxCariCep = new System.Windows.Forms.TextBox();
@@ -97,10 +101,6 @@
             this.label16 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBoxCariVergiNo = new System.Windows.Forms.TextBox();
-            this.label21 = new System.Windows.Forms.Label();
-            this.textBoxCariVergiDairesi = new System.Windows.Forms.TextBox();
             this.groupBoxCari.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCari)).BeginInit();
             this.groupBoxSearch.SuspendLayout();
@@ -261,6 +261,38 @@
             this.buttonCariSec.UseVisualStyleBackColor = true;
             this.buttonCariSec.Click += new System.EventHandler(this.buttonCariSec_Click);
             // 
+            // textBoxCariVergiDairesi
+            // 
+            this.textBoxCariVergiDairesi.Location = new System.Drawing.Point(80, 173);
+            this.textBoxCariVergiDairesi.Name = "textBoxCariVergiDairesi";
+            this.textBoxCariVergiDairesi.Size = new System.Drawing.Size(130, 20);
+            this.textBoxCariVergiDairesi.TabIndex = 777;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(3, 176);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(69, 13);
+            this.label21.TabIndex = 8;
+            this.label21.Text = "Vergi Dairesi:";
+            // 
+            // textBoxCariVergiNo
+            // 
+            this.textBoxCariVergiNo.Location = new System.Drawing.Point(80, 148);
+            this.textBoxCariVergiNo.Name = "textBoxCariVergiNo";
+            this.textBoxCariVergiNo.Size = new System.Drawing.Size(130, 20);
+            this.textBoxCariVergiNo.TabIndex = 777;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(25, 151);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(51, 13);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "Vergi No:";
+            // 
             // textBoxCariAciklama
             // 
             this.textBoxCariAciklama.Location = new System.Drawing.Point(80, 122);
@@ -349,8 +381,9 @@
             this.listBoxProductFavorite.Location = new System.Drawing.Point(6, 17);
             this.listBoxProductFavorite.Name = "listBoxProductFavorite";
             this.listBoxProductFavorite.Size = new System.Drawing.Size(159, 134);
-            this.listBoxProductFavorite.TabIndex = 778;
+            this.listBoxProductFavorite.TabIndex = 0;
             this.listBoxProductFavorite.SelectedIndexChanged += new System.EventHandler(this.listBoxProductFavorite_SelectedIndexChanged);
+            this.listBoxProductFavorite.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.listBoxProductFavorite_KeyPress);
             // 
             // buttonProductEdit
             // 
@@ -366,7 +399,7 @@
             this.textBoxProductSearch.Location = new System.Drawing.Point(171, 19);
             this.textBoxProductSearch.Name = "textBoxProductSearch";
             this.textBoxProductSearch.Size = new System.Drawing.Size(140, 20);
-            this.textBoxProductSearch.TabIndex = 0;
+            this.textBoxProductSearch.TabIndex = 2;
             this.textBoxProductSearch.TextChanged += new System.EventHandler(this.textBoxProductSearch_TextChanged);
             // 
             // buttonProductAdd
@@ -791,6 +824,7 @@
             this.textBoxAlinanTutar.TabIndex = 70;
             this.textBoxAlinanTutar.Text = "0";
             this.textBoxAlinanTutar.TextChanged += new System.EventHandler(this.textBoxAlinanTutar_TextChanged);
+            this.textBoxAlinanTutar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxAlinanTutar_KeyPress);
             // 
             // labelParaUstu
             // 
@@ -836,38 +870,6 @@
             this.label14.Size = new System.Drawing.Size(73, 13);
             this.label14.TabIndex = 0;
             this.label14.Text = "Toplam Tutar:";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(25, 151);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(51, 13);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "Vergi No:";
-            // 
-            // textBoxCariVergiNo
-            // 
-            this.textBoxCariVergiNo.Location = new System.Drawing.Point(80, 148);
-            this.textBoxCariVergiNo.Name = "textBoxCariVergiNo";
-            this.textBoxCariVergiNo.Size = new System.Drawing.Size(130, 20);
-            this.textBoxCariVergiNo.TabIndex = 777;
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(3, 176);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(69, 13);
-            this.label21.TabIndex = 8;
-            this.label21.Text = "Vergi Dairesi:";
-            // 
-            // textBoxCariVergiDairesi
-            // 
-            this.textBoxCariVergiDairesi.Location = new System.Drawing.Point(80, 173);
-            this.textBoxCariVergiDairesi.Name = "textBoxCariVergiDairesi";
-            this.textBoxCariVergiDairesi.Size = new System.Drawing.Size(130, 20);
-            this.textBoxCariVergiDairesi.TabIndex = 777;
             // 
             // FormNewRecord
             // 

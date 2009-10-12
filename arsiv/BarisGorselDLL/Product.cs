@@ -56,6 +56,7 @@ namespace arsiv.BarisGorselDLL
             {
                 Product yeniUrun = new Product();
                 yeniUrun.BarkodNo = row["BarkodNo"].ToString();
+                if (yeniUrun.BarkodNo == "") { break; }
                 yeniUrun.Adi = row["Urun"].ToString();
                 yeniUrun.Marka = row["Marka"].ToString();
                 yeniUrun.Model = row["Model"].ToString();
@@ -71,6 +72,65 @@ namespace arsiv.BarisGorselDLL
                 yeniUrun.Dispose();
             }
             return urunler;
+        }
+
+        public bool productAdd()
+        {
+            SqlCommand command = new SqlCommand("UrunEkle", Connection);
+            command.CommandType = System.Data.CommandType.StoredProcedure;
+            command.Parameters.Add("@BarkodNo", SqlDbType.NVarChar, 14);
+            command.Parameters["@BarkodNo"].Value = BarkodNo.ToUpper();
+            command.Parameters.Add("@Urun", SqlDbType.NVarChar, 50);
+            command.Parameters["@Urun"].Value = StringEdit.FirstUpper(Adi);
+            command.Parameters.Add("@Marka", SqlDbType.NVarChar);
+            command.Parameters["@Marka"].Value = StringEdit.FirstUpper(Marka);
+            command.Parameters.Add("@Model", SqlDbType.NVarChar, 50);
+            command.Parameters["@Model"].Value = StringEdit.FirstUpper(Model);
+            command.Parameters.Add("@Fiyat", SqlDbType.Money);
+            command.Parameters["@Fiyat"].Value = Fiyat;
+            command.Parameters.Add("@Kdv", SqlDbType.Int);
+            command.Parameters["@Kdv"].Value = Kdv;
+            command.Parameters.Add("@Arsivle", SqlDbType.TinyInt);
+            command.Parameters["@Arsivle"].Value = Arsivle;
+            bool durum = false;
+            Connect();
+            durum = Convert.ToBoolean(command.ExecuteNonQuery());
+            command = null;
+            command.Dispose();
+            Disconnect();
+            return durum;
+        }
+
+        public DataTable markaBul()
+        {
+            Connect();
+            SqlCommand cmd = new SqlCommand("Markalar", Connection);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@veri", Marka);
+            DataTable dataTable = new DataTable();
+            cmd.ExecuteNonQuery();
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+            adapter.Fill(dataTable);
+            cmd.Dispose();
+            adapter.Dispose();
+            Disconnect();
+            return dataTable;
+        }
+
+        public DataTable urunBul()
+        {
+            Connect();
+            SqlCommand cmd = new SqlCommand("Urunler", Connection);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@veri", Adi);
+            DataTable dataTable = new DataTable();
+            cmd.ExecuteNonQuery();
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+            adapter.Fill(dataTable);
+            cmd.Dispose();
+            adapter.Dispose();
+            Disconnect();
+            return dataTable;
         }
     }
 }

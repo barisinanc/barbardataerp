@@ -272,6 +272,7 @@ namespace arsiv
                     Sepet[SecilenUrun.SepetIndex] = yeniUrun;
                 }
                 sepetGridRefresh();
+                textBoxAlinanTutar.Focus();
             }
         }
 
@@ -294,8 +295,9 @@ namespace arsiv
                         select new {Tutar = x.Fiyat}).Sum(p=>p.Tutar);
             labelBakiye.Text = bakiye.ToString() + " TL";
             textBoxAlinanTutar.TextAlignChanged -= new EventHandler(textBoxAlinanTutar_TextChanged);
-            textBoxAlinanTutar.Text = bakiye.ToString();
+            textBoxAlinanTutar.Text = "0";//bakiye.ToString();
             textBoxAlinanTutar.TextAlignChanged += new EventHandler(textBoxAlinanTutar_TextChanged);
+            
         }
         int arsivTipiSelected;
         
@@ -604,8 +606,9 @@ namespace arsiv
             yeniHesap.CariNo = CariNo;
             yeniHesap.Borc=borc;
             yeniHesap.OdemeTuru = comboBoxOdemeTipi.SelectedIndex + 1;
-            yeniHesap.Alinan = (from x in Sepet
-                                select new { Tutar = x.Fiyat }).Sum(p => p.Tutar)-borc;
+            yeniHesap.Alinan = alinanTutar;
+                /*(from x in Sepet
+                                select new { Tutar = x.Fiyat }).Sum(p => p.Tutar)-borc;*/
             yeniHesap.addAccount();
             if (arsivle)
             {
@@ -768,6 +771,22 @@ namespace arsiv
             selectedCari.VergiDairesi = textBoxCariVergiDairesi.Text.Trim();
             selectedCari.CariGuncelle();
             MessageBox.Show("Cari bilgileri güncellendi!");
+        }
+
+        private void listBoxProductFavorite_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)13)
+            {
+                buttonProductInsert.Focus();
+            }
+        }
+
+        private void textBoxAlinanTutar_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)13)
+            {
+                buttonSave.Focus();
+            }
         }
 
     }
