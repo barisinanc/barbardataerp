@@ -43,11 +43,14 @@
             this.buttonNewRecord = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.tsbtnSearch = new System.Windows.Forms.ToolStripButton();
+            this.toolStripRapor = new System.Windows.Forms.ToolStripButton();
             this.buttonPageBacward = new System.Windows.Forms.Button();
             this.buttonPageForward = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridViewResult = new System.Windows.Forms.DataGridView();
             this.comboBoxPageLimit = new System.Windows.Forms.ComboBox();
+            this.toolStripAbout = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.groupBoxSearch.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewResult)).BeginInit();
@@ -176,7 +179,10 @@
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.buttonNewRecord,
-            this.tsbtnSearch});
+            this.tsbtnSearch,
+            this.toolStripRapor,
+            this.toolStripSeparator1,
+            this.toolStripAbout});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(1008, 25);
@@ -189,6 +195,16 @@
             this.tsbtnSearch.Size = new System.Drawing.Size(46, 22);
             this.tsbtnSearch.Text = "Arama";
             this.tsbtnSearch.Click += new System.EventHandler(this.tsbtnSearch_Click);
+            // 
+            // toolStripRapor
+            // 
+            this.toolStripRapor.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripRapor.Image = ((System.Drawing.Image)(resources.GetObject("toolStripRapor.Image")));
+            this.toolStripRapor.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripRapor.Name = "toolStripRapor";
+            this.toolStripRapor.Size = new System.Drawing.Size(42, 22);
+            this.toolStripRapor.Text = "Rapor";
+            this.toolStripRapor.Click += new System.EventHandler(this.toolStripRapor_Click);
             // 
             // buttonPageBacward
             // 
@@ -255,6 +271,22 @@
             this.comboBoxPageLimit.Size = new System.Drawing.Size(63, 21);
             this.comboBoxPageLimit.TabIndex = 20;
             this.comboBoxPageLimit.SelectedValueChanged += new System.EventHandler(this.comboBoxPageLimit_SelectedIndexChanged);
+            // 
+            // toolStripAbout
+            // 
+            this.toolStripAbout.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripAbout.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripAbout.Image = ((System.Drawing.Image)(resources.GetObject("toolStripAbout.Image")));
+            this.toolStripAbout.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripAbout.Name = "toolStripAbout";
+            this.toolStripAbout.Size = new System.Drawing.Size(61, 22);
+            this.toolStripAbout.Text = "Hakkında";
+            this.toolStripAbout.Click += new System.EventHandler(this.toolStripAbout_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
             // 
             // Form1
             // 
@@ -335,6 +367,9 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DateTimePicker dateBaslangic;
         private System.Windows.Forms.DateTimePicker dateBitis;
+        private System.Windows.Forms.ToolStripButton toolStripRapor;
+        private System.Windows.Forms.ToolStripButton toolStripAbout;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
     }
 }
 

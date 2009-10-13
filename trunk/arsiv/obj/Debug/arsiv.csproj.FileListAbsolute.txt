@@ -37,3 +37,4 @@ D:\projeler\fototakip\barbardataerp\arsiv\obj\Debug\arsiv.FormEditRecord.resourc
 C:\barbardataerp\arsiv\obj\Debug\arsiv.FormEditRecord.resources
 D:\projeler\fototakip\barbardataerp\arsiv\obj\Debug\arsiv.Lodoskaraktersizi.resources
 C:\barbardataerp\arsiv\obj\Debug\arsiv.Lodoskaraktersizi.resources
+D:\projeler\fototakip\barbardataerp\arsiv\obj\Debug\arsiv.About.resources

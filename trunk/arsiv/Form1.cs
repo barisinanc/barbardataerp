@@ -294,5 +294,18 @@ namespace arsiv
         {
             //TODO
         }
+
+        private void toolStripRapor_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripAbout_Click(object sender, EventArgs e)
+        {
+            About hakkinda = new About();
+            hakkinda.Show();
+        }
+
+        
     }
 }

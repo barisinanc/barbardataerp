@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("arsiv")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("Takip")]
+[assembly: AssemblyDescription("Barış Görsel Tanıtım Ltd. Şti. için Bar&Bar Data tarafından hazırlanmıştır. Programdan dolayı doğabilecek hasarlardan Bar&Bar Data hiç bir şekilde sorumlu tutulamaz. www.barbardata.com")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("arsiv")]
+[assembly: AssemblyCompany("Bar&Bar Data")]
+[assembly: AssemblyProduct("Bar&Bar Data Takip")]
 [assembly: AssemblyCopyright("Copyright ©  2009")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -32,5 +32,5 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.0.0.0")]
+[assembly: AssemblyVersion("1.0.0.*")]
 [assembly: AssemblyFileVersion("1.0.0.0")]
