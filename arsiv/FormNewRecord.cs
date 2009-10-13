@@ -57,6 +57,7 @@ namespace arsiv
             //otoBoyutDegistir();
             textBoxProductSearch.Focus();
         }
+        
 
         private void odemeListesiDoldur()
         {
@@ -96,17 +97,47 @@ namespace arsiv
         List<Product> Urunler = new List<Product>();
         Product SecilenUrun = new Product();
         List<Product> Sepet = new List<Product>();
+        int sayacKarakter = 0;
+        bool barkodmu = false;
         private void textBoxProductSearch_TextChanged(object sender, EventArgs e)
         {
-            if (textBoxProductSearch.Text.Length >= 3)
+            if (sayacKarakter == 0 && textBoxProductSearch.TextLength > 11)
             {
-                productSearch();
+                
+                barkodmu = true;
             }
-            else if (textBoxProductSearch.Text.Length == 0)
+            sayacKarakter = textBoxProductSearch.TextLength;
+            if (!barkodmu)
             {
-                Urunler.Clear();
-                cleanProductDetails();
-                //dataGridViewProductSelect.DataSource = Urunler;
+                if (textBoxProductSearch.Text.Length >= 3)
+                {
+                    productSearch();
+                }
+                else if (textBoxProductSearch.Text.Length == 0)
+                {
+                    Urunler.Clear();
+                    cleanProductDetails();
+                    //dataGridViewProductSelect.DataSource = Urunler;
+                }
+            }
+            else
+            {
+                if (sayacKarakter > 11)
+                {
+                    productSearch();
+                    
+                }
+            }
+        }
+
+        private void textBoxProductSearch_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)13 && barkodmu==true)
+            {
+                ProductInsert();
+                barkodmu = false;
+                textBoxProductSearch.Text = "";
+                textBoxProductSearch.Focus();
             }
         }
 
@@ -225,6 +256,11 @@ namespace arsiv
 
         private void buttonProductInsert_Click(object sender, EventArgs e)
         {
+            ProductInsert();
+        }
+
+        private void ProductInsert()
+        {
             if (labelProductSelectedBarcode.Text.Trim() != "")
             {
                 Product yeniUrun = new Product();
@@ -275,8 +311,6 @@ namespace arsiv
                 textBoxAlinanTutar.Focus();
             }
         }
-
-        
 
         private void sepetGridRefresh()
         {
@@ -800,6 +834,8 @@ namespace arsiv
             textBoxAlinanTutar.Text = textBoxAlinanTutar.Text.Replace(".", ",");
             textBoxAlinanTutar.TextAlignChanged -= new EventHandler(textBoxAlinanTutar_TextChanged);
         }
+
+       
 
     }
 }

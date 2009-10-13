@@ -402,6 +402,7 @@
             this.textBoxProductSearch.Size = new System.Drawing.Size(140, 20);
             this.textBoxProductSearch.TabIndex = 2;
             this.textBoxProductSearch.TextChanged += new System.EventHandler(this.textBoxProductSearch_TextChanged);
+            this.textBoxProductSearch.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxProductSearch_KeyPress);
             // 
             // buttonProductAdd
             // 
