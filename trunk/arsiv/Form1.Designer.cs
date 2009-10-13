@@ -44,13 +44,13 @@
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.tsbtnSearch = new System.Windows.Forms.ToolStripButton();
             this.toolStripRapor = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripAbout = new System.Windows.Forms.ToolStripButton();
             this.buttonPageBacward = new System.Windows.Forms.Button();
             this.buttonPageForward = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridViewResult = new System.Windows.Forms.DataGridView();
             this.comboBoxPageLimit = new System.Windows.Forms.ComboBox();
-            this.toolStripAbout = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.groupBoxSearch.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewResult)).BeginInit();
@@ -60,7 +60,7 @@
             // 
             this.labelPage.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.labelPage.AutoSize = true;
-            this.labelPage.Location = new System.Drawing.Point(834, 651);
+            this.labelPage.Location = new System.Drawing.Point(829, 688);
             this.labelPage.Name = "labelPage";
             this.labelPage.Size = new System.Drawing.Size(0, 13);
             this.labelPage.TabIndex = 10;
@@ -206,6 +206,22 @@
             this.toolStripRapor.Text = "Rapor";
             this.toolStripRapor.Click += new System.EventHandler(this.toolStripRapor_Click);
             // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripAbout
+            // 
+            this.toolStripAbout.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripAbout.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripAbout.Image = ((System.Drawing.Image)(resources.GetObject("toolStripAbout.Image")));
+            this.toolStripAbout.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripAbout.Name = "toolStripAbout";
+            this.toolStripAbout.Size = new System.Drawing.Size(61, 22);
+            this.toolStripAbout.Text = "Hakkında";
+            this.toolStripAbout.Click += new System.EventHandler(this.toolStripAbout_Click);
+            // 
             // buttonPageBacward
             // 
             this.buttonPageBacward.Anchor = System.Windows.Forms.AnchorStyles.Right;
@@ -271,22 +287,6 @@
             this.comboBoxPageLimit.Size = new System.Drawing.Size(63, 21);
             this.comboBoxPageLimit.TabIndex = 20;
             this.comboBoxPageLimit.SelectedValueChanged += new System.EventHandler(this.comboBoxPageLimit_SelectedIndexChanged);
-            // 
-            // toolStripAbout
-            // 
-            this.toolStripAbout.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.toolStripAbout.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripAbout.Image = ((System.Drawing.Image)(resources.GetObject("toolStripAbout.Image")));
-            this.toolStripAbout.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripAbout.Name = "toolStripAbout";
-            this.toolStripAbout.Size = new System.Drawing.Size(61, 22);
-            this.toolStripAbout.Text = "Hakkında";
-            this.toolStripAbout.Click += new System.EventHandler(this.toolStripAbout_Click);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
             // 
             // Form1
             // 
