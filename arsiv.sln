@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 10.00
 # Visual Studio 2008
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "arsiv", "arsiv\arsiv.csproj", "{8FD06618-E7CC-4F8D-9D8E-D6DE2321D208}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApplication1", "ConsoleApplication1\ConsoleApplication1.csproj", "{A16C817F-367F-43BD-8D8B-89A8F6386486}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,10 +13,6 @@ Global
 		{8FD06618-E7CC-4F8D-9D8E-D6DE2321D208}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8FD06618-E7CC-4F8D-9D8E-D6DE2321D208}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8FD06618-E7CC-4F8D-9D8E-D6DE2321D208}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A16C817F-367F-43BD-8D8B-89A8F6386486}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A16C817F-367F-43BD-8D8B-89A8F6386486}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A16C817F-367F-43BD-8D8B-89A8F6386486}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A16C817F-367F-43BD-8D8B-89A8F6386486}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
