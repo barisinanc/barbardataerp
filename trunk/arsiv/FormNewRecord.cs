@@ -660,6 +660,10 @@ namespace arsiv
         decimal borc = 0;
         private void textBoxAlinanTutar_TextChanged(object sender, EventArgs e)
         {
+            textBoxAlinanTutar.TextAlignChanged -= new EventHandler(textBoxAlinanTutar_TextChanged);
+            textBoxAlinanTutar.Text = textBoxAlinanTutar.Text.Replace(".",",");
+            textBoxAlinanTutar.TextAlignChanged -= new EventHandler(textBoxAlinanTutar_TextChanged);
+
             decimal toplam = (from x in Sepet
                               select new { Tutar = x.Fiyat }).Sum(p => p.Tutar);
             if (textBoxAlinanTutar.Text == null || textBoxAlinanTutar.Text == "")
@@ -785,6 +789,16 @@ namespace arsiv
             {
                 buttonSave.Focus();
             }
+        }
+
+        private void buttonProductEdit_Click(object sender, EventArgs e)
+        {
+            FormEditProduct duzenleForm = new FormEditProduct();
+            duzenleForm.BarkodNo = SecilenUrun.BarkodNo;
+            duzenleForm.Show();
+            textBoxAlinanTutar.TextAlignChanged -= new EventHandler(textBoxAlinanTutar_TextChanged);
+            textBoxAlinanTutar.Text = textBoxAlinanTutar.Text.Replace(".", ",");
+            textBoxAlinanTutar.TextAlignChanged -= new EventHandler(textBoxAlinanTutar_TextChanged);
         }
 
     }

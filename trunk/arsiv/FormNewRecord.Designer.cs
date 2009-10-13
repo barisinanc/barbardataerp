@@ -393,6 +393,7 @@
             this.buttonProductEdit.TabIndex = 777;
             this.buttonProductEdit.Text = "Ürünü Düzenle";
             this.buttonProductEdit.UseVisualStyleBackColor = true;
+            this.buttonProductEdit.Click += new System.EventHandler(this.buttonProductEdit_Click);
             // 
             // textBoxProductSearch
             // 

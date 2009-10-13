@@ -83,7 +83,7 @@ namespace arsiv.BarisGorselDLL
             command.Parameters["@BarkodNo"].Value = BarkodNo.ToUpper();
             command.Parameters.Add("@Urun", SqlDbType.NVarChar, 50);
             command.Parameters["@Urun"].Value = StringEdit.FirstUpper(Adi);
-            command.Parameters.Add("@Marka", SqlDbType.NVarChar);
+            command.Parameters.Add("@Marka", SqlDbType.NVarChar, 50);
             command.Parameters["@Marka"].Value = StringEdit.FirstUpper(Marka);
             command.Parameters.Add("@Model", SqlDbType.NVarChar, 50);
             command.Parameters["@Model"].Value = StringEdit.FirstUpper(Model);
@@ -98,6 +98,59 @@ namespace arsiv.BarisGorselDLL
             command.Dispose();
             Disconnect();
             return durum;
+        }
+
+        public void productEdit()
+        {
+            Connect();
+            SqlCommand command = new SqlCommand("UrunDuzenle", Connection);
+            command.CommandType = System.Data.CommandType.StoredProcedure;
+            command.Parameters.Add("@BarkodNo", SqlDbType.NVarChar, 14);
+            command.Parameters["@BarkodNo"].Value = BarkodNo.ToUpper();
+            command.Parameters.Add("@Urun", SqlDbType.NVarChar, 50);
+            command.Parameters["@Urun"].Value = StringEdit.FirstUpper(Adi);
+            command.Parameters.Add("@Marka", SqlDbType.NVarChar, 50);
+            command.Parameters["@Marka"].Value = StringEdit.FirstUpper(Marka);
+            command.Parameters.Add("@Model", SqlDbType.NVarChar, 50);
+            command.Parameters["@Model"].Value = StringEdit.FirstUpper(Model);
+            command.Parameters.Add("@Fiyat", SqlDbType.Money);
+            command.Parameters["@Fiyat"].Value = Fiyat;
+            command.Parameters.Add("@Kdv", SqlDbType.Int);
+            command.Parameters["@Kdv"].Value = Kdv;
+            command.Parameters.Add("@Arsivle", SqlDbType.TinyInt);
+            command.Parameters["@Arsivle"].Value = Arsivle;
+            command.ExecuteNonQuery();
+            command.Dispose();
+            Disconnect();
+        }
+
+        public void productGetByBarcode()
+        {
+            Connect();
+            SqlCommand cmd = new SqlCommand("UrunAraBarkodNo", Connection);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@BarkodNo", BarkodNo);
+            DataTable dataTable = new DataTable();
+            cmd.ExecuteNonQuery();
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+            adapter.Fill(dataTable);
+            cmd.Dispose();
+            adapter.Dispose();
+            Disconnect();
+            foreach (DataRow row in dataTable.Rows)
+            {
+                Adi = row["Urun"].ToString();
+                Marka = row["Marka"].ToString();
+                Model = row["Model"].ToString();
+                try { Fiyat = Convert.ToDecimal(row["Fiyat"]); }
+                catch { Fiyat = 0; }
+                try { Kdv = Convert.ToInt32(row["Kdv"]); }
+                catch { Kdv = 0; }
+                try { Arsivle = Convert.ToBoolean(row["Arsivle"]); }
+                catch { Arsivle = false; }
+                break;
+            }
+            dataTable.Dispose();
         }
 
         public DataTable markaBul()
