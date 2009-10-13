@@ -228,7 +228,7 @@ namespace arsiv
 
         private void buttonNewRecord_Click(object sender, EventArgs e)
         {
-            Form newRecordForm = new FormNewRecord();
+            FormNewRecord newRecordForm = new FormNewRecord();
             newRecordForm.FormClosed += new FormClosedEventHandler(newRecordForm_FormClosed);
             newRecordForm.Show();
         }
@@ -242,6 +242,7 @@ namespace arsiv
                 buttonPageForward.Enabled = false;
             if (page == 1)
                 buttonPageBacward.Enabled = false;
+            ((Form)sender).Dispose();
         }
 
         private void buttonSearch_Click_1(object sender, EventArgs e)
@@ -255,6 +256,7 @@ namespace arsiv
             if (isSearch == false)
             {
                 FormEditRecord duzenle = new FormEditRecord();
+                duzenle.FormClosed += new FormClosedEventHandler(duzenle_FormClosed);
                 if (dataGridViewResult.CurrentRow.Cells[0].Value!=null)
                     duzenle.SepetId = long.Parse(dataGridViewResult.CurrentRow.Cells[0].Value.ToString());
                 duzenle.Show();
@@ -265,12 +267,18 @@ namespace arsiv
             }
         }
 
+        void duzenle_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            ((Form)sender).Dispose();
+        }
+
         private void dataGridViewResult_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (char)13) {
                 if (isSearch == false)
                 {
                     FormEditRecord duzenle = new FormEditRecord();
+                    duzenle.FormClosed += new FormClosedEventHandler(duzenle_FormClosed);
                     if (dataGridViewResult.CurrentRow.Cells[0].Value != null)
                         duzenle.SepetId = long.Parse(dataGridViewResult.CurrentRow.Cells[0].Value.ToString());
                     duzenle.Show();
