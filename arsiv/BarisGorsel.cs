@@ -16,7 +16,11 @@ namespace arsiv
     {
         public static string FirstUpper(string text)
         {
-            return text.Substring(0, 1).ToUpper() + text.Substring(1, text.Length - 1).ToLower();
+            if (text != "")
+            {
+                return text.Substring(0, 1).ToUpper() + text.Substring(1, text.Length - 1).ToLower();
+            }
+            return "";
         }
     }
 

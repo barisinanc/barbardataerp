@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.21022</ProductVersion>
+    <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{8FD06618-E7CC-4F8D-9D8E-D6DE2321D208}</ProjectGuid>
     <OutputType>WinExe</OutputType>
@@ -13,6 +13,7 @@
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ApplicationIcon>icon.ico</ApplicationIcon>
+    <StartupObject>arsiv.Program</StartupObject>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -49,6 +50,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="About.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="About.Designer.cs">
+      <DependentUpon>About.cs</DependentUpon>
+    </Compile>
     <Compile Include="BarisGorsel.cs" />
     <Compile Include="BarisGorselDLL\Account.cs" />
     <Compile Include="BarisGorselDLL\Archive.cs" />
@@ -61,6 +68,7 @@
     <Compile Include="BarisGorselDLL\OdemeTuru.cs" />
     <Compile Include="BarisGorselDLL\Order.cs" />
     <Compile Include="BarisGorselDLL\Product.cs" />
+    <Compile Include="BarisGorselDLL\Report.cs" />
     <Compile Include="BarisGorselDLL\Search.cs" />
     <Compile Include="BarisGorselDLL\Sepet.cs" />
     <Compile Include="BarisGorselDLL\Settings.cs" />
@@ -103,6 +111,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="About.resx">
+      <DependentUpon>About.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormEditRecord.resx">
       <DependentUpon>FormEditRecord.cs</DependentUpon>
       <SubType>Designer</SubType>

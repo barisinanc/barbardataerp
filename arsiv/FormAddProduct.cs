@@ -50,7 +50,7 @@ namespace arsiv
             urun.Model = textBoxModel.Text.Trim();
             urun.Kdv = int.Parse(textBoxKdv.Text.Trim());
             urun.Arsivle = checkBoxArchived.Checked;
-            urun.Fiyat = decimal.Parse(textBoxPrice.Text.Trim());
+            urun.Fiyat = decimal.Parse(textBoxPrice.Text.Trim().Replace(".",","));
             bool girildimi = urun.productAdd();
             if (girildimi==false)
             {
@@ -73,7 +73,7 @@ namespace arsiv
             textBoxName.TextChanged -= new EventHandler(textBoxName_TextChanged);
             textBoxName.Text = null;
             textBoxName.TextChanged += new EventHandler(textBoxName_TextChanged);
-            textBoxPrice.Name = null;
+            textBoxPrice.Text = null;
             checkBoxArchived.Checked = false;
         }
 
