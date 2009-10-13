@@ -679,7 +679,7 @@ namespace arsiv
                 borc = 0;
                 labelBorc.Text = "0 TL";
             }
-            alinanTutar = Convert.ToDecimal(textBoxAlinanTutar.Text);
+            alinanTutar = Convert.ToDecimal(textBoxAlinanTutar.Text)-Convert.ToDecimal(labelParaUstu.Text.Replace("TL","").Trim());
         }
 
         private void comboBoxKullanici_SelectedIndexChanged(object sender, EventArgs e)

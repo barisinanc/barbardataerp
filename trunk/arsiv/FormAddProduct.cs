@@ -51,8 +51,8 @@ namespace arsiv
             urun.Kdv = int.Parse(textBoxKdv.Text.Trim());
             urun.Arsivle = checkBoxArchived.Checked;
             urun.Fiyat = decimal.Parse(textBoxPrice.Text.Trim());
-            bool varmi = urun.productAdd();
-            if (varmi)
+            bool girildimi = urun.productAdd();
+            if (girildimi==false)
             {
                 MessageBox.Show("Ürün önceden girilmiş!");
             }

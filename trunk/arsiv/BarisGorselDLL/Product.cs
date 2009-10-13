@@ -76,6 +76,7 @@ namespace arsiv.BarisGorselDLL
 
         public bool productAdd()
         {
+            Connect();
             SqlCommand command = new SqlCommand("UrunEkle", Connection);
             command.CommandType = System.Data.CommandType.StoredProcedure;
             command.Parameters.Add("@BarkodNo", SqlDbType.NVarChar, 14);
@@ -93,9 +94,7 @@ namespace arsiv.BarisGorselDLL
             command.Parameters.Add("@Arsivle", SqlDbType.TinyInt);
             command.Parameters["@Arsivle"].Value = Arsivle;
             bool durum = false;
-            Connect();
             durum = Convert.ToBoolean(command.ExecuteNonQuery());
-            command = null;
             command.Dispose();
             Disconnect();
             return durum;

@@ -112,6 +112,7 @@
             this.dataGridViewNames.ReadOnly = true;
             this.dataGridViewNames.Size = new System.Drawing.Size(165, 87);
             this.dataGridViewNames.TabIndex = 2;
+            this.dataGridViewNames.TabStop = false;
             this.dataGridViewNames.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewNames_CellContentDoubleClick);
             // 
             // dataGridViewBrand
@@ -123,6 +124,7 @@
             this.dataGridViewBrand.ReadOnly = true;
             this.dataGridViewBrand.Size = new System.Drawing.Size(165, 87);
             this.dataGridViewBrand.TabIndex = 3;
+            this.dataGridViewBrand.TabStop = false;
             this.dataGridViewBrand.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewBrand_CellContentDoubleClick);
             // 
             // textBoxModel
@@ -165,7 +167,7 @@
             this.checkBoxArchived.Location = new System.Drawing.Point(31, 359);
             this.checkBoxArchived.Name = "checkBoxArchived";
             this.checkBoxArchived.Size = new System.Drawing.Size(87, 17);
-            this.checkBoxArchived.TabIndex = 4;
+            this.checkBoxArchived.TabIndex = 60;
             this.checkBoxArchived.Text = "Arşivlenecek";
             this.checkBoxArchived.UseVisualStyleBackColor = true;
             // 
@@ -174,7 +176,7 @@
             this.buttonCancel.Location = new System.Drawing.Point(246, 375);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(39, 23);
-            this.buttonCancel.TabIndex = 5;
+            this.buttonCancel.TabIndex = 80;
             this.buttonCancel.Text = "İptal";
             this.buttonCancel.UseVisualStyleBackColor = true;
             this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
@@ -184,7 +186,7 @@
             this.buttonSave.Location = new System.Drawing.Point(291, 334);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(75, 64);
-            this.buttonSave.TabIndex = 50;
+            this.buttonSave.TabIndex = 70;
             this.buttonSave.Text = "Kaydet";
             this.buttonSave.UseVisualStyleBackColor = true;
             this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
@@ -195,7 +197,7 @@
             this.textBoxKdv.MaxLength = 3;
             this.textBoxKdv.Name = "textBoxKdv";
             this.textBoxKdv.Size = new System.Drawing.Size(81, 20);
-            this.textBoxKdv.TabIndex = 7;
+            this.textBoxKdv.TabIndex = 50;
             this.textBoxKdv.Text = "18";
             // 
             // label1
