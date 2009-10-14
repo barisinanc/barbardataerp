@@ -297,7 +297,14 @@ namespace arsiv
 
         private void toolStripRapor_Click(object sender, EventArgs e)
         {
-
+            BarisGorselDLL.Barcode barkod = new arsiv.BarisGorselDLL.Barcode();
+            barkod.BarcodeNo = "BV0000000001";
+            barkod.TopMargin = 50;
+            barkod.BarCodeHeight = 100;
+            barkod.BarCodeWidth = 260;
+            barkod.ShowHeader = true;
+            barkod.ShowFooter = true;
+            barkod.yazdir();
         }
 
         private void toolStripAbout_Click(object sender, EventArgs e)
