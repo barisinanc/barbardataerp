@@ -60,6 +60,7 @@
     <Compile Include="BarisGorselDLL\Account.cs" />
     <Compile Include="BarisGorselDLL\Archive.cs" />
     <Compile Include="BarisGorselDLL\ArchiveTypes.cs" />
+    <Compile Include="BarisGorselDLL\Barcode.cs" />
     <Compile Include="BarisGorselDLL\Cari.cs" />
     <Compile Include="BarisGorselDLL\ConnectionImporter.cs" />
     <Compile Include="BarisGorselDLL\ConnectionStrings.cs" />
@@ -156,8 +157,11 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="app.config" />
+    <None Include="bin\Debug\FRE3OF9X.TTF" />
+    <None Include="bin\Debug\FREE3OF9.TTF" />
     <None Include="ClassDiagram1.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
