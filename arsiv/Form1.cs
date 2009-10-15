@@ -299,9 +299,9 @@ namespace arsiv
         {
             BarisGorselDLL.Barcode barkod = new arsiv.BarisGorselDLL.Barcode();
             barkod.BarcodeNo = "BV0000000001";
-            barkod.TopMargin = 50;
-            barkod.BarCodeHeight = 100;
-            barkod.BarCodeWidth = 260;
+            barkod.TopMargin = 90;
+            barkod.BarCodeHeight = 70;
+            barkod.BarCodeWidth = 280;
             barkod.ShowHeader = true;
             barkod.ShowFooter = true;
             barkod.yazdir();
