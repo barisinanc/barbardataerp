@@ -151,8 +151,8 @@ namespace arsiv.BarisGorselDLL
         }
 
         private AlignType align = AlignType.Center;
-        private int leftMargin = 10;
-        private int topMargin = 10;
+        private int leftMargin = 5;
+        private int topMargin = 5;
         private int height = 50;
         private bool showHeader;
         private bool showFooter;
