@@ -39,3 +39,6 @@ D:\projeler\fototakip\barbardataerp\arsiv\obj\Debug\arsiv.Lodoskaraktersizi.reso
 C:\barbardataerp\arsiv\obj\Debug\arsiv.Lodoskaraktersizi.resources
 D:\projeler\fototakip\barbardataerp\arsiv\obj\Debug\arsiv.About.resources
 D:\projeler\fototakip\barbardataerp\arsiv\obj\Debug\arsiv.FormEditProduct.resources
+D:\projeler\fototakip\barbardataerp\arsiv\obj\Debug\arsiv.FormStockIn.resources
+D:\projeler\fototakip\barbardataerp\arsiv\bin\Debug\BarcodeLib.dll
+D:\projeler\fototakip\barbardataerp\arsiv\bin\Debug\BarcodeLib.pdb

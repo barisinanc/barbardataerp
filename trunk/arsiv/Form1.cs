@@ -299,11 +299,7 @@ namespace arsiv
         {
             BarisGorselDLL.Barcode barkod = new arsiv.BarisGorselDLL.Barcode();
             barkod.BarcodeNo = "BV0000000001";
-            barkod.TopMargin = 90;
-            barkod.BarCodeHeight = 70;
-            barkod.BarCodeWidth = 280;
-            barkod.ShowHeader = true;
-            barkod.ShowFooter = true;
+            barkod.CariAdi = "BARAN KAYNAK";
             barkod.yazdir();
         }
 
@@ -312,6 +308,13 @@ namespace arsiv
             About hakkinda = new About();
             hakkinda.Show();
         }
+
+        private void stokGirişiToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+     
 
         
     }

@@ -44,13 +44,14 @@ namespace arsiv
         private void saveProduct()
         {
            
-            urun.Adi = textBoxName.Text.Trim();
-            urun.BarkodNo = textBoxBarcodeNo.Text.Trim();
+            urun.Adi = textBoxName.Text.ToUpper().Trim();
+            urun.BarkodNo = textBoxBarcodeNo.Text.ToUpper().Trim();
             urun.Marka = textBoxBrand.Text.Trim();
             urun.Model = textBoxModel.Text.Trim();
             urun.Kdv = int.Parse(textBoxKdv.Text.Trim());
             urun.Arsivle = checkBoxArchived.Checked;
             urun.Fiyat = decimal.Parse(textBoxPrice.Text.Trim().Replace(".",","));
+            urun.Turu = comboBoxType.SelectedIndex + 1;
             bool girildimi = urun.productAdd();
             if (girildimi==false)
             {
@@ -58,7 +59,21 @@ namespace arsiv
             }
             else
             {
+                AgacKaydet();
                 cleanForm();
+            }
+
+        }
+
+        private void AgacKaydet()
+        {
+            foreach (Product urun in AltUrun)
+            {
+                ProductTree dal = new ProductTree();
+                dal.AnaBarkodNo = textBoxBarcodeNo.Text.ToUpper().Trim();
+                dal.AltBarkodNo = urun.BarkodNo;
+                dal.Adet = urun.Adet;
+                dal.insertTree();
             }
         }
 
@@ -75,6 +90,14 @@ namespace arsiv
             textBoxName.TextChanged += new EventHandler(textBoxName_TextChanged);
             textBoxPrice.Text = null;
             checkBoxArchived.Checked = false;
+            textBoxProductSearch.Text = null;
+            Urunler.Clear();
+            dataGridViewProductSelect.SelectionChanged -= new EventHandler(dataGridViewProductSelect_SelectionChanged);
+            dataGridViewProductSelect.DataSource = null;
+            dataGridViewProductSelect.SelectionChanged += new EventHandler(dataGridViewProductSelect_SelectionChanged);
+            textBoxAdet.Text = null;
+            AltUrun.Clear();
+            dataGridViewTree.DataSource = null;
         }
 
         private void dataGridViewNames_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -95,5 +118,107 @@ namespace arsiv
         {
             cleanForm();
         }
+
+        private void buttonSearch_Click(object sender, EventArgs e)
+        {
+            productSearch();
+        }
+
+        List<Product> Urunler = new List<Product>();
+        private void productSearch()
+        {
+            BarisGorselDLL.Product engProduct = new arsiv.BarisGorselDLL.Product();
+            DataTable dataTable = engProduct.productSearch(textBoxProductSearch.Text);
+            Urunler.Clear();
+            foreach (DataRow row in dataTable.Rows)
+            {
+                Product yeniUrun = new Product();
+                yeniUrun.BarkodNo = row["BarkodNo"].ToString();
+                yeniUrun.Adi = row["Urun"].ToString();
+                yeniUrun.Marka = row["Marka"].ToString();
+                yeniUrun.Model = row["Model"].ToString();
+                try { yeniUrun.Fiyat = Convert.ToDecimal(row["Fiyat"]); }
+                catch { yeniUrun.Fiyat = 0; }
+                try { yeniUrun.AnaFiyat = Convert.ToDecimal(row["Fiyat"]); }
+                catch { yeniUrun.AnaFiyat = 0; }
+                try { yeniUrun.Kdv = Convert.ToInt32(row["Kdv"]); }
+                catch { yeniUrun.Kdv = 0; }
+                try { yeniUrun.Arsivle = Convert.ToBoolean(row["Arsivle"]); }
+                catch { yeniUrun.Arsivle = false; }
+                Urunler.Add(yeniUrun);
+                yeniUrun.Dispose();
+            }
+            if (Urunler.Count > 0)
+            {
+                var selectedProducts = from x in Urunler
+                                       select new { Barkod_No = x.BarkodNo, Ürün = x.Adi + " " + x.Marka + " " + x.Model, Fiyat = x.Fiyat };
+                dataGridViewProductSelect.SelectionChanged -= new EventHandler(dataGridViewProductSelect_SelectionChanged);
+                dataGridViewProductSelect.DataSource = selectedProducts.ToList();
+                dataGridViewProductSelect.SelectionChanged += new EventHandler(dataGridViewProductSelect_SelectionChanged);
+                dataGridViewProductSelect.Rows[0].Selected = true;
+            }
+            else
+            {
+                dataGridViewProductSelect.DataSource = null;
+            }
+            dataTable.Dispose();
+            engProduct.Dispose();
+        }
+        Product SecilenUrun = new Product();
+        private void dataGridViewProductSelect_SelectionChanged(object sender, EventArgs e)
+        {
+            if (Urunler.Count > 0)
+            {
+                SecilenUrun = Urunler[(dataGridViewProductSelect.CurrentRow.Index)];
+            }
+        }
+        List<Product> AltUrun = new List<Product>();
+
+        private void buttonProductAdd_Click(object sender, EventArgs e)
+        {
+            int adet = 0;
+            try{ adet=Convert.ToInt32(textBoxAdet.Text);}
+            catch {adet=1;}
+            SecilenUrun.Adet = adet;
+            AltUrun.Add(SecilenUrun);
+            fillTree();
+        }
+
+        private void dataGridViewTree_SelectionChanged(object sender, EventArgs e)
+        {/*
+            if (AltUrun.Count > 0)
+            {
+                SecilenUrun = AltUrun[(dataGridViewTree.CurrentRow.Index)];
+            }*/
+        }
+
+        private void fillTree()
+        {
+            var liste = from x in AltUrun
+                        select new {Barkod_No = x.BarkodNo, Adet = x.Adet, Stok = x.Adi+" "+x.Marka+ " "+x.Model};
+            dataGridViewTree.DataSource = liste.ToList();
+
+        }
+
+        private void buttonProductDelete_Click(object sender, EventArgs e)
+        {
+            AltUrun.Remove(AltUrun[(dataGridViewTree.CurrentRow.Index)]);
+            fillTree();
+        }
+
+        private void FormAddProduct_Load(object sender, EventArgs e)
+        {
+            TurDoldur();
+        }
+
+        private void TurDoldur()
+        {
+            ProductType tip = new ProductType();
+            foreach (ProductType x in tip.turListesi())
+            {
+                comboBoxType.Items.Add(x.TurAdi);
+            }
+        }
+
     }
 }

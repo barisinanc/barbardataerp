@@ -7,14 +7,15 @@ using System.Data;
 
 namespace arsiv.BarisGorselDLL
 {
-    class OdemeTuru:ConnectionImporter
+    class ProductType:ConnectionImporter
     {
         public int Id;
-        public string Ad;
-        public List<OdemeTuru> OdemeTurleri()
+        public string TurAdi;
+
+        public List<ProductType> turListesi()
         {
             Connect();
-            SqlCommand cmd = new SqlCommand("OdemeTurleri", Connection);
+            SqlCommand cmd = new SqlCommand("UrunTurleri", Connection);
             cmd.CommandType = CommandType.StoredProcedure;
             DataTable dataTable = new DataTable();
             cmd.ExecuteNonQuery();
@@ -23,14 +24,13 @@ namespace arsiv.BarisGorselDLL
             cmd.Dispose();
             adapter.Dispose();
             Disconnect();
-            List<OdemeTuru> liste = new List<OdemeTuru>();
+            List<ProductType> liste = new List<ProductType>();
             foreach (DataRow satir in dataTable.Rows)
             {
-                liste.Add(new OdemeTuru { Id = Convert.ToInt32(satir["Id"].ToString()), Ad = satir["Ad"].ToString() });
+                liste.Add(new ProductType { Id = Convert.ToInt32(satir["Id"].ToString()), TurAdi = satir["TurAdi"].ToString() });
             }
             dataTable.Dispose();
             return liste;
         }
-
     }
 }

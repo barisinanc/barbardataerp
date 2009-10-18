@@ -33,6 +33,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BarcodeLib, Version=1.0.0.7, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\barcode image generator\BarcodeLib\bin\Debug\BarcodeLib.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
@@ -69,6 +73,8 @@
     <Compile Include="BarisGorselDLL\OdemeTuru.cs" />
     <Compile Include="BarisGorselDLL\Order.cs" />
     <Compile Include="BarisGorselDLL\Product.cs" />
+    <Compile Include="BarisGorselDLL\ProductTree.cs" />
+    <Compile Include="BarisGorselDLL\ProductType.cs" />
     <Compile Include="BarisGorselDLL\Report.cs" />
     <Compile Include="BarisGorselDLL\Search.cs" />
     <Compile Include="BarisGorselDLL\Sepet.cs" />
@@ -110,6 +116,12 @@
     <Compile Include="FormNewRecord.Designer.cs">
       <DependentUpon>FormNewRecord.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormStockIn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormStockIn.Designer.cs">
+      <DependentUpon>FormStockIn.cs</DependentUpon>
+    </Compile>
     <Compile Include="Lodoskaraktersizi.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -145,6 +157,9 @@
       <DependentUpon>FormNewRecord.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormStockIn.resx">
+      <DependentUpon>FormStockIn.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Lodoskaraktersizi.resx">
       <DependentUpon>Lodoskaraktersizi.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -160,8 +175,6 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <None Include="app.config" />
-    <None Include="bin\Debug\FRE3OF9X.TTF" />
-    <None Include="bin\Debug\FREE3OF9.TTF" />
     <None Include="ClassDiagram1.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

@@ -15,6 +15,7 @@ namespace arsiv.BarisGorselDLL
 
         private PrintDocument printDocument = new PrintDocument();
         public string BarcodeNo;
+        public string CariAdi;
         public void yazdir()
         {
             printDocument.PrintPage += new PrintPageEventHandler(printDocument_PrintPage);
@@ -32,230 +33,22 @@ namespace arsiv.BarisGorselDLL
            
         }
 
-        String alphabet39 = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ-. $/+%*";
-
-        String[] coded39Char = 
-		{
-			/* 0 */ "000110100", 
-			/* 1 */ "100100001", 
-			/* 2 */ "001100001", 
-			/* 3 */ "101100000",
-			/* 4 */ "000110001", 
-			/* 5 */ "100110000", 
-			/* 6 */ "001110000", 
-			/* 7 */ "000100101",
-			/* 8 */ "100100100", 
-			/* 9 */ "001100100", 
-			/* A */ "100001001", 
-			/* B */ "001001001",
-			/* C */ "101001000", 
-			/* D */ "000011001", 
-			/* E */ "100011000", 
-			/* F */ "001011000",
-			/* G */ "000001101", 
-			/* H */ "100001100", 
-			/* I */ "001001100", 
-			/* J */ "000011100",
-			/* K */ "100000011", 
-			/* L */ "001000011", 
-			/* M */ "101000010", 
-			/* N */ "000010011",
-			/* O */ "100010010", 
-			/* P */ "001010010", 
-			/* Q */ "000000111", 
-			/* R */ "100000110",
-			/* S */ "001000110", 
-			/* T */ "000010110", 
-			/* U */ "110000001", 
-			/* V */ "011000001",
-			/* W */ "111000000", 
-			/* X */ "010010001", 
-			/* Y */ "110010000", 
-			/* Z */ "011010000",
-			/* - */ "010000101", 
-			/* . */ "110000100", 
-			/*' '*/ "011000100",
-			/* $ */ "010101000",
-			/* / */ "010100010", 
-			/* + */ "010001010", 
-			/* % */ "000101010", 
-			/* * */ "010010100" 
-		};
-
-        public enum AlignType
-        {
-            Left, Center, Right
-        }
-        public int BarCodeHeight
-		{
-			get { return height; }
-			set { height = value;}
-		}
-        public int BarCodeWidth 
-		{
-            get { return width; }
-            set { width = value; }
-		}
-        private int width;
-
-		public int LeftMargin
-		{
-			get { return leftMargin; }
-			set { leftMargin = value; }
-		}
-
-		public int TopMargin
-		{
-			get { return topMargin; }
-            set { topMargin = value; }
-		}
-
-		public bool ShowHeader
-		{
-			get { return showHeader; }
-			set { showHeader = value;}
-		}
-
-		public bool ShowFooter
-		{
-			get { return showFooter; }
-			set { showFooter = value;}
-		}
-
-		public String HeaderText
-		{
-			get { return headerText; }
-			set { headerText = value;  }
-		}
-
-		public BarCodeWeight Weight
-		{
-			get { return weight; }
-			set { weight = value;  }
-		}
-
-		public Font HeaderFont
-		{
-			get { return headerFont; }
-			set { headerFont = value; }
-		}
-
-		public Font FooterFont
-		{
-			get { return footerFont; }
-			set { footerFont = value;  }
-		}
-        public enum BarCodeWeight
-        {
-            Small = 1, Medium, Large
-        }
-
-        private AlignType align = AlignType.Center;
-        private int leftMargin = 5;
-        private int topMargin = 5;
-        private int height = 50;
-        private bool showHeader;
-        private bool showFooter;
-        private String headerText = "Barış Görsel Tanıtım";
-        private BarCodeWeight weight = BarCodeWeight.Small;
-        private Font headerFont = new Font("Courier", 10);
-        private Font footerFont = new Font("Courier", 10);
-		
         void printDocument_PrintPage(object sender, PrintPageEventArgs e)
         {
-            String intercharacterGap = "0";
-            String str = '*' + BarcodeNo.ToUpper() + '*';
-            int strLength = str.Length;
-
-            for (int i = 0; i < BarcodeNo.Length; i++)
-            {
-                if (alphabet39.IndexOf(BarcodeNo[i]) == -1 || BarcodeNo[i] == '*')
-                {
-                    e.Graphics.DrawString("INVALID BAR CODE TEXT", footerFont, Brushes.Red, 10, 10);
-                    return;
-                }
-            }
-
-            String encodedString = "";
-
-            for (int i = 0; i < strLength; i++)
-            {
-                if (i > 0)
-                    encodedString += intercharacterGap;
-
-                encodedString += coded39Char[alphabet39.IndexOf(str[i])];
-            }
-
-            int encodedStringLength = encodedString.Length;
-            int widthOfBarCodeString = 0;
-            double wideToNarrowRatio = 3;
-
-
-            if (align != AlignType.Left)
-            {
-                for (int i = 0; i < encodedStringLength; i++)
-                {
-                    if (encodedString[i] == '1')
-                        widthOfBarCodeString += (int)(wideToNarrowRatio * (int)weight);
-                    else
-                        widthOfBarCodeString += (int)weight;
-                }
-            }
-            
-            int x = 0;
-            int wid = 0;
-            int yTop = 0;
-            SizeF hSize = e.Graphics.MeasureString(headerText, headerFont);
-            SizeF fSize = e.Graphics.MeasureString(BarcodeNo, footerFont);
-
-            int headerX = 0;
-            int footerX = 0;
-            
-            if (align == AlignType.Left)
-            {
-                x = leftMargin;
-                headerX = leftMargin;
-                footerX = leftMargin;
-            }
-            else if (align == AlignType.Center)
-            {
-                x = (width - widthOfBarCodeString) / 2;
-                headerX = (width - (int)hSize.Width) / 2;
-                footerX = (width - (int)fSize.Width) / 2;
-            }
-            else
-            {
-                x = width - widthOfBarCodeString - leftMargin;
-                headerX = width - (int)hSize.Width - leftMargin;
-                footerX = width - (int)fSize.Width - leftMargin;
-            }
-
-            if (showHeader)
-            {
-                yTop = (int)hSize.Height + topMargin;
-                e.Graphics.DrawString(headerText, headerFont, Brushes.Black, headerX, topMargin);
-            }
-            else
-            {
-                yTop = topMargin;
-            }
-
-            for (int i = 0; i < encodedStringLength; i++)
-            {
-                if (encodedString[i] == '1')
-                    wid = (int)(wideToNarrowRatio * (int)weight);
-                else
-                    wid = (int)weight;
-
-                e.Graphics.FillRectangle(i % 2 == 0 ? Brushes.Black : Brushes.White, x, yTop, wid, height);
-
-                x += wid;
-            }
-
-            yTop += height;
-
-            if (showFooter)
-                e.Graphics.DrawString(BarcodeNo, footerFont, Brushes.Black, footerX, yTop);
+            e.Graphics.DrawImage(Create(), 5, 80);
+            Font footerFont = new Font("Courier", 14, FontStyle.Bold);
+            e.Graphics.DrawString(CariAdi, footerFont, Brushes.Black, 40, 55);
+            e.Graphics.DrawString(BarcodeNo.ToUpper().Trim(), footerFont, Brushes.Black, 55, 170);
         }
+
+        private Image Create()
+        {
+            BarcodeLib.Barcode b = new BarcodeLib.Barcode();
+            BarcodeLib.TYPE type = BarcodeLib.TYPE.CODE128;
+            b.IncludeLabel = false;
+            b.ImageFormat = ImageFormat.Bmp;
+            return b.Encode(type, BarcodeNo.Trim(), Color.Black, Color.White, 250, 85);
+        }
+        
     }
 }
