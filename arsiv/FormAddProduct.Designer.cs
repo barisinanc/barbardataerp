@@ -46,8 +46,23 @@
             this.buttonSave = new System.Windows.Forms.Button();
             this.textBoxKdv = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.dataGridViewProductSelect = new System.Windows.Forms.DataGridView();
+            this.buttonSearch = new System.Windows.Forms.Button();
+            this.textBoxAdet = new System.Windows.Forms.TextBox();
+            this.dataGridViewTree = new System.Windows.Forms.DataGridView();
+            this.comboBoxType = new System.Windows.Forms.ComboBox();
+            this.textBoxProductSearch = new System.Windows.Forms.TextBox();
+            this.buttonProductAdd = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.labelSelectedBarcode = new System.Windows.Forms.Label();
+            this.buttonProductDelete = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewNames)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBrand)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProductSelect)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTree)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // textBoxBarcodeNo
@@ -209,11 +224,128 @@
             this.label1.TabIndex = 8;
             this.label1.Text = "Kdv:";
             // 
+            // dataGridViewProductSelect
+            // 
+            this.dataGridViewProductSelect.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewProductSelect.Location = new System.Drawing.Point(6, 41);
+            this.dataGridViewProductSelect.Name = "dataGridViewProductSelect";
+            this.dataGridViewProductSelect.Size = new System.Drawing.Size(343, 160);
+            this.dataGridViewProductSelect.TabIndex = 81;
+            this.dataGridViewProductSelect.SelectionChanged += new System.EventHandler(this.dataGridViewProductSelect_SelectionChanged);
+            // 
+            // buttonSearch
+            // 
+            this.buttonSearch.Location = new System.Drawing.Point(169, 12);
+            this.buttonSearch.Name = "buttonSearch";
+            this.buttonSearch.Size = new System.Drawing.Size(75, 23);
+            this.buttonSearch.TabIndex = 82;
+            this.buttonSearch.Text = "Stok Ara";
+            this.buttonSearch.UseVisualStyleBackColor = true;
+            this.buttonSearch.Click += new System.EventHandler(this.buttonSearch_Click);
+            // 
+            // textBoxAdet
+            // 
+            this.textBoxAdet.Location = new System.Drawing.Point(84, 207);
+            this.textBoxAdet.Name = "textBoxAdet";
+            this.textBoxAdet.Size = new System.Drawing.Size(67, 20);
+            this.textBoxAdet.TabIndex = 83;
+            // 
+            // dataGridViewTree
+            // 
+            this.dataGridViewTree.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewTree.Location = new System.Drawing.Point(6, 235);
+            this.dataGridViewTree.Name = "dataGridViewTree";
+            this.dataGridViewTree.Size = new System.Drawing.Size(343, 131);
+            this.dataGridViewTree.TabIndex = 81;
+            this.dataGridViewTree.SelectionChanged += new System.EventHandler(this.dataGridViewTree_SelectionChanged);
+            // 
+            // comboBoxType
+            // 
+            this.comboBoxType.FormattingEnabled = true;
+            this.comboBoxType.Location = new System.Drawing.Point(260, 24);
+            this.comboBoxType.Name = "comboBoxType";
+            this.comboBoxType.Size = new System.Drawing.Size(106, 21);
+            this.comboBoxType.TabIndex = 84;
+            // 
+            // textBoxProductSearch
+            // 
+            this.textBoxProductSearch.Location = new System.Drawing.Point(6, 15);
+            this.textBoxProductSearch.Name = "textBoxProductSearch";
+            this.textBoxProductSearch.Size = new System.Drawing.Size(128, 20);
+            this.textBoxProductSearch.TabIndex = 86;
+            // 
+            // buttonProductAdd
+            // 
+            this.buttonProductAdd.Location = new System.Drawing.Point(274, 205);
+            this.buttonProductAdd.Name = "buttonProductAdd";
+            this.buttonProductAdd.Size = new System.Drawing.Size(75, 23);
+            this.buttonProductAdd.TabIndex = 82;
+            this.buttonProductAdd.Text = "Ekle";
+            this.buttonProductAdd.UseVisualStyleBackColor = true;
+            this.buttonProductAdd.Click += new System.EventHandler(this.buttonProductAdd_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(170, 210);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(29, 13);
+            this.label2.TabIndex = 87;
+            this.label2.Text = "Adet";
+            // 
+            // labelSelectedBarcode
+            // 
+            this.labelSelectedBarcode.AutoSize = true;
+            this.labelSelectedBarcode.Location = new System.Drawing.Point(6, 214);
+            this.labelSelectedBarcode.Name = "labelSelectedBarcode";
+            this.labelSelectedBarcode.Size = new System.Drawing.Size(0, 13);
+            this.labelSelectedBarcode.TabIndex = 88;
+            // 
+            // buttonProductDelete
+            // 
+            this.buttonProductDelete.Location = new System.Drawing.Point(274, 372);
+            this.buttonProductDelete.Name = "buttonProductDelete";
+            this.buttonProductDelete.Size = new System.Drawing.Size(75, 23);
+            this.buttonProductDelete.TabIndex = 89;
+            this.buttonProductDelete.Text = "Seçileni Sil";
+            this.buttonProductDelete.UseVisualStyleBackColor = true;
+            this.buttonProductDelete.Click += new System.EventHandler(this.buttonProductDelete_Click);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.dataGridViewProductSelect);
+            this.groupBox1.Controls.Add(this.buttonProductDelete);
+            this.groupBox1.Controls.Add(this.dataGridViewTree);
+            this.groupBox1.Controls.Add(this.labelSelectedBarcode);
+            this.groupBox1.Controls.Add(this.buttonSearch);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.buttonProductAdd);
+            this.groupBox1.Controls.Add(this.textBoxProductSearch);
+            this.groupBox1.Controls.Add(this.textBoxAdet);
+            this.groupBox1.Location = new System.Drawing.Point(394, 12);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(369, 406);
+            this.groupBox1.TabIndex = 90;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Ürün Bileşenleri";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(200, 27);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(53, 13);
+            this.label6.TabIndex = 91;
+            this.label6.Text = "Ürün Tipi:";
+            // 
             // FormAddProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(391, 430);
+            this.ClientSize = new System.Drawing.Size(805, 430);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.comboBoxType);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBoxKdv);
             this.Controls.Add(this.buttonSave);
@@ -235,8 +367,13 @@
             this.Name = "FormAddProduct";
             this.Text = "Ürün Ekleme";
             this.TopMost = true;
+            this.Load += new System.EventHandler(this.FormAddProduct_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewNames)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBrand)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProductSelect)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTree)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -261,5 +398,17 @@
         private System.Windows.Forms.Button buttonSave;
         private System.Windows.Forms.TextBox textBoxKdv;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridView dataGridViewProductSelect;
+        private System.Windows.Forms.Button buttonSearch;
+        private System.Windows.Forms.TextBox textBoxAdet;
+        private System.Windows.Forms.DataGridView dataGridViewTree;
+        private System.Windows.Forms.ComboBox comboBoxType;
+        private System.Windows.Forms.TextBox textBoxProductSearch;
+        private System.Windows.Forms.Button buttonProductAdd;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label labelSelectedBarcode;
+        private System.Windows.Forms.Button buttonProductDelete;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label label6;
     }
 }

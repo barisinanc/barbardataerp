@@ -196,6 +196,8 @@ namespace arsiv
             {
                 dataGridViewProductSelect.DataSource = null;
             }
+            dataTable.Dispose();
+            engProduct.Dispose();
         }
 
         private void dataGridViewProductSelect_SelectionChanged(object sender, EventArgs e)
@@ -827,12 +829,15 @@ namespace arsiv
 
         private void buttonProductEdit_Click(object sender, EventArgs e)
         {
-            FormEditProduct duzenleForm = new FormEditProduct();
-            duzenleForm.BarkodNo = SecilenUrun.BarkodNo;
-            duzenleForm.Show();
-            textBoxAlinanTutar.TextAlignChanged -= new EventHandler(textBoxAlinanTutar_TextChanged);
-            textBoxAlinanTutar.Text = textBoxAlinanTutar.Text.Replace(".", ",");
-            textBoxAlinanTutar.TextAlignChanged -= new EventHandler(textBoxAlinanTutar_TextChanged);
+            if (SecilenUrun.BarkodNo != null)
+            {
+                FormEditProduct duzenleForm = new FormEditProduct();
+                duzenleForm.BarkodNo = SecilenUrun.BarkodNo;
+                duzenleForm.Show();
+                textBoxAlinanTutar.TextAlignChanged -= new EventHandler(textBoxAlinanTutar_TextChanged);
+                textBoxAlinanTutar.Text = textBoxAlinanTutar.Text.Replace(".", ",");
+                textBoxAlinanTutar.TextAlignChanged -= new EventHandler(textBoxAlinanTutar_TextChanged);
+            }
         }
 
        

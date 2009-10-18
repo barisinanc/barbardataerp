@@ -22,6 +22,7 @@ namespace arsiv.BarisGorselDLL
         public DateTime TeslimTarihi;
         public int SepetIndex = -1;
         public int KullaniciId;
+        public int Turu;
 
         public DataTable productSearch(string srchString) {
             Connect();
@@ -93,6 +94,8 @@ namespace arsiv.BarisGorselDLL
             command.Parameters["@Kdv"].Value = Kdv;
             command.Parameters.Add("@Arsivle", SqlDbType.TinyInt);
             command.Parameters["@Arsivle"].Value = Arsivle;
+            command.Parameters.Add("@UrunTuru", SqlDbType.TinyInt);
+            command.Parameters["@UrunTuru"].Value = Turu;
             bool durum = false;
             durum = Convert.ToBoolean(command.ExecuteNonQuery());
             command.Dispose();
@@ -148,6 +151,8 @@ namespace arsiv.BarisGorselDLL
                 catch { Kdv = 0; }
                 try { Arsivle = Convert.ToBoolean(row["Arsivle"]); }
                 catch { Arsivle = false; }
+                try { Turu = Convert.ToInt32(row["Tur"]); }
+                catch { Turu = 0; }
                 break;
             }
             dataTable.Dispose();

@@ -46,6 +46,11 @@
             this.toolStripRapor = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripAbout = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripDropDownButton();
+            this.stokGirişiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.stokÇıkışıToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.stokDurumuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripButtonGider = new System.Windows.Forms.ToolStripButton();
             this.buttonPageBacward = new System.Windows.Forms.Button();
             this.buttonPageForward = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -182,7 +187,9 @@
             this.tsbtnSearch,
             this.toolStripRapor,
             this.toolStripSeparator1,
-            this.toolStripAbout});
+            this.toolStripAbout,
+            this.toolStripButton1,
+            this.toolStripButtonGider});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(1008, 25);
@@ -221,6 +228,47 @@
             this.toolStripAbout.Size = new System.Drawing.Size(61, 22);
             this.toolStripAbout.Text = "Hakkında";
             this.toolStripAbout.Click += new System.EventHandler(this.toolStripAbout_Click);
+            // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.stokGirişiToolStripMenuItem,
+            this.stokÇıkışıToolStripMenuItem,
+            this.stokDurumuToolStripMenuItem});
+            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(43, 22);
+            this.toolStripButton1.Text = "Stok";
+            // 
+            // stokGirişiToolStripMenuItem
+            // 
+            this.stokGirişiToolStripMenuItem.Name = "stokGirişiToolStripMenuItem";
+            this.stokGirişiToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.stokGirişiToolStripMenuItem.Text = "Stok Girişi";
+            this.stokGirişiToolStripMenuItem.Click += new System.EventHandler(this.stokGirişiToolStripMenuItem_Click);
+            // 
+            // stokÇıkışıToolStripMenuItem
+            // 
+            this.stokÇıkışıToolStripMenuItem.Name = "stokÇıkışıToolStripMenuItem";
+            this.stokÇıkışıToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.stokÇıkışıToolStripMenuItem.Text = "Stok Çıkışı";
+            // 
+            // stokDurumuToolStripMenuItem
+            // 
+            this.stokDurumuToolStripMenuItem.Name = "stokDurumuToolStripMenuItem";
+            this.stokDurumuToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.stokDurumuToolStripMenuItem.Text = "Stok Durumu";
+            // 
+            // toolStripButtonGider
+            // 
+            this.toolStripButtonGider.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripButtonGider.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonGider.Image")));
+            this.toolStripButtonGider.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonGider.Name = "toolStripButtonGider";
+            this.toolStripButtonGider.Size = new System.Drawing.Size(39, 22);
+            this.toolStripButtonGider.Text = "Gider";
             // 
             // buttonPageBacward
             // 
@@ -370,6 +418,11 @@
         private System.Windows.Forms.ToolStripButton toolStripRapor;
         private System.Windows.Forms.ToolStripButton toolStripAbout;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripDropDownButton toolStripButton1;
+        private System.Windows.Forms.ToolStripMenuItem stokGirişiToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem stokÇıkışıToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem stokDurumuToolStripMenuItem;
+        private System.Windows.Forms.ToolStripButton toolStripButtonGider;
     }
 }
 
