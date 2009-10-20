@@ -311,11 +311,9 @@ namespace arsiv
 
         private void stokGirişiToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            FormStockIn stokGiris = new FormStockIn();
+            stokGiris.Show();
         }
-
-     
-
         
     }
 }

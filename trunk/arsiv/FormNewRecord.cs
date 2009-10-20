@@ -558,7 +558,20 @@ namespace arsiv
         {
             cariAra();
         }
-       
+
+        private void buttonCariGuncelle_Click(object sender, EventArgs e)
+        {
+            selectedCari.Isim = textBoxCariAd.Text.ToUpper();
+            selectedCari.CepNo = textBoxCariCep.Text.Trim().Replace(" ", "");
+            selectedCari.TelNo = textBoxCariTel.Text.Trim().Replace(" ", "");
+            selectedCari.Eposta = textBoxCariEposta.Text.Trim();
+            selectedCari.Aciklama = textBoxCariAciklama.Text.Trim();
+            try { selectedCari.VergiNo = Convert.ToInt32(textBoxCariVergiNo.Text.Trim()); }
+            catch { selectedCari.VergiNo = 0; }
+            selectedCari.VergiDairesi = textBoxCariVergiDairesi.Text.Trim();
+            selectedCari.CariGuncelle();
+            MessageBox.Show("Cari bilgileri güncellendi!");
+        }
         #endregion Cari
 
         private void buttonSave_Click(object sender, EventArgs e)
@@ -797,19 +810,7 @@ namespace arsiv
             favouriteSave();
         }
 
-        private void buttonCariGuncelle_Click(object sender, EventArgs e)
-        {
-            selectedCari.Isim = textBoxCariAd.Text.ToUpper();
-            selectedCari.CepNo = textBoxCariCep.Text.Trim().Replace(" ","");
-            selectedCari.TelNo = textBoxCariTel.Text.Trim().Replace(" ", "");
-            selectedCari.Eposta = textBoxCariEposta.Text.Trim();
-            selectedCari.Aciklama = textBoxCariAciklama.Text.Trim();
-            try { selectedCari.VergiNo = Convert.ToInt32(textBoxCariVergiNo.Text.Trim()); }
-            catch { selectedCari.VergiNo = 0; }
-            selectedCari.VergiDairesi = textBoxCariVergiDairesi.Text.Trim();
-            selectedCari.CariGuncelle();
-            MessageBox.Show("Cari bilgileri güncellendi!");
-        }
+        
 
         private void listBoxProductFavorite_KeyPress(object sender, KeyPressEventArgs e)
         {
