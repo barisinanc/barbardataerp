@@ -30,7 +30,6 @@ namespace arsiv.BarisGorselDLL
             {
                 pd.Document.Print();
             }
-           
         }
 
         void printDocument_PrintPage(object sender, PrintPageEventArgs e)
