@@ -186,11 +186,13 @@ namespace arsiv
             if (Urunler.Count > 0)
             {
                 var selectedProducts = from x in Urunler
-                                       select new { Barkod_No = x.BarkodNo, Ürün = x.Adi + " " + x.Marka + " " + x.Model, Fiyat = x.Fiyat };
+                                       select new { Barkod_No = x.BarkodNo, Ürün = x.Adi + " " + x.Marka + " " + x.Model, Fiyat = x.Fiyat.ToString("N") };
                 dataGridViewProductSelect.SelectionChanged -= new EventHandler(dataGridViewProductSelect_SelectionChanged);
                 dataGridViewProductSelect.DataSource = selectedProducts.ToList();
                 dataGridViewProductSelect.SelectionChanged += new EventHandler(dataGridViewProductSelect_SelectionChanged);
+                SecilenUrun = Urunler[(dataGridViewProductSelect.CurrentRow.Index)];
                 dataGridViewProductSelect.Rows[0].Selected = true;
+                fillProductDetails();
             }
             else
             {
@@ -217,7 +219,7 @@ namespace arsiv
                 labelProductSelectedBrand.Text = SecilenUrun.Marka;
                 labelProductSelectedModel.Text = SecilenUrun.Model;
                 labelProductSelectedBarcode.Text = SecilenUrun.BarkodNo;
-                textBoxProductPrice.Text = SecilenUrun.Fiyat.ToString();
+                textBoxProductPrice.Text = SecilenUrun.Fiyat.ToString("N");
                 dateTimePickerDelivery.Value = DateTime.Today;
                 numericHour.Value = DateTime.Now.Hour;
                 numericMinute.Value = DateTime.Now.Minute;
@@ -245,7 +247,7 @@ namespace arsiv
             if (textBoxProductDiscount.Text == null || textBoxProductDiscount.Text=="") { textBoxProductDiscount.Text = "0"; }
             if (Convert.ToDecimal(textBoxProductDiscount.Text) <= SecilenUrun.Fiyat*numericProductCount.Value)
             {
-                textBoxProductPrice.Text = ((SecilenUrun.AnaFiyat * numericProductCount.Value) - Convert.ToDecimal(textBoxProductDiscount.Text)).ToString();
+                textBoxProductPrice.Text = ((SecilenUrun.AnaFiyat * numericProductCount.Value) - Convert.ToDecimal(textBoxProductDiscount.Text)).ToString("N");
             }
             else
             { textBoxProductPrice.Text = "0"; }
@@ -253,7 +255,7 @@ namespace arsiv
 
         private void numericProductCount_ValueChanged(object sender, EventArgs e)
         {
-            textBoxProductPrice.Text = (SecilenUrun.Fiyat * numericProductCount.Value).ToString();
+            textBoxProductPrice.Text = (SecilenUrun.Fiyat * numericProductCount.Value).ToString("N");
         }
 
         private void buttonProductInsert_Click(object sender, EventArgs e)
@@ -329,7 +331,7 @@ namespace arsiv
                 { groupBoxArchive.Visible = false; }
             decimal bakiye= (from x in Sepet
                         select new {Tutar = x.Fiyat}).Sum(p=>p.Tutar);
-            labelBakiye.Text = bakiye.ToString() + " TL";
+            labelBakiye.Text = bakiye.ToString("N") + " TL";
             textBoxAlinanTutar.TextAlignChanged -= new EventHandler(textBoxAlinanTutar_TextChanged);
             textBoxAlinanTutar.Text = "0";//bakiye.ToString();
             textBoxAlinanTutar.TextAlignChanged += new EventHandler(textBoxAlinanTutar_TextChanged);
@@ -839,6 +841,11 @@ namespace arsiv
                 textBoxAlinanTutar.Text = textBoxAlinanTutar.Text.Replace(".", ",");
                 textBoxAlinanTutar.TextAlignChanged -= new EventHandler(textBoxAlinanTutar_TextChanged);
             }
+        }
+
+        private void dataGridViewProductSelect_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
 
        

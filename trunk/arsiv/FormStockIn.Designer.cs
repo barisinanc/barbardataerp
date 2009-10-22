@@ -65,7 +65,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.dataGridViewCari = new System.Windows.Forms.DataGridView();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboBoxSube = new System.Windows.Forms.ComboBox();
             this.radioButtonSube = new System.Windows.Forms.RadioButton();
             this.radioButtonCari = new System.Windows.Forms.RadioButton();
             this.label12 = new System.Windows.Forms.Label();
@@ -220,6 +220,7 @@
             this.buttonKaydet.TabIndex = 92;
             this.buttonKaydet.Text = "Kaydet";
             this.buttonKaydet.UseVisualStyleBackColor = true;
+            this.buttonKaydet.Click += new System.EventHandler(this.buttonKaydet_Click);
             // 
             // buttonIptal
             // 
@@ -424,14 +425,14 @@
             this.dataGridViewCari.Size = new System.Drawing.Size(415, 168);
             this.dataGridViewCari.TabIndex = 777;
             // 
-            // comboBox1
+            // comboBoxSube
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(54, 23);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(99, 21);
-            this.comboBox1.TabIndex = 0;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.comboBoxSube.FormattingEnabled = true;
+            this.comboBoxSube.Location = new System.Drawing.Point(54, 23);
+            this.comboBoxSube.Name = "comboBoxSube";
+            this.comboBoxSube.Size = new System.Drawing.Size(99, 21);
+            this.comboBoxSube.TabIndex = 0;
+            this.comboBoxSube.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // radioButtonSube
             // 
@@ -469,7 +470,7 @@
             // 
             // groupBoxSube
             // 
-            this.groupBoxSube.Controls.Add(this.comboBox1);
+            this.groupBoxSube.Controls.Add(this.comboBoxSube);
             this.groupBoxSube.Controls.Add(this.label12);
             this.groupBoxSube.Location = new System.Drawing.Point(18, 222);
             this.groupBoxSube.Name = "groupBoxSube";
@@ -558,7 +559,7 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.DataGridView dataGridViewCari;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comboBoxSube;
         private System.Windows.Forms.RadioButton radioButtonSube;
         private System.Windows.Forms.RadioButton radioButtonCari;
         private System.Windows.Forms.Label label12;
