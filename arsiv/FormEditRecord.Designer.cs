@@ -360,6 +360,7 @@
             this.dataGridViewProductSelect.Name = "dataGridViewProductSelect";
             this.dataGridViewProductSelect.ReadOnly = true;
             this.dataGridViewProductSelect.RowHeadersWidth = 20;
+            this.dataGridViewProductSelect.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewProductSelect.Size = new System.Drawing.Size(883, 168);
             this.dataGridViewProductSelect.TabIndex = 20;
             this.dataGridViewProductSelect.SelectionChanged += new System.EventHandler(this.dataGridViewProductSelect_SelectionChanged);
@@ -633,6 +634,7 @@
             this.dataGridViewProductSelected.Name = "dataGridViewProductSelected";
             this.dataGridViewProductSelected.ReadOnly = true;
             this.dataGridViewProductSelected.RowHeadersWidth = 20;
+            this.dataGridViewProductSelected.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewProductSelected.Size = new System.Drawing.Size(583, 204);
             this.dataGridViewProductSelected.TabIndex = 2;
             this.dataGridViewProductSelected.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewProductSelected_CellContentDoubleClick);
@@ -722,6 +724,7 @@
             this.dataGridViewBakiye.Name = "dataGridViewBakiye";
             this.dataGridViewBakiye.ReadOnly = true;
             this.dataGridViewBakiye.RowHeadersWidth = 15;
+            this.dataGridViewBakiye.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewBakiye.Size = new System.Drawing.Size(315, 174);
             this.dataGridViewBakiye.TabIndex = 73;
             // 

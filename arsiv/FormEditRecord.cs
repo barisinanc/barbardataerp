@@ -174,7 +174,10 @@ namespace arsiv
             dataGridViewProductSelect.SelectionChanged -= new EventHandler(dataGridViewProductSelect_SelectionChanged);
             dataGridViewProductSelect.DataSource = selectedProducts.ToList();
             dataGridViewProductSelect.SelectionChanged += new EventHandler(dataGridViewProductSelect_SelectionChanged);
+            SecilenUrun.AddProduct(Urunler[(dataGridViewProductSelect.CurrentRow.Index)]);
+            SecilenUrun.Yeni = true;
             dataGridViewProductSelect.Rows[0].Selected = true;
+            fillProductDetails();
             }
             else
             {
@@ -200,7 +203,7 @@ namespace arsiv
                 labelProductSelectedBrand.Text = SecilenUrun.Marka;
                 labelProductSelectedModel.Text = SecilenUrun.Model;
                 labelProductSelectedBarcode.Text = SecilenUrun.BarkodNo;
-                textBoxProductPrice.Text = SecilenUrun.Fiyat.ToString();
+                textBoxProductPrice.Text = SecilenUrun.Fiyat.ToString("N");
                 dateTimePickerDelivery.Value = DateTime.Today;
                 numericHour.Value = DateTime.Now.AddHours(1).Hour;
                 numericMinute.Value = DateTime.Now.Minute;
@@ -233,7 +236,7 @@ namespace arsiv
             if (textBoxProductDiscount.Text == null || textBoxProductDiscount.Text == "") { textBoxProductDiscount.Text = "0"; }
             if (Convert.ToDecimal(textBoxProductDiscount.Text) <= SecilenUrun.Fiyat * numericProductCount.Value)
             {
-                textBoxProductPrice.Text = ((SecilenUrun.AnaFiyat * numericProductCount.Value) - Convert.ToDecimal(textBoxProductDiscount.Text)).ToString();
+                textBoxProductPrice.Text = ((SecilenUrun.AnaFiyat * numericProductCount.Value) - Convert.ToDecimal(textBoxProductDiscount.Text)).ToString("N");
             }
             else
             { textBoxProductPrice.Text = "0"; }
@@ -313,7 +316,7 @@ namespace arsiv
             decimal bakiye = (from x in Sepet
                               where x.Sil == false
                               select new { Tutar = x.Fiyat }).Sum(p => p.Tutar) - toplamAlinan;
-            labelBakiye.Text = bakiye.ToString() + " TL";
+            labelBakiye.Text = bakiye.ToString("N") + " TL";
             textBoxAlinanTutar.TextAlignChanged -= new EventHandler(textBoxAlinanTutar_TextChanged);
             textBoxAlinanTutar.Text = "0";
             textBoxAlinanTutar.TextAlignChanged += new EventHandler(textBoxAlinanTutar_TextChanged);

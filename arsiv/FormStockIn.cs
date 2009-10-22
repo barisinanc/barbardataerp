@@ -22,6 +22,17 @@ namespace arsiv
 
         }
 
+        private void subeFill()
+        {
+            Sube subeler = new Sube();
+
+            foreach (Sube s in subeler.tumSubeler())
+            {
+                comboBoxSube.Items.Add(s.SubeAdi);
+            }
+            comboBoxSube.SelectedIndex = 0;
+        }
+
         List<Product> Urunler = new List<Product>();
         private void productSearch()
         {
@@ -244,6 +255,11 @@ namespace arsiv
             }
             else
             { groupBoxCari.Visible = false; groupBoxSube.Visible = true; }
+        }
+
+        private void buttonKaydet_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

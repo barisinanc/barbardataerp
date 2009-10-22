@@ -334,6 +334,7 @@
             this.dataGridViewCari.Name = "dataGridViewCari";
             this.dataGridViewCari.ReadOnly = true;
             this.dataGridViewCari.RowHeadersWidth = 20;
+            this.dataGridViewCari.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewCari.Size = new System.Drawing.Size(443, 168);
             this.dataGridViewCari.TabIndex = 777;
             this.dataGridViewCari.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewCari_CellContentDoubleClick);
@@ -436,9 +437,11 @@
             this.dataGridViewProductSelect.Name = "dataGridViewProductSelect";
             this.dataGridViewProductSelect.ReadOnly = true;
             this.dataGridViewProductSelect.RowHeadersWidth = 20;
+            this.dataGridViewProductSelect.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewProductSelect.Size = new System.Drawing.Size(593, 138);
             this.dataGridViewProductSelect.TabIndex = 20;
             this.dataGridViewProductSelect.SelectionChanged += new System.EventHandler(this.dataGridViewProductSelect_SelectionChanged);
+            this.dataGridViewProductSelect.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewProductSelect_CellContentClick);
             // 
             // groupBoxProductDetails
             // 
@@ -707,6 +710,7 @@
             this.dataGridViewProductSelected.Name = "dataGridViewProductSelected";
             this.dataGridViewProductSelected.ReadOnly = true;
             this.dataGridViewProductSelected.RowHeadersWidth = 20;
+            this.dataGridViewProductSelected.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewProductSelected.Size = new System.Drawing.Size(589, 205);
             this.dataGridViewProductSelected.TabIndex = 2;
             this.dataGridViewProductSelected.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewProductSelected_CellContentDoubleClick);
