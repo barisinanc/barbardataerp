@@ -25,7 +25,7 @@ namespace arsiv.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=BARAN\\SQLEXPRESS;Initial Catalog=LodosArsiv;Integrated Security=True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=.\\SQLEXPRESS;Initial Catalog=LodosArsiv;Integrated Security=True")]
         public string connectionString {
             get {
                 return ((string)(this["connectionString"]));
