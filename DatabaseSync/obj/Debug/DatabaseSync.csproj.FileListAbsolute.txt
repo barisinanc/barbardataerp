@@ -1,0 +1,8 @@
+D:\projeler\fototakip\barbardataerp\DatabaseSync\bin\Debug\DatabaseSync.exe
+D:\projeler\fototakip\barbardataerp\DatabaseSync\bin\Debug\DatabaseSync.pdb
+D:\projeler\fototakip\barbardataerp\DatabaseSync\obj\Debug\ResolveAssemblyReference.cache
+D:\projeler\fototakip\barbardataerp\DatabaseSync\obj\Debug\DatabaseSync.Properties.Resources.resources
+D:\projeler\fototakip\barbardataerp\DatabaseSync\obj\Debug\DatabaseSync.csproj.GenerateResource.Cache
+D:\projeler\fototakip\barbardataerp\DatabaseSync\obj\Debug\DatabaseSync.exe
+D:\projeler\fototakip\barbardataerp\DatabaseSync\obj\Debug\DatabaseSync.pdb
+D:\projeler\fototakip\barbardataerp\DatabaseSync\obj\Debug\DatabaseSync.Form1.resources
