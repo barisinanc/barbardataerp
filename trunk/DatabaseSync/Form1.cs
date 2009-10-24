@@ -12,6 +12,7 @@ using Microsoft.Synchronization.Data.SqlServer;
 using System.Data.SqlClient;
 using System.IO;
 using System.Collections.ObjectModel;
+using System.Threading;
 
 
 namespace DatabaseSync
@@ -19,7 +20,10 @@ namespace DatabaseSync
     
     public partial class Form1 : Form
     {
-        
+        SqlConnection serverSqlConn = new SqlConnection(@"Data Source=192.168.2.3;Initial Catalog=sync;User Id=sa;Password=kay123");
+        SqlConnection clientSqlConn = new SqlConnection(@"Data Source=.\SQLEXPRESS;Initial Catalog=sync;Integrated Security=True");
+        SqlConnection clientSqlConn2 = new SqlConnection(@"Data Source=.\SQLEXPRESS;Initial Catalog=sync2;Integrated Security=True");
+            
         public Form1()
         {
             InitializeComponent();
@@ -27,38 +31,55 @@ namespace DatabaseSync
        
         private void Form1_Load(object sender, EventArgs e)
         {
-            SqlConnection serverConn = new SqlConnection(@"Data Source=192.168.2.3;Initial Catalog=sync;User Id=sa;Password=kay123");
-            SqlConnection clientSqlConn = new SqlConnection(@"Data Source=.\SQLEXPRESS;Initial Catalog=sync;Integrated Security=True");
+            
+
+        }
+
+        private void Sync()
+        {
+            SyncOrchestrator syncOrchestrator = new SyncOrchestrator();
+            SyncOperationStatistics syncStats;
+
+            syncOrchestrator.RemoteProvider = new SqlSyncProvider("Urun", serverSqlConn, null, "dbo");
+            syncOrchestrator.LocalProvider = new SqlSyncProvider("Urun", clientSqlConn, null, "dbo");
+            syncOrchestrator.Direction = SyncDirectionOrder.UploadAndDownload;
+            syncStats = syncOrchestrator.Synchronize();
+        }
+
+        private void buttonSync_Click(object sender, EventArgs e)
+        {
+            Thread syncIslemi = new Thread(Sync);
+            syncIslemi.Start();
+        }
+
+        private void syncInitialize()
+        {
             DbSyncScopeDescription scopeDesc = new DbSyncScopeDescription("Urun");
 
-            DbSyncTableDescription productDescription = SqlSyncDescriptionBuilder.GetDescriptionForTable("Urun", serverConn);
-
-            Collection<string> columnsToInclude = new Collection<string>();
-            columnsToInclude.Add("Ad");
-            columnsToInclude.Add("Adet");
-            columnsToInclude.Add("BarkodNo");
+            DbSyncTableDescription productDescription = SqlSyncDescriptionBuilder.GetDescriptionForTable("Urun", serverSqlConn);
 
             scopeDesc.Tables.Add(productDescription);
             SqlSyncScopeProvisioning serverConfig = new SqlSyncScopeProvisioning(scopeDesc);
             serverConfig.SetCreateTableDefault(DbSyncCreationOption.Skip);
             serverConfig.ObjectSchema = "dbo";
 
-            //serverConfig.Apply(serverConn);
-            File.WriteAllText("SampleConfigScript.txt", serverConfig.Script("sync"));
+            serverConfig.Apply(serverSqlConn);
+            //File.WriteAllText("SampleConfigScript.txt", serverConfig.Script("sync"));
 
             SqlSyncScopeProvisioning clientConfig = new SqlSyncScopeProvisioning(scopeDesc);
             clientConfig.SetCreateTableDefault(DbSyncCreationOption.Skip);
-            
+
             clientConfig.ObjectSchema = "dbo";
-            //clientConfig.Apply(clientSqlConn);
+            clientConfig.Apply(clientSqlConn);
 
-            SyncOrchestrator syncOrchestrator = new SyncOrchestrator();
-            SyncOperationStatistics syncStats;
+            if (!clientConfig.ScopeExists("Urun", clientSqlConn2))
+            {
+                clientConfig.Apply(clientSqlConn2);
+            }
+        }
 
-            syncOrchestrator.RemoteProvider = new SqlSyncProvider("Urun", serverConn, null, "dbo");
-            syncOrchestrator.LocalProvider = new SqlSyncProvider("Urun", clientSqlConn, null, "dbo");
-            syncOrchestrator.Direction = SyncDirectionOrder.DownloadAndUpload;
-            syncStats = syncOrchestrator.Synchronize();
+        private void buttonInitialize_Click(object sender, EventArgs e)
+        {
 
         }
     }
