@@ -270,6 +270,8 @@ namespace arsiv
         void duzenle_FormClosed(object sender, FormClosedEventArgs e)
         {
             ((Form)sender).Dispose();
+            (sender) = null;
+            GC.Collect();
         }
 
         private void dataGridViewResult_KeyPress(object sender, KeyPressEventArgs e)

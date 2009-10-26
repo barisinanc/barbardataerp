@@ -54,11 +54,12 @@ namespace DatabaseSync
 
         private void syncInitialize()
         {
-            DbSyncScopeDescription scopeDesc = new DbSyncScopeDescription("Urun");
+            DbSyncScopeDescription scopeDesc = new DbSyncScopeDescription("Sync");
 
             DbSyncTableDescription productDescription = SqlSyncDescriptionBuilder.GetDescriptionForTable("Urun", serverSqlConn);
 
             scopeDesc.Tables.Add(productDescription);
+
             SqlSyncScopeProvisioning serverConfig = new SqlSyncScopeProvisioning(scopeDesc);
             serverConfig.SetCreateTableDefault(DbSyncCreationOption.Skip);
             serverConfig.ObjectSchema = "dbo";
@@ -72,7 +73,7 @@ namespace DatabaseSync
             clientConfig.ObjectSchema = "dbo";
             clientConfig.Apply(clientSqlConn);
 
-            if (!clientConfig.ScopeExists("Urun", clientSqlConn2))
+            if (!clientConfig.ScopeExists("Urun", clientSqlConn))
             {
                 clientConfig.Apply(clientSqlConn2);
             }

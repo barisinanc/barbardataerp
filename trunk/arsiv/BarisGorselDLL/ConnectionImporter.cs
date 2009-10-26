@@ -5,15 +5,31 @@ using System.Text;
 
 public class ConnectionImporter : System.IDisposable
 {
-
+    private bool disposed = false;
     public virtual void Dispose()
     {
-        if (!(_conn == null))
+        Dispose(true);
+        GC.SuppressFinalize(this);
+        
+    }
+    private void Dispose(bool disposing)
+    {
+        if (!this.disposed)
         {
-            _conn.Close();
-            _conn = null;
+            if (disposing)
+            {
+                if (!(_conn == null))
+                {
+                    _conn.Close();
+                    _conn.Dispose();
+                    _conn = null;
+                }
+            }
+            disposed = true;
+
         }
     }
+
     private string _connStr;
     private SqlConnection _conn;
 
@@ -48,8 +64,7 @@ public class ConnectionImporter : System.IDisposable
 
     public void Disconnect()
     {
-        _conn.Close();
-        _conn = null;
+        Dispose();
     }
     
     public bool Connected;

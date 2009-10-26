@@ -32,6 +32,7 @@ namespace arsiv.BarisGorselDLL
             cmd.Parameters.AddWithValue("@OdemeTuru", OdemeTuru);
             cmd.ExecuteNonQuery();
             cmd.Dispose();
+            cmd = null;
             Disconnect();
         }
 
@@ -56,7 +57,9 @@ namespace arsiv.BarisGorselDLL
             Connection.Close();
             Connection.Dispose();
             cmd.Dispose();
+            cmd = null;
             adapter.Dispose();
+            adapter = null;
             foreach (DataRow satir in dataTable.Rows)
             {
                 Account yeniHesap = new Account();
@@ -68,6 +71,7 @@ namespace arsiv.BarisGorselDLL
                 yeniHesap = null;
             }
             dataTable.Dispose();
+            dataTable = null;
             Disconnect();
             return tumHesap;
         }

@@ -18,6 +18,12 @@ namespace arsiv
         public FormEditRecord()
         {
             InitializeComponent();
+            this.FormClosed += new FormClosedEventHandler(FormEditRecord_FormClosed);
+        }
+
+        void FormEditRecord_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.Dispose();
         }
 
         #region Forma dışardan gelen bilgiler
@@ -57,6 +63,7 @@ namespace arsiv
             personelListesiDoldur();
             textBoxProductSearch.Focus();
             this.Text += " - Sepet No:" + SepetId + " - Cari No:" + selectedCari.CariNo;
+            
         }
         Archive arsiv;
 
