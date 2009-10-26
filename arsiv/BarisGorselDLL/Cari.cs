@@ -52,6 +52,7 @@ namespace arsiv.BarisGorselDLL
             cmd.Parameters["@CariNo"].Value = CariNo;
             cmd.ExecuteNonQuery();
             cmd.Dispose();
+            cmd = null;
             CariNo = (long)cmd.Parameters["@CariNo"].Value;
             Disconnect();
             return CariNo;
@@ -75,7 +76,9 @@ namespace arsiv.BarisGorselDLL
             Connection.Close();
             Connection.Dispose();
             cmd.Dispose();
+            cmd = null;
             adapter.Dispose();
+            adapter = null;
             foreach (DataRow satir in dataTable.Rows)
             {
                 Cari yeniCari = new Cari();
@@ -90,6 +93,7 @@ namespace arsiv.BarisGorselDLL
                 yeniCari = null;
             }
             dataTable.Dispose();
+            dataTable = null;
             Disconnect();
             return tumCariler;
         }
@@ -115,6 +119,7 @@ namespace arsiv.BarisGorselDLL
             cmd.Parameters.AddWithValue("@GrupNo3", GrupNo3);
             cmd.ExecuteNonQuery();
             cmd.Dispose();
+            cmd = null;
             Disconnect();
         }
 
@@ -128,8 +133,6 @@ namespace arsiv.BarisGorselDLL
             cmd.ExecuteNonQuery();
             SqlDataAdapter adapter = new SqlDataAdapter(cmd);
             adapter.Fill(dataTable);
-            Connection.Close();
-            Connection.Dispose();
             cmd.Dispose();
             adapter.Dispose();
             Disconnect();

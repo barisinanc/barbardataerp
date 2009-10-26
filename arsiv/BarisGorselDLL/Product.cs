@@ -34,7 +34,9 @@ namespace arsiv.BarisGorselDLL
             SqlDataAdapter adapter = new SqlDataAdapter(cmd);
             adapter.Fill(dataTable);
             cmd.Dispose();
+            cmd = null;
             adapter.Dispose();
+            adapter = null;
             Disconnect();
             return dataTable;
         }

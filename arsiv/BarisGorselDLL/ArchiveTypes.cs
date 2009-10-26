@@ -21,7 +21,9 @@ namespace arsiv.BarisGorselDLL
             SqlDataAdapter adapter = new SqlDataAdapter(cmd);
             adapter.Fill(dataTable);
             cmd.Dispose();
+            cmd = null;
             adapter.Dispose();
+            adapter = null;
             List<ArchiveTypes> ArsivTipleri = new List<ArchiveTypes>();
             foreach (DataRow row in dataTable.Rows)
             { 
@@ -32,6 +34,8 @@ namespace arsiv.BarisGorselDLL
                 yeniArsivTipi = null;
             }
             Disconnect();
+            dataTable.Dispose();
+            dataTable = null;
             return ArsivTipleri;
         }
 
@@ -48,6 +52,7 @@ namespace arsiv.BarisGorselDLL
             tip= Convert.ToInt32(cmd.Parameters["@ArsivTipi"].Value.ToString());
             Disconnect();
             cmd.Dispose();
+            cmd = null;
             return tip;
         }
     }

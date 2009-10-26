@@ -28,6 +28,7 @@ namespace arsiv.BarisGorselDLL
             cmd.Parameters["@ArsivNo"].Value = ArsivNo;
             cmd.ExecuteNonQuery();
             cmd.Dispose();
+            cmd = null;
             ArsivNo = cmd.Parameters["@ArsivNo"].Value.ToString();
             Disconnect();
             return ArsivNo;
@@ -49,6 +50,7 @@ namespace arsiv.BarisGorselDLL
             yeniArsiv.TurId = Convert.ToInt32(cmd.Parameters["@ArsivTuru"].Value.ToString());
             Disconnect();
             cmd.Dispose();
+            cmd = null;
             return yeniArsiv;
         }
 
@@ -60,6 +62,8 @@ namespace arsiv.BarisGorselDLL
             cmd.Parameters.AddWithValue("@ArsivNo", ArsivNo);
             cmd.Parameters.AddWithValue("@TurId", TurId);
             cmd.ExecuteNonQuery();
+            cmd.Dispose();
+            cmd = null;
             Disconnect();
         }
 
@@ -73,6 +77,7 @@ namespace arsiv.BarisGorselDLL
             DataTable dt = new DataTable();
             adapt.Fill(dt);
             cmd.Dispose();
+            cmd = null;
             Disconnect();
             return dt;
         }
@@ -88,6 +93,8 @@ namespace arsiv.BarisGorselDLL
             cmd.Parameters.AddWithValue("@Phone", Phone);
             cmd.Parameters.AddWithValue("@Email", Email);
             cmd.ExecuteNonQuery();
+            cmd.Dispose();
+            cmd = null;
             Disconnect();
         }
         
