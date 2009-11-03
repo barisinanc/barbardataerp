@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BarisGorselDLL", "BarisGors
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "istakip", "istakip\istakip.csproj", "{E81A48A4-D99F-478F-A35A-AFE66D7BE185}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "binaryreader", "LodosReader\binaryreader.csproj", "{AA6F1C08-9812-4606-80A8-7716E0E4DED5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,6 +39,10 @@ Global
 		{E81A48A4-D99F-478F-A35A-AFE66D7BE185}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E81A48A4-D99F-478F-A35A-AFE66D7BE185}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E81A48A4-D99F-478F-A35A-AFE66D7BE185}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA6F1C08-9812-4606-80A8-7716E0E4DED5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA6F1C08-9812-4606-80A8-7716E0E4DED5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA6F1C08-9812-4606-80A8-7716E0E4DED5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA6F1C08-9812-4606-80A8-7716E0E4DED5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
