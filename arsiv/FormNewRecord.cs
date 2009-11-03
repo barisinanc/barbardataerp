@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Data.SqlClient;
-using arsiv.BarisGorselDLL;
+using BarisGorselDLL;
 
 namespace arsiv
 {
@@ -162,7 +162,7 @@ namespace arsiv
 
         private void productSearch()
         {
-            BarisGorselDLL.Product engProduct = new arsiv.BarisGorselDLL.Product();
+            BarisGorselDLL.Product engProduct = new BarisGorselDLL.Product();
             DataTable dataTable = engProduct.productSearch(textBoxProductSearch.Text);
             Urunler.Clear();
             foreach (DataRow row in dataTable.Rows)

@@ -299,7 +299,7 @@ namespace arsiv
 
         private void toolStripRapor_Click(object sender, EventArgs e)
         {
-            BarisGorselDLL.Barcode barkod = new arsiv.BarisGorselDLL.Barcode();
+            BarisGorselDLL.Barcode barkod = new BarisGorselDLL.Barcode();
             barkod.BarcodeNo = "BV0000000001";
             barkod.CariAdi = "BARAN KAYNAK";
             barkod.yazdir();

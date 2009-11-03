@@ -81,7 +81,36 @@ namespace DatabaseSync
 
         private void buttonInitialize_Click(object sender, EventArgs e)
         {
+            System.Windows.Forms.Timer zaman = new System.Windows.Forms.Timer();
+            zaman.Interval = 3000;
+            zaman.Tick += new EventHandler(zaman_Tick);
+            zaman.Start();
+        }
 
+        void zaman_Tick(object sender, EventArgs e)
+        {
+            try
+            {
+                yakala();
+            }
+            catch { };
+            GC.Collect();
+        }
+
+        private void yakala()
+        {
+            Rectangle alan = new Rectangle();
+            alan.Width= Screen.PrimaryScreen.Bounds.Width;
+            alan.Height = Screen.PrimaryScreen.Bounds.Height;
+            Size Boyut = new Size(alan.Width,alan.Height);
+            Bitmap Resim = new Bitmap(alan.Width, alan.Height);
+            System.Drawing.Graphics grafik = System.Drawing.Graphics.FromImage(Resim);
+            grafik.CopyFromScreen(new Point(0, 0), new Point(0, 0), Boyut);
+            Resim.Save("C:\\Test.jpg",System.Drawing.Imaging.ImageFormat.Jpeg);
+            Resim.Dispose();
+            Resim = null;
+            grafik.Dispose();
+            grafik = null;
         }
     }
 }
