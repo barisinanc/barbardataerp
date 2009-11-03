@@ -1,0 +1,7 @@
+D:\projeler\fototakip\barbardataerp\BarisGorselDll\obj\Debug\ResolveAssemblyReference.cache
+D:\projeler\fototakip\barbardataerp\BarisGorselDll\bin\Debug\BarisGorselDll.dll
+D:\projeler\fototakip\barbardataerp\BarisGorselDll\bin\Debug\BarisGorselDll.pdb
+D:\projeler\fototakip\barbardataerp\BarisGorselDll\bin\Debug\BarcodeLib.dll
+D:\projeler\fototakip\barbardataerp\BarisGorselDll\bin\Debug\BarcodeLib.pdb
+D:\projeler\fototakip\barbardataerp\BarisGorselDll\obj\Debug\BarisGorselDll.dll
+D:\projeler\fototakip\barbardataerp\BarisGorselDll\obj\Debug\BarisGorselDll.pdb

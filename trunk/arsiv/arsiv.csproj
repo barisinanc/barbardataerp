@@ -75,26 +75,6 @@
     <Compile Include="About.Designer.cs">
       <DependentUpon>About.cs</DependentUpon>
     </Compile>
-    <Compile Include="BarisGorsel.cs" />
-    <Compile Include="BarisGorselDLL\Account.cs" />
-    <Compile Include="BarisGorselDLL\Archive.cs" />
-    <Compile Include="BarisGorselDLL\ArchiveTypes.cs" />
-    <Compile Include="BarisGorselDLL\Barcode.cs" />
-    <Compile Include="BarisGorselDLL\Cari.cs" />
-    <Compile Include="BarisGorselDLL\ConnectionImporter.cs" />
-    <Compile Include="BarisGorselDLL\ConnectionStrings.cs" />
-    <Compile Include="BarisGorselDLL\ConnectionTest.cs" />
-    <Compile Include="BarisGorselDLL\Kullanici.cs" />
-    <Compile Include="BarisGorselDLL\OdemeTuru.cs" />
-    <Compile Include="BarisGorselDLL\Order.cs" />
-    <Compile Include="BarisGorselDLL\Product.cs" />
-    <Compile Include="BarisGorselDLL\ProductTree.cs" />
-    <Compile Include="BarisGorselDLL\ProductType.cs" />
-    <Compile Include="BarisGorselDLL\Report.cs" />
-    <Compile Include="BarisGorselDLL\Search.cs" />
-    <Compile Include="BarisGorselDLL\Sepet.cs" />
-    <Compile Include="BarisGorselDLL\Settings.cs" />
-    <Compile Include="BarisGorselDLL\Sube.cs" />
     <Compile Include="FormEditProduct.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -236,6 +216,12 @@
       <ProductName>Windows Installer 3.1</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BarisGorselDll\BarisGorselDLL.csproj">
+      <Project>{9D1F4439-BBAB-46DD-BEB7-3E5F24D85B1B}</Project>
+      <Name>BarisGorselDLL</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
