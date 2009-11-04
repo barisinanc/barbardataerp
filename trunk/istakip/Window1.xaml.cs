@@ -105,11 +105,26 @@ namespace istakip
             }
         }
 
+        private Image selectedImage;
+
         private void buttonLeft_Click(object sender, RoutedEventArgs e)
         {
+            ((Button)(sender)).IsEnabled = false;
             BarisGorselDLL.Photo foto = new BarisGorselDLL.Photo();
-            foto.JpegDondur(@"D:\kimlik\Yeni klasör\IMG_7187.JPG", 270);
-            //D:\kimlik\Yeni klasör\IMG_7187.JPG"
+            foto.Path = @"C:\DSC_7233.JPG";
+            foto.Rotate(BarisGorselDLL.Photo.RotateTypes.Left);
+            foto.JpegSave(foto.Path, 100);
+            ((Button)(sender)).IsEnabled = true;
+        }
+
+        private void buttonRight_Click(object sender, RoutedEventArgs e)
+        {
+            ((Button)(sender)).IsEnabled = false;
+            BarisGorselDLL.Photo foto = new BarisGorselDLL.Photo();
+            foto.Path = @"C:\DSC_7233.JPG";
+            foto.Rotate(BarisGorselDLL.Photo.RotateTypes.Left);
+            foto.JpegSave(foto.Path, 100);
+            ((Button)(sender)).IsEnabled = true;
         }
 
         

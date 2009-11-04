@@ -73,6 +73,16 @@ namespace binaryreader
             }
         }
 
+        private static string temizle(string giren)
+        {
+            string str = "";
+            foreach (char c in giren)
+            {
+                if (c.GetHashCode() != 0)
+                { str += c; }
+            }
+            return str.Trim();
+        }
         
          public static List<DatRecord> Read(string filepath)
         {
@@ -91,18 +101,18 @@ namespace binaryreader
                     br.ReadBytes(4);
                     record.ArsivNo = System.Text.ASCIIEncoding.ASCII.GetString(br.ReadBytes(10));
                     br.ReadBytes(4);
-                    record.Name = System.Text.UTF8Encoding.Default.GetString(br.ReadBytes(30));
+                    record.Name = temizle(System.Text.UTF8Encoding.Default.GetString(br.ReadBytes(30)));
                     br.ReadBytes(41);
                     record.Date = System.Text.ASCIIEncoding.ASCII.GetString(br.ReadBytes(10));
                     br.ReadByte();
                     record.Time = System.Text.ASCIIEncoding.ASCII.GetString(br.ReadBytes(5));
                     record.Unk = br.ReadInt32();
                     br.ReadBytes(59);
-                    record.Description = System.Text.UTF8Encoding.Default.GetString(br.ReadBytes(49));
+                    record.Description = temizle(System.Text.UTF8Encoding.Default.GetString(br.ReadBytes(49)));
                     br.ReadBytes(26);
-                    record.Phone = System.Text.ASCIIEncoding.ASCII.GetString(br.ReadBytes(25));
+                    record.Phone = temizle(System.Text.ASCIIEncoding.ASCII.GetString(br.ReadBytes(25)));
                     br.ReadBytes(15);
-                    record.Email = System.Text.ASCIIEncoding.ASCII.GetString(br.ReadBytes(30));
+                    record.Email = temizle(System.Text.ASCIIEncoding.ASCII.GetString(br.ReadBytes(30)));
                     br.ReadBytes(7);
                     record.Birthday = System.Text.ASCIIEncoding.ASCII.GetString(br.ReadBytes(10));
                     br.ReadByte();
@@ -122,6 +132,9 @@ namespace binaryreader
             br.Close();
             return list;
         }
+
+         
+
          int sube;
          SqlConnection conn;
          private void insertRecord(DatRecord data, int typeList)
