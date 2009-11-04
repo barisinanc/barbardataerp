@@ -9,69 +9,126 @@ namespace BarisGorselDLL
 {
     public class Photo
     {
-        private static ImageCodecInfo GetEncoderInfo(String mimeType)
+        private string _path;
+        public string Path
         {
-            int j;
-            ImageCodecInfo[] encoders;
-            encoders = ImageCodecInfo.GetImageEncoders();
-            for (j = 0; j < encoders.Length; ++j)
+            get
             {
-                if (encoders[j].MimeType == mimeType)
-                    return encoders[j];
-            } return null;
+                return _path;
+            }
+            set
+            {
+                Bmp = new Bitmap(value);
+                _path = value;
+            }
         }
 
-        public void JpegDondur(string FilePath, int Aci)
+        public Bitmap Bmp;
+
+        private ImageCodecInfo GetEncoder(ImageFormat format)
         {
-            //Load a bitmap from file
 
-            Bitmap bm = (Bitmap)Image.FromFile(FilePath);
-
-
-
-            //Get the list of available encoders
-
-            ImageCodecInfo[] codecs = ImageCodecInfo.GetImageEncoders();
-
-
-
-            //find the encoder with the image/jpeg mime-type
-
-            ImageCodecInfo ici = null;
+            ImageCodecInfo[] codecs = ImageCodecInfo.GetImageDecoders();
 
             foreach (ImageCodecInfo codec in codecs)
             {
-
-                if (codec.MimeType == "image/jpeg")
-
-                    ici = codec;
-
+                if (codec.FormatID == format.Guid)
+                {
+                    return codec;
+                }
             }
-
-
-
-            //Create a collection of encoder parameters (we only need one in the collection)
-
-            EncoderParameters ep = new EncoderParameters();
-
-
-
-            //We'll save images with 25%, 50%, 75% and 100% quality as compared with the original
-
-            for (int x = 25; x < 101; x += 25)
-            {
-
-                //Create an encoder parameter for quality with an appropriate level setting
-
-                ep.Param[0] = new EncoderParameter(System.Drawing.Imaging.Encoder.Quality, (long)x);
-
-                //Save the image with a filename that indicates the compression quality used
-
-                bm.Save("C:\\quality" + x.ToString() + ".jpg", ici, ep);
-
-            }
+            return null;
         }
 
 
+        public void JpegSave(ref Bitmap bmp, string FilePath, long quality)
+        {
+            // Get a bitmap.
+            //Bitmap bmp1 = new Bitmap(FilePath);
+
+            ImageCodecInfo jgpEncoder = GetEncoder(ImageFormat.Jpeg);
+
+            // Create an Encoder object based on the GUID
+            // for the Quality parameter category.
+            System.Drawing.Imaging.Encoder myEncoder =
+                        System.Drawing.Imaging.Encoder.Quality;
+
+            // Create an EncoderParameters object.
+            // An EncoderParameters object has an array of EncoderParameter
+            // objects. In this case, there is only one
+            // EncoderParameter object in the array.
+            EncoderParameters myEncoderParameters = new EncoderParameters(1);
+
+            EncoderParameter myEncoderParameter = new EncoderParameter(myEncoder, quality);
+            myEncoderParameters.Param[0] = myEncoderParameter;
+            bmp.Save(FilePath, jgpEncoder, myEncoderParameters);
+            jgpEncoder = null;
+            myEncoder = null;
+            myEncoderParameters.Dispose();
+            myEncoderParameters = null;
+            myEncoderParameter.Dispose();
+            myEncoderParameter = null;
+        }
+
+        public void JpegSave(string path, long quality)
+        {
+            // Get a bitmap.
+            //Bitmap bmp1 = new Bitmap(FilePath);
+
+            ImageCodecInfo jgpEncoder = GetEncoder(ImageFormat.Jpeg);
+
+            // Create an Encoder object based on the GUID
+            // for the Quality parameter category.
+            System.Drawing.Imaging.Encoder myEncoder =
+                        System.Drawing.Imaging.Encoder.Quality;
+
+            // Create an EncoderParameters object.
+            // An EncoderParameters object has an array of EncoderParameter
+            // objects. In this case, there is only one
+            // EncoderParameter object in the array.
+            EncoderParameters myEncoderParameters = new EncoderParameters(1);
+
+            EncoderParameter myEncoderParameter = new EncoderParameter(myEncoder, quality);
+            myEncoderParameters.Param[0] = myEncoderParameter;
+            this.Bmp.Save(path, jgpEncoder, myEncoderParameters);
+            jgpEncoder = null;
+            myEncoder = null;
+            myEncoderParameters.Dispose();
+            myEncoderParameters = null;
+            myEncoderParameter.Dispose();
+            myEncoderParameter = null;
+        }
+
+        public enum RotateTypes
+        {
+            Left, Right
+        }
+
+        public void Rotate(ref Bitmap bmp, RotateTypes rotate)
+        {
+            if (rotate == RotateTypes.Right)
+            {
+                bmp.RotateFlip(RotateFlipType.Rotate90FlipNone);
+            }
+            else
+            {
+                bmp.RotateFlip(RotateFlipType.Rotate270FlipNone);
+            }
+        }
+
+        public void Rotate(RotateTypes rotate)
+        {
+            if (rotate == RotateTypes.Right)
+            {
+                this.Bmp.RotateFlip(RotateFlipType.Rotate90FlipNone);
+            }
+            else
+            {
+                this.Bmp.RotateFlip(RotateFlipType.Rotate270FlipNone);
+            }
+        }
+
     }
+
 }
+
