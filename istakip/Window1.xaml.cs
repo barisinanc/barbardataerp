@@ -13,6 +13,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Microsoft.Win32;
 using System.IO;
+using System.Threading;
 
 namespace istakip
 {
@@ -24,7 +25,15 @@ namespace istakip
         public Window1()
         {
             InitializeComponent();
-            galeryFill();
+
+            //Uri adres = new Uri(@"C:\galeri.psd");
+            /*BarisGorselDLL.Photo ph = new BarisGorselDLL.Photo();
+            System.Drawing.Bitmap bmp = ph.PsdImage(@"C:\galeri.PSD");
+            image1.Source = PhotoConvert.BitmapImagetoBitmap(bmp);*/
+            Thread islemFill = new Thread(new ThreadStart(delegate{fillImageList("D:\\kimlik");}));
+            islemFill.SetApartmentState(ApartmentState.STA);
+            islemFill.Start();
+            
         }
 
         private void button1_Click(object sender, RoutedEventArgs e)
@@ -47,21 +56,113 @@ namespace istakip
             MessageBox.Show(e.Name);
         }
 
-        private void galeryFill()
+        private class ImagePack
         {
-            for (int i = 0; i < 10; i++)
+            private string _Path;
+            public string Path
             {
-                Uri adres = new Uri(@"D:\kimlik\Yeni klasör\IMG_7187.JPG");
+                get
+                {
+                    return _Path;
+                }
+                set
+                {
+                    _Path = value;
+                    IsThumbCreated();
+                    _ThumbPath = BarisGorselDLL.Photo.ThumbPathCreator(value);
+                }
+            }
+
+            private void IsThumbCreated()
+            {
+                if (!File.Exists(BarisGorselDLL.Photo.ThumbPathCreator(_Path)))
+                {
+                    BarisGorselDLL.Photo.ThumbCreate(_Path);
+                }
+            }
+            public string Name { get; set; }
+            private string _ThumbPath;
+            public string ThumbPath
+            {
+                get
+                {
+                    return _ThumbPath;
+                }
+                set
+                {
+                    _ThumbPath = value;
+                }
+            }
+            public bool IsSelected;
+            public bool IsClicked;
+            public int Id;
+        }
+
+        List<ImagePack> ImageList = new List<ImagePack>();
+
+        private void fillImageList(string FolderPath)
+        {
+            try
+            {
+                IEnumerable<string> fileNames =
+                    Directory.GetFiles(FolderPath).Where(f => !f.Contains("_thumb.jpg")).Where(
+                        f => f.EndsWith(".jpg")
+                            || f.EndsWith(".bmp")
+                            || f.EndsWith(".png")
+                            || f.EndsWith(".psd")
+                    );
+
+                int i = 0;
+                foreach (string x in fileNames)
+                {
+                    i++;
+                    FileInfo file = new FileInfo(x);
+                    ImagePack paket = new ImagePack();
+                    paket.Path = file.FullName;
+                    paket.Name = file.Name;
+                    paket.IsClicked = false;
+                    paket.IsSelected = false;
+                    paket.Id = i;
+                    ImageList.Add(paket);
+                }
+                
+            }
+            catch { }
+            methodGaleryFill();
+            
+        }
+        private delegate void delegateGaleryFill(ImagePack img);
+        public void methodGaleryFill()
+        {
+            foreach (ImagePack img in ImageList)
+            {
+                delegateGaleryFill del = new delegateGaleryFill(galeryFill);
+                this.Dispatcher.Invoke(del, img);
+            }
+        }
+
+        private void galeryFill(ImagePack img)
+        {
+                Uri adres = new Uri(img.ThumbPath);
                 Image photo = new Image();
                 photo.MouseDown += new MouseButtonEventHandler(photo_MouseDown);
-                BitmapImage resim = new BitmapImage(adres);
+                BitmapImage resim=null;
+                if (!img.Name.EndsWith(".psd"))
+                {
+                    resim = new BitmapImage(adres);
+                }
+                else
+                {
+                    
+                }
+                photo.Uid = img.Id.ToString();
                 photo.Source = resim;
                 photo.Width = sliderSize.Value;
                 photo.Height = (resim.Height / resim.Width) * sliderSize.Value;
                 photo.Margin = new Thickness(0, 0, 0, 20);
                 
                 CheckBox check = new CheckBox();
-                check.Content = System.IO.Path.GetFileNameWithoutExtension(adres.LocalPath);
+                check.Content = System.IO.Path.GetFileNameWithoutExtension(img.Name);
                 check.Margin = new Thickness(0, 0, 6, 0);
                 check.Height = 16;
                 check.VerticalAlignment = VerticalAlignment.Bottom;
@@ -73,15 +174,18 @@ namespace istakip
                 grid.Width = photo.Width;
                 wrapPanelGallery.Children.Add(grid);
                 grid.Margin = new Thickness(5, 5, 5, 5);
-            }
         }
 
         void photo_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.ChangedButton == MouseButton.Left && e.ClickCount == 1)
             {
-                BitmapImage selectedImage = ((BitmapImage)(((Image)sender).Source));
-                imageSelected.Source = selectedImage;
+                foreach (ImagePack p in ImageList)
+                {
+                    p.IsClicked = false;
+                }
+                ImagePack secilen = ImageList.Where(p => p.Id.Equals(((Image)sender).Uid)).Single();
+                secilen.IsClicked = true;
             }
             if (e.ChangedButton == MouseButton.Left && e.ClickCount == 2)
             {
@@ -90,6 +194,12 @@ namespace istakip
                 viewer.WindowState = WindowState.Maximized;
                 viewer.Topmost = true;
             }
+        }
+
+        private void imageClicked(int Id)
+        {
+            //BitmapImage selectedImage = ((BitmapImage)(((Image)sender).Source));
+            //imageSelected.Source = selectedImage;
         }
 
         private void sliderSize_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
@@ -105,7 +215,7 @@ namespace istakip
             }
         }
 
-        private Image selectedImage;
+        
 
         private void buttonLeft_Click(object sender, RoutedEventArgs e)
         {
