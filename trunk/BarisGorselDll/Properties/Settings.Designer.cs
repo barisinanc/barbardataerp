@@ -9,129 +9,104 @@
 //------------------------------------------------------------------------------
 
 namespace BarisGorselDLL.Properties {
-
-
-
+    
+    
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "9.0.0.0")]
-    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase
-    {
-
+    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
+        
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
-
-        public static Settings Default
-        {
-            get
-            {
+        
+        public static Settings Default {
+            get {
                 return defaultInstance;
             }
         }
-
+        
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Data Source=.\\SQLEXPRESS;Initial Catalog=LodosArsiv;Integrated Security=True")]
-        public string connectionString
-        {
-            get
-            {
+        public string connectionString {
+            get {
                 return ((string)(this["connectionString"]));
             }
         }
-
+        
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Data Source=192.168.2.3;Initial Catalog=arsiv;User Id=sa;Password=kay123")]
-        public string connectionStringMerkez
-        {
-            get
-            {
+        public string connectionStringMerkez {
+            get {
                 return ((string)(this["connectionStringMerkez"]));
             }
         }
-
+        
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Data Source=merkez.barisgorsel.com;Initial Catalog=arsiv;User Id=sa;Password=kay1" +
             "23")]
-        public string connectionStringDis
-        {
-            get
-            {
+        public string connectionStringDis {
+            get {
                 return ((string)(this["connectionStringDis"]));
             }
         }
-
+        
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("1")]
-        public int SubeId
-        {
-            get
-            {
+        public int SubeId {
+            get {
                 return ((int)(this["SubeId"]));
             }
-            set
-            {
+            set {
                 this["SubeId"] = value;
             }
         }
-
+        
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("1")]
-        public int ArsivTipi
-        {
-            get
-            {
+        public int ArsivTipi {
+            get {
                 return ((int)(this["ArsivTipi"]));
             }
-            set
-            {
+            set {
                 this["ArsivTipi"] = value;
             }
         }
-
+        
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("1")]
-        public int ConnectionId
-        {
-            get
-            {
+        public int ConnectionId {
+            get {
                 return ((int)(this["ConnectionId"]));
             }
-            set
-            {
+            set {
                 this["ConnectionId"] = value;
             }
         }
-
+        
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public int SonKullaniciId
-        {
-            get
-            {
+        public int SonKullaniciId {
+            get {
                 return ((int)(this["SonKullaniciId"]));
             }
-            set
-            {
+            set {
                 this["SonKullaniciId"] = value;
             }
         }
-
+        
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string FavouriteProducts
-        {
-            get
-            {
+        public string FavouriteProducts {
+            get {
                 return ((string)(this["FavouriteProducts"]));
             }
-            set
-            {
+            set {
                 this["FavouriteProducts"] = value;
             }
         }

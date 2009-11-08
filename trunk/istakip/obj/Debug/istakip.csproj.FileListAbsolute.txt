@@ -34,3 +34,4 @@ D:\projeler\fototakip\barbardataerp\istakip\obj\Debug\istakip.Properties.Resourc
 D:\projeler\fototakip\barbardataerp\istakip\obj\Debug\istakip.csproj.GenerateResource.Cache
 D:\projeler\fototakip\barbardataerp\istakip\obj\Debug\istakip.exe
 D:\projeler\fototakip\barbardataerp\istakip\obj\Debug\istakip.pdb
+D:\projeler\fototakip\barbardataerp\istakip\bin\Debug\MagickNet.dll

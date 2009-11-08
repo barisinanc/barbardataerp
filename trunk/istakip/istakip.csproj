@@ -82,6 +82,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="PhotoConvert.cs" />
     <Compile Include="PhotoView.xaml.cs">
       <DependentUpon>PhotoView.xaml</DependentUpon>
     </Compile>

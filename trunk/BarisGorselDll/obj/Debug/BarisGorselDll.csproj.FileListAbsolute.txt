@@ -5,3 +5,6 @@ D:\projeler\fototakip\barbardataerp\BarisGorselDll\bin\Debug\BarcodeLib.dll
 D:\projeler\fototakip\barbardataerp\BarisGorselDll\bin\Debug\BarcodeLib.pdb
 D:\projeler\fototakip\barbardataerp\BarisGorselDll\obj\Debug\BarisGorselDll.dll
 D:\projeler\fototakip\barbardataerp\BarisGorselDll\obj\Debug\BarisGorselDll.pdb
+D:\projeler\fototakip\barbardataerp\BarisGorselDll\bin\Debug\PhotoShop.dll
+D:\projeler\fototakip\barbardataerp\BarisGorselDll\bin\Debug\BarisGorselDLL.dll.config
+D:\projeler\fototakip\barbardataerp\BarisGorselDll\bin\Debug\MagickNet.dll
