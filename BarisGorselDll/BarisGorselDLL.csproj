@@ -63,12 +63,13 @@
     <Compile Include="Archive.cs" />
     <Compile Include="ArchiveTypes.cs" />
     <Compile Include="Barcode.cs" />
+    <Compile Include="Baris2Import.cs" />
     <Compile Include="BarisGorsel.cs" />
     <Compile Include="Cari.cs" />
-    <Compile Include="Class1.cs" />
     <Compile Include="ConnectionImporter.cs" />
     <Compile Include="ConnectionStrings.cs" />
     <Compile Include="ConnectionTest.cs" />
+    <Compile Include="Database.cs" />
     <Compile Include="Kullanici.cs" />
     <Compile Include="OdemeTuru.cs" />
     <Compile Include="Order.cs" />

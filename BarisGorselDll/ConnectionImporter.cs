@@ -73,7 +73,7 @@ namespace BarisGorselDLL
 
         public ConnectionImporter()
         {
-            _connStr = BarisGorselDLL.Properties.Settings.Default.connectionStringDis;
+            _connStr = BarisGorselDLL.Properties.Settings.Default.connectionString;
         }
 
         public static object CN(object inObj)

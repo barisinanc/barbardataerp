@@ -31,8 +31,42 @@ namespace DatabaseSync
        
         private void Form1_Load(object sender, EventArgs e)
         {
-            
+            FillTables();
+            FillSube();
+        }
 
+        private void FillTables()
+        {
+            BarisGorselDLL.Database veritabani = new BarisGorselDLL.Database();
+            string[] selTables = Properties.Settings.Default.SelectedTables.Split(';');
+            foreach (string s in veritabani.Tables)
+            {
+                bool check = false;
+                if(selTables.Contains(s))
+                {
+                    check=true;
+                }
+                checkedListBoxTables.Items.Add(s, check);
+            }
+            veritabani = null;
+            checkedListBoxTables.ItemCheck+=new ItemCheckEventHandler(checkedListBoxTables_ItemCheck);
+        }
+
+        private void FillSube()
+        {
+            BarisGorselDLL.Sube sube = new BarisGorselDLL.Sube();
+            string[] selSube = Properties.Settings.Default.SelectedSube.Split(';');
+            foreach (BarisGorselDLL.Sube s in sube.tumSubeler().Where(p=> p.SubeId!=BarisGorselDLL.Settings.SelectedSube.SubeId))
+            {
+                bool check = false;
+                if (selSube.Contains(s.SubeAdi))
+                {
+                    check = true;
+                }
+                checkedListBoxSube.Items.Add(s.SubeAdi,check);
+            }
+            sube = null;
+            checkedListBoxSube.ItemCheck+=new ItemCheckEventHandler(checkedListBoxSube_ItemCheck);
         }
 
         private void Sync()
@@ -81,10 +115,11 @@ namespace DatabaseSync
 
         private void buttonInitialize_Click(object sender, EventArgs e)
         {
-            System.Windows.Forms.Timer zaman = new System.Windows.Forms.Timer();
+            syncInitialize();
+            /*System.Windows.Forms.Timer zaman = new System.Windows.Forms.Timer();
             zaman.Interval = 3000;
             zaman.Tick += new EventHandler(zaman_Tick);
-            zaman.Start();
+            zaman.Start();*/
         }
 
         void zaman_Tick(object sender, EventArgs e)
@@ -112,5 +147,38 @@ namespace DatabaseSync
             grafik.Dispose();
             grafik = null;
         }
+
+        private void checkedListBoxTables_ItemCheck(object sender, ItemCheckEventArgs e)
+        {
+            string[] selTables = Properties.Settings.Default.SelectedTables.Split(';');
+            string secilen = ((string)checkedListBoxTables.Items[e.Index]);
+            if (!selTables.Contains(secilen) && e.NewValue == CheckState.Checked)
+            {
+                Properties.Settings.Default.SelectedTables += secilen + ";";
+            }
+            else if (selTables.Contains(secilen) && e.NewValue == CheckState.Unchecked)
+            {
+                Properties.Settings.Default.SelectedTables.Replace(secilen + ";", "");
+            }
+            Properties.Settings.Default.Save();
+
+        }
+
+        private void checkedListBoxSube_ItemCheck(object sender, ItemCheckEventArgs e)
+        {
+            string[] selSube = Properties.Settings.Default.SelectedSube.Split(';');
+            string secilen = ((string)checkedListBoxSube.Items[e.Index]);
+            if (!selSube.Contains(secilen) && e.NewValue == CheckState.Checked)
+            {
+                Properties.Settings.Default.SelectedSube += secilen + ";";
+            }
+            else if (selSube.Contains(secilen) && e.NewValue == CheckState.Unchecked)
+            {
+                Properties.Settings.Default.SelectedSube.Replace(secilen + ";", "");
+            }
+            Properties.Settings.Default.Save();
+        }
+
+       
     }
 }
