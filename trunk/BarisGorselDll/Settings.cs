@@ -19,7 +19,7 @@ namespace BarisGorselDLL
                 _connectionId = value;
             }
         }
-        private static Sube _Sube;
+        private static Sube _Sube = new Sube();
         public static global::BarisGorselDLL.Sube SelectedSube
         {
             get
@@ -29,7 +29,8 @@ namespace BarisGorselDLL
             }
             set
             {
-                _Sube = value; BarisGorselDLL.Properties.Settings.Default.SubeId = _Sube.SubeId;
+                _Sube = value; 
+                BarisGorselDLL.Properties.Settings.Default.SubeId = _Sube.SubeId;
                 BarisGorselDLL.Properties.Settings.Default.Save();
             }
         }

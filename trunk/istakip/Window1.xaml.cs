@@ -30,10 +30,19 @@ namespace istakip
             /*BarisGorselDLL.Photo ph = new BarisGorselDLL.Photo();
             System.Drawing.Bitmap bmp = ph.PsdImage(@"C:\galeri.PSD");
             image1.Source = PhotoConvert.BitmapImagetoBitmap(bmp);*/
+            MessageBox.Show(fun(6).ToString());
             Thread islemFill = new Thread(new ThreadStart(delegate{fillImageList("D:\\kimlik");}));
             islemFill.SetApartmentState(ApartmentState.STA);
             islemFill.Start();
             
+        }
+
+        private double fun(double x)
+        {
+            if (x > 2)
+                return fun(x - 1) + fun(x / 2);
+            else
+                return 1;
         }
 
         private void button1_Click(object sender, RoutedEventArgs e)

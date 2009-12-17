@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace BarisGorselDLL
+namespace DatabaseSync
 {
-    public class Class1
+    class Veritabani:BarisGorselDLL.ConnectionImporter
     {
+        
     }
 }

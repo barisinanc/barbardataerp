@@ -73,8 +73,6 @@ namespace BarisGorselDLL
             cmd.ExecuteNonQuery();
             SqlDataAdapter adapter = new SqlDataAdapter(cmd);
             adapter.Fill(dataTable);
-            Connection.Close();
-            Connection.Dispose();
             cmd.Dispose();
             cmd = null;
             adapter.Dispose();

@@ -1,0 +1,14 @@
+D:\projeler\fototakip\barbardataerp\familytree\obj\Debug\ResolveAssemblyReference.cache
+D:\projeler\fototakip\barbardataerp\familytree\obj\Debug\familytree.Form1.resources
+D:\projeler\fototakip\barbardataerp\familytree\obj\Debug\familytree.Properties.Resources.resources
+D:\projeler\fototakip\barbardataerp\familytree\obj\Debug\familytree.csproj.GenerateResource.Cache
+D:\projeler\fototakip\barbardataerp\familytree\bin\Debug\familytree.exe
+D:\projeler\fototakip\barbardataerp\familytree\bin\Debug\familytree.pdb
+D:\projeler\fototakip\barbardataerp\familytree\bin\Debug\BarisGorselDLL.dll
+D:\projeler\fototakip\barbardataerp\familytree\bin\Debug\BarcodeLib.dll
+D:\projeler\fototakip\barbardataerp\familytree\bin\Debug\MagickNet.dll
+D:\projeler\fototakip\barbardataerp\familytree\bin\Debug\BarisGorselDLL.pdb
+D:\projeler\fototakip\barbardataerp\familytree\bin\Debug\BarcodeLib.pdb
+D:\projeler\fototakip\barbardataerp\familytree\obj\Debug\familytree.exe
+D:\projeler\fototakip\barbardataerp\familytree\obj\Debug\familytree.pdb
+D:\projeler\fototakip\barbardataerp\familytree\obj\Debug\familytree.Insert.resources

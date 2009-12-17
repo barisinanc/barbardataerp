@@ -27,7 +27,7 @@ namespace BarisGorselDLL
             List<Sube> liste = new List<Sube>();
             foreach (DataRow row in dataTable.Rows)
             {
-                liste.Add(new Sube { SubeId = Convert.ToInt32(row["SubeId"].ToString()), SubeAdi = row["Sube"].ToString() });
+                liste.Add(new Sube { SubeId = Convert.ToInt32(row["SubeNo"].ToString()), SubeAdi = row["Sube"].ToString() });
             }
             dataTable.Dispose();
             Disconnect();
