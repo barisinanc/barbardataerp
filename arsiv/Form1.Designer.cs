@@ -245,20 +245,20 @@
             // stokGirişiToolStripMenuItem
             // 
             this.stokGirişiToolStripMenuItem.Name = "stokGirişiToolStripMenuItem";
-            this.stokGirişiToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.stokGirişiToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
             this.stokGirişiToolStripMenuItem.Text = "Stok Girişi";
             this.stokGirişiToolStripMenuItem.Click += new System.EventHandler(this.stokGirişiToolStripMenuItem_Click);
             // 
             // stokÇıkışıToolStripMenuItem
             // 
             this.stokÇıkışıToolStripMenuItem.Name = "stokÇıkışıToolStripMenuItem";
-            this.stokÇıkışıToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.stokÇıkışıToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
             this.stokÇıkışıToolStripMenuItem.Text = "Stok Çıkışı";
             // 
             // stokDurumuToolStripMenuItem
             // 
             this.stokDurumuToolStripMenuItem.Name = "stokDurumuToolStripMenuItem";
-            this.stokDurumuToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.stokDurumuToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
             this.stokDurumuToolStripMenuItem.Text = "Stok Durumu";
             // 
             // toolStripButtonGider

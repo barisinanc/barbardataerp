@@ -30,21 +30,14 @@ namespace istakip
             /*BarisGorselDLL.Photo ph = new BarisGorselDLL.Photo();
             System.Drawing.Bitmap bmp = ph.PsdImage(@"C:\galeri.PSD");
             image1.Source = PhotoConvert.BitmapImagetoBitmap(bmp);*/
-            MessageBox.Show(fun(6).ToString());
-            Thread islemFill = new Thread(new ThreadStart(delegate{fillImageList("D:\\kimlik");}));
+            //MessageBox.Show(fun(6).ToString());
+            Thread islemFill = new Thread(new ThreadStart(delegate{fillImageList("D:\\fotodebug");}));
             islemFill.SetApartmentState(ApartmentState.STA);
             islemFill.Start();
             
         }
 
-        private double fun(double x)
-        {
-            if (x > 2)
-                return fun(x - 1) + fun(x / 2);
-            else
-                return 1;
-        }
-
+        
         private void button1_Click(object sender, RoutedEventArgs e)
         {
             FileSystemWatcher watcher = new FileSystemWatcher();
@@ -103,8 +96,30 @@ namespace istakip
                 }
             }
             public bool IsSelected;
-            public bool IsClicked;
+            private bool _IsClicked;
+            public bool IsClicked
+            {
+                get
+                {
+                    return _IsClicked;
+                }
+                set
+                {
+                    _IsClicked = value;
+                }
+            }
             public int Id;
+            public void Rotate(BarisGorselDLL.Photo.RotateTypes rotateType)
+            {
+                BarisGorselDLL.Photo foto = new BarisGorselDLL.Photo();
+                foto.Path = Path;
+                foto.Rotate(rotateType);
+                foto.JpegSave(foto.Path, 96);
+                foto.Path = ThumbPath;
+                foto.Rotate(rotateType);
+                foto.JpegSave(foto.Path, 96);
+                foto = null;
+            }
         }
 
         List<ImagePack> ImageList = new List<ImagePack>();
@@ -116,9 +131,13 @@ namespace istakip
                 IEnumerable<string> fileNames =
                     Directory.GetFiles(FolderPath).Where(f => !f.Contains("_thumb.jpg")).Where(
                         f => f.EndsWith(".jpg")
+                            || f.EndsWith(".JPG")
                             || f.EndsWith(".bmp")
+                            || f.EndsWith(".BMP")
                             || f.EndsWith(".png")
+                            || f.EndsWith(".PNG")
                             || f.EndsWith(".psd")
+                            || f.EndsWith(".PSD")
                     );
 
                 int i = 0;
@@ -152,13 +171,12 @@ namespace istakip
 
         private void galeryFill(ImagePack img)
         {
-                Uri adres = new Uri(img.ThumbPath);
                 Image photo = new Image();
                 photo.MouseDown += new MouseButtonEventHandler(photo_MouseDown);
                 BitmapImage resim=null;
                 if (!img.Name.EndsWith(".psd"))
                 {
-                    resim = new BitmapImage(adres);
+                    resim = ImageRead(img.ThumbPath);
                 }
                 else
                 {
@@ -171,18 +189,34 @@ namespace istakip
                 photo.Margin = new Thickness(0, 0, 0, 20);
                 
                 CheckBox check = new CheckBox();
+                check.Checked += new RoutedEventHandler(check_Checked);
+                check.Unchecked += new RoutedEventHandler(check_Unchecked);
+                check.Uid = img.Id.ToString();
                 check.Content = System.IO.Path.GetFileNameWithoutExtension(img.Name);
                 check.Margin = new Thickness(0, 0, 6, 0);
                 check.Height = 16;
                 check.VerticalAlignment = VerticalAlignment.Bottom;
                 check.HorizontalAlignment = HorizontalAlignment.Center;
                 Grid grid = new Grid();
+                grid.Uid = img.Id.ToString();
                 grid.Children.Add(photo);
                 grid.Children.Add(check);
                 grid.Height = photo.Height;
                 grid.Width = photo.Width;
                 wrapPanelGallery.Children.Add(grid);
                 grid.Margin = new Thickness(5, 5, 5, 5);
+        }
+
+        void check_Unchecked(object sender, RoutedEventArgs e)
+        {
+            ImagePack secilen = ImageList.Where(p => p.IsClicked.Equals(true)).Single();
+            secilen.IsSelected = false;
+        }
+
+        void check_Checked(object sender, RoutedEventArgs e)
+        {
+            ImagePack secilen = ImageList.Where(p => p.IsClicked.Equals(true)).Single();
+            secilen.IsSelected = true;
         }
 
         void photo_MouseDown(object sender, MouseButtonEventArgs e)
@@ -193,22 +227,26 @@ namespace istakip
                 {
                     p.IsClicked = false;
                 }
-                ImagePack secilen = ImageList.Where(p => p.Id.Equals(((Image)sender).Uid)).Single();
+                ImagePack secilen = ImageList.Where(p => p.Id.Equals(Convert.ToInt32(((Image)sender).Uid))).Single();
                 secilen.IsClicked = true;
+                ShowImage();
             }
             if (e.ChangedButton == MouseButton.Left && e.ClickCount == 2)
             {
-                PhotoView viewer = new PhotoView(((BitmapImage)(((Image)sender).Source)).UriSource.LocalPath);
+                ImagePack secilen = ImageList.Where(p => p.IsClicked.Equals(true)).Single();
+                PhotoView viewer = new PhotoView(secilen.Path);
                 viewer.Show();
                 viewer.WindowState = WindowState.Maximized;
                 viewer.Topmost = true;
             }
         }
 
-        private void imageClicked(int Id)
+
+        private void ShowImage()
         {
-            //BitmapImage selectedImage = ((BitmapImage)(((Image)sender).Source));
-            //imageSelected.Source = selectedImage;
+            ImagePack image = ImageList.Where(p => p.IsClicked.Equals(true)).Single();
+            imageSelected.Source = ImageRead(image.Path);
+            labelFileName.Content = image.Name;
         }
 
         private void sliderSize_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
@@ -229,21 +267,57 @@ namespace istakip
         private void buttonLeft_Click(object sender, RoutedEventArgs e)
         {
             ((Button)(sender)).IsEnabled = false;
-            BarisGorselDLL.Photo foto = new BarisGorselDLL.Photo();
-            foto.Path = @"C:\DSC_7233.JPG";
-            foto.Rotate(BarisGorselDLL.Photo.RotateTypes.Left);
-            foto.JpegSave(foto.Path, 100);
+            if (ImageList.Where(p => p.IsClicked.Equals(true)).Count() > 0)
+            {
+                ImagePack secilen = ImageList.Where(p => p.IsClicked.Equals(true)).Single();
+                secilen.Rotate(BarisGorselDLL.Photo.RotateTypes.Left);
+                ShowImage();
+                foreach (Grid x in wrapPanelGallery.Children.OfType<Grid>())
+                {
+                    if (x.Uid == secilen.Id.ToString())
+                    {
+                        x.Children.OfType<Image>().Single().Source = ImageRead(secilen.ThumbPath);
+                        break;
+                    }
+                }
+            }
             ((Button)(sender)).IsEnabled = true;
+
         }
 
         private void buttonRight_Click(object sender, RoutedEventArgs e)
         {
             ((Button)(sender)).IsEnabled = false;
-            BarisGorselDLL.Photo foto = new BarisGorselDLL.Photo();
-            foto.Path = @"C:\DSC_7233.JPG";
-            foto.Rotate(BarisGorselDLL.Photo.RotateTypes.Left);
-            foto.JpegSave(foto.Path, 100);
+            if (ImageList.Where(p => p.IsClicked.Equals(true)).Count() > 0)
+            {
+                ImagePack secilen = ImageList.Where(p => p.IsClicked.Equals(true)).Single();
+                secilen.Rotate(BarisGorselDLL.Photo.RotateTypes.Right);
+                ShowImage();
+                foreach (Grid x in wrapPanelGallery.Children.OfType<Grid>())
+                {
+                    if (x.Uid == secilen.Id.ToString())
+                    {
+                        x.Children.OfType<Image>().Single().Source = ImageRead(secilen.ThumbPath);
+                        break;
+                    }
+                }
+            }
             ((Button)(sender)).IsEnabled = true;
+            
+        }
+
+        private BitmapImage ImageRead(string path)
+        {
+            // Avoid locks on file.
+            byte[] byteArray = File.ReadAllBytes(path);
+            MemoryStream memoryStream = new MemoryStream(byteArray, 0, byteArray.Length, false, false);
+            byteArray = null;
+
+            BitmapImage currentBitmapImage = new BitmapImage();
+            currentBitmapImage.BeginInit();
+            currentBitmapImage.StreamSource = memoryStream;
+            currentBitmapImage.EndInit();
+            return currentBitmapImage;
         }
 
         

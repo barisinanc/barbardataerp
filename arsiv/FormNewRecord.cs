@@ -132,7 +132,7 @@ namespace arsiv
 
         private void textBoxProductSearch_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == (char)13 && barkodmu==true)
+            if (e.KeyChar == (char)13) //&& barkodmu==true)
             {
                 ProductInsert();
                 barkodmu = false;
