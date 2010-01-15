@@ -184,7 +184,7 @@ namespace istakip
                 }
                 photo.Uid = img.Id.ToString();
                 photo.Source = resim;
-                if (photo.Width > photo.Height)
+                /*if (photo.Width > photo.Height)
                 {
                     photo.Width = sliderSize.Value;
                     photo.Height = (int)(((decimal)resim.Height / (decimal)resim.Width) * (decimal)sliderSize.Value);
@@ -193,7 +193,7 @@ namespace istakip
                 {
                     photo.Height = sliderSize.Value;
                     photo.Width = (int)(((decimal)resim.Width / (decimal)resim.Height) * (decimal)sliderSize.Value);
-                }
+                }*/
                 photo.Margin = new Thickness(0, 0, 0, 20);
                 
                 CheckBox check = new CheckBox();
@@ -209,8 +209,9 @@ namespace istakip
                 grid.Uid = img.Id.ToString();
                 grid.Children.Add(photo);
                 grid.Children.Add(check);
-                grid.Height = photo.Height;
-                grid.Width = photo.Width;
+                grid.Height = sliderSize.Value;
+                grid.Width = sliderSize.Value;
+                grid.Background = new SolidColorBrush(System.Windows.Media.Color.FromArgb(50, 100, 150, 100));
                 wrapPanelGallery.Children.Add(grid);
                 grid.Margin = new Thickness(5, 5, 5, 5);
         }
@@ -263,10 +264,20 @@ namespace istakip
             {
                 double width = ((Image)g.Children[0]).ActualWidth;
                 double height = ((Image)g.Children[0]).ActualHeight;
+
                 g.Width = sliderSize.Value;
-                g.Height = (height / width) * sliderSize.Value;
-                ((Image)g.Children[0]).Width=g.Width;
-                ((Image)g.Children[0]).Height = g.Height;
+                g.Height = sliderSize.Value;
+                /*if (((Image)g.Children[0]).Width > ((Image)g.Children[0]).Height)
+                {
+                    ((Image)g.Children[0]).Width = sliderSize.Value;
+                    ((Image)g.Children[0]).Height = (int)(((decimal)((Image)g.Children[0]).ActualHeight / (decimal)((Image)g.Children[0]).ActualWidth) * (decimal)sliderSize.Value);
+                }
+                else
+                {
+                    ((Image)g.Children[0]).Height = sliderSize.Value;
+                    ((Image)g.Children[0]).Width = (int)(((decimal)((Image)g.Children[0]).ActualWidth / (decimal)((Image)g.Children[0]).ActualHeight) * (decimal)sliderSize.Value);
+                }
+                */
             }
         }
 
