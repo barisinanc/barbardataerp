@@ -8,3 +8,11 @@ D:\projeler\fototakip\barbardataerp\BarisGorselDll\obj\Debug\BarisGorselDll.pdb
 D:\projeler\fototakip\barbardataerp\BarisGorselDll\bin\Debug\PhotoShop.dll
 D:\projeler\fototakip\barbardataerp\BarisGorselDll\bin\Debug\BarisGorselDLL.dll.config
 D:\projeler\fototakip\barbardataerp\BarisGorselDll\bin\Debug\MagickNet.dll
+C:\barbardataerp\BarisGorselDll\bin\Debug\BarisGorselDLL.dll.config
+C:\barbardataerp\BarisGorselDll\bin\Debug\BarisGorselDLL.dll
+C:\barbardataerp\BarisGorselDll\bin\Debug\BarisGorselDLL.pdb
+C:\barbardataerp\BarisGorselDll\bin\Debug\MagickNet.dll
+C:\barbardataerp\BarisGorselDll\bin\Debug\PhotoShop.dll
+C:\barbardataerp\BarisGorselDll\obj\Debug\ResolveAssemblyReference.cache
+C:\barbardataerp\BarisGorselDll\obj\Debug\BarisGorselDLL.dll
+C:\barbardataerp\BarisGorselDll\obj\Debug\BarisGorselDLL.pdb

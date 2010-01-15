@@ -184,8 +184,16 @@ namespace istakip
                 }
                 photo.Uid = img.Id.ToString();
                 photo.Source = resim;
-                photo.Width = sliderSize.Value;
-                photo.Height = (resim.Height / resim.Width) * sliderSize.Value;
+                if (photo.Width > photo.Height)
+                {
+                    photo.Width = sliderSize.Value;
+                    photo.Height = (int)(((decimal)resim.Height / (decimal)resim.Width) * (decimal)sliderSize.Value);
+                }
+                else 
+                {
+                    photo.Height = sliderSize.Value;
+                    photo.Width = (int)(((decimal)resim.Width / (decimal)resim.Height) * (decimal)sliderSize.Value);
+                }
                 photo.Margin = new Thickness(0, 0, 0, 20);
                 
                 CheckBox check = new CheckBox();

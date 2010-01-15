@@ -11,3 +11,15 @@ D:\projeler\fototakip\barbardataerp\Baris2Import\obj\Debug\Baris2Import.Properti
 D:\projeler\fototakip\barbardataerp\Baris2Import\obj\Debug\Baris2Import.csproj.GenerateResource.Cache
 D:\projeler\fototakip\barbardataerp\Baris2Import\obj\Debug\Baris2Import.exe
 D:\projeler\fototakip\barbardataerp\Baris2Import\obj\Debug\Baris2Import.pdb
+C:\barbardataerp\Baris2Import\bin\Debug\Baris2Import.exe
+C:\barbardataerp\Baris2Import\bin\Debug\Baris2Import.pdb
+C:\barbardataerp\Baris2Import\bin\Debug\BarisGorselDLL.dll
+C:\barbardataerp\Baris2Import\bin\Debug\BarcodeLib.dll
+C:\barbardataerp\Baris2Import\bin\Debug\MagickNet.dll
+C:\barbardataerp\Baris2Import\bin\Debug\BarisGorselDLL.pdb
+C:\barbardataerp\Baris2Import\obj\Debug\ResolveAssemblyReference.cache
+C:\barbardataerp\Baris2Import\obj\Debug\Baris2Import.Form1.resources
+C:\barbardataerp\Baris2Import\obj\Debug\Baris2Import.Properties.Resources.resources
+C:\barbardataerp\Baris2Import\obj\Debug\Baris2Import.csproj.GenerateResource.Cache
+C:\barbardataerp\Baris2Import\obj\Debug\Baris2Import.exe
+C:\barbardataerp\Baris2Import\obj\Debug\Baris2Import.pdb

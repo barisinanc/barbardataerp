@@ -12,3 +12,16 @@ D:\projeler\fototakip\barbardataerp\DatabaseSync\bin\Debug\MagickNet.dll
 D:\projeler\fototakip\barbardataerp\DatabaseSync\bin\Debug\BarisGorselDLL.pdb
 D:\projeler\fototakip\barbardataerp\DatabaseSync\bin\Debug\BarcodeLib.pdb
 D:\projeler\fototakip\barbardataerp\DatabaseSync\bin\Debug\DatabaseSync.exe.config
+C:\barbardataerp\DatabaseSync\obj\Debug\ResolveAssemblyReference.cache
+C:\barbardataerp\DatabaseSync\obj\Debug\DatabaseSync.Form1.resources
+C:\barbardataerp\DatabaseSync\obj\Debug\DatabaseSync.Properties.Resources.resources
+C:\barbardataerp\DatabaseSync\obj\Debug\DatabaseSync.csproj.GenerateResource.Cache
+C:\barbardataerp\DatabaseSync\obj\Debug\DatabaseSync.exe
+C:\barbardataerp\DatabaseSync\obj\Debug\DatabaseSync.pdb
+C:\barbardataerp\DatabaseSync\bin\Debug\DatabaseSync.exe.config
+C:\barbardataerp\DatabaseSync\bin\Debug\DatabaseSync.exe
+C:\barbardataerp\DatabaseSync\bin\Debug\DatabaseSync.pdb
+C:\barbardataerp\DatabaseSync\bin\Debug\BarisGorselDLL.dll
+C:\barbardataerp\DatabaseSync\bin\Debug\BarcodeLib.dll
+C:\barbardataerp\DatabaseSync\bin\Debug\MagickNet.dll
+C:\barbardataerp\DatabaseSync\bin\Debug\BarisGorselDLL.pdb
