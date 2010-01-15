@@ -178,14 +178,8 @@ namespace BarisGorselDLL
             Path = System.IO.Path.ChangeExtension(Path, ".jpg");
             int height = 400;
             int width = 400;
-            if (img.Height < img.Height)
-            {
-                width = Convert.ToInt32((double)height * ((double)img.Height / (double)img.Width));
-            }
-            else
-            {
-                height = Convert.ToInt32((double)width * ((double)img.Width / (double)img.Height));
-            }
+            decimal ratio = ((decimal)img.Size.Width / (decimal)img.Size.Height);
+            height = (int)((decimal)width / ratio);
             img = img.GetThumbnailImage(width, height, null, new System.IntPtr());
             Bitmap bmp = new Bitmap(img);
             img.Dispose();

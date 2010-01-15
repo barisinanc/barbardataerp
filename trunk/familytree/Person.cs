@@ -6,9 +6,9 @@ using BarisGorselDLL;
 using System.Data.SqlClient;
 using System.Data;
 
-namespace familytree 
+namespace familytree
 {
-    class Person: ConnectionImporter
+    class Person : ConnectionImporter
     {
         public int Id;
         public string Name;
@@ -125,13 +125,13 @@ namespace familytree
                 Person yeniKardes = ReturnPerson(int.Parse(p["id"].ToString()));
                 KardesList.Add(yeniKardes);
             }
-            
+
             return KardesList;
         }
         public List<Person> Kucukkardes()
         {
             IEnumerable<Person> kardesler = from x in Kardes()
-                                            where x.Birthdate>=Birthdate
+                                            where x.Birthdate >= Birthdate
                                             select x;
             return kardesler.ToList();
         }
@@ -148,8 +148,8 @@ namespace familytree
         public List<Person> Agabey()
         {
             IEnumerable<Person> agabeyler = from x in Kardes()
-                                          where x.Sex == 1 && x.Birthdate < Birthdate
-                                          select x;
+                                            where x.Sex == 1 && x.Birthdate < Birthdate
+                                            select x;
             List<Person> yeniAgabey = agabeyler.ToList();
             return yeniAgabey;
         }
@@ -158,10 +158,10 @@ namespace familytree
         public List<Person> Amca()
         {
             IEnumerable<Person> amcalar = from x in Baba().Kardes()
-                          where x.Sex==1
-                          select x;
-            List<Person> yeniAmca = amcalar.ToList() ;
-            
+                                          where x.Sex == 1
+                                          select x;
+            List<Person> yeniAmca = amcalar.ToList();
+
 
             return yeniAmca;
         }
@@ -188,18 +188,18 @@ namespace familytree
         public List<Person> Teyze()
         {
             IEnumerable<Person> teyzeler = from x in Anne().Kardes()
-                                          where x.Sex == 0
-                                          select x;
+                                           where x.Sex == 0
+                                           select x;
             return teyzeler.ToList();
         }
 
 
         public List<Person> Yenge()
         {
-            List<Person> yengeler=new List<Person>();
+            List<Person> yengeler = new List<Person>();
             foreach (Person p in Amca())
             {
-                if(p.Es()!=null)
+                if (p.Es() != null)
                     yengeler.Add(p.Es());
             }
             foreach (Person p in Dayi())
@@ -277,11 +277,11 @@ namespace familytree
         }
         public List<Person> Dede()
         {
-           
+
             List<Person> dedeler = new List<Person>();
-            if(Anne().Baba()!=null)
+            if (Anne().Baba() != null)
                 dedeler.Add(Anne().Baba());
-            if(Baba().Baba()!=null)
+            if (Baba().Baba() != null)
                 dedeler.Add(Baba().Baba());
             return dedeler;
         }
@@ -303,10 +303,11 @@ namespace familytree
         }
 
         public List<Person> Gorumce()
-        { 
+        {
             List<Person> gorumceler = new List<Person>();
-            if(Es()!=null)
-                if (Es().Sex == 1) {
+            if (Es() != null)
+                if (Es().Sex == 1)
+                {
                     IEnumerable<Person> yeniGorumce = from x in Es().Kardes()
                                                       where x.Sex == 0
                                                       select x;
@@ -336,8 +337,8 @@ namespace familytree
                 if (Es().Sex == 0)
                 {
                     IEnumerable<Person> yeniKayinbirader = from x in Es().Kardes()
-                                                      where x.Sex == 1
-                                                      select x;
+                                                           where x.Sex == 1
+                                                           select x;
                     kayinbiraderler.AddRange(yeniKayinbirader.ToList());
 
                 }
@@ -351,8 +352,10 @@ namespace familytree
                 {
                     foreach (Person x in Es().Kardes())
                     {
-                        if (x.Sex == 0) {
-                            if (x.Es() != null) {
+                        if (x.Sex == 0)
+                        {
+                            if (x.Es() != null)
+                            {
                                 bacanaklar.Add(x.Es());
                             }
                         }
@@ -391,7 +394,7 @@ namespace familytree
             return Es().Baba();
         }
         public List<Person> Torun()
-        { 
+        {
             List<Person> torunlar = new List<Person>();
             foreach (Person c in Cocuk())
             {
@@ -421,6 +424,17 @@ namespace familytree
             return kuzenler;
         }
 
+        public List<Person> Yegen()
+        {
+            List<Person> yegenler = new List<Person>();
+            foreach (Person p in Kardes())
+            {
+                if (p.Cocuk().Count > 0)
+                    yegenler.AddRange(p.Cocuk());
+            }
+            return yegenler;
+        }
+
         public List<Person> Cocuk()
         {
             ConnectionString = @"Data Source=localhost\sqlexpress;Initial Catalog=familytree;Integrated Security=True";
@@ -437,16 +451,16 @@ namespace familytree
             adapter.Dispose();
             adapter = null;
             List<Person> CocukList = new List<Person>();
-            
-                foreach (DataRow p in dataTable.Rows)
+
+            foreach (DataRow p in dataTable.Rows)
+            {
+                if (p["id"].ToString() != "")
                 {
-                    if (p["id"].ToString() != "")
-                    {
-                        Person yeniCocuk = ReturnPerson(int.Parse(p["id"].ToString()));
-                        CocukList.Add(yeniCocuk);
-                    }
+                    Person yeniCocuk = ReturnPerson(int.Parse(p["id"].ToString()));
+                    CocukList.Add(yeniCocuk);
                 }
-            
+            }
+
             return CocukList;
         }
         public Person Es()
@@ -475,7 +489,7 @@ namespace familytree
         }
 
 
-        
+
         public List<Person> Liste()
         {
             ConnectionString = @"Data Source=localhost\sqlexpress;Initial Catalog=familytree;Integrated Security=True";
@@ -533,6 +547,203 @@ namespace familytree
             dataTable = null;
             Disconnect();
             return People;
+        }
+        private int YasSiniri = 16;
+        public bool IsBaba(Person gelen)
+        {
+            if (Baba() == gelen)
+                return true;
+
+            return false;
+        }
+
+        public bool IsAnne(Person gelen)
+        {
+            if (Anne() == gelen)
+                return true;
+
+            return false;
+        }
+
+        public bool IsKardes(Person gelen)
+        {
+            if (Kardes().Contains(gelen))
+                return true;
+            return false;
+        }
+
+        public bool IsKucukkardes(Person gelen)
+        {
+            return (Kucukkardes().Contains(gelen));
+        }
+
+        public bool IsAbla(Person gelen)
+        {
+            return (Abla().Contains(gelen));
+        }
+
+        public bool IsAgabey(Person gelen)
+        {
+            return Agabey().Contains(gelen);
+        }
+
+        public bool IsAmca(Person gelen)
+        {
+            return Amca().Contains(gelen);
+        }
+
+        public bool IsHala(Person gelen)
+        {
+            return Hala().Contains(gelen);
+        }
+
+        public bool IsDayi(Person gelen)
+        {
+            return Dayi().Contains(gelen);
+        }
+
+        public bool IsTeyze(Person gelen)
+        {
+            return Teyze().Contains(gelen);
+        }
+
+        public bool IsYenge(Person gelen)
+        {
+            return Yenge().Contains(gelen);
+        }
+
+        public bool IsEniste(Person gelen)
+        {
+            return Eniste().Contains(gelen);
+        }
+
+        public bool IsGelin(Person gelen)
+        {
+            return Gelin().Contains(gelen);
+        }
+
+        public bool IsDamat(Person gelen)
+        {
+            return Damat().Contains(gelen);
+        }
+
+        public bool IsDede(Person gelen)
+        {
+            return Dede().Contains(gelen);
+        }
+
+        public bool IsAnneanne(Person gelen)
+        {
+            if (Anneanne() == gelen)
+                return true;
+            return false;
+        }
+
+        public bool IsBabaanne(Person gelen)
+        {
+            if (Babaanne() == gelen)
+                return true;
+            return false;
+        }
+
+        public bool IsGorumce(Person gelen)
+        {
+            return Gorumce().Contains(gelen);
+        }
+
+        public bool IsBaldiz(Person gelen)
+        {
+            return Baldiz().Contains(gelen);
+        }
+
+        public bool IsKayinbirader(Person gelen)
+        {
+            return Kayinbirader().Contains(gelen);
+        }
+
+        public bool IsBacanak(Person gelen)
+        {
+            return Bacanak().Contains(gelen);
+        }
+
+        public bool IsElti(Person gelen)
+        {
+            return Elti().Contains(gelen);
+        }
+
+        public bool IsKayinanne(Person gelen)
+        {
+            if (Kayinanne() == gelen)
+                return true;
+            return false;
+        }
+
+        public bool IsKayinbaba(Person gelen)
+        {
+            if (Kayinbaba() == gelen)
+                return true;
+            return false;
+        }
+
+        public bool IsTorun(Person gelen)
+        {
+            return Torun().Contains(gelen);
+        }
+
+        public bool IsKuzen(Person gelen)
+        {
+            return Kuzen().Contains(gelen);
+        }
+
+        public bool IsYegen(Person gelen)
+        {
+            return Yegen().Contains(gelen);
+        }
+
+        public bool IsCocuk(Person gelen)
+        {
+            return Cocuk().Contains(gelen);
+        }
+
+        public bool IsEs(Person gelen)
+        {
+            if (Es() == gelen)
+                return true;
+            return false;
+        }
+
+        public string Iliski(Person gelen)
+        {
+            if (IsAbla(gelen)) return "Abla";
+            if (IsAgabey(gelen)) return "Ağabey";
+            if (IsAmca(gelen)) return "Amca";
+            if (IsAnne(gelen)) return "Anne"; 
+            if (IsAnneanne(gelen)) return "Anneanne";
+            if (IsBaba(gelen)) return "Baba";
+            if (IsBabaanne(gelen)) return "Babaanne";
+            if (IsBacanak(gelen)) return "Bacanak";
+            if (IsBaldiz(gelen)) return "Baldız";
+            if (IsCocuk(gelen)) return "Çocuk";
+            if (IsDamat(gelen)) return "Damat";
+            if (IsDayi(gelen)) return "Dayı";
+            if (IsDede(gelen)) return "Dede";
+            if (IsElti(gelen)) return "Elti";
+            if (IsEniste(gelen)) return "Enişte";
+            if (IsEs(gelen)) return "Es";
+            if (IsGelin(gelen)) return "Gelin";
+            if (IsGorumce(gelen)) return "Görümce";
+            if (IsHala(gelen)) return "Hala";
+            if (IsKardes(gelen)) return "Kardeş";
+            if (IsKayinanne(gelen)) return "Kayınanne";
+            if (IsKayinbaba(gelen)) return "Kayınbaba";
+            if (IsKayinbirader(gelen)) return "Kayınbirader";
+            if (IsKucukkardes(gelen)) return "Küçük Kardeş";
+            if (IsKuzen(gelen)) return "Kuzen";
+            if (IsTeyze(gelen)) return "Teyze";
+            if (IsTorun(gelen)) return "Torun";
+            if (IsYegen(gelen)) return "Yeğen";
+            if (IsYenge(gelen)) return "Yenge";
+            return null;
         }
     }
 }

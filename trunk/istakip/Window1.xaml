@@ -7,7 +7,7 @@
         </Grid.ColumnDefinitions>
 
         <Button Margin="0,24,286,0" Name="button1" Click="button1_Click" HorizontalAlignment="Right" Width="63" Height="19.998" VerticalAlignment="Top">Button</Button>
-        <TextBox Margin="0,24,369,0" Name="textBox1" Height="19.998" VerticalAlignment="Top" HorizontalAlignment="Right" Width="98.879" />
+        <TextBox Margin="490.121,24,0,0" Name="textBox1" Height="19.998" VerticalAlignment="Top" HorizontalAlignment="Left" Width="98.879" />
         <ScrollViewer Margin="280,128,12,24" VerticalScrollBarVisibility="Auto">
             <WrapPanel  Name="wrapPanelGallery"></WrapPanel>
         </ScrollViewer>
@@ -22,8 +22,9 @@
             <Image Margin="5,5,5,196" Name="imageSelected" />
             <TextBlock Height="92" Margin="9,0,6,6" Name="textAciklama" VerticalAlignment="Bottom" />
             <Label Height="28" Margin="9,0,6,162" Name="labelFileName" VerticalAlignment="Bottom">Fotoğraf Seçilmedi</Label>
-            <Button Height="23" HorizontalAlignment="Left" Margin="9,0,0,133" Name="buttonLeft" VerticalAlignment="Bottom" Width="89" Click="buttonLeft_Click">Sola Döndür</Button>
-            <Button Height="23" HorizontalAlignment="Right" Margin="0,0,6,133" Name="buttonRight" VerticalAlignment="Bottom" Width="92" Click="buttonRight_Click">Sağa Döndür</Button>
+            <Button Height="23" HorizontalAlignment="Left" Margin="9,0,0,105" Name="buttonLeft" VerticalAlignment="Bottom" Width="89" Click="buttonLeft_Click">Sola Döndür</Button>
+            <Button Height="23" HorizontalAlignment="Right" Margin="0,0,6,105" Name="buttonRight" VerticalAlignment="Bottom" Width="92" Click="buttonRight_Click">Sağa Döndür</Button>
+            <CheckBox Height="16" Margin="9,0,0,140" Name="imageFlag" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="89">İşaretle</CheckBox>
         </Grid>
     </Grid>
 </Window>
