@@ -35,6 +35,7 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\barcode image generator\BarcodeLib\bin\Debug\BarcodeLib.dll</HintPath>
     </Reference>
+    <Reference Include="Ionic.Zlib, Version=1.9.1.1, Culture=neutral, PublicKeyToken=edbe51ad942a3f5c, processorArchitecture=MSIL" />
     <Reference Include="MagickNet, Version=1.0.0.3, Culture=neutral, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\MagickNet.dll</HintPath>
