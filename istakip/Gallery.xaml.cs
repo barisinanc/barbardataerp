@@ -67,7 +67,7 @@ namespace istakip
                     );
 
                 int i = 0;
-                ImageList.Clear();
+                methodClear();
                 foreach (string x in fileNames)
                 {
                     i++;
@@ -85,6 +85,19 @@ namespace istakip
             catch { }
             methodGaleryFill();
 
+        }
+
+        private delegate void delegateClear();
+        public void methodClear()
+        {
+            delegateClear del = new delegateClear(Clear);
+            this.Dispatcher.Invoke(del);
+        }
+
+        private void Clear()
+        {
+            wrapPanelGallery.Children.Clear();
+            ImageList.Clear();
         }
         private delegate void delegateGaleryFill(ImagePack img);
         public void methodGaleryFill()

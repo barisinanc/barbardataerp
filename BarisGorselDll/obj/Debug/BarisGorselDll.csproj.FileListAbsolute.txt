@@ -16,3 +16,5 @@ D:\projeler\fototakip\barbardataerp\BarisGorselDll\bin\Debug\PhotoShop.dll
 D:\projeler\fototakip\barbardataerp\BarisGorselDll\bin\Debug\BarcodeLib.pdb
 D:\projeler\fototakip\barbardataerp\BarisGorselDll\obj\Debug\BarisGorselDLL.dll
 D:\projeler\fototakip\barbardataerp\BarisGorselDll\obj\Debug\BarisGorselDLL.pdb
+D:\projeler\fototakip\barbardataerp\BarisGorselDll\bin\Debug\Ionic.Zlib.pdb
+D:\projeler\fototakip\barbardataerp\BarisGorselDll\bin\Debug\Ionic.Zlib.xml
