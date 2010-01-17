@@ -70,12 +70,14 @@
     <Compile Include="ConnectionStrings.cs" />
     <Compile Include="ConnectionTest.cs" />
     <Compile Include="Database.cs" />
+    <Compile Include="ImagePack.cs" />
     <Compile Include="Kullanici.cs" />
     <Compile Include="OdemeTuru.cs" />
     <Compile Include="Order.cs" />
     <Compile Include="Photo.cs" />
     <Compile Include="PhotoGallery.cs" />
     <Compile Include="Product.cs" />
+    <Compile Include="ProductGroup.cs" />
     <Compile Include="ProductTree.cs" />
     <Compile Include="ProductType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

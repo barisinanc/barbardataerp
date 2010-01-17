@@ -1,10 +1,10 @@
-D:\projeler\fototakip\barbardataerp\BarBarDataService\bin\Debug\BarBarDataService.exe
-D:\projeler\fototakip\barbardataerp\BarBarDataService\bin\Debug\BarBarDataService.pdb
-D:\projeler\fototakip\barbardataerp\BarBarDataService\obj\Debug\ResolveAssemblyReference.cache
-D:\projeler\fototakip\barbardataerp\BarBarDataService\obj\Debug\BarBarDataService.exe
-D:\projeler\fototakip\barbardataerp\BarBarDataService\obj\Debug\BarBarDataService.pdb
 C:\barbardataerp\BarBarDataService\bin\Debug\BarBarDataService.exe
 C:\barbardataerp\BarBarDataService\bin\Debug\BarBarDataService.pdb
 C:\barbardataerp\BarBarDataService\obj\Debug\ResolveAssemblyReference.cache
 C:\barbardataerp\BarBarDataService\obj\Debug\BarBarDataService.exe
 C:\barbardataerp\BarBarDataService\obj\Debug\BarBarDataService.pdb
+D:\projeler\fototakip\barbardataerp\BarBarDataService\bin\Debug\BarBarDataService.exe
+D:\projeler\fototakip\barbardataerp\BarBarDataService\bin\Debug\BarBarDataService.pdb
+D:\projeler\fototakip\barbardataerp\BarBarDataService\obj\Debug\ResolveAssemblyReference.cache
+D:\projeler\fototakip\barbardataerp\BarBarDataService\obj\Debug\BarBarDataService.exe
+D:\projeler\fototakip\barbardataerp\BarBarDataService\obj\Debug\BarBarDataService.pdb

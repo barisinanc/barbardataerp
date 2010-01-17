@@ -10,6 +10,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.IO;
 
 namespace istakip
 {
@@ -31,7 +32,22 @@ namespace istakip
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            image1.Source = new BitmapImage(new Uri(_path));
+            image1.Source = ImageRead(_path);
         }
+
+        private BitmapImage ImageRead(string path)
+        {
+            // Avoid locks on file.
+            byte[] byteArray = File.ReadAllBytes(path);
+            MemoryStream memoryStream = new MemoryStream(byteArray, 0, byteArray.Length, false, false);
+            byteArray = null;
+
+            BitmapImage currentBitmapImage = new BitmapImage();
+            currentBitmapImage.BeginInit();
+            currentBitmapImage.StreamSource = memoryStream;
+            currentBitmapImage.EndInit();
+            return currentBitmapImage;
+        }
+
     }
 }

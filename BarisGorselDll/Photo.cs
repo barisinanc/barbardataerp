@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Drawing.Imaging;
 using System.Drawing;
+using System.IO;
 
 namespace BarisGorselDLL
 {
@@ -143,22 +144,23 @@ namespace BarisGorselDLL
      
         public static string ThumbPathCreator(string _Path)
         {
-            return System.IO.Path.GetFullPath(_Path).Replace(System.IO.Path.GetFileName(_Path), "") + System.IO.Path.GetFileNameWithoutExtension(_Path) + "_thumb.jpg";
+            return System.IO.Path.GetFullPath(_Path).Replace(System.IO.Path.GetFileName(_Path), "") + System.IO.Path.GetFileNameWithoutExtension(_Path) + ".thumb";
         }
 
         public static void ThumbCreate(string Path, Size size)
         {
             Image img = Image.FromFile(Path);
-            decimal ratio = img.Width / img.Height;
             int height = size.Height;
             int width = size.Width;
-            if (img.Height > img.Height)
+            decimal ratio = ((decimal)img.Size.Width / (decimal)img.Size.Height);
+
+            if (img.Size.Width > img.Size.Height)
             {
-                width = Convert.ToInt32(ratio * height);
+                height = (int)((decimal)height / ratio);
             }
             else
             {
-                height = Convert.ToInt32(ratio / width);
+                width = (int)((decimal)width * ratio);
             }
             img = img.GetThumbnailImage(width, height, null, new System.IntPtr());
             Bitmap bmp = new Bitmap(img);
@@ -196,10 +198,14 @@ namespace BarisGorselDLL
             Photo ph = new Photo();
             ph.JpegSave(ref bmp, ThumbPathCreator(Path), 80);
             ph = null;
+            File.SetAttributes(ThumbPathCreator(Path), FileAttributes.NotContentIndexed | FileAttributes.Hidden | FileAttributes.System);
             bmp.Dispose();
             bmp = null;
             GC.Collect();
         }
+
+      
+
 
     }
 

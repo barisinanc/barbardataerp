@@ -22,5 +22,17 @@ namespace istakip.Properties {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string GalleryPath {
+            get {
+                return ((string)(this["GalleryPath"]));
+            }
+            set {
+                this["GalleryPath"] = value;
+            }
+        }
     }
 }
