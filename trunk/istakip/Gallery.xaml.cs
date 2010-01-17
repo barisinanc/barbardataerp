@@ -187,6 +187,7 @@ namespace istakip
             ImagePack image = ImageList.Where(p => p.IsClicked.Equals(true)).Single();
             imageSelected.Source = image.ImageRead();
             labelFileName.Content = image.Name;
+            imageFlag.IsChecked = image.IsFlagged;
         }
 
         private void sliderSize_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
@@ -264,6 +265,20 @@ namespace istakip
                 Path = dialog.SelectedPath;
             }
         }
+
+        private void imageFlag_Checked(object sender, RoutedEventArgs e)
+        {
+            ImagePack secilen = ImageList.Where(p => p.IsClicked.Equals(true)).Single();
+            secilen.IsFlagged = true;
+        }
+
+        private void imageFlag_Unchecked(object sender, RoutedEventArgs e)
+        {
+            ImagePack secilen = ImageList.Where(p => p.IsClicked.Equals(true)).Single();
+            secilen.IsFlagged = false;
+        }
+
+        
  
     }
 }

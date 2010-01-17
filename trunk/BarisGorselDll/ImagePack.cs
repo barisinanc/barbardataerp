@@ -23,6 +23,8 @@ namespace BarisGorselDLL
             }
         }
 
+        
+
         private void IsThumbCreated()
         {
             if (!File.Exists(BarisGorselDLL.Photo.ThumbPathCreator(_Path)))
@@ -56,6 +58,7 @@ namespace BarisGorselDLL
                 _IsClicked = value;
             }
         }
+        public bool IsFlagged;
         public int Id;
         public void Rotate(BarisGorselDLL.Photo.RotateTypes rotateType)
         {
