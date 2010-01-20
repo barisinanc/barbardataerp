@@ -23,3 +23,4 @@ D:\projeler\fototakip\barbardataerp\Baris2Import\bin\Debug\BarisGorselDLL.pdb
 D:\projeler\fototakip\barbardataerp\Baris2Import\bin\Debug\BarcodeLib.pdb
 D:\projeler\fototakip\barbardataerp\Baris2Import\obj\Debug\Baris2Import.exe
 D:\projeler\fototakip\barbardataerp\Baris2Import\obj\Debug\Baris2Import.pdb
+D:\projeler\fototakip\barbardataerp\Baris2Import\bin\Debug\DiscUtils.dll
