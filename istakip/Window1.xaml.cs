@@ -15,6 +15,7 @@ using Microsoft.Win32;
 using System.IO;
 using System.Threading;
 using BarisGorselDLL;
+using System.Windows.Media.Animation;
 
 namespace istakip
 {
@@ -26,14 +27,9 @@ namespace istakip
         public Window1()
         {
             InitializeComponent();
-
-            //Uri adres = new Uri(@"C:\galeri.psd");
-            /*BarisGorselDLL.Photo ph = new BarisGorselDLL.Photo();
-            System.Drawing.Bitmap bmp = ph.PsdImage(@"C:\galeri.PSD");
-            image1.Source = PhotoConvert.BitmapImagetoBitmap(bmp);*/
-            //MessageBox.Show(fun(6).ToString());
+            this.WindowState = WindowState.Maximized;
             Gallery galeri = new Gallery();
-            MainGrid.Children.Add(galeri);
+            gridGallery.Children.Add(galeri);
         }
 
         
@@ -73,6 +69,8 @@ namespace istakip
             yeniCari.CepNo = textBoxCepTel.Text;
             yeniArama = new CariSelect(yeniCari);
             this.MainGrid.Children.Add(yeniArama);
+            
+            yeniArama.BeginAnimation(UserControl.OpacityProperty, new DoubleAnimation(0.00, 1, new Duration(new TimeSpan(0, 0, 0, 0, 300))));
             yeniArama.CariSelected += new CariSelect.CariSelectedEventHandler(yeniArama_CariSelected);
             yeniArama.Closed += new CariSelect.ClosedEventHandler(yeniArama_Closed);
         }
