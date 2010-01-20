@@ -27,7 +27,6 @@ namespace istakip
         public Window1()
         {
             InitializeComponent();
-            
             this.WindowState = WindowState.Maximized;
             Gallery galeri = new Gallery();
             gridGallery.Children.Add(galeri);
