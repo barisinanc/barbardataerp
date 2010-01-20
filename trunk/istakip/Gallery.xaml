@@ -2,10 +2,11 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              MinWidth="700" >
+    <Border CornerRadius="1,1,1,1" BorderThickness="1">
     <Grid Background="MintCream">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="217*" />
-            <ColumnDefinition Width="483*" />
+            <ColumnDefinition Width="45*" />
+            <ColumnDefinition Width="55*" />
         </Grid.ColumnDefinitions>
         
         <Grid Margin="0,39,9,12" MinHeight="150" Name="gridDetail" Grid.Row="1">
@@ -29,4 +30,5 @@
         <Label Height="28" Margin="1,10,96,0" Name="labelPath" VerticalAlignment="Top">Klasör Seçilmedi</Label>
         <GridSplitter Margin="0,5,0,-5" Name="gridSplitter1" Width="5" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="1" Foreground="Blue" Background="Black" Opacity="0.5" />
         </Grid>
+        </Border>
 </UserControl>

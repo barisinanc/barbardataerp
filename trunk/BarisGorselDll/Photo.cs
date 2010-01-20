@@ -144,7 +144,15 @@ namespace BarisGorselDLL
      
         public static string ThumbPathCreator(string _Path)
         {
-            return System.IO.Path.GetFullPath(_Path).Replace(System.IO.Path.GetFileName(_Path), "") + System.IO.Path.GetFileNameWithoutExtension(_Path) + ".thumb";
+            string folderPath = System.IO.Path.GetFullPath(_Path).Replace(System.IO.Path.GetFileName(_Path), "") + "_thumbs\\";
+            if (!System.IO.Directory.Exists(folderPath))
+            {
+                System.IO.Directory.CreateDirectory(folderPath);
+                File.SetAttributes(folderPath, FileAttributes.NotContentIndexed | FileAttributes.Hidden | FileAttributes.System);
+            }
+
+            return folderPath + System.IO.Path.GetFileNameWithoutExtension(_Path) + ".thumb";
+            
         }
 
         public static void ThumbCreate(string Path, Size size)
@@ -198,7 +206,7 @@ namespace BarisGorselDLL
             Photo ph = new Photo();
             ph.JpegSave(ref bmp, ThumbPathCreator(Path), 80);
             ph = null;
-            File.SetAttributes(ThumbPathCreator(Path), FileAttributes.NotContentIndexed | FileAttributes.Hidden | FileAttributes.System);
+            
             bmp.Dispose();
             bmp = null;
             GC.Collect();

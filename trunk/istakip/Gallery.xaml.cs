@@ -14,6 +14,7 @@ using System.Windows.Shapes;
 using BarisGorselDLL;
 using System.IO;
 using System.Threading;
+using System.Windows.Media.Animation;
 
 namespace istakip
 {
@@ -49,11 +50,10 @@ namespace istakip
             }
         }
         List<ImagePack> ImageList = new List<ImagePack>();
-
+        List<string> DirectoryList = new List<string>();
         private void fillImageList(string FolderPath)
         {
-            try
-            {
+            
                 IEnumerable<string> fileNames =
                     Directory.GetFiles(FolderPath).Where(f => !f.Contains(".thumb")).Where(
                         f => f.EndsWith(".jpg")
@@ -65,7 +65,10 @@ namespace istakip
                             || f.EndsWith(".psd")
                             || f.EndsWith(".PSD")
                     );
-
+                foreach (string dir in Directory.GetDirectories(FolderPath).Where(p=>!p.EndsWith("_thumbs")))
+                {
+                    DirectoryList.Add(dir);
+                }
                 int i = 0;
                 methodClear();
                 foreach (string x in fileNames)
@@ -79,11 +82,9 @@ namespace istakip
                     paket.IsSelected = false;
                     paket.Id = i;
                     ImageList.Add(paket);
+                    methodGaleryFill(paket);
                 }
-
-            }
-            catch { }
-            methodGaleryFill();
+            
 
         }
 
@@ -100,13 +101,12 @@ namespace istakip
             ImageList.Clear();
         }
         private delegate void delegateGaleryFill(ImagePack img);
-        public void methodGaleryFill()
+        public void methodGaleryFill(ImagePack img)
         {
-            foreach (ImagePack img in ImageList)
-            {
+           
                 delegateGaleryFill del = new delegateGaleryFill(galeryFill);
                 this.Dispatcher.Invoke(del, img);
-            }
+            
         }
 
         private void galeryFill(ImagePack img)
@@ -142,11 +142,18 @@ namespace istakip
             grid.Children.Add(check);
             grid.Height = sliderSize.Value;
             grid.Width = sliderSize.Value;
-            grid.Background = new SolidColorBrush(System.Windows.Media.Color.FromArgb(50, 100, 150, 100));
+            //grid.Background = new SolidColorBrush(System.Windows.Media.Color.FromArgb(50, 100, 150, 100));
 
             wrapPanelGallery.Children.Add(grid);
+            grid.BeginAnimation(Grid.OpacityProperty, new DoubleAnimation(0.00, 1, new Duration(new TimeSpan(0, 0, 1))));
             grid.Margin = new Thickness(5, 5, 5, 5);
         }
+
+        private void folderFill(string path)
+        {
+            
+        }
+
         void check_Unchecked(object sender, RoutedEventArgs e)
         {
             ImagePack secilen = ImageList.Where(p => p.Id == Convert.ToInt32(((CheckBox)sender).Uid)).Single();
@@ -169,6 +176,12 @@ namespace istakip
                 }
                 ImagePack secilen = ImageList.Where(p => p.Id.Equals(Convert.ToInt32(((Image)sender).Uid))).Single();
                 secilen.IsClicked = true;
+                foreach (Grid x in wrapPanelGallery.Children)
+                {
+                    x.Background = null;
+                }
+                Grid secilenGrid = this.wrapPanelGallery.Children.OfType<Grid>().Where(p=>p.Uid==secilen.Id.ToString()).First();
+                secilenGrid.Background = Brushes.AntiqueWhite;
                 ShowImage();
             }
             if (e.ChangedButton == MouseButton.Left && e.ClickCount == 2)
@@ -188,6 +201,7 @@ namespace istakip
             imageSelected.Source = image.ImageRead();
             labelFileName.Content = image.Name;
             imageFlag.IsChecked = image.IsFlagged;
+            imageSelected.BeginAnimation(Image.OpacityProperty, new DoubleAnimation(0.00, 1, new Duration(new TimeSpan(0, 0, 0, 0, 300))));
         }
 
         private void sliderSize_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)

@@ -3,8 +3,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     Title="Window1" Height="648" Width="980" xmlns:my="clr-namespace:Microsoft.Windows.Controls;assembly=WPFToolkit">
     <Grid Name="MainGrid" Height="611">
-        <Grid.ColumnDefinitions>
-        </Grid.ColumnDefinitions>
+      
 
         <Button Margin="0,89,20,0" Name="button1" Click="button1_Click" HorizontalAlignment="Right" Width="63" Height="19.998" VerticalAlignment="Top">Button</Button>
         <TextBox Margin="0,63,20,0" Name="textBox1" Height="19.998" VerticalAlignment="Top" HorizontalAlignment="Right" Width="98.879" />
@@ -20,5 +19,6 @@
         <Button Height="23" HorizontalAlignment="Left" Margin="230,81,0,0" Name="buttonClear" VerticalAlignment="Top" Width="75" Click="buttonClear_Click">Temizle</Button>
         <my:DataGrid AutoGenerateColumns="False" Height="117" Margin="347,4.998,390,0" Name="dataGrid1" VerticalAlignment="Top" />
         <Button Height="23" HorizontalAlignment="Right" Margin="0,5,309,0" Name="buttonProductSelect" VerticalAlignment="Top" Width="75" Click="buttonProductSelect_Click">Ürün Seç</Button>
+        <Grid Margin="10,128,10,10" Name="gridGallery" />
     </Grid>
 </Window>
