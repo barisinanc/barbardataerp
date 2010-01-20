@@ -25,3 +25,4 @@ D:\projeler\fototakip\barbardataerp\DatabaseSync\bin\Debug\BarisGorselDLL.pdb
 D:\projeler\fototakip\barbardataerp\DatabaseSync\bin\Debug\BarcodeLib.pdb
 D:\projeler\fototakip\barbardataerp\DatabaseSync\obj\Debug\DatabaseSync.exe
 D:\projeler\fototakip\barbardataerp\DatabaseSync\obj\Debug\DatabaseSync.pdb
+D:\projeler\fototakip\barbardataerp\DatabaseSync\bin\Debug\DiscUtils.dll

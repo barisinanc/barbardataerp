@@ -52,3 +52,4 @@ D:\projeler\fototakip\barbardataerp\arsiv\bin\Debug\BarisGorselDLL.pdb
 D:\projeler\fototakip\barbardataerp\arsiv\bin\Debug\BarcodeLib.pdb
 D:\projeler\fototakip\barbardataerp\arsiv\obj\Debug\arsiv.exe
 D:\projeler\fototakip\barbardataerp\arsiv\obj\Debug\arsiv.pdb
+D:\projeler\fototakip\barbardataerp\arsiv\bin\Debug\DiscUtils.dll

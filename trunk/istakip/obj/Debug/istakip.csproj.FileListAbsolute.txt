@@ -62,3 +62,4 @@ D:\projeler\fototakip\barbardataerp\istakip\bin\Debug\BarcodeLib.pdb
 D:\projeler\fototakip\barbardataerp\istakip\obj\Debug\istakip.exe
 D:\projeler\fototakip\barbardataerp\istakip\obj\Debug\istakip.pdb
 D:\projeler\fototakip\barbardataerp\istakip\bin\Debug\istakip.exe.config
+D:\projeler\fototakip\barbardataerp\istakip\bin\Debug\DiscUtils.dll

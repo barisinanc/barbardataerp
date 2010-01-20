@@ -25,3 +25,4 @@ D:\projeler\fototakip\barbardataerp\familytree\bin\Debug\BarisGorselDLL.pdb
 D:\projeler\fototakip\barbardataerp\familytree\bin\Debug\BarcodeLib.pdb
 D:\projeler\fototakip\barbardataerp\familytree\obj\Debug\familytree.exe
 D:\projeler\fototakip\barbardataerp\familytree\obj\Debug\familytree.pdb
+D:\projeler\fototakip\barbardataerp\familytree\bin\Debug\DiscUtils.dll
