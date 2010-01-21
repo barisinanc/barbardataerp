@@ -47,6 +47,8 @@ namespace arsiv
          */
         #endregion Forma dışardan gelen bilgiler
 
+        bool isSiparis = false;
+
         private void FormNewRecord_Load(object sender, EventArgs e)
         {
             //Lodoskaraktersizi baslat = new Lodoskaraktersizi();
@@ -223,16 +225,19 @@ namespace arsiv
                 dateTimePickerDelivery.Value = DateTime.Today;
                 numericHour.Value = DateTime.Now.Hour;
                 numericMinute.Value = DateTime.Now.Minute;
-                if (SecilenUrun.Arsivle)
+                if (!isSiparis)
                 {
-                    checkBoxArchived.Visible = true;
-                    checkBoxArchived.Checked = true;
+                    if (SecilenUrun.Arsivle)
+                    {
+                        checkBoxArchived.Visible = true;
+                        checkBoxArchived.Checked = true;
 
-                }
-                else
-                {
-                    checkBoxArchived.Visible = false;
-                    checkBoxArchived.Checked = false;
+                    }
+                    else
+                    {
+                        checkBoxArchived.Visible = false;
+                        checkBoxArchived.Checked = false;
+                    }
                 }
             }
         }
@@ -848,7 +853,20 @@ namespace arsiv
 
         }
 
-       
+        public void siparis(string arsivNo) 
+        {
+            textBoxAciklama.Text = String.Concat("Arşiv No: ", arsivNo);
+            checkBoxArchived.Enabled = false;
+            isSiparis = true;
+            Cari getirCari = new Cari().arsivNodanCari(arsivNo);
+            textBoxCariAd.Text = getirCari.Isim;
+            textBoxCariCep.Text = getirCari.CepNo;
+            textBoxCariEposta.Text = getirCari.Eposta;
+            textBoxCariTel.Text = getirCari.TelNo;
+            textBoxCariVergiDairesi.Text = getirCari.VergiDairesi;
+            if(getirCari.VergiNo!=0)
+                textBoxCariVergiNo.Text = getirCari.VergiNo.ToString();
+        }
 
     }
 }

@@ -149,5 +149,34 @@ namespace BarisGorselDLL
             dataTable.Dispose();
             return yeniCari;
         }
+
+        public Cari arsivNodanCari(string arsivNo)
+        {
+            Connect();
+            SqlCommand cmd = new SqlCommand("CarifromArsivNo", Connection);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@ArsivNo", arsivNo);
+            DataTable dataTable = new DataTable();
+            cmd.ExecuteNonQuery();
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+            adapter.Fill(dataTable);
+            cmd.Dispose();
+            adapter.Dispose();
+            Disconnect();
+            Cari yeniCari = new Cari();
+            foreach (DataRow satir in dataTable.Rows)
+            {
+                yeniCari.CariNo = long.Parse(satir["CariNo"].ToString());
+                //yeniCari.Tarih = DateTime.Parse(satir["Tarih"].ToString());
+                yeniCari.Isim = satir["Isim"].ToString();
+                yeniCari.TelNo = satir["TelNo"].ToString();
+                yeniCari.CepNo = satir["CepNo"].ToString();
+                yeniCari.Eposta = satir["Eposta"].ToString();
+                yeniCari.Aciklama = satir["Aciklama"].ToString();
+                break;
+            }
+            dataTable.Dispose();
+            return yeniCari;
+        }
     }
 }
