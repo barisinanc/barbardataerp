@@ -42,36 +42,37 @@ namespace istakip
                     watcher.Filter = "*.jpg";
                     watcher.Path = _Path;
                     watcher.EnableRaisingEvents = true;
-                    watcher.Renamed += new RenamedEventHandler(watcher_Renamed);
-                    watcher.Created += new FileSystemEventHandler(watcher_Created);
+                    
                 }
             }
         }
 
         FileSystemWatcher watcher = new FileSystemWatcher();
 
-        void watcher_Created(object sender, FileSystemEventArgs e)
+        void watcher_Update(object sender, FileSystemEventArgs e)
         {
             Thread islemFill = new Thread(new ThreadStart(delegate { fillImageList(_Path); }));
             islemFill.SetApartmentState(ApartmentState.STA);
             islemFill.Start();
         }
 
-        void watcher_Renamed(object sender, RenamedEventArgs e)
-        {
-            Thread islemFill = new Thread(new ThreadStart(delegate { fillImageList(_Path); }));
-            islemFill.SetApartmentState(ApartmentState.STA);
-            islemFill.Start();
-        }
         
         public Gallery()
         {            
             InitializeComponent();
+            watcher.Renamed += new RenamedEventHandler(watcher_Update);
+            watcher.Created += new FileSystemEventHandler(watcher_Update);
+            watcher.Deleted += new FileSystemEventHandler(watcher_Update);
+            watcher.Changed += new FileSystemEventHandler(watcher_Update);
             if (istakip.Properties.Settings.Default.GalleryPath != "")
             {
                 Path = istakip.Properties.Settings.Default.GalleryPath;
             }
         }
+
+       
+
+        
         public List<ImagePack> ImageList = new List<ImagePack>();
         List<string> DirectoryList = new List<string>();
         private void fillImageList(string FolderPath)
