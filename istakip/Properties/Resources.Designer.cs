@@ -59,12 +59,5 @@ namespace istakip.Properties {
                 resourceCulture = value;
             }
         }
-        
-        internal static System.Drawing.Bitmap folder {
-            get {
-                object obj = ResourceManager.GetObject("folder", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
     }
 }

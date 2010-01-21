@@ -12,16 +12,17 @@ namespace BarisGorselDLL
         //http://www.codeproject.com/KB/aspnet/ServeCustomizedISOs.aspx
         //http://discutils.codeplex.com/
         private CDBuilder builder = new CDBuilder();
+        private string _Title;
         public string Title
         {
             get
             {
-                return Title;
+                return _Title;
             }
             set
             {
-                Title = value;
-                builder.VolumeIdentifier = value;
+                _Title = value;
+                builder.VolumeIdentifier = _Title;
             }
         }
 
@@ -30,16 +31,17 @@ namespace BarisGorselDLL
             builder.UseJoliet = true;
         }
 
-        public void AddFile(string path)
+        public void AddFile(string path, string isoPath)
         {
             FileInfo file = new FileInfo(path);
-            builder.AddFile(file.FullName, file.FullName);
+            builder.AddFile(isoPath, file.FullName);
+
         }
 
-        public void AddFolder(string path)
+        public void AddFolder(string isoPath)
         {
-            //DirectoryInfo directory = new DirectoryInfo(path);
-            //builder.AddDirectory(
+            DirectoryInfo directory = new DirectoryInfo(isoPath);
+            builder.AddDirectory(isoPath);
         }
 
         public void Build(string path)
