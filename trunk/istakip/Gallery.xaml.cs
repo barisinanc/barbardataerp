@@ -49,7 +49,7 @@ namespace istakip
                 Path = istakip.Properties.Settings.Default.GalleryPath;
             }
         }
-        List<ImagePack> ImageList = new List<ImagePack>();
+        public List<ImagePack> ImageList = new List<ImagePack>();
         List<string> DirectoryList = new List<string>();
         private void fillImageList(string FolderPath)
         {
@@ -255,7 +255,7 @@ namespace istakip
 
         void check_Checked(object sender, RoutedEventArgs e)
         {
-            ImagePack secilen = ImageList.Where(p => p.Id==Convert.ToInt32(((CheckBox)sender).Uid)).Single();//TODO Uidden git bul değiştir
+            ImagePack secilen = ImageList.Where(p => p.Id==Convert.ToInt32(((CheckBox)sender).Uid)).Single();
             secilen.IsSelected = true;
         }
 
@@ -321,49 +321,6 @@ namespace istakip
             }
         }
 
-
-
-        private void buttonLeft_Click(object sender, RoutedEventArgs e)
-        {
-            ((Button)(sender)).IsEnabled = false;
-            if (ImageList.Where(p => p.IsClicked.Equals(true)).Count() > 0)
-            {
-                ImagePack secilen = ImageList.Where(p => p.IsClicked.Equals(true)).Single();
-                secilen.Rotate(BarisGorselDLL.Photo.RotateTypes.Left);
-                ShowImage();
-                foreach (Grid x in wrapPanelGallery.Children.OfType<Grid>())
-                {
-                    if (x.Uid == secilen.Id.ToString())
-                    {
-                        x.Children.OfType<Image>().Single().Source = secilen.ThumbRead();
-                        break;
-                    }
-                }
-            }
-            ((Button)(sender)).IsEnabled = true;
-        }
-
-        private void buttonRight_Click(object sender, RoutedEventArgs e)
-        {
-            ((Button)(sender)).IsEnabled = false;
-            if (ImageList.Where(p => p.IsClicked.Equals(true)).Count() > 0)
-            {
-                ImagePack secilen = ImageList.Where(p => p.IsClicked.Equals(true)).Single();
-                secilen.Rotate(BarisGorselDLL.Photo.RotateTypes.Right);
-                ShowImage();
-                foreach (Grid x in wrapPanelGallery.Children.OfType<Grid>())
-                {
-                    if (x.Uid == secilen.Id.ToString())
-                    {
-                        x.Children.OfType<Image>().Single().Source = secilen.ThumbRead();
-                        break;
-                    }
-                }
-            }
-            ((Button)(sender)).IsEnabled = true;
-
-        }
-
         private void buttonPathSelect_Click(object sender, RoutedEventArgs e)
         {
             System.Windows.Forms.FolderBrowserDialog dialog = new System.Windows.Forms.FolderBrowserDialog();
@@ -378,6 +335,7 @@ namespace istakip
         {
             ImagePack secilen = ImageList.Where(p => p.IsClicked.Equals(true)).Single();
             secilen.IsFlagged = true;
+            wrapPanelGallery.Children.OfType<Grid>().Where(p => p.Uid == secilen.Id.ToString()).Single().Children.OfType<CheckBox>().Single().IsChecked = true;
         }
 
         private void imageFlag_Unchecked(object sender, RoutedEventArgs e)
@@ -421,9 +379,36 @@ namespace istakip
             }
         }
 
+        private void rotateLeftImage_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            ((Image)(sender)).IsEnabled = false;
+            if (ImageList.Where(p => p.IsClicked.Equals(true)).Count() > 0)
+            {
+                ImagePack secilen = ImageList.Where(p => p.IsClicked.Equals(true)).Single();
+                secilen.Rotate(BarisGorselDLL.Photo.RotateTypes.Left);
+                ShowImage();
+                wrapPanelGallery.Children.OfType<Grid>().Where(p => p.Uid == secilen.Id.ToString()).First().Children.OfType<Image>().First().Source = secilen.ThumbRead();
+            }
+            ((Image)(sender)).IsEnabled = true;
+        }
 
+        private void rotateRightImage_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            ((Image)(sender)).IsEnabled = false;
+            if (ImageList.Where(p => p.IsClicked.Equals(true)).Count() > 0)
+            {
+                ImagePack secilen = ImageList.Where(p => p.IsClicked.Equals(true)).Single();
+                secilen.Rotate(BarisGorselDLL.Photo.RotateTypes.Right);
+                ShowImage();
+                wrapPanelGallery.Children.OfType<Grid>().Where(p => p.Uid == secilen.Id.ToString()).First().Children.OfType<Image>().First().Source = secilen.ThumbRead();
+            }
+            ((Image)(sender)).IsEnabled = true;
+        }
 
-        
+        private void buttonSaveText_Click(object sender, RoutedEventArgs e)
+        {
+            ImageList.Where(p => p.IsClicked.Equals(true)).Single().Description = textDescription.Text;
+        }
  
     }
 }
