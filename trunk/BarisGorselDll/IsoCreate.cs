@@ -32,8 +32,8 @@ namespace BarisGorselDLL
 
         public void AddFile(string path)
         {
-            //FileInfo file = new FileInfo(path);
-            //builder.AddFile(file.FullName., file.FullName);
+            FileInfo file = new FileInfo(path);
+            builder.AddFile(file.FullName, file.FullName);
         }
 
         public void AddFolder(string path)

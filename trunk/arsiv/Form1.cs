@@ -20,7 +20,6 @@ namespace arsiv
             
             comboBoxPageLimit.SelectedIndex = 0;
 
-            
             BarisGorselDLL.Order engOrder = new BarisGorselDLL.Order();
             GuncelleGridMethod(dataGridViewResult, engOrder.getMainScreen(Properties.Settings.Default.SubeId, 1, 30));
             GuncelleMethod(labelPage, "1/" + ((engOrder.toplam / 20) + 1));
@@ -263,7 +262,9 @@ namespace arsiv
             }
             else 
             {
-                //TODO 
+                FormNewRecord siparis = new FormNewRecord();
+                siparis.siparis(dataGridViewResult.CurrentRow.Cells[1].Value.ToString());
+                siparis.Show();
             }
         }
 
