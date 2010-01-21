@@ -127,28 +127,58 @@ namespace istakip
             photo.Uid = img.Id.ToString();
             photo.Source = resim;
             
-            photo.Margin = new Thickness(0, 0, 0, 20);
+            photo.Margin = new Thickness(0, 0, 0, 30);
+
+            Uri adresDelete = new Uri(AppDomain.CurrentDomain.BaseDirectory + "/Images/delete.png", UriKind.RelativeOrAbsolute);
+            BitmapImage resimDelete = new BitmapImage(adresDelete);
+            Image deleteImage = new Image();
+            deleteImage.Source = resimDelete;
+            deleteImage.Margin = new Thickness(0, 0, 6, 0);
+            deleteImage.VerticalAlignment = VerticalAlignment.Bottom;
+            deleteImage.HorizontalAlignment = HorizontalAlignment.Right;
+            deleteImage.Height = 18;
+            deleteImage.MouseDown += new MouseButtonEventHandler(deleteImage_MouseDown);
+            deleteImage.Uid = img.Id.ToString();
 
             CheckBox check = new CheckBox();
             check.Checked += new RoutedEventHandler(check_Checked);
             check.Unchecked += new RoutedEventHandler(check_Unchecked);
             check.Uid = img.Id.ToString();
             check.Content = System.IO.Path.GetFileNameWithoutExtension(img.Name);
-            check.Margin = new Thickness(0, 0, 6, 0);
+            check.Margin = new Thickness(0, 0, 6, 18);
             check.Height = 16;
             check.VerticalAlignment = VerticalAlignment.Bottom;
             check.HorizontalAlignment = HorizontalAlignment.Center;
+
             Grid grid = new Grid();
             grid.Uid = img.Id.ToString();
             grid.Children.Add(photo);
             grid.Children.Add(check);
+            grid.Children.Add(deleteImage);
             grid.Height = sliderSize.Value;
             grid.Width = sliderSize.Value;
             //grid.Background = new SolidColorBrush(System.Windows.Media.Color.FromArgb(50, 100, 150, 100));
 
+            
+
             wrapPanelGallery.Children.Add(grid);
             grid.BeginAnimation(Grid.OpacityProperty, new DoubleAnimation(0.00, 1, new Duration(new TimeSpan(0, 0, 1))));
             grid.Margin = new Thickness(5, 5, 5, 5);
+        }
+
+        void deleteImage_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ChangedButton == MouseButton.Left && e.ClickCount == 1)
+            {
+                if (MessageBox.Show("Silmek istediğinize emin misiniz?", "Onaylayın", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+                {
+                    ImagePack image = ImageList.Where(p=>p.Id==Convert.ToInt32(((Image)sender).Uid)).Single();
+                    File.Delete(image.Path);
+                    File.Delete(image.ThumbPath);
+                    wrapPanelGallery.Children.Remove((Grid)((Image)sender).Parent);
+                    ImageList.Remove(image);
+                }
+            }
         }
 
         private delegate void delegateFolderFill(string path);
@@ -179,20 +209,20 @@ namespace istakip
             
             Uri adresDelete = new Uri(AppDomain.CurrentDomain.BaseDirectory+"/Images/delete.png",UriKind.RelativeOrAbsolute);
             BitmapImage resimDelete = new BitmapImage(adresDelete);
-            Image deleteImage = new Image();
-            deleteImage.Source= resimDelete;
-            deleteImage.Margin = new Thickness(0, 0, 6, 0);
-            deleteImage.VerticalAlignment = VerticalAlignment.Bottom;
-            deleteImage.HorizontalAlignment = HorizontalAlignment.Right;
-            deleteImage.Height = 18;
-            deleteImage.MouseDown += new MouseButtonEventHandler(deleteImage_MouseDown);
-            deleteImage.Uid = path;
+            Image deleteFolder = new Image();
+            deleteFolder.Source= resimDelete;
+            deleteFolder.Margin = new Thickness(0, 0, 6, 0);
+            deleteFolder.VerticalAlignment = VerticalAlignment.Bottom;
+            deleteFolder.HorizontalAlignment = HorizontalAlignment.Right;
+            deleteFolder.Height = 18;
+            deleteFolder.MouseDown += new MouseButtonEventHandler(deleteFolder_MouseDown);
+            deleteFolder.Uid = path;
 
             Grid grid = new Grid();
             grid.Uid = path;
             grid.Children.Add(photo);
             grid.Children.Add(folderName);
-            grid.Children.Add(deleteImage);
+            grid.Children.Add(deleteFolder);
             
             grid.Height = sliderSize.Value;
             grid.Width = sliderSize.Value;
@@ -203,7 +233,7 @@ namespace istakip
             grid.Margin = new Thickness(5, 5, 5, 5);
         }
 
-        void deleteImage_MouseDown(object sender, MouseButtonEventArgs e)
+        void deleteFolder_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.ChangedButton == MouseButton.Left && e.ClickCount == 1)
             {
@@ -265,6 +295,7 @@ namespace istakip
             labelFileName.Content = image.Name;
             imageFlag.IsChecked = image.IsFlagged;
             imageSelected.BeginAnimation(Image.OpacityProperty, new DoubleAnimation(0.00, 1, new Duration(new TimeSpan(0, 0, 0, 0, 300))));
+            
         }
 
         private void sliderSize_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
@@ -354,6 +385,43 @@ namespace istakip
             ImagePack secilen = ImageList.Where(p => p.IsClicked.Equals(true)).Single();
             secilen.IsFlagged = false;
         }
+
+        private void gridSplitter1_DragDelta(object sender, System.Windows.Controls.Primitives.DragDeltaEventArgs e)
+        {
+            gridDescription.Margin = new Thickness(0, imageSelected.ActualHeight + 10, 0, 0);
+        }
+
+        private void imageSelected_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            gridDescription.Margin = new Thickness(0, imageSelected.ActualHeight + 10, 0, 0);
+        }
+
+        private void selectedDelete_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ChangedButton == MouseButton.Left && e.ClickCount == 1)
+            {
+
+                if (ImageList.Where(p => p.IsClicked.Equals(true)).Count() > 0)
+                {
+                    if (MessageBox.Show("Silmek istediğinize emin misiniz?", "Onaylayın", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+                    {
+                        ImagePack secilen = ImageList.Where(p => p.IsClicked.Equals(true)).Single();
+                        File.Delete(secilen.Path);
+                        File.Delete(secilen.ThumbPath);
+                        wrapPanelGallery.Children.Remove(wrapPanelGallery.Children.OfType<Grid>().Where(p=>p.Uid==secilen.Id.ToString()).Single());
+                        ImageList.Remove(secilen);
+                        imageSelected.Source = null;
+                    }
+                   
+                    
+                }
+
+
+                
+            }
+        }
+
+
 
         
  
