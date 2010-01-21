@@ -32,15 +32,38 @@ namespace istakip
 
                 labelPath.Content = _Path;
                 labelPath.ToolTip = _Path;
-
                 istakip.Properties.Settings.Default.GalleryPath = _Path;
                 istakip.Properties.Settings.Default.Save();
-
-                Thread islemFill = new Thread(new ThreadStart(delegate { fillImageList(_Path); }));
-                islemFill.SetApartmentState(ApartmentState.STA);
-                islemFill.Start();
+                if (!(_Path == "" || _Path == null))
+                {
+                    Thread islemFill = new Thread(new ThreadStart(delegate { fillImageList(_Path); }));
+                    islemFill.SetApartmentState(ApartmentState.STA);
+                    islemFill.Start();
+                    watcher.Filter = "*.jpg";
+                    watcher.Path = _Path;
+                    watcher.EnableRaisingEvents = true;
+                    watcher.Renamed += new RenamedEventHandler(watcher_Renamed);
+                    watcher.Created += new FileSystemEventHandler(watcher_Created);
+                }
             }
         }
+
+        FileSystemWatcher watcher = new FileSystemWatcher();
+
+        void watcher_Created(object sender, FileSystemEventArgs e)
+        {
+            Thread islemFill = new Thread(new ThreadStart(delegate { fillImageList(_Path); }));
+            islemFill.SetApartmentState(ApartmentState.STA);
+            islemFill.Start();
+        }
+
+        void watcher_Renamed(object sender, RenamedEventArgs e)
+        {
+            Thread islemFill = new Thread(new ThreadStart(delegate { fillImageList(_Path); }));
+            islemFill.SetApartmentState(ApartmentState.STA);
+            islemFill.Start();
+        }
+        
         public Gallery()
         {            
             InitializeComponent();
@@ -251,6 +274,7 @@ namespace istakip
         {
             ImagePack secilen = ImageList.Where(p => p.Id == Convert.ToInt32(((CheckBox)sender).Uid)).Single();
             secilen.IsSelected = false;
+            secilen.IsFlagged = false;
         }
 
         void check_Checked(object sender, RoutedEventArgs e)
