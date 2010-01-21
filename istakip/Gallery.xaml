@@ -9,16 +9,19 @@
             <ColumnDefinition Width="55*" />
         </Grid.ColumnDefinitions>
         
-        <Grid Margin="0,39,9,12" MinHeight="150" Name="gridDetail" Grid.Row="1">
-            <Grid Margin="0,0,0,71" Name="gridImage" VerticalAlignment="Top">
-                <Image Margin="6,0,5,0" Name="imageSelected" VerticalAlignment="Top" SizeChanged="imageSelected_SizeChanged" />
+        <Grid Margin="0,39,9,12" MinHeight="150" Name="gridDetail" Grid.Row="1" MinWidth="300">
+            <Grid Margin="0,0,0,0" Name="gridImage" VerticalAlignment="Top" MaxHeight="275">
+                <Image Margin="0,0,0,0" Name="imageSelected" VerticalAlignment="Top" SizeChanged="imageSelected_SizeChanged" />
         </Grid>
-        <Grid Name="gridDescription" Margin="0,0,0,38">
-                <Label Margin="3,7,3,0" Name="labelFileName" Height="28" VerticalAlignment="Top">Fotoğraf Seçilmedi</Label>
-                <Button HorizontalAlignment="Left" Margin="0,41,0,0" Name="buttonLeft" Width="89" Click="buttonLeft_Click" Height="23" VerticalAlignment="Top">Sola Döndür</Button>
-                <Button HorizontalAlignment="Left" Margin="104,41,0,0" Name="buttonRight" Width="92" Click="buttonRight_Click" Height="23" VerticalAlignment="Top">Sağa Döndür</Button>
-                <CheckBox Margin="3,70,0,0" Name="imageFlag" HorizontalAlignment="Left" Width="89" Checked="imageFlag_Checked" Unchecked="imageFlag_Unchecked" Height="16" VerticalAlignment="Top">İşaretle</CheckBox>
-                   <Image Margin="0,0,109.1,26" Name="selectedDelete" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="17" MouseDown="selectedDelete_MouseDown" Source="/istakip;component/Images/delete.png" Height="16" /> 
+        <Grid Name="gridDescription" Margin="0,0,0,6" Height="144" VerticalAlignment="Bottom">
+                <Label Margin="3,1,3,0" Name="labelFileName" Height="28" VerticalAlignment="Top">Fotoğraf Seçilmedi</Label>
+                    <CheckBox Margin="117,35,99,0" Name="imageFlag" Checked="imageFlag_Checked" Unchecked="imageFlag_Unchecked" Height="16" VerticalAlignment="Top">İşaretle</CheckBox>
+                <Image Margin="88,35,0,0" Name="selectedDelete" MouseDown="selectedDelete_MouseDown" Source="/istakip;component/Images/delete.png" HorizontalAlignment="Left" Width="17" Height="17" VerticalAlignment="Top" />
+                <TextBox Margin="3,0,0,0" Name="textDescription" Height="69" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="236.1" />
+                    <Label HorizontalAlignment="Left" Margin="4,52,0,64" Name="label1" Width="120">Açıklama:</Label>
+                    <Image Margin="10,20,0,0" Name="rotateLeftImage" Height="32" VerticalAlignment="Top" HorizontalAlignment="Left" Width="32" Source="/istakip;component/Images/rotate.png" MouseDown="rotateLeftImage_MouseDown" />
+                    <Image Height="32" Margin="48,20,0,0" Name="rotateRightImage" Source="/istakip;component/Images/rotate_cw.png" VerticalAlignment="Top" MouseDown="rotateRightImage_MouseDown" HorizontalAlignment="Left" Width="32.1" />
+                    <Button Height="32" HorizontalAlignment="Right" Margin="0,0,10,37" Name="buttonSaveText" VerticalAlignment="Bottom" Width="50" Click="buttonSaveText_Click">Kaydet</Button>
                 </Grid>
             
         </Grid>

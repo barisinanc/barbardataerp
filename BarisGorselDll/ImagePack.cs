@@ -60,6 +60,7 @@ namespace BarisGorselDLL
         }
         public bool IsFlagged;
         public int Id;
+        public string Description;
         public void Rotate(BarisGorselDLL.Photo.RotateTypes rotateType)
         {
             Photo foto = new Photo();
