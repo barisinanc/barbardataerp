@@ -10,10 +10,9 @@
         </Grid.ColumnDefinitions>
         
         <Grid Margin="0,39,9,12" MinHeight="150" Name="gridDetail" Grid.Row="1">
-            <Grid Margin="0,0,0,71" Name="grid2">
+            <Grid Margin="0,0,0,71" Name="grid2" VerticalAlignment="Top">
                 <Image Margin="6,0,5,0" Name="imageSelected" VerticalAlignment="Top"/>
         </Grid>
-
         <Grid Name="grid1" VerticalAlignment="Bottom">
                 <Label Margin="3,7,3,0" Name="labelFileName" Height="28" VerticalAlignment="Top">Fotoğraf Seçilmedi</Label>
                 <Button HorizontalAlignment="Left" Margin="0,41,0,0" Name="buttonLeft" Width="89" Click="buttonLeft_Click" Height="23" VerticalAlignment="Top">Sola Döndür</Button>
