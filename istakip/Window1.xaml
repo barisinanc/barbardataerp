@@ -19,8 +19,6 @@
         <Button Height="23" HorizontalAlignment="Left" Margin="230,81,0,0" Name="buttonClear" VerticalAlignment="Top" Width="75" Click="buttonClear_Click">Temizle</Button>
         <my:DataGrid AutoGenerateColumns="False" Height="117" Margin="347,4.998,390,0" Name="dataGrid1" VerticalAlignment="Top" />
         <Button Height="23" HorizontalAlignment="Right" Margin="0,5,309,0" Name="buttonProductSelect" VerticalAlignment="Top" Width="75" Click="buttonProductSelect_Click">Ürün Seç</Button>
-        <Grid Margin="10,128,10,10" Name="gridGallery">
-            <Image Height="150" HorizontalAlignment="Left" Margin="140,58,0,0" Name="image1" Stretch="Fill" VerticalAlignment="Top" Width="200" />
-        </Grid>
+        <Grid Margin="10,128,10,10" Name="gridGallery"></Grid>
     </Grid>
 </Window>
