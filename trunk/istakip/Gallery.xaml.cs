@@ -65,12 +65,14 @@ namespace istakip
                             || f.EndsWith(".psd")
                             || f.EndsWith(".PSD")
                     );
+                methodClear();
                 foreach (string dir in Directory.GetDirectories(FolderPath).Where(p=>!p.EndsWith("_thumbs")))
                 {
                     DirectoryList.Add(dir);
+                    methodFolderFill(dir);
                 }
                 int i = 0;
-                methodClear();
+                
                 foreach (string x in fileNames)
                 {
                     i++;
@@ -149,9 +151,70 @@ namespace istakip
             grid.Margin = new Thickness(5, 5, 5, 5);
         }
 
+        private delegate void delegateFolderFill(string path);
+        public void methodFolderFill(string path)
+        {
+
+            delegateFolderFill del = new delegateFolderFill(folderFill);
+            this.Dispatcher.Invoke(del, path);
+
+        }
+
         private void folderFill(string path)
         {
+            Image photo = new Image();
+            //photo.MouseDown += new MouseButtonEventHandler(photo_MouseDown);
+            Uri adres = new Uri(AppDomain.CurrentDomain.BaseDirectory+"/Images/folder.gif",UriKind.RelativeOrAbsolute);
+            BitmapImage resim = new BitmapImage(adres);
+            photo.Uid = path;
+            photo.Source = resim;
+
+            photo.Margin = new Thickness(0, 0, 0, 20);
+
+            Label folderName = new Label();
+            folderName.Content = new DirectoryInfo (path).Name;
+            folderName.VerticalAlignment = VerticalAlignment.Bottom;
+            folderName.HorizontalAlignment = HorizontalAlignment.Center;
+            folderName.Margin = new Thickness(0, 0, 6, 0);
             
+            Uri adresDelete = new Uri(AppDomain.CurrentDomain.BaseDirectory+"/Images/delete.png",UriKind.RelativeOrAbsolute);
+            BitmapImage resimDelete = new BitmapImage(adresDelete);
+            Image deleteImage = new Image();
+            deleteImage.Source= resimDelete;
+            deleteImage.Margin = new Thickness(0, 0, 6, 0);
+            deleteImage.VerticalAlignment = VerticalAlignment.Bottom;
+            deleteImage.HorizontalAlignment = HorizontalAlignment.Right;
+            deleteImage.Height = 18;
+            deleteImage.MouseDown += new MouseButtonEventHandler(deleteImage_MouseDown);
+            deleteImage.Uid = path;
+
+            Grid grid = new Grid();
+            grid.Uid = path;
+            grid.Children.Add(photo);
+            grid.Children.Add(folderName);
+            grid.Children.Add(deleteImage);
+            
+            grid.Height = sliderSize.Value;
+            grid.Width = sliderSize.Value;
+            //grid.Background = new SolidColorBrush(System.Windows.Media.Color.FromArgb(50, 100, 150, 100));
+
+            wrapPanelGallery.Children.Add(grid);
+            grid.BeginAnimation(Grid.OpacityProperty, new DoubleAnimation(0.00, 1, new Duration(new TimeSpan(0, 0, 1))));
+            grid.Margin = new Thickness(5, 5, 5, 5);
+        }
+
+        void deleteImage_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ChangedButton == MouseButton.Left && e.ClickCount == 1)
+            {
+                if (MessageBox.Show("Silmek istediğinize emin misiniz?", "Onaylayın", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+                {
+                    
+                    Directory.Delete(((Image)sender).Uid);
+                    wrapPanelGallery.Children.Remove((Grid)((Image)sender).Parent);
+                    DirectoryList.Remove(Uid);
+                }
+            }
         }
 
         void check_Unchecked(object sender, RoutedEventArgs e)
