@@ -141,16 +141,12 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Images\folder.gif">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Images\delete.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-  </ItemGroup>
-  <ItemGroup>
+    <None Include="Images\folder.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Images\rotate.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

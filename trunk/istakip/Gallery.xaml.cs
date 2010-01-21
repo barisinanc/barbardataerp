@@ -64,6 +64,17 @@ namespace istakip
             watcher.Created += new FileSystemEventHandler(watcher_Update);
             watcher.Deleted += new FileSystemEventHandler(watcher_Update);
             watcher.Changed += new FileSystemEventHandler(watcher_Update);
+            Uri adresSola = new Uri(AppDomain.CurrentDomain.BaseDirectory + "/Images/rotate.png", UriKind.RelativeOrAbsolute);
+            BitmapImage resimSola = new BitmapImage(adresSola);
+            rotateLeftImage.Source = resimSola;
+            Uri adresSaga = new Uri(AppDomain.CurrentDomain.BaseDirectory + "/Images/rotate_cw.png", UriKind.RelativeOrAbsolute);
+            BitmapImage resimSaga = new BitmapImage(adresSaga);
+            rotateRightImage.Source = resimSaga;
+
+            Uri adresSil = new Uri(AppDomain.CurrentDomain.BaseDirectory + "/Images/delete.png", UriKind.RelativeOrAbsolute);
+            BitmapImage resimSil = new BitmapImage(adresSil);
+            selectedDelete.Source = resimSil;
+
             if (istakip.Properties.Settings.Default.GalleryPath != "")
             {
                 Path = istakip.Properties.Settings.Default.GalleryPath;
