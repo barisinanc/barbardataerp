@@ -420,10 +420,12 @@ namespace istakip
             ((Image)(sender)).IsEnabled = false;
             if (ImageList.Where(p => p.IsClicked.Equals(true)).Count() > 0)
             {
+                watcher.Changed -= new FileSystemEventHandler(watcher_Update);
                 ImagePack secilen = ImageList.Where(p => p.IsClicked.Equals(true)).Single();
                 secilen.Rotate(BarisGorselDLL.Photo.RotateTypes.Left);
                 ShowImage();
                 wrapPanelGallery.Children.OfType<Grid>().Where(p => p.Uid == secilen.Id.ToString()).First().Children.OfType<Image>().First().Source = secilen.ThumbRead();
+                watcher.Changed += new FileSystemEventHandler(watcher_Update);
             }
             ((Image)(sender)).IsEnabled = true;
         }
@@ -433,10 +435,12 @@ namespace istakip
             ((Image)(sender)).IsEnabled = false;
             if (ImageList.Where(p => p.IsClicked.Equals(true)).Count() > 0)
             {
+                watcher.Changed -= new FileSystemEventHandler(watcher_Update);
                 ImagePack secilen = ImageList.Where(p => p.IsClicked.Equals(true)).Single();
                 secilen.Rotate(BarisGorselDLL.Photo.RotateTypes.Right);
                 ShowImage();
                 wrapPanelGallery.Children.OfType<Grid>().Where(p => p.Uid == secilen.Id.ToString()).First().Children.OfType<Image>().First().Source = secilen.ThumbRead();
+                watcher.Changed += new FileSystemEventHandler(watcher_Update);
             }
             ((Image)(sender)).IsEnabled = true;
         }
