@@ -33,30 +33,6 @@ namespace istakip
             gridGallery.Children.Add(galeri);
         }
 
-        
-        private void button1_Click(object sender, RoutedEventArgs e)
-        {
-            FileSystemWatcher watcher = new FileSystemWatcher();
-            watcher.Filter = "*.jpg";
-            watcher.Path = @"d:\kimlik";
-            watcher.EnableRaisingEvents = true;
-            watcher.Renamed += new RenamedEventHandler(watcher_Renamed);
-            watcher.Created += new FileSystemEventHandler(watcher_Created);
-        }
-
-        void watcher_Created(object sender, FileSystemEventArgs e)
-        {
-            MessageBox.Show(e.Name);
-        }
-
-        void watcher_Renamed(object sender, RenamedEventArgs e)
-        {
-            MessageBox.Show(e.Name);
-        }
-
-        
-
-
         CariSelect yeniArama;
         private void buttonSearch_Click(object sender, RoutedEventArgs e)
         {

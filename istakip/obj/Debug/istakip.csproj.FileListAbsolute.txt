@@ -64,6 +64,6 @@ D:\projeler\fototakip\barbardataerp\istakip\obj\Debug\istakip.pdb
 D:\projeler\fototakip\barbardataerp\istakip\bin\Debug\istakip.exe.config
 D:\projeler\fototakip\barbardataerp\istakip\bin\Debug\DiscUtils.dll
 D:\projeler\fototakip\barbardataerp\istakip\bin\Debug\Images\folder.gif
-D:\projeler\fototakip\barbardataerp\istakip\bin\Debug\Images\delete.png
 D:\projeler\fototakip\barbardataerp\istakip\bin\Debug\Images\rotate.png
 D:\projeler\fototakip\barbardataerp\istakip\bin\Debug\Images\rotate_cw.png
+D:\projeler\fototakip\barbardataerp\istakip\bin\Debug\Images\delete.png

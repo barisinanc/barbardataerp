@@ -3,22 +3,19 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     Title="Window1" Height="648" Width="980" xmlns:my="clr-namespace:Microsoft.Windows.Controls;assembly=WPFToolkit">
     <Grid Name="MainGrid" Height="611">
-      
-
-        <Button Margin="0,89,20,0" Name="button1" Click="button1_Click" HorizontalAlignment="Right" Width="63" Height="19.998" VerticalAlignment="Top">Button</Button>
-        <TextBox Margin="0,63,20,0" Name="textBox1" Height="19.998" VerticalAlignment="Top" HorizontalAlignment="Right" Width="98.879" />
-        
-        <TextBox Height="23" HorizontalAlignment="Left" Margin="104,24,0,0" Name="textBoxAdSoyad" VerticalAlignment="Top" Width="120" />
-        <Label Height="28" HorizontalAlignment="Left" Margin="22,24,0,0" Name="label1" VerticalAlignment="Top" Width="97">Ad Soyad:</Label>
-        <TextBox Height="28" HorizontalAlignment="Left" Margin="104,53,0,0" Name="textBoxCepTel" VerticalAlignment="Top" Width="120" MaxLines="15" />
-        <Label Height="28" HorizontalAlignment="Left" Margin="22,53,0,0" Name="label2" VerticalAlignment="Top" Width="97">Cep Telefonu:</Label>
-        <TextBox Height="28" HorizontalAlignment="Left" Margin="104,87,0,0" Name="textBoxTel" VerticalAlignment="Top" Width="120" MaxLines="15" />
-        <Label Height="28" HorizontalAlignment="Left" Margin="22,87,0,0" Name="label3" VerticalAlignment="Top" Width="97">Sabit Telefon:</Label>
-        <Button Height="23" HorizontalAlignment="Left" Margin="231,52.48,0,0" Name="buttonSearch" VerticalAlignment="Top" Width="75" Click="buttonSearch_Click">Ara</Button>
-        <Label Height="28" HorizontalAlignment="Left" Margin="23,0,0,0" Name="labelCariStatus" VerticalAlignment="Top" Width="283">Yeni Müşteri</Label>
-        <Button Height="23" HorizontalAlignment="Left" Margin="230,81,0,0" Name="buttonClear" VerticalAlignment="Top" Width="75" Click="buttonClear_Click">Temizle</Button>
         <my:DataGrid AutoGenerateColumns="False" Height="117" Margin="347,4.998,390,0" Name="dataGrid1" VerticalAlignment="Top" />
         <Button Height="23" HorizontalAlignment="Right" Margin="0,5,309,0" Name="buttonProductSelect" VerticalAlignment="Top" Width="75" Click="buttonProductSelect_Click">Ürün Seç</Button>
         <Grid Margin="10,128,10,10" Name="gridGallery"></Grid>
+        <Grid Height="139" HorizontalAlignment="Left" Margin="28,22,0,0" Name="grid1" VerticalAlignment="Top" Width="313">
+            <TextBox Height="23" HorizontalAlignment="Left" Margin="92,34,0,0" Name="textBoxAdSoyad" VerticalAlignment="Top" Width="120" />
+            <Label Height="28" HorizontalAlignment="Left" Margin="10,34,0,0" Name="label1" VerticalAlignment="Top" Width="97">Ad Soyad:</Label>
+            <TextBox Height="28" HorizontalAlignment="Left" Margin="92,63,0,0" MaxLines="15" Name="textBoxCepTel" VerticalAlignment="Top" Width="120" />
+            <Label Height="28" HorizontalAlignment="Left" Margin="10,63,0,0" Name="label2" VerticalAlignment="Top" Width="97">Cep Telefonu:</Label>
+            <TextBox HorizontalAlignment="Left" Margin="92,97,0,0" MaxLines="15" Name="textBoxTel" Width="120" Height="28" VerticalAlignment="Top" />
+            <Label HorizontalAlignment="Left" Margin="10,97,0,0" Name="label3" Width="97" Height="28" VerticalAlignment="Top">Sabit Telefon:</Label>
+            <Button Height="23" HorizontalAlignment="Left" Margin="219,62.48,0,0" Name="buttonSearch" VerticalAlignment="Top" Width="75">Ara</Button>
+            <Label Height="28" Margin="11,10,136,0" Name="labelCariStatus" VerticalAlignment="Top">Yeni Müşteri</Label>
+            <Button HorizontalAlignment="Left" Margin="218,91,0,0" Name="buttonClear" Width="75" Height="23" VerticalAlignment="Top">Temizle</Button>
+        </Grid>
     </Grid>
 </Window>
