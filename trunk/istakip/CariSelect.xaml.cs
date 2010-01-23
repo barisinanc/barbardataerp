@@ -22,43 +22,74 @@ namespace istakip
     {
         public Cari selectedCari= new Cari();
         List<Cari> Cariler = new List<Cari>();
-        public CariSelect(Cari nCari)
+        public CariSelect()
         {
-            InitializeComponent();
-            
-            Cariler = nCari.araCariler();
-            dataGridSearch.AutoGenerateColumns = true;
-            dataGridSearch.Columns.Clear();
-            var list = from x in Cariler
-                       select new { İsim = x.Isim, CepNo = x.CepNo, TelNo = x.TelNo, Eposta = x.Eposta, Adres = x.Adres, Tarih = x.Tarih, No = x.CariNo };
-            dataGridSearch.ItemsSource = list.ToList();
-            
+            InitializeComponent();            
         }
 
         public delegate void CariSelectedEventHandler();
         public event CariSelectedEventHandler CariSelected;
 
-        public delegate void ClosedEventHandler();
-        public event ClosedEventHandler Closed;
+        public delegate void CancelledEventHandler();
+        public event CancelledEventHandler Cancelled;
 
         private void buttonSearchSelect_Click(object sender, RoutedEventArgs e)
         {
             if (dataGridSearch.SelectedIndex > -1)
             {
                 selectedCari = Cariler[dataGridSearch.SelectedIndex];
+                textBoxAdSoyad.Text = selectedCari.Isim;
+                textBoxCepTel.Text = selectedCari.CepNo;
+                textBoxTel.Text = selectedCari.TelNo;
+                labelCariStatus.Content = selectedCari.CariNo + " numaralı cari seçildi";
                 this.CariSelected();
-                this.Closed();
             } 
         }
 
         private void buttonSearchCancel_Click(object sender, RoutedEventArgs e)
         {
-            this.Closed();
+            this.Cancelled();
         }
 
-        public void Close()
+        public void Cancel()
         {
-            this.Closed();
+            this.Cancelled();
+        }
+
+        public delegate void SavedEventHandler();
+        public event SavedEventHandler Saved;
+
+        private void buttonSave_Click(object sender, RoutedEventArgs e)
+        {
+            if (selectedCari.CariNo == 0)
+            {
+                selectedCari.CariNo= selectedCari.addCari();
+            }
+            Saved();
+        }
+
+        private void buttonSearch_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Search()
+        {
+            Cariler = selectedCari.araCariler();
+            dataGridSearch.AutoGenerateColumns = true;
+            dataGridSearch.Columns.Clear();
+            var list = from x in Cariler
+                       select new { İsim = x.Isim, CepNo = x.CepNo, TelNo = x.TelNo, Eposta = x.Eposta, Adres = x.Adres, Tarih = x.Tarih, No = x.CariNo };
+            dataGridSearch.ItemsSource = list.ToList();
+        }
+
+        private void buttonClear_Click(object sender, RoutedEventArgs e)
+        {
+            textBoxAdSoyad.Text = "";
+            textBoxCepTel.Text = "";
+            textBoxTel.Text = "";
+            selectedCari = null;
+            labelCariStatus.Content = "Yeni Müşteri";
         }
 
 
