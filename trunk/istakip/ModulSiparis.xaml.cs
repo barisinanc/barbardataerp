@@ -46,16 +46,30 @@ namespace istakip
             }
             else if (menuler.Selected == Menu.MenuType.Product)
             {
-
+                ProductSelect productControl = new ProductSelect();
+                gridModule.Children.Add(productControl);
             }
             else if (menuler.Selected == Menu.MenuType.Customer)
             {
-
+                CariSelect cariControl = new CariSelect();
+                gridModule.Children.Add(cariControl);
+                cariControl.Saved += new CariSelect.SavedEventHandler(cariControl_Saved);
+                cariControl.Cancelled += new CariSelect.CancelledEventHandler(cariControl_Cancelled);
             }
             else if (menuler.Selected == Menu.MenuType.Report)
             {
 
             }
+        }
+
+        void cariControl_Cancelled()
+        {
+            menuler.Selected = Menu.MenuType.Product;
+        }
+
+        void cariControl_Saved()
+        {
+            menuler.Selected = Menu.MenuType.Report;
         }
 
         void galeri_Cancelled()
@@ -66,7 +80,6 @@ namespace istakip
         void galeri_Saved()
         {
             menuler.Selected = Menu.MenuType.Product;
-            gridModule.Children.Clear();
         }
        
 

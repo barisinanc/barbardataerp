@@ -61,16 +61,22 @@ namespace istakip
 
         private void buttonSave_Click(object sender, RoutedEventArgs e)
         {
-            if (selectedCari.CariNo == 0)
+            if (selectedCari.CariNo == 0 && textBoxAdSoyad.Text!="")
             {
                 selectedCari.CariNo= selectedCari.addCari();
             }
-            Saved();
+            if (textBoxAdSoyad.Text != "")
+            {
+                Saved();
+            }
         }
 
         private void buttonSearch_Click(object sender, RoutedEventArgs e)
         {
-
+            selectedCari.Isim = textBoxAdSoyad.Text;
+            selectedCari.CepNo = textBoxCepTel.Text;
+            selectedCari.TelNo = textBoxTel.Text;
+            Search();
         }
 
         private void Search()
