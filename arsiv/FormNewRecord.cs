@@ -53,6 +53,7 @@ namespace arsiv
         {
             //Lodoskaraktersizi baslat = new Lodoskaraktersizi();
             //baslat.Show();
+            
             favouriteRead();
             personelListesiDoldur();
             odemeListesiDoldur();
@@ -833,6 +834,7 @@ namespace arsiv
             {
                 buttonSave.Focus();
             }
+            
         }
 
         private void buttonProductEdit_Click(object sender, EventArgs e)
