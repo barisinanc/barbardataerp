@@ -19,8 +19,17 @@
         <Button Height="23" HorizontalAlignment="Right" Margin="0,2,67,0" Name="buttonSearch" VerticalAlignment="Top" Width="75" Click="buttonSearch_Click" Grid.Row="1">Ara</Button>
         <my:DataGrid AutoGenerateColumns="False" Grid.Column="1" Name="dataGrid1" Margin="19,31,0,0" Grid.Row="1" />
         <my:DataGrid AutoGenerateColumns="False" Name="dataGrid2" Margin="0,0,0,9" />
-        <my:DatePicker Grid.Column="1" Height="25" Margin="0,84,33,0" Name="datePicker1" VerticalAlignment="Top" HorizontalAlignment="Right" Width="115.104" />
-        <Separator Height="5" Margin="0,0,0,1" Name="separator1" VerticalAlignment="Bottom" />
+        <my:DatePicker Grid.Column="1" Height="25" Margin="0,84,33,0" Name="datePicker1" VerticalAlignment="Top" HorizontalAlignment="Right" Width="115.104" Text="Teslim Tarihi" />
         <GridSplitter Grid.Column="1" HorizontalAlignment="Left" Margin="0,4,0,0" Name="gridSplitter1" Width="5" Grid.RowSpan="2" />
+        <GridSplitter Margin="0,0,6,0" Name="gridSplitter2" HorizontalAlignment="Stretch" FlowDirection="LeftToRight" Height="6" VerticalAlignment="Bottom" />
+        <TextBox Grid.Column="1" Margin="102,84,0,0" Name="textBox1" Height="25" VerticalAlignment="Top" HorizontalAlignment="Left" Width="97" />
+        <TextBox HorizontalAlignment="Left" Margin="102,115,0,97" Name="textBox2" Width="97" Grid.Column="1" />
+        <TextBox Height="25" HorizontalAlignment="Left" Margin="102,0,0,66" Name="textBox3" VerticalAlignment="Bottom" Width="97" Grid.Column="1" />
+        <CheckBox Grid.Column="1" Height="16" HorizontalAlignment="Right" Margin="0,0,12,9" Name="checkBox1" VerticalAlignment="Bottom" Width="120">CheckBox</CheckBox>
+        <Label Grid.Column="1" Height="28" HorizontalAlignment="Left" Margin="31,33,0,0" Name="label2" VerticalAlignment="Top" Width="120">Label</Label>
+        <Button Grid.Column="1" Height="23" Margin="155,0,202,12" Name="button1" VerticalAlignment="Bottom">Button</Button>
+        <Label Grid.Column="1" Height="28" HorizontalAlignment="Left" Margin="31,81,0,0" Name="label3" VerticalAlignment="Top" Width="90">Label</Label>
+        <Label HorizontalAlignment="Left" Margin="11,115,0,94" Name="label4" Width="90" Grid.Column="1">Label</Label>
+        <Label Height="28" HorizontalAlignment="Left" Margin="11,0,0,60" Name="label5" VerticalAlignment="Bottom" Width="90" Grid.Column="1">Label</Label>
     </Grid>
 </UserControl>
