@@ -99,9 +99,13 @@
     <Compile Include="Sepet.cs" />
     <Compile Include="Settings.cs" />
     <Compile Include="Sube.cs" />
+    <Compile Include="UserControls\moneyTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="ClassDiagram1.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
