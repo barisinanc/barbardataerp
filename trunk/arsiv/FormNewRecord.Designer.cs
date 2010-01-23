@@ -76,11 +76,11 @@
             this.numericProductCount = new System.Windows.Forms.NumericUpDown();
             this.buttonProductInsert = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBoxProductPrice = new System.Windows.Forms.TextBox();
+            this.textBoxProductPrice = new BarisGorselDLL.UserControls.moneyTextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.textBoxProductDiscount = new System.Windows.Forms.TextBox();
+            this.textBoxProductDiscount = new BarisGorselDLL.UserControls.moneyTextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.buttonProductSelectedDelete = new System.Windows.Forms.Button();
             this.buttonProductSelectedEdit = new System.Windows.Forms.Button();
@@ -95,7 +95,7 @@
             this.labelBorc = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
-            this.textBoxAlinanTutar = new System.Windows.Forms.TextBox();
+            this.textBoxAlinanTutar = new BarisGorselDLL.UserControls.moneyTextBox();
             this.labelParaUstu = new System.Windows.Forms.Label();
             this.labelBakiye = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
@@ -940,9 +940,9 @@
         private System.Windows.Forms.TextBox textBoxProductSearch;
         private System.Windows.Forms.Button buttonProductSelectedEdit;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBoxProductPrice;
+        private BarisGorselDLL.UserControls.moneyTextBox textBoxProductPrice;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBoxProductDiscount;
+        private BarisGorselDLL.UserControls.moneyTextBox textBoxProductDiscount;
         private System.Windows.Forms.Button buttonProductEdit;
         private System.Windows.Forms.Button buttonProductAdd;
         private System.Windows.Forms.TextBox textBoxCariCep;
@@ -976,7 +976,7 @@
         private System.Windows.Forms.Label labelBakiye;
         private System.Windows.Forms.Label labelParaUstu;
         private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.TextBox textBoxAlinanTutar;
+        private BarisGorselDLL.UserControls.moneyTextBox textBoxAlinanTutar;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label labelBorc;
         private System.Windows.Forms.ComboBox comboBoxKullanici;
