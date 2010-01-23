@@ -26,7 +26,8 @@ namespace istakip
         }
 
         private List<Product> productList;
-
+        public List<Sepet> sepet = new List<Sepet>();
+        Product SecilenUrun;
         private void textBoxSearch_TextChanged(object sender, TextChangedEventArgs e)
         {
             
