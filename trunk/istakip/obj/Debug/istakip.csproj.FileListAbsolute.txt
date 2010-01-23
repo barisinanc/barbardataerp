@@ -71,3 +71,12 @@ D:\projeler\fototakip\barbardataerp\istakip\obj\Debug\Menu.baml
 D:\projeler\fototakip\barbardataerp\istakip\obj\Debug\Menu.g.cs
 D:\projeler\fototakip\barbardataerp\istakip\obj\Debug\ModulSiparis.baml
 D:\projeler\fototakip\barbardataerp\istakip\obj\Debug\ModulSiparis.g.cs
+D:\projeler\fototakip\barbardataerp\istakip\bin\Debug\Telerik.Windows.Controls.dll
+D:\projeler\fototakip\barbardataerp\istakip\bin\Debug\Telerik.Windows.Controls.Input.dll
+D:\projeler\fototakip\barbardataerp\istakip\bin\Debug\Telerik.Windows.Controls.pdb
+D:\projeler\fototakip\barbardataerp\istakip\bin\Debug\Telerik.Windows.Controls.xml
+D:\projeler\fototakip\barbardataerp\istakip\bin\Debug\Telerik.Windows.Controls.Input.pdb
+D:\projeler\fototakip\barbardataerp\istakip\bin\Debug\Telerik.Windows.Controls.Input.xml
+D:\projeler\fototakip\barbardataerp\istakip\bin\Debug\de\Telerik.Windows.Controls.resources.dll
+D:\projeler\fototakip\barbardataerp\istakip\bin\Debug\es\Telerik.Windows.Controls.resources.dll
+D:\projeler\fototakip\barbardataerp\istakip\bin\Debug\tr\Telerik.Windows.Controls.resources.dll
