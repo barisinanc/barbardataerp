@@ -39,12 +39,10 @@ D:\projeler\fototakip\barbardataerp\istakip\obj\Debug\CariSelect.baml
 D:\projeler\fototakip\barbardataerp\istakip\obj\Debug\Gallery.baml
 D:\projeler\fototakip\barbardataerp\istakip\obj\Debug\PhotoView.baml
 D:\projeler\fototakip\barbardataerp\istakip\obj\Debug\ProductSelect.baml
-D:\projeler\fototakip\barbardataerp\istakip\obj\Debug\Window1.baml
 D:\projeler\fototakip\barbardataerp\istakip\obj\Debug\CariSelect.g.cs
 D:\projeler\fototakip\barbardataerp\istakip\obj\Debug\Gallery.g.cs
 D:\projeler\fototakip\barbardataerp\istakip\obj\Debug\PhotoView.g.cs
 D:\projeler\fototakip\barbardataerp\istakip\obj\Debug\ProductSelect.g.cs
-D:\projeler\fototakip\barbardataerp\istakip\obj\Debug\Window1.g.cs
 D:\projeler\fototakip\barbardataerp\istakip\obj\Debug\App.g.cs
 D:\projeler\fototakip\barbardataerp\istakip\obj\Debug\istakip_MarkupCompile.cache
 D:\projeler\fototakip\barbardataerp\istakip\obj\Debug\istakip.g.resources
@@ -67,3 +65,9 @@ D:\projeler\fototakip\barbardataerp\istakip\bin\Debug\Images\folder.gif
 D:\projeler\fototakip\barbardataerp\istakip\bin\Debug\Images\rotate.png
 D:\projeler\fototakip\barbardataerp\istakip\bin\Debug\Images\rotate_cw.png
 D:\projeler\fototakip\barbardataerp\istakip\bin\Debug\Images\delete.png
+D:\projeler\fototakip\barbardataerp\istakip\obj\Debug\Popup.baml
+D:\projeler\fototakip\barbardataerp\istakip\obj\Debug\Popup.g.cs
+D:\projeler\fototakip\barbardataerp\istakip\obj\Debug\Menu.baml
+D:\projeler\fototakip\barbardataerp\istakip\obj\Debug\Menu.g.cs
+D:\projeler\fototakip\barbardataerp\istakip\obj\Debug\ModulSiparis.baml
+D:\projeler\fototakip\barbardataerp\istakip\obj\Debug\ModulSiparis.g.cs

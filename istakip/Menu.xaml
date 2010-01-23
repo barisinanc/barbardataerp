@@ -1,0 +1,25 @@
+﻿<UserControl x:Class="istakip.Menu"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    >
+    <Grid>
+         <Grid Height="132" Name="grid1" VerticalAlignment="Top" Margin="0,0,0,0" Width="560">
+            <Grid Margin="30,15,0,0" Name="gridPhoto" HorizontalAlignment="Left" Width="140" Cursor="Hand" Height="107" VerticalAlignment="Top">
+                <Image Margin="0,0,0,0" Name="imagePhoto" Height="60" VerticalAlignment="Top" HorizontalAlignment="Center" Width="60" />
+                <Label Height="28" Margin="14,74,0,0" Name="label2" VerticalAlignment="Top" HorizontalAlignment="Left" Width="96">Fotoğraf Seç</Label>
+            </Grid>
+            <Grid Cursor="Hand" HorizontalAlignment="Left" Margin="172,15,0,0" Name="gridProduct" Width="122" Height="107" VerticalAlignment="Top">
+                <Image Margin="0,0,0,0" Name="imageProduct" Height="60" VerticalAlignment="Top" HorizontalAlignment="Center" Width="60" />
+                <Label Height="28" Margin="14,0,12,5" Name="label1" VerticalAlignment="Bottom">Ürün Bilgileri</Label>
+            </Grid>
+            <Grid Cursor="Hand" Margin="296,15,0,0" Name="gridCustomer" HorizontalAlignment="Left" Width="122" Height="107" VerticalAlignment="Top">
+                <Image Margin="0,0,0,0" Name="imageCustomer" Height="60" VerticalAlignment="Top" HorizontalAlignment="Center" Width="60" />
+                <Label Height="28" Margin="14,0,12,5" Name="label3" VerticalAlignment="Bottom">Müşteri Bilgileri</Label>
+            </Grid>
+            <Grid Cursor="Hand" HorizontalAlignment="Left" Margin="420,15,0,0" Name="gridReport" Width="122" Height="107" VerticalAlignment="Top">
+                <Image Margin="0,0,0,0" Name="imageReport" Height="60" VerticalAlignment="Top" HorizontalAlignment="Center" Width="60" />
+                <Label Height="28" Margin="14,0,12,5" Name="label4" VerticalAlignment="Bottom">Onay ve Rapor</Label>
+            </Grid>
+        </Grid>   
+    </Grid>
+</UserControl>

@@ -25,13 +25,15 @@
                 </Grid>
             
         </Grid>
-        <ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Row="1"  Grid.Column="1" Margin="5,0,0,34">
+        <ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Column="1" Margin="5,39,0,0">
             <WrapPanel  Name="wrapPanelGallery"></WrapPanel>
         </ScrollViewer>
-        <Slider Height="22" Margin="0,0,12,6.668" Name="sliderSize" VerticalAlignment="Bottom" ValueChanged="sliderSize_ValueChanged" Minimum="40" Maximum="400" Value="150" SmallChange="1" TickFrequency="5" LargeChange="10" Grid.Row="1" HorizontalAlignment="Right" Width="153.219" Grid.Column="1" />
+        <Slider Height="22" Margin="11,11,0,0" Name="sliderSize" VerticalAlignment="Top" ValueChanged="sliderSize_ValueChanged" Minimum="40" Maximum="400" Value="150" SmallChange="1" TickFrequency="5" LargeChange="10" HorizontalAlignment="Left" Width="153.219" Grid.Column="1" />
         <Button Grid.Row="1" Height="23" Margin="0,10,8,0" Name="buttonPathSelect" VerticalAlignment="Top" Click="buttonPathSelect_Click" HorizontalAlignment="Right" Width="82">Klasör Seç</Button>
         <Label Height="28" Margin="1,10,96,0" Name="labelPath" VerticalAlignment="Top">Klasör Seçilmedi</Label>
         <GridSplitter Margin="0,5,0,-5" Name="gridSplitter1" Width="5" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="1" Foreground="Blue" Background="Black" Opacity="0.5" DragDelta="gridSplitter1_DragDelta" />
+            <Button Grid.Column="1" Height="33" HorizontalAlignment="Right" Margin="0,2,6,0" Name="buttonSave" VerticalAlignment="Top" Width="108" Click="buttonSave_Click">Kaydet</Button>
+            <Button Grid.Column="1" Height="23" Margin="0,12,120,0" Name="buttonCancel" VerticalAlignment="Top" HorizontalAlignment="Right" Width="62" Click="buttonCancel_Click">İptal</Button>
         </Grid>
         </Border>
 </UserControl>

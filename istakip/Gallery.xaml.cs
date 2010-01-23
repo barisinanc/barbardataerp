@@ -192,10 +192,7 @@ namespace istakip
             grid.Children.Add(deleteImage);
             grid.Height = sliderSize.Value;
             grid.Width = sliderSize.Value;
-            //grid.Background = new SolidColorBrush(System.Windows.Media.Color.FromArgb(50, 100, 150, 100));
-
             
-
             wrapPanelGallery.Children.Add(grid);
             grid.BeginAnimation(Grid.OpacityProperty, new DoubleAnimation(0.00, 1, new Duration(new TimeSpan(0, 0, 1))));
             grid.Margin = new Thickness(5, 5, 5, 5);
@@ -343,17 +340,6 @@ namespace istakip
 
                 g.Width = sliderSize.Value;
                 g.Height = sliderSize.Value;
-                /*if (((Image)g.Children[0]).Width > ((Image)g.Children[0]).Height)
-                {
-                    ((Image)g.Children[0]).Width = sliderSize.Value;
-                    ((Image)g.Children[0]).Height = (int)(((decimal)((Image)g.Children[0]).ActualHeight / (decimal)((Image)g.Children[0]).ActualWidth) * (decimal)sliderSize.Value);
-                }
-                else
-                {
-                    ((Image)g.Children[0]).Height = sliderSize.Value;
-                    ((Image)g.Children[0]).Width = (int)(((decimal)((Image)g.Children[0]).ActualWidth / (decimal)((Image)g.Children[0]).ActualHeight) * (decimal)sliderSize.Value);
-                }
-                */
             }
         }
 
@@ -406,12 +392,7 @@ namespace istakip
                         ImageList.Remove(secilen);
                         imageSelected.Source = null;
                     }
-                   
-                    
                 }
-
-
-                
             }
         }
 
@@ -448,6 +429,22 @@ namespace istakip
         private void buttonSaveText_Click(object sender, RoutedEventArgs e)
         {
             ImageList.Where(p => p.IsClicked.Equals(true)).Single().Description = textDescription.Text;
+        }
+        public delegate void SavedEventHandler();
+        public event SavedEventHandler Saved;
+        private void buttonSave_Click(object sender, RoutedEventArgs e)
+        {
+            if (Saved != null)
+            { Saved(); }
+        }
+
+        public delegate void CancelledEventHandler();
+        public event CancelledEventHandler Cancelled;
+
+        private void buttonCancel_Click(object sender, RoutedEventArgs e)
+        {
+            if(Cancelled!=null)
+            { Cancelled(); }
         }
  
     }
