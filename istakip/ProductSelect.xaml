@@ -1,13 +1,26 @@
 ﻿<UserControl x:Class="istakip.ProductSelect"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    Height="339" Width="572" xmlns:my="http://schemas.microsoft.com/wpf/2008/toolkit">
+    Height="475" Width="778" xmlns:my="http://schemas.microsoft.com/wpf/2008/toolkit">
     <Grid Opacity="0.9" Background="Azure">
-        <my:DataGrid AutoGenerateColumns="True" Margin="0,32.867,0,0" Name="dataGridProducts" />
-        <TextBox Height="23" HorizontalAlignment="Left" Margin="57,4,0,0" Name="textBoxSearch" VerticalAlignment="Top" Width="120" TextChanged="textBoxSearch_TextChanged" />
-        <Label Height="28" HorizontalAlignment="Left" Margin="0,-1,0,0" Name="label1" VerticalAlignment="Top" Width="72">Ürün</Label>
-        <Button Height="23" Margin="0,4,93,0" Name="buttonSelect" VerticalAlignment="Top" HorizontalAlignment="Right" Width="74">Seç</Button>
-        <Button Height="23" HorizontalAlignment="Right" Margin="0,4,12,0" Name="buttonCancel" VerticalAlignment="Top" Width="75">İptal</Button>
-        <Button Height="23" HorizontalAlignment="Left" Margin="183,4,0,0" Name="buttonSearch" VerticalAlignment="Top" Width="75" Click="buttonSearch_Click">Ara</Button>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="237*" />
+            <RowDefinition Height="238*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="325*" />
+            <ColumnDefinition Width="406*" />
+        </Grid.ColumnDefinitions>
+        <my:DataGrid AutoGenerateColumns="True" Margin="0,31,15,0" Name="dataGridProducts" Grid.Row="1" />
+        <TextBox Height="23" Margin="57,2,148,0" Name="textBoxSearch" VerticalAlignment="Top" TextChanged="textBoxSearch_TextChanged" Grid.Row="1" />
+        <Label HorizontalAlignment="Left" Margin="0,234,0,213" Name="label1" Width="72" Grid.RowSpan="2">Ürün</Label>
+        <Button Height="23" Margin="0,4,93,0" Name="buttonSelect" VerticalAlignment="Top" HorizontalAlignment="Right" Width="74" Grid.Column="1">Seç</Button>
+        <Button Height="23" HorizontalAlignment="Right" Margin="0,4,12,0" Name="buttonCancel" VerticalAlignment="Top" Width="75" Grid.Column="1">İptal</Button>
+        <Button Height="23" HorizontalAlignment="Right" Margin="0,2,67,0" Name="buttonSearch" VerticalAlignment="Top" Width="75" Click="buttonSearch_Click" Grid.Row="1">Ara</Button>
+        <my:DataGrid AutoGenerateColumns="False" Grid.Column="1" Name="dataGrid1" Margin="19,31,0,0" Grid.Row="1" />
+        <my:DataGrid AutoGenerateColumns="False" Name="dataGrid2" Margin="0,0,0,9" />
+        <my:DatePicker Grid.Column="1" Height="25" Margin="0,84,33,0" Name="datePicker1" VerticalAlignment="Top" HorizontalAlignment="Right" Width="115.104" />
+        <Separator Height="5" Margin="0,0,0,1" Name="separator1" VerticalAlignment="Bottom" />
+        <GridSplitter Grid.Column="1" HorizontalAlignment="Left" Margin="0,4,0,0" Name="gridSplitter1" Width="5" Grid.RowSpan="2" />
     </Grid>
 </UserControl>
