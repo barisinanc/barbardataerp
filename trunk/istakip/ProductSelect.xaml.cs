@@ -23,11 +23,11 @@ namespace istakip
         public ProductSelect()
         {
             InitializeComponent();
+            detailDate.DisplayDateStart = DateTime.Today;
+            detailDate.SelectedDate = DateTime.Today;
+            detailTime.SelectedTime = DateTime.Now.AddHours(2).TimeOfDay;
             dataGridProducts.SelectedCellsChanged += new Microsoft.Windows.Controls.SelectedCellsChangedEventHandler(dataGridProducts_SelectedCellsChanged);
-            
         }
-
-
 
         void dataGridProducts_SelectedCellsChanged(object sender, Microsoft.Windows.Controls.SelectedCellsChangedEventArgs e)
         {
@@ -75,7 +75,7 @@ namespace istakip
             detailCount.Value = 1;
             detailDate.SelectedDate = DateTime.Today;
             detailDiscount.Value = 0;
-            detailTime.SelectedTime = DateTime.Now.TimeOfDay.Add(new TimeSpan(0, 30, 0));
+            detailTime.SelectedTime = DateTime.Now.TimeOfDay.Add(new TimeSpan(2, 0, 0));
             detailText.Text = null;
             detailPrice.Value = 0;
             checkBoxArchive.IsChecked = SecilenUrun.Arsivle;
@@ -140,6 +140,30 @@ namespace istakip
             {
                 SecilenUrun = sepet[dataGridCart.SelectedIndex];
             }
+        }
+
+        private void detailDate_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (detailDate.SelectedDate > DateTime.Today)
+            {
+                detailTime.SelectedTime = TimeSpan.Parse("10:00");
+            }
+        }
+        public delegate void SavedEventHandler();
+        public event SavedEventHandler Saved;
+        private void buttonSave_Click(object sender, RoutedEventArgs e)
+        {
+            if (Saved != null)
+            { Saved(); }
+        }
+
+        public delegate void CancelledEventHandler();
+        public event CancelledEventHandler Cancelled;
+
+        private void buttonCancel_Click(object sender, RoutedEventArgs e)
+        {
+            if (Cancelled != null)
+            { Cancelled(); }
         }
     }
 }

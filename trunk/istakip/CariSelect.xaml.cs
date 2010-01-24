@@ -42,7 +42,8 @@ namespace istakip
                 textBoxCepTel.Text = selectedCari.CepNo;
                 textBoxTel.Text = selectedCari.TelNo;
                 labelCariStatus.Content = selectedCari.CariNo + " numaralı cari seçildi";
-                this.CariSelected();
+                if (CariSelected != null)
+                { CariSelected(); }
             } 
         }
 

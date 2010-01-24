@@ -25,6 +25,10 @@ namespace istakip
     public partial class ModulSiparis : Window
     {
         Menu menuler = new Menu();
+        List<ImagePack> ListImages;
+        List<Sepet> ListSepet;
+        Cari SelectedCari;
+
         public ModulSiparis()
         {
             InitializeComponent();
@@ -48,6 +52,8 @@ namespace istakip
             {
                 ProductSelect productControl = new ProductSelect();
                 gridModule.Children.Add(productControl);
+                productControl.Saved += new ProductSelect.SavedEventHandler(productControl_Saved);
+                productControl.Cancelled += new ProductSelect.CancelledEventHandler(productControl_Cancelled);
             }
             else if (menuler.Selected == Menu.MenuType.Customer)
             {
@@ -60,6 +66,16 @@ namespace istakip
             {
 
             }
+        }
+
+        void productControl_Cancelled()
+        {
+            throw new NotImplementedException();
+        }
+
+        void productControl_Saved()
+        {
+            menuler.Selected = Menu.MenuType.Report;
         }
 
         void cariControl_Cancelled()
