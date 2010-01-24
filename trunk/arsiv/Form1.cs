@@ -317,6 +317,5 @@ namespace arsiv
             FormStockIn stokGiris = new FormStockIn();
             stokGiris.Show();
         }
-        
     }
 }
