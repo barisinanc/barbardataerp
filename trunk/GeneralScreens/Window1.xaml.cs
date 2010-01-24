@@ -12,6 +12,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Forms;
+using System.Threading;
 
 namespace GeneralScreens
 {
@@ -33,12 +34,19 @@ namespace GeneralScreens
 
         private void studyo_Click(object sender, RoutedEventArgs e)
         {
-            istakip.ModulSiparis istakipForm = new istakip.ModulSiparis();
-            istakipForm.Show();
+            istakip.ModulSiparis app = new istakip.ModulSiparis();
+            app.Activate();
+            app.Visibility = Visibility.Visible;
             this.Close();
-            istakipForm.Focus();
+            
+            
         }
-
+        private void openIsTakip() 
+        {
+            istakip.ModulSiparis istakipForm = new istakip.ModulSiparis();
+            istakipForm.InitializeComponent();
+            istakipForm.Show();
+        }
         private void baski_Click(object sender, RoutedEventArgs e)
         {
             System.Windows.MessageBox.Show("Yapim Asamasinda:)");
