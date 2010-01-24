@@ -1,0 +1,16 @@
+﻿<Window x:Class="GeneralScreens.Window1"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="Window1" Height="281" Width="676">
+    <Grid>
+        <Grid HorizontalAlignment="Left" Margin="12,12,0,12" Name="grid1" Width="195">
+            <Button Margin="6" Name="tezgah" Click="button1_Click">Tezgah</Button>
+        </Grid>
+        <Grid Margin="230,12,229,12" Name="grid2">
+            <Button Margin="6" Name="studyo" Click="studyo_Click">Stüdyo</Button>
+        </Grid>
+        <Grid Margin="0,12,12,12" Name="grid3" HorizontalAlignment="Right" Width="195">
+            <Button Margin="6" Name="baski" Click="baski_Click">Baskı</Button>
+        </Grid>
+    </Grid>
+</Window>
