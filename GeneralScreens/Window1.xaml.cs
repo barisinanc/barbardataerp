@@ -27,9 +27,8 @@ namespace GeneralScreens
 
         private void button1_Click(object sender, RoutedEventArgs e)
         {
-            arsiv.Form1 arsivForm = new arsiv.Form1();
-            arsivForm.Show();
             this.Close();
+            System.Windows.Forms.Application.Run(new arsiv.Form1());
         }
 
         private void studyo_Click(object sender, RoutedEventArgs e)
@@ -37,6 +36,7 @@ namespace GeneralScreens
             istakip.ModulSiparis istakipForm = new istakip.ModulSiparis();
             istakipForm.Show();
             this.Close();
+            istakipForm.Focus();
         }
 
         private void baski_Click(object sender, RoutedEventArgs e)
