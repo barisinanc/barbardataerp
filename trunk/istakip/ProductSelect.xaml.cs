@@ -24,7 +24,10 @@ namespace istakip
         {
             InitializeComponent();
             dataGridProducts.SelectedCellsChanged += new Microsoft.Windows.Controls.SelectedCellsChangedEventHandler(dataGridProducts_SelectedCellsChanged);
+            
         }
+
+
 
         void dataGridProducts_SelectedCellsChanged(object sender, Microsoft.Windows.Controls.SelectedCellsChangedEventArgs e)
         {
@@ -63,6 +66,21 @@ namespace istakip
             checkBoxArchive.IsChecked = SecilenUrun.Arsivle;
         }
 
+        private void productDetailsClean()
+        {
+            detailBarcode.Content = "Lütfen bir ürün seçiniz";
+            detailBrand.Content = "";
+            detailModel.Content = "";
+            detailName.Content = "";
+            detailCount.Value = 1;
+            detailDate.SelectedDate = DateTime.Today;
+            detailDiscount.Value = 0;
+            detailTime.SelectedTime = DateTime.Now.TimeOfDay.Add(new TimeSpan(0, 30, 0));
+            detailText.Text = null;
+            detailPrice.Value = 0;
+            checkBoxArchive.IsChecked = SecilenUrun.Arsivle;
+        }
+
         private void textBoxSearch_TextChanged(object sender, TextChangedEventArgs e)
         {
             
@@ -98,6 +116,7 @@ namespace istakip
                 sepet[yeniSiparis.SepetIndex] = yeniSiparis;
             }
             cartGridFill();
+
         }
 
         private void cartGridFill()
@@ -113,6 +132,14 @@ namespace istakip
         {
             sepet.RemoveAt(dataGridCart.SelectedIndex);
             cartGridFill();
+        }
+
+        private void buttonCartEdit_Click(object sender, RoutedEventArgs e)
+        {
+            if (dataGridCart.SelectedIndex > -1)
+            {
+                SecilenUrun = sepet[dataGridCart.SelectedIndex];
+            }
         }
     }
 }

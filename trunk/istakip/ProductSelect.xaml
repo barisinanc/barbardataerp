@@ -12,14 +12,14 @@
             <ColumnDefinition Width="321.079*" />
             <ColumnDefinition Width="456.921*" />
         </Grid.ColumnDefinitions>
-        <my:DataGrid AutoGenerateColumns="True" Margin="0,31,5.555,0" Name="dataGridProducts" Grid.Row="2"/>
+        <my:DataGrid AutoGenerateColumns="True" Margin="0,31,5.555,0" Name="dataGridProducts" Grid.Row="2" SelectionMode="Single" CanUserSortColumns="False" />
         <TextBox Height="23" Margin="57,2,148,0" Name="textBoxSearch" VerticalAlignment="Top" TextChanged="textBoxSearch_TextChanged" Grid.Row="2" />
         <Label HorizontalAlignment="Left" Margin="0,6,0,0" Name="label1" Width="72" Height="28" Grid.Row="2" VerticalAlignment="Top">Ürün</Label>
         <Button Margin="0,0,8,7" Name="buttonSave" HorizontalAlignment="Right" Width="111" Grid.Column="1">Kaydet</Button>
         <Button HorizontalAlignment="Right" Margin="0,17,126,7" Name="buttonCancel" Width="75" Grid.Column="1">İptal</Button>
         <Button Height="23" HorizontalAlignment="Right" Margin="0,2,67,0" Name="buttonSearch" VerticalAlignment="Top" Width="75" Click="buttonSearch_Click" Grid.Row="2">Ara</Button>
-        <my:DataGrid AutoGenerateColumns="False" Grid.Column="1" Name="dataGridCart" Margin="11,31,0,0" Grid.Row="2" />
-        <my:DataGrid AutoGenerateColumns="False" Name="dataGridFavourites" Margin="0,1,6.666,12" Grid.Row="1" />
+        <my:DataGrid AutoGenerateColumns="False" Grid.Column="1" Name="dataGridCart" Margin="11,31,0,0" Grid.Row="2" SelectionMode="Single" CanUserSortColumns="False" />
+        <my:DataGrid AutoGenerateColumns="False" Name="dataGridFavourites" Margin="0,1,6.666,12" Grid.Row="1" SelectionMode="Single" CanUserSortColumns="False" />
         <my:DatePicker Grid.Column="1" Height="25" Margin="195.536,163.328,0,0" Name="detailDate" VerticalAlignment="Top" Text="Tarih Seçiniz" Grid.Row="1" HorizontalAlignment="Left" Width="105.399" />
         <GridSplitter Grid.Column="1" HorizontalAlignment="Left" Margin="0,4,0,-11" Name="gridSplitter1" Width="5" Grid.RowSpan="2" Grid.Row="1" />
         <GridSplitter Name="gridSplitter2" FlowDirection="LeftToRight" Height="6" VerticalAlignment="Bottom" Grid.Row="1" HorizontalAlignment="Stretch" Grid.ColumnSpan="2" />
@@ -35,12 +35,14 @@
         <telerik:RadNumericUpDown Grid.Column="1" Height="28" Margin="195.683,35,0,0" Name="detailCount" VerticalAlignment="Top" Width="60" xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" SmallChange="1" Maximum="100000" Value="1" Grid.Row="1" HorizontalAlignment="Left" />
         <telerik:RadNumericUpDown Grid.Column="1" Height="28" Margin="195.536,69,0,0" Name="detailPrice" VerticalAlignment="Top" Width="80" xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" SmallChange="0.5" Maximum="10000" ValueFormat="Currency" Grid.Row="1" HorizontalAlignment="Left" />
         <telerik:RadNumericUpDown Height="28" Margin="195.536,101.164,0,0" Maximum="10000" Name="detailDiscount" SmallChange="0.5" ValueFormat="Currency" Width="80" xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Top" />
-        <Button Grid.Column="1" Grid.Row="2" Height="23" HorizontalAlignment="Left" Margin="11,2,0,0" Name="buttonCartEdit" VerticalAlignment="Top" Width="75">Düzenle</Button>
+        <Button Grid.Column="1" Grid.Row="2" Height="23" HorizontalAlignment="Left" Margin="11,2,0,0" Name="buttonCartEdit" VerticalAlignment="Top" Width="75" Click="buttonCartEdit_Click">Düzenle</Button>
         <Button Grid.Column="1" Grid.Row="2" Height="23" HorizontalAlignment="Right" Margin="0,2,12,0" Name="buttonCartRemove" VerticalAlignment="Top" Width="75" Click="buttonCartRemove_Click">Sil</Button>
         <Separator Height="7" Name="separator1" VerticalAlignment="Bottom" Grid.ColumnSpan="2" />
         <Label HorizontalAlignment="Left" Margin="11.11,34.441,0,0" Name="detailName" Width="120" Grid.Column="1" Height="28" Grid.Row="1" VerticalAlignment="Top"></Label>
         <Label HorizontalAlignment="Left" Margin="11.11,68.882,0,0" Name="detailBrand" Width="120" Grid.Column="1" Height="28" Grid.Row="1" VerticalAlignment="Top"></Label>
         <Label HorizontalAlignment="Left" Margin="11.11,102.212,0,0" Name="detailModel" Width="120" Grid.Column="1" Grid.Row="1" Height="28.683" VerticalAlignment="Top"></Label>
+        <Label Grid.Column="1" Grid.Row="1" Height="28" Margin="116.655,132.209,0,0" Name="label2" VerticalAlignment="Top" HorizontalAlignment="Left" Width="81.103">Teslim Saati:</Label>
+        <Label Grid.Column="1" Grid.Row="1" Height="28" Margin="111.1,161.778,0,0" Name="label7" VerticalAlignment="Top" HorizontalAlignment="Left" Width="83.325">Teslim Tarihi:</Label>
     </Grid>
 
 
