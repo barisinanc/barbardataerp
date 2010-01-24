@@ -88,8 +88,15 @@ namespace istakip
             yeniSiparis.Indirim = (decimal)detailDiscount.Value;
             yeniSiparis.Fiyat = (decimal)detailPrice.Value;
             yeniSiparis.TeslimTarihi = detailDate.SelectedDate.Value.Add(detailTime.SelectedTime.Value);
-            yeniSiparis.SepetIndex = sepet.Count;
-            sepet.Add(yeniSiparis);
+            if (yeniSiparis.SepetIndex == -1)
+            {
+                yeniSiparis.SepetIndex = sepet.Count;
+                sepet.Add(yeniSiparis);
+            }
+            else
+            {
+                sepet[yeniSiparis.SepetIndex] = yeniSiparis;
+            }
             cartGridFill();
         }
 
