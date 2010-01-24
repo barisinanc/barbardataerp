@@ -9,34 +9,39 @@
             <RowDefinition Height="208*" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="325*" />
-            <ColumnDefinition Width="406*" />
+            <ColumnDefinition Width="321.079*" />
+            <ColumnDefinition Width="456.921*" />
         </Grid.ColumnDefinitions>
-        <my:DataGrid AutoGenerateColumns="True" Margin="0,31,6,0" Name="dataGridProducts" Grid.Row="2" />
+        <my:DataGrid AutoGenerateColumns="True" Margin="0,31,5.555,0" Name="dataGridProducts" Grid.Row="2"/>
         <TextBox Height="23" Margin="57,2,148,0" Name="textBoxSearch" VerticalAlignment="Top" TextChanged="textBoxSearch_TextChanged" Grid.Row="2" />
         <Label HorizontalAlignment="Left" Margin="0,6,0,0" Name="label1" Width="72" Height="28" Grid.Row="2" VerticalAlignment="Top">Ürün</Label>
         <Button Margin="0,0,8,7" Name="buttonSave" HorizontalAlignment="Right" Width="111" Grid.Column="1">Kaydet</Button>
         <Button HorizontalAlignment="Right" Margin="0,17,126,7" Name="buttonCancel" Width="75" Grid.Column="1">İptal</Button>
         <Button Height="23" HorizontalAlignment="Right" Margin="0,2,67,0" Name="buttonSearch" VerticalAlignment="Top" Width="75" Click="buttonSearch_Click" Grid.Row="2">Ara</Button>
         <my:DataGrid AutoGenerateColumns="False" Grid.Column="1" Name="dataGridCart" Margin="11,31,0,0" Grid.Row="2" />
-        <my:DataGrid AutoGenerateColumns="False" Name="dataGridFavourites" Margin="0,1,6,12" Grid.Row="1" />
-        <my:DatePicker Grid.Column="1" Height="25" Margin="69,163,0,0" Name="datePicker1" VerticalAlignment="Top" Text="Teslim Tarihi" HorizontalAlignment="Left" Width="107" Grid.Row="1" />
+        <my:DataGrid AutoGenerateColumns="False" Name="dataGridFavourites" Margin="0,1,6.666,12" Grid.Row="1" />
+        <my:DatePicker Grid.Column="1" Height="25" Margin="195.536,163.328,0,0" Name="detailDate" VerticalAlignment="Top" Text="Tarih Seçiniz" Grid.Row="1" HorizontalAlignment="Left" Width="105.399" />
         <GridSplitter Grid.Column="1" HorizontalAlignment="Left" Margin="0,4,0,-11" Name="gridSplitter1" Width="5" Grid.RowSpan="2" Grid.Row="1" />
         <GridSplitter Name="gridSplitter2" FlowDirection="LeftToRight" Height="6" VerticalAlignment="Bottom" Grid.Row="1" HorizontalAlignment="Stretch" Grid.ColumnSpan="2" />
         <CheckBox Grid.Column="1" HorizontalAlignment="Left" Margin="11,213,0,0" Name="checkBoxArchive" Width="74" Grid.Row="1" Height="16" VerticalAlignment="Top">Arşivle</CheckBox>
-        <Label Grid.Column="1" Height="28" HorizontalAlignment="Left" Margin="11,1,0,0" Name="label2" VerticalAlignment="Top" Width="120" Grid.Row="1">Ürün Seçiniz</Label>
-        <Button Grid.Column="1" Margin="107,196.579,9,0" Name="buttonCartAdd" Height="36" VerticalAlignment="Top" Grid.Row="1">Sepete Ekle</Button>
-        <Label Grid.Column="1" Height="28" HorizontalAlignment="Left" Margin="11,35,0,0" Name="label3" VerticalAlignment="Top" Width="90" Grid.Row="1">Adet:</Label>
-        <Label HorizontalAlignment="Left" Margin="11,73,0,0" Name="label4" Width="90" Grid.Column="1" Height="26" Grid.Row="1" VerticalAlignment="Top">Label</Label>
-        <Label HorizontalAlignment="Left" Margin="11,103.421,0,101" Name="label5" Width="90" Grid.Column="1" Grid.Row="1">Label</Label>
-        <TextBox Grid.Column="1" Margin="198,47,12,0" Name="textBox4" TextWrapping="Wrap" AcceptsReturn="True" Height="81.579" VerticalAlignment="Top" Grid.Row="1" />
-        <Label Grid.Column="1" Height="28" Margin="198,13,114.104,0" Name="label6" VerticalAlignment="Top" Grid.Row="1">Açıklama:</Label>
-        <telerik:RadTimePicker Grid.Column="1" Height="24" HorizontalAlignment="Left" Margin="68,132,0,0" Name="radTimePicker1" Width="107" xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" TimeInterval="00:30:00" StartTime="08:00:00" VerticalAlignment="Top" Grid.Row="1" />
-        <telerik:RadNumericUpDown Grid.Column="1" Height="28" HorizontalAlignment="Left" Margin="69,35,0,0" Name="radNumericUpDown1" VerticalAlignment="Top" Width="60" xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" SmallChange="1" Maximum="100000" Value="1" Grid.Row="1" />
-        <telerik:RadNumericUpDown Grid.Column="1" Height="28" HorizontalAlignment="Left" Margin="69,69,0,0" Name="radNumericUpDown2" VerticalAlignment="Top" Width="80" xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" SmallChange="0.5" Maximum="10000" ValueFormat="Currency" Grid.Row="1" />
-        <telerik:RadNumericUpDown Height="28" HorizontalAlignment="Left" Margin="69,101,0,0" Maximum="10000" Name="radNumericUpDown3" SmallChange="0.5" ValueFormat="Currency" Width="80" xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" Grid.Column="1" Grid.Row="1" VerticalAlignment="Top" />
+        <Label Grid.Column="1" Height="28" HorizontalAlignment="Left" Margin="11,1,0,0" Name="detailBarcode" VerticalAlignment="Top" Width="120" Grid.Row="1">Ürün Seçiniz</Label>
+        <Button Grid.Column="1" Margin="107,196.579,0,0" Name="buttonCartAdd" Height="36" VerticalAlignment="Top" Grid.Row="1" HorizontalAlignment="Left" Width="377.584" Click="buttonCartAdd_Click">Sepete Ekle</Button>
+        <Label Grid.Column="1" Height="28" HorizontalAlignment="Left" Margin="148.874,35,0,0" Name="label3" VerticalAlignment="Top" Width="41" Grid.Row="1">Adet:</Label>
+        <Label HorizontalAlignment="Left" Margin="153.318,72,0,0" Name="label4" Width="36" Grid.Column="1" Height="26" Grid.Row="1" VerticalAlignment="Top">Fiyat:</Label>
+        <Label HorizontalAlignment="Left" Margin="137.764,104,0,115.368" Name="label5" Width="52" Grid.Column="1" Grid.Row="1">İndirim:</Label>
+        <TextBox Grid.Column="1" Margin="311.584,47,8,0" Name="detailText" TextWrapping="Wrap" AcceptsReturn="True" Grid.Row="1" Height="127.328" VerticalAlignment="Top" />
+        <Label Grid.Column="1" Height="28" Margin="311.584,13,0,0" Name="label6" VerticalAlignment="Top" Grid.Row="1" HorizontalAlignment="Left" Width="120">Açıklama:</Label>
+        <telerik:RadTimePicker Grid.Column="1" Height="24" Margin="194.425,132.328,0,0" Name="detailTime" Width="107" xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" TimeInterval="00:30:00" StartTime="08:00:00" VerticalAlignment="Top" HeaderContent="Teslim Saati" Grid.Row="1" HorizontalAlignment="Left" />
+        <telerik:RadNumericUpDown Grid.Column="1" Height="28" Margin="195.683,35,0,0" Name="detailCount" VerticalAlignment="Top" Width="60" xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" SmallChange="1" Maximum="100000" Value="1" Grid.Row="1" HorizontalAlignment="Left" />
+        <telerik:RadNumericUpDown Grid.Column="1" Height="28" Margin="195.536,69,0,0" Name="detailPrice" VerticalAlignment="Top" Width="80" xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" SmallChange="0.5" Maximum="10000" ValueFormat="Currency" Grid.Row="1" HorizontalAlignment="Left" />
+        <telerik:RadNumericUpDown Height="28" Margin="195.536,101.164,0,0" Maximum="10000" Name="detailDiscount" SmallChange="0.5" ValueFormat="Currency" Width="80" xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Top" />
         <Button Grid.Column="1" Grid.Row="2" Height="23" HorizontalAlignment="Left" Margin="11,2,0,0" Name="buttonCartEdit" VerticalAlignment="Top" Width="75">Düzenle</Button>
-        <Button Grid.Column="1" Grid.Row="2" Height="23" HorizontalAlignment="Right" Margin="0,2,12,0" Name="buttonCartRemove" VerticalAlignment="Top" Width="75">Sil</Button>
+        <Button Grid.Column="1" Grid.Row="2" Height="23" HorizontalAlignment="Right" Margin="0,2,12,0" Name="buttonCartRemove" VerticalAlignment="Top" Width="75" Click="buttonCartRemove_Click">Sil</Button>
         <Separator Height="7" Name="separator1" VerticalAlignment="Bottom" Grid.ColumnSpan="2" />
+        <Label HorizontalAlignment="Left" Margin="11.11,34.441,0,0" Name="detailName" Width="120" Grid.Column="1" Height="28" Grid.Row="1" VerticalAlignment="Top"></Label>
+        <Label HorizontalAlignment="Left" Margin="11.11,68.882,0,0" Name="detailBrand" Width="120" Grid.Column="1" Height="28" Grid.Row="1" VerticalAlignment="Top"></Label>
+        <Label HorizontalAlignment="Left" Margin="11.11,102.212,0,0" Name="detailModel" Width="120" Grid.Column="1" Grid.Row="1" Height="28.683" VerticalAlignment="Top"></Label>
     </Grid>
+
+
 </UserControl>
