@@ -38,8 +38,6 @@ namespace GeneralScreens
             app.Activate();
             app.Visibility = Visibility.Visible;
             this.Close();
-            
-            
         }
         private void openIsTakip() 
         {

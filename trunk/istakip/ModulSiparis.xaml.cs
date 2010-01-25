@@ -28,7 +28,10 @@ namespace istakip
         List<ImagePack> ListImages;
         List<Sepet> ListSepet;
         Cari SelectedCari;
-
+        Gallery galeri;
+        ProductSelect productControl;
+        CariSelect cariControl;
+        Report reportControl;
         public ModulSiparis()
         {
             InitializeComponent();
@@ -43,39 +46,41 @@ namespace istakip
             gridModule.Children.Clear();
             if (menuler.Selected == Menu.MenuType.Photo)
             {
-                Gallery galeri = new Gallery();
+                galeri = new Gallery();
                 gridModule.Children.Add(galeri);
                 galeri.Saved += new Gallery.SavedEventHandler(galeri_Saved);
                 galeri.Cancelled += new Gallery.CancelledEventHandler(galeri_Cancelled);
             }
             else if (menuler.Selected == Menu.MenuType.Product)
             {
-                ProductSelect productControl = new ProductSelect();
+                productControl = new ProductSelect();
                 gridModule.Children.Add(productControl);
                 productControl.Saved += new ProductSelect.SavedEventHandler(productControl_Saved);
                 productControl.Cancelled += new ProductSelect.CancelledEventHandler(productControl_Cancelled);
             }
             else if (menuler.Selected == Menu.MenuType.Customer)
             {
-                CariSelect cariControl = new CariSelect();
+                cariControl = new CariSelect();
                 gridModule.Children.Add(cariControl);
                 cariControl.Saved += new CariSelect.SavedEventHandler(cariControl_Saved);
                 cariControl.Cancelled += new CariSelect.CancelledEventHandler(cariControl_Cancelled);
             }
             else if (menuler.Selected == Menu.MenuType.Report)
             {
-
+                reportControl = new Report();
+                gridModule.Children.Add(reportControl);
             }
         }
 
         void productControl_Cancelled()
         {
-            throw new NotImplementedException();
+            menuler.Selected = Menu.MenuType.Photo;
         }
 
         void productControl_Saved()
         {
-            menuler.Selected = Menu.MenuType.Report;
+            ListSepet = productControl.sepet;
+            menuler.Selected = Menu.MenuType.Customer;
         }
 
         void cariControl_Cancelled()
@@ -85,6 +90,7 @@ namespace istakip
 
         void cariControl_Saved()
         {
+            SelectedCari = cariControl.selectedCari;
             menuler.Selected = Menu.MenuType.Report;
         }
 
@@ -95,6 +101,7 @@ namespace istakip
 
         void galeri_Saved()
         {
+            ListImages = galeri.ImageList;
             menuler.Selected = Menu.MenuType.Product;
         }
        
