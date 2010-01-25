@@ -121,7 +121,7 @@ namespace istakip
                     ImageList.Add(paket);
                     methodGaleryFill(paket);
                 }
-            
+                fileNames = null;
 
         }
 

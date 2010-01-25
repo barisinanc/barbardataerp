@@ -1,0 +1,9 @@
+﻿<UserControl x:Class="istakip.Report"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    MinHeight="400" MinWidth="600">
+    <Grid>
+        <Grid Height="100" Name="gridPersonel" VerticalAlignment="Bottom" />
+        <Label Height="28" Margin="12,0,0,106" Name="label1" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="120">Onaylayan:</Label>
+    </Grid>
+</UserControl>
