@@ -35,7 +35,7 @@ namespace BarisGorselDLL
         private string _connStr;
         private SqlConnection _conn;
 
-        public string ConnectionString
+        protected string ConnectionString
         {
             get
             {
@@ -46,14 +46,14 @@ namespace BarisGorselDLL
                 _connStr = value;
             }
         }
-        public SqlConnection Connection
+        protected SqlConnection Connection
         {
             get
             {
                 return _conn;
             }
         }
-        public void Connect()
+        protected void Connect()
         {
 
             if (_conn == null)
@@ -64,19 +64,19 @@ namespace BarisGorselDLL
             }
         }
 
-        public void Disconnect()
+        protected void Disconnect()
         {
             Dispose();
         }
 
-        public bool Connected;
+        protected bool Connected;
 
-        public ConnectionImporter()
+        protected ConnectionImporter()
         {
             _connStr = BarisGorselDLL.Properties.Settings.Default.connectionStringDis;
         }
 
-        public static object CN(object inObj)
+        protected static object CN(object inObj)
         {
             if (inObj == DBNull.Value)
             {
@@ -87,7 +87,7 @@ namespace BarisGorselDLL
                 return inObj;
             }
         }
-        public static int CNInt(object val)
+        protected static int CNInt(object val)
         {
             if (val == DBNull.Value)
             {
@@ -99,7 +99,7 @@ namespace BarisGorselDLL
             }
         }
 
-        public static double CNDouble(object val)
+        protected static double CNDouble(object val)
         {
             if (val == DBNull.Value)
             {
@@ -111,7 +111,7 @@ namespace BarisGorselDLL
             }
         }
 
-        public static DateTime CNDateTime(object val)
+        protected static DateTime CNDateTime(object val)
         {
             if (val == DBNull.Value)
             {
@@ -122,7 +122,7 @@ namespace BarisGorselDLL
                 return (Convert.ToDateTime(val));
             }
         }
-        public static string CNString(object val)
+        protected static string CNString(object val)
         {
             if (val == DBNull.Value)
             {
