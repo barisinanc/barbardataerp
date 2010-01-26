@@ -47,6 +47,7 @@ namespace istakip
                 grid.Children.Add(isim);
                 grid.Margin = new Thickness(5, 0, 5, 0);
                 wrapPanel.Children.Add(grid);
+                
             }
         }
     }
