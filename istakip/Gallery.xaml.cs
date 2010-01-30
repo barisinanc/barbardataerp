@@ -316,8 +316,8 @@ namespace istakip
             {
                 ImagePack secilen = ImageList.Where(p => p.IsClicked.Equals(true)).Single();
                 PhotoView viewer = new PhotoView(secilen.Path);
-                viewer.Show();
                 viewer.WindowState = WindowState.Maximized;
+                viewer.Show();
                 viewer.Topmost = true;
             }
         }
@@ -453,6 +453,34 @@ namespace istakip
         {
             if(Cancelled!=null)
             { Cancelled(); }
+        }
+
+        private void buttonSelectAll_Click(object sender, RoutedEventArgs e)
+        {
+            foreach (ImagePack img in ImageList)
+            {
+                //img.IsSelected = true;
+                wrapPanelGallery.Children.OfType<Grid>().Where(p => p.Uid == img.Id.ToString()).First().Children.OfType<CheckBox>().First().IsChecked = true;
+            }
+        }
+
+        private void buttonDeselectAll_Click(object sender, RoutedEventArgs e)
+        {
+            foreach (ImagePack img in ImageList)
+            {
+                //img.IsSelected = false;
+                wrapPanelGallery.Children.OfType<Grid>().Where(p => p.Uid == img.Id.ToString()).First().Children.OfType<CheckBox>().First().IsChecked = false;
+            }
+        }
+
+        private void buttonLefttAll_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void buttonRightAll_Click(object sender, RoutedEventArgs e)
+        {
+
         }
  
     }
