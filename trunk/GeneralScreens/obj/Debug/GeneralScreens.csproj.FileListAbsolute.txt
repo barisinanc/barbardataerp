@@ -92,3 +92,5 @@ D:\projeler\fototakip\barbardataerp\GeneralScreens\obj\Debug\GeneralScreens_Mark
 D:\projeler\fototakip\barbardataerp\GeneralScreens\obj\Debug\GeneralScreens.g.resources
 D:\projeler\fototakip\barbardataerp\GeneralScreens\obj\Debug\GeneralScreens.Properties.Resources.resources
 D:\projeler\fototakip\barbardataerp\GeneralScreens\obj\Debug\GeneralScreens.csproj.GenerateResource.Cache
+D:\projeler\fototakip\barbardataerp\GeneralScreens\bin\Debug\nftplib.dll
+D:\projeler\fototakip\barbardataerp\GeneralScreens\bin\Debug\nftplib.pdb
