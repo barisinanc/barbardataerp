@@ -20,3 +20,5 @@ D:\projeler\fototakip\barbardataerp\BarisGorselDll\bin\Debug\DiscUtils.dll
 D:\projeler\fototakip\barbardataerp\BarisGorselDll\bin\Debug\Ionic.Zlib.dll
 D:\projeler\fototakip\barbardataerp\BarisGorselDll\bin\Debug\Ionic.Zlib.pdb
 D:\projeler\fototakip\barbardataerp\BarisGorselDll\bin\Debug\Ionic.Zlib.xml
+D:\projeler\fototakip\barbardataerp\BarisGorselDll\bin\Debug\nftplib.dll
+D:\projeler\fototakip\barbardataerp\BarisGorselDll\bin\Debug\nftplib.pdb
