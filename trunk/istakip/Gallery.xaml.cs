@@ -75,6 +75,10 @@ namespace istakip
             BitmapImage resimSil = new BitmapImage(adresSil);
             selectedDelete.Source = resimSil;
 
+            Uri adresUp = new Uri(AppDomain.CurrentDomain.BaseDirectory + "/Images/folder_up.gif", UriKind.RelativeOrAbsolute);
+            BitmapImage resimUp = new BitmapImage(adresUp);
+            GoUp.Source = resimUp;
+
             if (istakip.Properties.Settings.Default.GalleryPath != "")
             {
                 Path = istakip.Properties.Settings.Default.GalleryPath;
@@ -227,7 +231,7 @@ namespace istakip
         private void folderFill(string path)
         {
             Image photo = new Image();
-            //photo.MouseDown += new MouseButtonEventHandler(photo_MouseDown);
+            photo.MouseDown+=new MouseButtonEventHandler(folder_MouseDown);
             Uri adres = new Uri(AppDomain.CurrentDomain.BaseDirectory+"/Images/folder.gif",UriKind.RelativeOrAbsolute);
             BitmapImage resim = new BitmapImage(adres);
             photo.Uid = path;
@@ -322,15 +326,25 @@ namespace istakip
             }
         }
 
+        void folder_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ChangedButton == MouseButton.Left && e.ClickCount == 2)
+            {
+                Path = ((Image)sender).Uid;
+            }
+        }
+
 
         private void ShowImage()
         {
-            ImagePack image = ImageList.Where(p => p.IsClicked.Equals(true)).Single();
-            imageSelected.Source = image.ImageRead();
-            labelFileName.Content = image.Name;
-            imageFlag.IsChecked = image.IsFlagged;
-            imageSelected.BeginAnimation(Image.OpacityProperty, new DoubleAnimation(0.00, 1, new Duration(new TimeSpan(0, 0, 0, 0, 300))));
-            
+            if (ImageList.Where(p => p.IsClicked.Equals(true)).Count() > 0)
+            {
+                ImagePack image = ImageList.Where(p => p.IsClicked.Equals(true)).Single();
+                imageSelected.Source = image.ImageRead();
+                labelFileName.Content = image.Name;
+                imageFlag.IsChecked = image.IsFlagged;
+                imageSelected.BeginAnimation(Image.OpacityProperty, new DoubleAnimation(0.00, 1, new Duration(new TimeSpan(0, 0, 0, 0, 300))));
+            }
         }
 
         private void sliderSize_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
@@ -475,12 +489,38 @@ namespace istakip
 
         private void buttonLefttAll_Click(object sender, RoutedEventArgs e)
         {
-
+            ((Button)(sender)).IsEnabled = false;
+            watcher.Changed -= new FileSystemEventHandler(watcher_Update);
+            foreach(ImagePack img in ImageList.Where(p=>p.IsSelected==true))
+            {
+                img.Rotate(BarisGorselDLL.Photo.RotateTypes.Left);
+                wrapPanelGallery.Children.OfType<Grid>().Where(p => p.Uid == img.Id.ToString()).First().Children.OfType<Image>().First().Source = img.ThumbRead();
+            }
+            ShowImage();
+            watcher.Changed += new FileSystemEventHandler(watcher_Update);
+            ((Button)(sender)).IsEnabled = true;
         }
 
         private void buttonRightAll_Click(object sender, RoutedEventArgs e)
         {
+            ((Button)(sender)).IsEnabled = false;
+            watcher.Changed -= new FileSystemEventHandler(watcher_Update);
+            foreach (ImagePack img in ImageList.Where(p => p.IsSelected == true))
+            {
+                img.Rotate(BarisGorselDLL.Photo.RotateTypes.Right);
+                wrapPanelGallery.Children.OfType<Grid>().Where(p => p.Uid == img.Id.ToString()).First().Children.OfType<Image>().First().Source = img.ThumbRead();
+            }
+            ShowImage();
+            watcher.Changed += new FileSystemEventHandler(watcher_Update);
+            ((Button)(sender)).IsEnabled = true;
+        }
 
+        private void GoUp_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ChangedButton == MouseButton.Left && e.ClickCount == 1)
+            {
+                Path = Directory.GetParent(Path).FullName;
+            }
         }
  
     }
