@@ -68,6 +68,15 @@ namespace istakip
             else if (menuler.Selected == Menu.MenuType.Report)
             {
                 reportControl = new Report();
+                reportControl.SelectedCari = SelectedCari;
+                //reportControl.ListImages = (List<BarisGorselDLL.ImagePack>)ListImages;//TODO!!
+                List<BarisGorselDLL.ImagePack> newImages = new List<BarisGorselDLL.ImagePack>();
+                foreach (ImagePack img in ListImages)
+                {
+                    newImages.Add(img);
+                }
+                reportControl.ListImages = newImages;
+                reportControl.ListSepet = ListSepet;
                 gridModule.Children.Add(reportControl);
             }
         }
@@ -101,7 +110,7 @@ namespace istakip
 
         void galeri_Saved()
         {
-            ListImages = galeri.ImageList;
+            ListImages = galeri.ImageList.Where(p=>p.IsSelected==true).ToList();
             menuler.Selected = Menu.MenuType.Product;
         }
        

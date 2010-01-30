@@ -25,14 +25,27 @@ namespace istakip
             InitializeComponent();
             fillList();
         }
-        public Kullanici selectedKullanici;
+        private Kullanici _selectedKullanici;
+        public Kullanici selectedKullanici
+        {
+            get { return _selectedKullanici; }
+            set {
+                _selectedKullanici = value;
+                if (UserSelected != null)
+                {
+                    UserSelected();
+                }
+            }
+        }
+        private List<Kullanici> kullanicilar;
         private void fillList()
         {
             MainGrid.Children.Clear();
             WrapPanel wrapPanel = new WrapPanel();
             MainGrid.Children.Add(wrapPanel);
             selectedKullanici = new Kullanici();
-            foreach (Kullanici k in selectedKullanici.kullanicilar())
+            kullanicilar=selectedKullanici.kullanicilar();
+            foreach (Kullanici k in kullanicilar)
             {
                 Image photo = new Image();
                 photo.MaxHeight = 75;
@@ -45,10 +58,20 @@ namespace istakip
                 grid.Height = 100;
                 grid.Children.Add(photo);
                 grid.Children.Add(isim);
+                grid.Uid = k.Id.ToString();
                 grid.Margin = new Thickness(5, 0, 5, 0);
+                grid.Cursor = Cursors.Hand;
                 wrapPanel.Children.Add(grid);
-                
+                grid.MouseDown += new MouseButtonEventHandler(grid_MouseDown);
             }
+        }
+
+        public delegate void UserSelectedEventHandler();
+        public event UserSelectedEventHandler UserSelected;
+
+        void grid_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            selectedKullanici = kullanicilar.Where(p => p.Id == Convert.ToInt32((sender as Grid).Uid)).First();
         }
     }
 }

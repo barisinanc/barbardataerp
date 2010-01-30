@@ -83,3 +83,5 @@ D:\projeler\fototakip\barbardataerp\istakip\obj\Debug\PersonelList.baml
 D:\projeler\fototakip\barbardataerp\istakip\obj\Debug\Report.baml
 D:\projeler\fototakip\barbardataerp\istakip\obj\Debug\PersonelList.g.cs
 D:\projeler\fototakip\barbardataerp\istakip\obj\Debug\Report.g.cs
+D:\projeler\fototakip\barbardataerp\istakip\bin\Debug\nftplib.dll
+D:\projeler\fototakip\barbardataerp\istakip\bin\Debug\nftplib.pdb

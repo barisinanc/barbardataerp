@@ -100,6 +100,7 @@ namespace istakip
                             || f.EndsWith(".psd")
                             || f.EndsWith(".PSD")
                     );
+            
                 methodClear();
                 foreach (string dir in Directory.GetDirectories(FolderPath).Where(p=>!p.EndsWith("_thumbs")))
                 {
@@ -118,6 +119,7 @@ namespace istakip
                     paket.IsClicked = false;
                     paket.IsSelected = false;
                     paket.Id = i;
+                    paket.IsRaw = true;
                     ImageList.Add(paket);
                     methodGaleryFill(paket);
                 }
@@ -355,15 +357,21 @@ namespace istakip
 
         private void imageFlag_Checked(object sender, RoutedEventArgs e)
         {
-            ImagePack secilen = ImageList.Where(p => p.IsClicked.Equals(true)).Single();
-            secilen.IsFlagged = true;
-            wrapPanelGallery.Children.OfType<Grid>().Where(p => p.Uid == secilen.Id.ToString()).Single().Children.OfType<CheckBox>().Single().IsChecked = true;
+            if (ImageList.Where(p => p.IsClicked.Equals(true)).Count() > 0)
+            {
+                ImagePack secilen = ImageList.Where(p => p.IsClicked.Equals(true)).Single();
+                secilen.IsFlagged = true;
+                wrapPanelGallery.Children.OfType<Grid>().Where(p => p.Uid == secilen.Id.ToString()).Single().Children.OfType<CheckBox>().Single().IsChecked = true;
+            }
         }
 
         private void imageFlag_Unchecked(object sender, RoutedEventArgs e)
         {
-            ImagePack secilen = ImageList.Where(p => p.IsClicked.Equals(true)).Single();
-            secilen.IsFlagged = false;
+            if (ImageList.Where(p => p.IsClicked.Equals(true)).Count() > 0)
+            {
+                ImagePack secilen = ImageList.Where(p => p.IsClicked.Equals(true)).Single();
+                secilen.IsFlagged = false;
+            }
         }
 
         private void gridSplitter1_DragDelta(object sender, System.Windows.Controls.Primitives.DragDeltaEventArgs e)
