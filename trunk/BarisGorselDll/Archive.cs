@@ -27,9 +27,9 @@ namespace BarisGorselDLL
             cmd.Parameters["@ArsivNo"].Direction = ParameterDirection.InputOutput;
             cmd.Parameters["@ArsivNo"].Value = ArsivNo;
             cmd.ExecuteNonQuery();
+            ArsivNo = cmd.Parameters["@ArsivNo"].Value.ToString();
             cmd.Dispose();
             cmd = null;
-            ArsivNo = cmd.Parameters["@ArsivNo"].Value.ToString();
             Disconnect();
             return ArsivNo;
         }
