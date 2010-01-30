@@ -155,6 +155,19 @@ namespace BarisGorselDLL
             
         }
 
+        public static string ThumbFolderCreator(string _Path)
+        {
+            string folderPath = System.IO.Path.GetFullPath(_Path) + "_thumbs\\";
+            if (!System.IO.Directory.Exists(folderPath))
+            {
+                System.IO.Directory.CreateDirectory(folderPath);
+                File.SetAttributes(folderPath, FileAttributes.NotContentIndexed | FileAttributes.Hidden | FileAttributes.System);
+            }
+
+            return folderPath;
+
+        }
+
         public static void ThumbCreate(string Path, Size size)
         {
             Image img = Image.FromFile(Path);
