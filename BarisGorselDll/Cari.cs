@@ -50,10 +50,10 @@ namespace BarisGorselDLL
             cmd.Parameters.Add("@CariNo", SqlDbType.BigInt);
             cmd.Parameters["@CariNo"].Direction = ParameterDirection.InputOutput;
             cmd.Parameters["@CariNo"].Value = CariNo;
-            cmd.ExecuteNonQuery();
+            cmd.ExecuteNonQuery();            
+            CariNo = (long)cmd.Parameters["@CariNo"].Value;
             cmd.Dispose();
             cmd = null;
-            CariNo = (long)cmd.Parameters["@CariNo"].Value;
             Disconnect();
             return CariNo;
         }
