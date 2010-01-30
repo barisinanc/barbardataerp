@@ -46,6 +46,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\MagickNet.dll</HintPath>
     </Reference>
+    <Reference Include="nftplib, Version=0.2.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\nftplib\nftplib\bin\Debug\nftplib.dll</HintPath>
+    </Reference>
     <Reference Include="PhotoShop, Version=1.0.4.33208, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\PhotoShop.dll</HintPath>
@@ -68,6 +72,7 @@
   <ItemGroup>
     <Compile Include="Account.cs" />
     <Compile Include="Archive.cs" />
+    <Compile Include="ArchiveStorage.cs" />
     <Compile Include="ArchiveTypes.cs" />
     <Compile Include="Barcode.cs" />
     <Compile Include="Baris2Import.cs" />
@@ -77,6 +82,7 @@
     <Compile Include="ConnectionStrings.cs" />
     <Compile Include="ConnectionTest.cs" />
     <Compile Include="Database.cs" />
+    <Compile Include="Ftp.cs" />
     <Compile Include="ImagePack.cs" />
     <Compile Include="IsoCreate.cs" />
     <Compile Include="Kullanici.cs" />
@@ -106,7 +112,7 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
+      <Generator>PublicSettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
   </ItemGroup>
