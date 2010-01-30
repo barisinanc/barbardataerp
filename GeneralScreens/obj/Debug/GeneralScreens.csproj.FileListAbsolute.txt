@@ -94,3 +94,4 @@ D:\projeler\fototakip\barbardataerp\GeneralScreens\obj\Debug\GeneralScreens.Prop
 D:\projeler\fototakip\barbardataerp\GeneralScreens\obj\Debug\GeneralScreens.csproj.GenerateResource.Cache
 D:\projeler\fototakip\barbardataerp\GeneralScreens\bin\Debug\nftplib.dll
 D:\projeler\fototakip\barbardataerp\GeneralScreens\bin\Debug\nftplib.pdb
+D:\projeler\fototakip\barbardataerp\GeneralScreens\bin\Debug\Images\folder_up.gif
