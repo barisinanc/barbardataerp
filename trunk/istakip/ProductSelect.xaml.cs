@@ -165,5 +165,15 @@ namespace istakip
             if (Cancelled != null)
             { Cancelled(); }
         }
+
+        private void detailCount_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            if (_SecilenUrun != null)
+            {
+                decimal fiyat = 0;
+                fiyat = _SecilenUrun.Fiyat * (decimal)detailCount.Value;
+                detailPrice.Value = (double)(fiyat);
+            }
+        }
     }
 }

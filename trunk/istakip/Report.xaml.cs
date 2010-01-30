@@ -93,6 +93,7 @@ namespace istakip
             yeniHesap.CariNo = CariNo;
             yeniHesap.Borc = borc;
             yeniHesap.Alinan = 0;
+            yeniHesap.OdemeTuru = 1;
             /*(from x in Sepet
                             select new { Tutar = x.Fiyat }).Sum(p => p.Tutar)-borc;*/
             yeniHesap.addAccount();
