@@ -36,17 +36,16 @@ namespace istakip
                 istakip.Properties.Settings.Default.Save();
                 if (!(_Path == "" || _Path == null))
                 {
-                    Thread islemFill = new Thread(new ThreadStart(delegate { fillImageList(_Path); }));
+                    islemFill = new Thread(new ThreadStart(delegate { fillImageList(_Path); }));
                     islemFill.SetApartmentState(ApartmentState.STA);
                     islemFill.Start();
                     watcher.Filter = "*.jpg";
                     watcher.Path = _Path;
                     watcher.EnableRaisingEvents = true;
-                    
                 }
             }
         }
-
+        Thread islemFill;
         FileSystemWatcher watcher = new FileSystemWatcher();
 
         void watcher_Update(object sender, FileSystemEventArgs e)
@@ -85,10 +84,24 @@ namespace istakip
             }
         }
 
-       
 
-        
-        public List<ImagePack> ImageList = new List<ImagePack>();
+        private List<ImagePack> _ImageList2;
+        private List<ImagePack> _ImageList = new List<ImagePack>();
+        public List<ImagePack> ImageList
+        {
+            get
+            {
+                return _ImageList;
+            }
+            set
+            {
+                if (value != null && value.Count>0)
+                {
+                    //Path = Directory.GetParent(value.First().Path).FullName;
+                    _ImageList2 = value;
+                }
+            }
+        }
         List<string> DirectoryList = new List<string>();
         private void fillImageList(string FolderPath)
         {
@@ -121,14 +134,53 @@ namespace istakip
                     paket.Path = file.FullName;
                     paket.Name = file.Name;
                     paket.IsClicked = false;
+                    //paket.ClickChanged += new BarisGorselDLL.ImagePack.ClickChangedHandler(paket_ClickChanged);
                     paket.IsSelected = false;
+                    paket.SelectionChanged += new BarisGorselDLL.ImagePack.SelectionChangedHandler(paket_SelectionChanged);
+                    paket.IsFlagged = false;
+                    paket.FlagChanged += new BarisGorselDLL.ImagePack.FlagChangedHandler(paket_FlagChanged);
                     paket.Id = i;
                     paket.IsRaw = true;
                     ImageList.Add(paket);
                     methodGaleryFill(paket);
                 }
+            //Eski değerleri geri yüklemek için
+                methodLoadSaved();
+            //bitti
                 fileNames = null;
+        }
 
+        private delegate void delegateLoadSaved();
+        public void methodLoadSaved()
+        {
+            delegateLoadSaved del = new delegateLoadSaved(LoadSaved);
+            this.Dispatcher.Invoke(del);
+        }
+        private void LoadSaved()
+        {
+            if (_ImageList2 != null&& _ImageList2.Count>0)
+            {
+                foreach (ImagePack img in _ImageList)
+                {
+                    if (_ImageList2.Where(p => p.Name == img.Name).Count() > 0)
+                    {
+                        ImagePack selected = _ImageList2.Where(p => p.Name == img.Name).First();
+                        img.IsSelected = selected.IsSelected;
+                        wrapPanelGallery.Children.OfType<Grid>().Where(p => p.Uid == selected.Id.ToString()).First().Children.OfType<CheckBox>().First().IsChecked = selected.IsSelected;
+                        img.IsFlagged = selected.IsFlagged;
+                    }
+                }
+            }
+        }
+
+        void paket_FlagChanged()
+        {
+            //throw new NotImplementedException();
+        }
+
+        void paket_SelectionChanged()
+        {
+            //Grid secilenGrid = this.wrapPanelGallery.Children.OfType<Grid>().Where(p => p.Uid == secilen.Id.ToString()).First();
         }
 
         private delegate void delegateClear();
@@ -142,6 +194,7 @@ namespace istakip
         {
             wrapPanelGallery.Children.Clear();
             ImageList.Clear();
+            DirectoryList.Clear();
         }
         private delegate void delegateGaleryFill(ImagePack img);
         public void methodGaleryFill(ImagePack img)
@@ -288,14 +341,20 @@ namespace istakip
         void check_Unchecked(object sender, RoutedEventArgs e)
         {
             ImagePack secilen = ImageList.Where(p => p.Id == Convert.ToInt32(((CheckBox)sender).Uid)).Single();
+            secilen.FlagChanged-=new BarisGorselDLL.ImagePack.FlagChangedHandler(paket_FlagChanged);
+            secilen.SelectionChanged -= new BarisGorselDLL.ImagePack.SelectionChangedHandler(paket_SelectionChanged);
             secilen.IsSelected = false;
             secilen.IsFlagged = false;
+            secilen.FlagChanged += new BarisGorselDLL.ImagePack.FlagChangedHandler(paket_FlagChanged);
+            secilen.SelectionChanged += new BarisGorselDLL.ImagePack.SelectionChangedHandler(paket_SelectionChanged);
         }
 
         void check_Checked(object sender, RoutedEventArgs e)
         {
             ImagePack secilen = ImageList.Where(p => p.Id==Convert.ToInt32(((CheckBox)sender).Uid)).Single();
+            secilen.SelectionChanged -= new BarisGorselDLL.ImagePack.SelectionChangedHandler(paket_SelectionChanged);
             secilen.IsSelected = true;
+            secilen.SelectionChanged += new BarisGorselDLL.ImagePack.SelectionChangedHandler(paket_SelectionChanged);
         }
 
         void photo_MouseDown(object sender, MouseButtonEventArgs e)

@@ -20,7 +20,25 @@ namespace istakip
     /// </summary>
     public partial class CariSelect : UserControl
     {
-        public Cari selectedCari= new Cari();
+        private Cari _selectedCari = new Cari();
+        public Cari selectedCari
+        {
+            get
+            {
+                return _selectedCari;
+            }
+            set
+            {
+                if (value != null)
+                {
+                    _selectedCari = value;
+                    textBoxAdSoyad.Text = _selectedCari.Isim;
+                    textBoxCepTel.Text = _selectedCari.CepNo;
+                    textBoxTel.Text = _selectedCari.TelNo;
+                    labelCariStatus.Content = _selectedCari.CariNo + " numaralı cari seçildi";
+                }
+            }
+        }
         List<Cari> Cariler = new List<Cari>();
         public CariSelect()
         {
@@ -37,11 +55,11 @@ namespace istakip
         {
             if (dataGridSearch.SelectedIndex > -1)
             {
-                selectedCari = Cariler[dataGridSearch.SelectedIndex];
-                textBoxAdSoyad.Text = selectedCari.Isim;
-                textBoxCepTel.Text = selectedCari.CepNo;
-                textBoxTel.Text = selectedCari.TelNo;
-                labelCariStatus.Content = selectedCari.CariNo + " numaralı cari seçildi";
+                _selectedCari = Cariler[dataGridSearch.SelectedIndex];
+                textBoxAdSoyad.Text = _selectedCari.Isim;
+                textBoxCepTel.Text = _selectedCari.CepNo;
+                textBoxTel.Text = _selectedCari.TelNo;
+                labelCariStatus.Content = _selectedCari.CariNo + " numaralı cari seçildi";
                 if (CariSelected != null)
                 { CariSelected(); }
             } 
@@ -62,9 +80,9 @@ namespace istakip
 
         private void buttonSave_Click(object sender, RoutedEventArgs e)
         {
-            if (selectedCari.CariNo == 0 && textBoxAdSoyad.Text!="")
+            if (_selectedCari.CariNo == 0 && textBoxAdSoyad.Text!="")
             {
-                selectedCari.CariNo= selectedCari.addCari();
+                _selectedCari.CariNo= _selectedCari.addCari();
             }
             if (textBoxAdSoyad.Text != "")
             {
@@ -74,9 +92,9 @@ namespace istakip
 
         private void buttonSearch_Click(object sender, RoutedEventArgs e)
         {
-            selectedCari.Isim = textBoxAdSoyad.Text;
-            selectedCari.CepNo = textBoxCepTel.Text;
-            selectedCari.TelNo = textBoxTel.Text;
+            _selectedCari.Isim = textBoxAdSoyad.Text;
+            _selectedCari.CepNo = textBoxCepTel.Text;
+            _selectedCari.TelNo = textBoxTel.Text;
             Search();
         }
 
@@ -95,7 +113,7 @@ namespace istakip
             textBoxAdSoyad.Text = "";
             textBoxCepTel.Text = "";
             textBoxTel.Text = "";
-            selectedCari = null;
+            _selectedCari = null;
             labelCariStatus.Content = "Yeni Müşteri";
         }
 

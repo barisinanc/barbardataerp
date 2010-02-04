@@ -22,10 +22,24 @@ namespace istakip
         public Report()
         {
             InitializeComponent();
-            personelsControl=new PersonelList();
-            personelsControl.UserSelected += new PersonelList.UserSelectedEventHandler(personelsControl_UserSelected);
-            gridPersonel.Children.Add(personelsControl);
             archiveLoader();
+        }
+        private void Tester()
+        {            
+            if (!(SelectedCari == null || ListImages==null || ListSepet == null))
+            {
+                BarisGorselDLL.Barcode barkod = new BarisGorselDLL.Barcode();
+                barkod.BarcodeNo = "0011000001";
+                barkod.CariAdi = SelectedCari.Isim;
+                BitmapSource barcodeImage = PhotoConvert.BitmapImagetoBitmap(barkod.Create());
+                imageBarcode.Width = barcodeImage.Width;
+                imageBarcode.Height = barcodeImage.Height;
+                imageBarcode.Source = barcodeImage;
+                barkod.yazdir();
+                personelsControl = new PersonelList();
+                personelsControl.UserSelected += new PersonelList.UserSelectedEventHandler(personelsControl_UserSelected);
+                gridPersonel.Children.Add(personelsControl);
+            }
         }
         PersonelList personelsControl;
         Kullanici selectedKullanici;
@@ -33,10 +47,56 @@ namespace istakip
         {
             selectedKullanici= personelsControl.selectedKullanici;
             Save();
+            GC.Collect();
         }
-        public List<BarisGorselDLL.ImagePack> ListImages;
-        public List<Sepet> ListSepet;
-        public Cari SelectedCari;
+        private List<BarisGorselDLL.ImagePack> _ListImages;
+        public List<BarisGorselDLL.ImagePack> ListImages
+        {
+            get { return _ListImages; }
+            set
+            {
+                _ListImages = value;
+                if (ListImages != null)
+                {
+                    labelPhoto.Content = ListImages.Count + " adet fotoğraf seçildi.";
+                    Tester();
+                }
+            }
+        }
+
+        private List<Sepet> _ListSepet;
+        public List<Sepet> ListSepet
+        {
+            get { return _ListSepet; }
+            set
+            {
+                _ListSepet = value;
+                if (ListSepet != null)
+                {
+                    decimal borc = 0;
+                    foreach (Product x in ListSepet)
+                    {
+                        borc += x.Fiyat - x.Indirim;
+                    }
+                    labelTotal.Content = "Toplam " + borc.ToString("N") + " TL";
+                    Tester();
+                }
+            }
+        }
+        private Cari _SelectedCari;
+        public Cari SelectedCari
+        {
+            get { return _SelectedCari; }
+            set
+            {
+                _SelectedCari = value;
+                if (_SelectedCari != null)
+                {
+                    labelIsim.Content = SelectedCari.Isim;
+                    Tester();
+                }
+            }
+        }
         int arsivTipiSelected;
 
         private void archiveLoader()

@@ -33,7 +33,7 @@
   <ItemGroup>
     <Reference Include="BarcodeLib, Version=1.0.0.7, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\istakip\bin\Debug\BarcodeLib.dll</HintPath>
+      <HintPath>..\..\barcode image generator\BarcodeLib\bin\Debug\BarcodeLib.dll</HintPath>
     </Reference>
     <Reference Include="DiscUtils, Version=0.7.0.0, Culture=neutral, PublicKeyToken=60a04f11f1df810d, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>

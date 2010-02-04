@@ -17,12 +17,12 @@ D:\projeler\fototakip\barbardataerp\Baris2Import\obj\Debug\Baris2Import.csproj.G
 D:\projeler\fototakip\barbardataerp\Baris2Import\bin\Debug\Baris2Import.exe
 D:\projeler\fototakip\barbardataerp\Baris2Import\bin\Debug\Baris2Import.pdb
 D:\projeler\fototakip\barbardataerp\Baris2Import\bin\Debug\BarisGorselDLL.dll
-D:\projeler\fototakip\barbardataerp\Baris2Import\bin\Debug\BarcodeLib.dll
+D:\projeler\fototakip\barbardataerp\Baris2Import\bin\Debug\DiscUtils.dll
 D:\projeler\fototakip\barbardataerp\Baris2Import\bin\Debug\MagickNet.dll
+D:\projeler\fototakip\barbardataerp\Baris2Import\bin\Debug\nftplib.dll
+D:\projeler\fototakip\barbardataerp\Baris2Import\bin\Debug\BarcodeLib.dll
 D:\projeler\fototakip\barbardataerp\Baris2Import\bin\Debug\BarisGorselDLL.pdb
+D:\projeler\fototakip\barbardataerp\Baris2Import\bin\Debug\nftplib.pdb
 D:\projeler\fototakip\barbardataerp\Baris2Import\bin\Debug\BarcodeLib.pdb
 D:\projeler\fototakip\barbardataerp\Baris2Import\obj\Debug\Baris2Import.exe
 D:\projeler\fototakip\barbardataerp\Baris2Import\obj\Debug\Baris2Import.pdb
-D:\projeler\fototakip\barbardataerp\Baris2Import\bin\Debug\DiscUtils.dll
-D:\projeler\fototakip\barbardataerp\Baris2Import\bin\Debug\nftplib.dll
-D:\projeler\fototakip\barbardataerp\Baris2Import\bin\Debug\nftplib.pdb

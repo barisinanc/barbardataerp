@@ -47,7 +47,19 @@ namespace BarisGorselDLL
                 _ThumbPath = value;
             }
         }
-        public bool IsSelected;
+        public bool IsSelected
+        {
+            get { return _IsSelected; }
+            set
+            {
+                _IsSelected = value;
+                if (SelectionChanged != null)
+                { SelectionChanged(); }
+            }
+        }
+        private bool _IsSelected;
+        public delegate void SelectionChangedHandler();
+        public event SelectionChangedHandler SelectionChanged;
         private bool _IsClicked;
         public bool IsClicked
         {
@@ -58,9 +70,31 @@ namespace BarisGorselDLL
             set
             {
                 _IsClicked = value;
+                if (ClickChanged != null)
+                {
+                    ClickChanged();
+                }
             }
         }
-        public bool IsFlagged;
+        public delegate void ClickChangedHandler();
+        public event ClickChangedHandler ClickChanged;
+
+        public bool IsFlagged
+        {
+            get { return _IsFlagged; }
+            set
+            {
+                _IsFlagged = value;
+                if (FlagChanged != null)
+                {
+                    FlagChanged();
+                }
+            }
+        }
+        private bool _IsFlagged;
+        public delegate void FlagChangedHandler();
+        public event FlagChangedHandler FlagChanged;
+
         public int Id;
         public string Description;
         public string ArsivNo;
@@ -143,7 +177,6 @@ namespace BarisGorselDLL
             cmd.Dispose();
             cmd = null;
             Disconnect();
-
 
         }
 
