@@ -30,28 +30,34 @@ namespace BarisGorselDLL
             {
                 pd.Document.Print();
             }
+            GC.Collect();
         }
 
         void printDocument_PrintPage(object sender, PrintPageEventArgs e)
         {
-            e.Graphics.DrawImage(Create(), 2, 5);
-            Font footerFont = new Font("Courier", 14, FontStyle.Bold);
-            e.Graphics.DrawString(CariAdi, footerFont, Brushes.Black, 40, 110);
-            e.Graphics.DrawString(BarcodeNo.ToUpper().Trim(), footerFont, Brushes.Black, 55, 92);
-            /*e.Graphics.DrawImage(Create(), 2, 70);
+            e.Graphics.DrawImage(Create(), 0, 0);
+           /*e.Graphics.DrawImage(Create(), 2, 70);
             Font footerFont = new Font("Courier", 14, FontStyle.Bold);
             e.Graphics.DrawString(CariAdi, footerFont, Brushes.Black, 40, 175);
             e.Graphics.DrawString(BarcodeNo.ToUpper().Trim(), footerFont, Brushes.Black, 55, 157);*/
         }
 
-        private Image Create()
+        public Bitmap Create()
         {
             BarcodeLib.Barcode b = new BarcodeLib.Barcode();
             BarcodeLib.TYPE type = BarcodeLib.TYPE.CODE128;
             b.IncludeLabel = false;
             b.ImageFormat = ImageFormat.Bmp;
-            return b.Encode(type, BarcodeNo.Trim(), Color.Black, Color.White, 255, 85);
+            Image imageBarcode = b.Encode(type, BarcodeNo.Trim(), Color.Black, Color.White, 255, 85);
+            Bitmap newBarcode = new Bitmap(imageBarcode.Width+50,imageBarcode.Height+50);
+            Graphics graph = Graphics.FromImage(newBarcode);
+            graph.DrawImage(imageBarcode, 2, 5);
+            Font footerFont = new Font("Courier", 14, FontStyle.Bold);
+            graph.DrawString(CariAdi, footerFont, Brushes.Black, 40, 110);
+            graph.DrawString(BarcodeNo.ToUpper().Trim(), footerFont, Brushes.Black, 55, 92);
+            return newBarcode;
         }
+
         
     }
 }

@@ -47,6 +47,7 @@ namespace istakip
             if (menuler.Selected == Menu.MenuType.Photo)
             {
                 galeri = new Gallery();
+                galeri.ImageList = ListImages;
                 gridModule.Children.Add(galeri);
                 galeri.Saved += new Gallery.SavedEventHandler(galeri_Saved);
                 galeri.Cancelled += new Gallery.CancelledEventHandler(galeri_Cancelled);
@@ -54,6 +55,7 @@ namespace istakip
             else if (menuler.Selected == Menu.MenuType.Product)
             {
                 productControl = new ProductSelect();
+                productControl.sepet = ListSepet;
                 gridModule.Children.Add(productControl);
                 productControl.Saved += new ProductSelect.SavedEventHandler(productControl_Saved);
                 productControl.Cancelled += new ProductSelect.CancelledEventHandler(productControl_Cancelled);
@@ -61,6 +63,7 @@ namespace istakip
             else if (menuler.Selected == Menu.MenuType.Customer)
             {
                 cariControl = new CariSelect();
+                cariControl.selectedCari = SelectedCari;
                 gridModule.Children.Add(cariControl);
                 cariControl.Saved += new CariSelect.SavedEventHandler(cariControl_Saved);
                 cariControl.Cancelled += new CariSelect.CancelledEventHandler(cariControl_Cancelled);
@@ -70,12 +73,15 @@ namespace istakip
                 reportControl = new Report();
                 reportControl.SelectedCari = SelectedCari;
                 //reportControl.ListImages = (List<BarisGorselDLL.ImagePack>)ListImages;//TODO!!
-                List<BarisGorselDLL.ImagePack> newImages = new List<BarisGorselDLL.ImagePack>();
-                foreach (ImagePack img in ListImages)
+                if (ListImages != null)
                 {
-                    newImages.Add(img);
+                    List<BarisGorselDLL.ImagePack> newImages = new List<BarisGorselDLL.ImagePack>();
+                    foreach (ImagePack img in ListImages)
+                    {
+                        newImages.Add(img);
+                    }
+                    reportControl.ListImages = newImages;
                 }
-                reportControl.ListImages = newImages;
                 reportControl.ListSepet = ListSepet;
                 gridModule.Children.Add(reportControl);
             }

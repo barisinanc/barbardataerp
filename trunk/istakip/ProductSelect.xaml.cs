@@ -35,7 +35,23 @@ namespace istakip
         }
 
         private List<Product> productList;
-        public List<Sepet> sepet = new List<Sepet>();
+        private List<Sepet> _sepet = new List<Sepet>();
+        public List<Sepet> sepet
+        {
+            get
+            {
+                return _sepet;
+            }
+            set
+            {
+                if (value != null)
+                {
+                    _sepet = value;
+                    cartGridFill();
+                }
+            }
+
+        }
         private Product _SecilenUrun;
         private Product SecilenUrun
         {
@@ -109,11 +125,11 @@ namespace istakip
             if (yeniSiparis.SepetIndex == -1)
             {
                 yeniSiparis.SepetIndex = sepet.Count;
-                sepet.Add(yeniSiparis);
+                _sepet.Add(yeniSiparis);
             }
             else
             {
-                sepet[yeniSiparis.SepetIndex] = yeniSiparis;
+                _sepet[yeniSiparis.SepetIndex] = yeniSiparis;
             }
             cartGridFill();
 
@@ -121,7 +137,7 @@ namespace istakip
 
         private void cartGridFill()
         {
-            var sepetData = from x in sepet
+            var sepetData = from x in _sepet
                             select new { Barkod_No = x.BarkodNo, Ürün = x.Adi, Marka = x.Marka, Model = x.Model, Adet = x.Adet, Fiyat = x.Fiyat + "TL", İndirim = x.Indirim + "TL", Teslim_Tarihi = x.TeslimTarihi };
             dataGridCart.AutoGenerateColumns = true;
             dataGridCart.Columns.Clear();
@@ -138,7 +154,7 @@ namespace istakip
         {
             if (dataGridCart.SelectedIndex > -1)
             {
-                SecilenUrun = sepet[dataGridCart.SelectedIndex];
+                SecilenUrun = _sepet[dataGridCart.SelectedIndex];
             }
         }
 

@@ -46,12 +46,12 @@ D:\projeler\fototakip\barbardataerp\arsiv\bin\Debug\arsiv.exe.config
 D:\projeler\fototakip\barbardataerp\arsiv\bin\Debug\arsiv.exe
 D:\projeler\fototakip\barbardataerp\arsiv\bin\Debug\arsiv.pdb
 D:\projeler\fototakip\barbardataerp\arsiv\bin\Debug\BarisGorselDLL.dll
-D:\projeler\fototakip\barbardataerp\arsiv\bin\Debug\BarcodeLib.dll
+D:\projeler\fototakip\barbardataerp\arsiv\bin\Debug\DiscUtils.dll
 D:\projeler\fototakip\barbardataerp\arsiv\bin\Debug\MagickNet.dll
+D:\projeler\fototakip\barbardataerp\arsiv\bin\Debug\nftplib.dll
+D:\projeler\fototakip\barbardataerp\arsiv\bin\Debug\BarcodeLib.dll
 D:\projeler\fototakip\barbardataerp\arsiv\bin\Debug\BarisGorselDLL.pdb
+D:\projeler\fototakip\barbardataerp\arsiv\bin\Debug\nftplib.pdb
 D:\projeler\fototakip\barbardataerp\arsiv\bin\Debug\BarcodeLib.pdb
 D:\projeler\fototakip\barbardataerp\arsiv\obj\Debug\arsiv.exe
 D:\projeler\fototakip\barbardataerp\arsiv\obj\Debug\arsiv.pdb
-D:\projeler\fototakip\barbardataerp\arsiv\bin\Debug\DiscUtils.dll
-D:\projeler\fototakip\barbardataerp\arsiv\bin\Debug\nftplib.dll
-D:\projeler\fototakip\barbardataerp\arsiv\bin\Debug\nftplib.pdb

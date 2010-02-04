@@ -4,7 +4,11 @@
     MinHeight="400" MinWidth="600">
     <Grid>
         <Grid Height="100" Name="gridPersonel" VerticalAlignment="Bottom" />
-        <Label Height="28" Margin="12,0,0,106" Name="label1" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="120">Onaylayan:</Label>
-        <ComboBox Height="23" HorizontalAlignment="Right" Margin="0,108,21,0" Name="arsivTipi" VerticalAlignment="Top" Width="120" SelectionChanged="arsivTipi_SelectionChanged" />
+        <Label Height="44" Margin="12,0,0,106" Name="label1" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="136" FontSize="20">Onaylayan:</Label>
+        <ComboBox Height="23" HorizontalAlignment="Left" Margin="12,0,0,164" Name="arsivTipi" VerticalAlignment="Bottom" Width="120" SelectionChanged="arsivTipi_SelectionChanged" />
+        <Label Height="45" Margin="12,12,278,0" Name="labelIsim" VerticalAlignment="Top" FontSize="20">Lütfen müşteri bilgilerini giriniz!</Label>
+        <Image Name="imageBarcode" Stretch="Fill" HorizontalAlignment="Right" Width="232" Height="79" VerticalAlignment="Bottom" Margin="0,0,0,125" />
+        <Label Height="45" Margin="12,73,238,0" Name="labelPhoto" VerticalAlignment="Top" FontSize="20">Lütfen fotoğraf seçiniz!</Label>
+        <Label Height="45" Margin="12,131,257,0" Name="labelTotal" VerticalAlignment="Top" FontSize="20">Lütfen ürün seçiniz!</Label>
     </Grid>
 </UserControl>
