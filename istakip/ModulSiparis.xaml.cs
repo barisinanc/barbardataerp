@@ -39,6 +39,9 @@ namespace istakip
             menuler.SelectionChanged += new Menu.SelectionChangedEventHandler(menuler_SelectionChanged);
             MainGrid.Children.Add(menuler);
             menuler.Selected = Menu.MenuType.Photo;
+
+            //cropControl crop = new cropControl();
+            //MainGrid.Children.Add(crop);
         }
 
         void menuler_SelectionChanged()
