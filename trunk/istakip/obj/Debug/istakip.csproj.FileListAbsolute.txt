@@ -86,3 +86,5 @@ D:\projeler\fototakip\barbardataerp\istakip\bin\Debug\es\Telerik.Windows.Control
 D:\projeler\fototakip\barbardataerp\istakip\bin\Debug\tr\Telerik.Windows.Controls.resources.dll
 D:\projeler\fototakip\barbardataerp\istakip\obj\Debug\istakip.exe
 D:\projeler\fototakip\barbardataerp\istakip\obj\Debug\istakip.pdb
+D:\projeler\fototakip\barbardataerp\istakip\obj\Debug\cropControl.baml
+D:\projeler\fototakip\barbardataerp\istakip\obj\Debug\cropControl.g.cs

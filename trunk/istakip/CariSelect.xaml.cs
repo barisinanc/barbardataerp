@@ -53,6 +53,11 @@ namespace istakip
 
         private void buttonSearchSelect_Click(object sender, RoutedEventArgs e)
         {
+            selectCari();
+        }
+
+        private void selectCari()
+        {
             if (dataGridSearch.SelectedIndex > -1)
             {
                 _selectedCari = Cariler[dataGridSearch.SelectedIndex];
@@ -115,6 +120,11 @@ namespace istakip
             textBoxTel.Text = "";
             _selectedCari = null;
             labelCariStatus.Content = "Yeni Müşteri";
+        }
+
+        private void dataGridSearch_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            selectCari();
         }
 
 

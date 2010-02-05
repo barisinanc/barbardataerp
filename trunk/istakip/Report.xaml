@@ -7,8 +7,10 @@
         <Label Height="44" Margin="12,0,0,106" Name="label1" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="136" FontSize="20">Onaylayan:</Label>
         <ComboBox Height="23" HorizontalAlignment="Left" Margin="12,0,0,164" Name="arsivTipi" VerticalAlignment="Bottom" Width="120" SelectionChanged="arsivTipi_SelectionChanged" />
         <Label Height="45" Margin="12,12,278,0" Name="labelIsim" VerticalAlignment="Top" FontSize="20">Lütfen müşteri bilgilerini giriniz!</Label>
-        <Image Name="imageBarcode" Stretch="Fill" HorizontalAlignment="Right" Width="232" Height="79" VerticalAlignment="Bottom" Margin="0,0,0,125" />
+        <Image Name="imageBarcode" Stretch="Fill" HorizontalAlignment="Right" Width="232" Margin="0,0,1,155" Height="85" VerticalAlignment="Bottom" />
         <Label Height="45" Margin="12,73,238,0" Name="labelPhoto" VerticalAlignment="Top" FontSize="20">Lütfen fotoğraf seçiniz!</Label>
         <Label Height="45" Margin="12,131,257,0" Name="labelTotal" VerticalAlignment="Top" FontSize="20">Lütfen ürün seçiniz!</Label>
+        <CheckBox Height="16" HorizontalAlignment="Right" Margin="0,0,140,126" Name="checkBoxBarcode" VerticalAlignment="Bottom" Width="93">Barkod Yazdır</CheckBox>
+        <telerik:RadNumericUpDown Height="28" HorizontalAlignment="Right" Margin="0,0,12,121" Name="numericBarcodeCount" VerticalAlignment="Bottom" Width="82" xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" SmallChange="1" Maximum="5" CustomUnit="Adet" Value="1" />
     </Grid>
 </UserControl>

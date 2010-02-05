@@ -24,18 +24,17 @@ namespace istakip
             InitializeComponent();
             archiveLoader();
         }
+        BarisGorselDLL.Barcode barkod;
         private void Tester()
         {            
             if (!(SelectedCari == null || ListImages==null || ListSepet == null))
             {
-                BarisGorselDLL.Barcode barkod = new BarisGorselDLL.Barcode();
-                barkod.BarcodeNo = "0011000001";
-                barkod.CariAdi = SelectedCari.Isim;
+                barkod = new BarisGorselDLL.Barcode();
+                barkod.SetValues("0000000000", SelectedCari.Isim, _ListSepet.First().TeslimTarihi, "0", borc.ToString("N"));
                 BitmapSource barcodeImage = PhotoConvert.BitmapImagetoBitmap(barkod.Create());
                 imageBarcode.Width = barcodeImage.Width;
                 imageBarcode.Height = barcodeImage.Height;
                 imageBarcode.Source = barcodeImage;
-                barkod.yazdir();
                 personelsControl = new PersonelList();
                 personelsControl.UserSelected += new PersonelList.UserSelectedEventHandler(personelsControl_UserSelected);
                 gridPersonel.Children.Add(personelsControl);
@@ -63,7 +62,7 @@ namespace istakip
                 }
             }
         }
-
+        decimal borc = 0;
         private List<Sepet> _ListSepet;
         public List<Sepet> ListSepet
         {
@@ -73,7 +72,7 @@ namespace istakip
                 _ListSepet = value;
                 if (ListSepet != null)
                 {
-                    decimal borc = 0;
+                    borc = 0;
                     foreach (Product x in ListSepet)
                     {
                         borc += x.Fiyat - x.Indirim;
@@ -174,6 +173,12 @@ namespace istakip
                 }
                 ArchiveStorage store = new ArchiveStorage(SelectedCari);
                 store.Save(ListImages);
+                barkod.BarcodeNo = yeniArsiv.ArsivNo;
+                barkod.Count = (short)numericBarcodeCount.Value;
+                if (checkBoxBarcode.IsChecked.Value)
+                {
+                    barkod.yazdir();
+                }
             }
 
             
