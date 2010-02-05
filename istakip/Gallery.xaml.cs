@@ -578,7 +578,10 @@ namespace istakip
         {
             if (e.ChangedButton == MouseButton.Left && e.ClickCount == 1)
             {
-                Path = Directory.GetParent(Path).FullName;
+                if (Directory.GetParent(Path) != null)
+                {
+                    Path = Directory.GetParent(Path).FullName;
+                }
             }
         }
  

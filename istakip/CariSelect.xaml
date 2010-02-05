@@ -4,19 +4,19 @@
      xmlns:my="http://schemas.microsoft.com/wpf/2008/toolkit" MinHeight="386" MinWidth="636">
     <Grid Background="Azure" >
         <my:DataGrid AutoGenerateColumns="False" Margin="0,167,1,3" Name="dataGridSearch" IsReadOnly="True" SelectionMode="Single" CanUserSortColumns="False" MouseDoubleClick="dataGridSearch_MouseDoubleClick" />
-            <Button Height="23" HorizontalAlignment="Left" Margin="12,138,0,0" Name="buttonSearchSelect" VerticalAlignment="Top" Width="75" Click="buttonSearchSelect_Click">Seç</Button>
-            <Button Height="27" Margin="0,105,12,0" Name="buttonSearchCancel" VerticalAlignment="Top" HorizontalAlignment="Right" Width="113" Click="buttonSearchCancel_Click">İptal</Button>
         <Grid Height="132" HorizontalAlignment="Left" Margin="2,0,0,0" Name="grid1" VerticalAlignment="Top" Width="313">
             <TextBox Height="23" HorizontalAlignment="Left" Margin="92,34,0,0" Name="textBoxAdSoyad" VerticalAlignment="Top" Width="120" />
+            <telerik:RadMaskedTextBox Height="24" Margin="93,65,0,43" Name="textBoxCepTel" Width="119" xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" Mask="# (###) ### ####" OverridesDefaultStyle="False" HorizontalAlignment="Left" Focusable="False" IsTabStop="True" IsHitTestVisible="True" />
+            <telerik:RadMaskedTextBox Height="24" Margin="93,0,0,11" Mask="# (###) ### - ####" Name="textBoxTel" OverridesDefaultStyle="False" VerticalAlignment="Bottom" Width="119" xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" HorizontalAlignment="Left" Focusable="False" IsTabStop="True" />
             <Label Height="28" HorizontalAlignment="Left" Margin="10,34,0,0" Name="label1" VerticalAlignment="Top" Width="97">Ad Soyad:</Label>
-            <TextBox Height="28" HorizontalAlignment="Left" Margin="92,63,0,0" MaxLines="15" Name="textBoxCepTel" VerticalAlignment="Top" Width="120" />
-            <Label Height="28" HorizontalAlignment="Left" Margin="10,63,0,0" Name="label2" VerticalAlignment="Top" Width="97">Cep Telefonu:</Label>
-            <TextBox Height="28" HorizontalAlignment="Left" Margin="92,97,0,0" MaxLines="15" Name="textBoxTel" VerticalAlignment="Top" Width="120" />
+            <Label HorizontalAlignment="Left" Margin="10,63,0,41" Name="label2" Width="86">Cep Telefonu:</Label>
             <Label Height="28" HorizontalAlignment="Left" Margin="10,97,0,0" Name="label3" VerticalAlignment="Top" Width="97">Sabit Telefon:</Label>
             <Button HorizontalAlignment="Right" Margin="0,62.48,6,46.52" Name="buttonSearch" Width="75" Click="buttonSearch_Click">Ara</Button>
             <Label Height="28" Margin="11,3,136,0" Name="labelCariStatus" VerticalAlignment="Top">Yeni Müşteri</Label>
             <Button Height="23" HorizontalAlignment="Right" Margin="0,0,6,7" Name="buttonClear" VerticalAlignment="Bottom" Width="75" Click="buttonClear_Click">Temizle</Button>
         </Grid>
-        <Button Height="87" HorizontalAlignment="Right" Margin="0,12,12,0" Name="buttonSave" VerticalAlignment="Top" Width="113" Click="buttonSave_Click">Kaydet</Button>
+        <Button Height="87" HorizontalAlignment="Right" Margin="0,12,12,0" Name="buttonSave" VerticalAlignment="Top" Width="113" Click="buttonSave_Click" >Kaydet</Button>
+        <Button Height="27" Margin="0,105,12,0" Name="buttonSearchCancel" VerticalAlignment="Top" HorizontalAlignment="Right" Width="113" Click="buttonSearchCancel_Click">İptal</Button>
+        <Button Height="23" HorizontalAlignment="Left" Margin="12,138,0,0" Name="buttonSearchSelect" VerticalAlignment="Top" Width="75" Click="buttonSearchSelect_Click">Seç</Button>
     </Grid>
 </UserControl>
