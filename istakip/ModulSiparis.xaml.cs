@@ -122,9 +122,8 @@ namespace istakip
             ListImages = galeri.ImageList.Where(p=>p.IsSelected==true).ToList();
             menuler.Selected = Menu.MenuType.Product;
         }
-       
 
- 
+        
 
 
       

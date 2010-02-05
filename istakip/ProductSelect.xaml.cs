@@ -27,6 +27,13 @@ namespace istakip
             detailDate.SelectedDate = DateTime.Today;
             detailTime.SelectedTime = DateTime.Now.AddHours(2).TimeOfDay;
             dataGridProducts.SelectedCellsChanged += new Microsoft.Windows.Controls.SelectedCellsChangedEventHandler(dataGridProducts_SelectedCellsChanged);
+            dataGridFavourites.SelectedCellsChanged += new Microsoft.Windows.Controls.SelectedCellsChangedEventHandler(dataGridFavourites_SelectedCellsChanged);
+            favouriteReadThreath();
+        }
+
+        void dataGridFavourites_SelectedCellsChanged(object sender, Microsoft.Windows.Controls.SelectedCellsChangedEventArgs e)
+        {
+            SecilenUrun = favoriteList[((Microsoft.Windows.Controls.DataGrid)sender).SelectedIndex];
         }
 
         void dataGridProducts_SelectedCellsChanged(object sender, Microsoft.Windows.Controls.SelectedCellsChangedEventArgs e)
@@ -189,6 +196,85 @@ namespace istakip
                 decimal fiyat = 0;
                 fiyat = _SecilenUrun.Fiyat * (decimal)detailCount.Value;
                 detailPrice.Value = (double)(fiyat);
+            }
+        }
+
+        List<Product> favoriteList = new List<Product>();
+        private delegate void delegateFavorite();
+        public void methodFavorite()
+        {
+            delegateFavorite del = new delegateFavorite(favoriteDoldur);
+            this.Dispatcher.Invoke(del);
+        }
+        private void favoriteDoldur()
+        {
+            var selectedProducts = from x in favoriteList
+                                   select new { Barkod_No = x.BarkodNo, Ürün = x.Adi + " " + x.Marka + " " + x.Model, Fiyat = x.Fiyat.ToString("N") + "TL" };
+            dataGridFavourites.AutoGenerateColumns = true;
+            dataGridFavourites.ItemsSource = selectedProducts.ToList();
+            selectedProducts = null;
+        }
+
+        private void favouriteReadThreath()
+        {
+            System.Threading.Thread oku = new System.Threading.Thread(new System.Threading.ThreadStart(favouriteRead));
+            oku.Start();
+        }
+
+        private void favouriteRead()
+        {
+            try
+            {
+                Product urun = new Product();
+                favoriteList.Clear();
+                if (BarisGorselDLL.Properties.Settings.Default.FavouriteProducts != "")
+                {
+                    favoriteList.AddRange(
+                    urun.sikKullanilan(BarisGorselDLL.Properties.Settings.Default.FavouriteProducts));
+                }
+                methodFavorite();
+            }
+            catch { }
+        }
+
+        private void favouriteSave()
+        {
+            string sakla = "";
+            int i = 0;
+            foreach (Product p in favoriteList)
+            {
+                i++;
+                if (i == favoriteList.Count)
+                {
+                    sakla += p.BarkodNo;
+                }
+                else
+                {
+                    sakla += p.BarkodNo + ";";
+                }
+            }
+            BarisGorselDLL.Properties.Settings.Default.FavouriteProducts = sakla;
+            BarisGorselDLL.Properties.Settings.Default.Save();
+
+        }
+
+        private void dataGridProducts_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            if (dataGridProducts.SelectedIndex > -1)
+            {
+                favoriteList.Add(productList[dataGridProducts.SelectedIndex]);
+                favouriteSave();
+                favouriteRead();
+            }
+        }
+
+        private void dataGridFavourites_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            if (dataGridFavourites.SelectedIndex > -1)
+            {
+                favoriteList.Remove(favoriteList[dataGridFavourites.SelectedIndex]);
+                favouriteSave();
+                favouriteRead();
             }
         }
     }
