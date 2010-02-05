@@ -88,3 +88,5 @@ D:\projeler\fototakip\barbardataerp\istakip\obj\Debug\istakip.exe
 D:\projeler\fototakip\barbardataerp\istakip\obj\Debug\istakip.pdb
 D:\projeler\fototakip\barbardataerp\istakip\obj\Debug\cropControl.baml
 D:\projeler\fototakip\barbardataerp\istakip\obj\Debug\cropControl.g.cs
+D:\projeler\fototakip\barbardataerp\istakip\obj\Debug\OrderList.baml
+D:\projeler\fototakip\barbardataerp\istakip\obj\Debug\OrderList.g.cs
