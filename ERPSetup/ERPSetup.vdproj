@@ -15,6 +15,12 @@
     {
         "Entry"
         {
+        "MsmKey" = "8:_04D0EEB9DF6C4CE3B807B287DE8DBFBC"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_0AB91FE6A5874B68DC358544365C6440"
         "OwnerKey" = "8:_460BCB6B39DA785CA56A5484135262BC"
         "MsmSig" = "8:_UNDEFINED"
@@ -35,6 +41,12 @@
         {
         "MsmKey" = "8:_11376EFDBA4E6EF06B7E21A53D0D036A"
         "OwnerKey" = "8:_CF3BD2AEE9F7493D938D8C513C8CB8B0"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_123151EBBA1F4B9CA412F6EC1DCE9E81"
+        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -63,6 +75,24 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_1E13FE179F304F5EBABFCC2869921BFE"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_220F3A65EC7F43E9B47EC4026B74C8DD"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_2479BAF8804F4660BE29B4C3B107A76C"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_263F4BD1E3B55512FFB03A55D21C9978"
         "OwnerKey" = "8:_CF3BD2AEE9F7493D938D8C513C8CB8B0"
         "MsmSig" = "8:_UNDEFINED"
@@ -93,19 +123,19 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_422085BE0A7C9E6441270095D0CAF97E"
+        "MsmKey" = "8:_460BCB6B39DA785CA56A5484135262BC"
         "OwnerKey" = "8:_CF3BD2AEE9F7493D938D8C513C8CB8B0"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_460BCB6B39DA785CA56A5484135262BC"
-        "OwnerKey" = "8:_422085BE0A7C9E6441270095D0CAF97E"
+        "OwnerKey" = "8:_564ED75DDAD510E54573089EF77C7C89"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_460BCB6B39DA785CA56A5484135262BC"
+        "MsmKey" = "8:_564ED75DDAD510E54573089EF77C7C89"
         "OwnerKey" = "8:_CF3BD2AEE9F7493D938D8C513C8CB8B0"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -118,7 +148,7 @@
         "Entry"
         {
         "MsmKey" = "8:_6421878A4AC3CF60F3FE28800BB8467B"
-        "OwnerKey" = "8:_422085BE0A7C9E6441270095D0CAF97E"
+        "OwnerKey" = "8:_564ED75DDAD510E54573089EF77C7C89"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -147,6 +177,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_7AD4C3833590420D960FA25E1518F0ED"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_7B676BB720E3B834688CD3FC493CF0B7"
         "OwnerKey" = "8:_CF3BD2AEE9F7493D938D8C513C8CB8B0"
         "MsmSig" = "8:_UNDEFINED"
@@ -160,13 +196,13 @@
         "Entry"
         {
         "MsmKey" = "8:_A3A207B5C1D2A23AF42AB7AD860C3236"
-        "OwnerKey" = "8:_422085BE0A7C9E6441270095D0CAF97E"
+        "OwnerKey" = "8:_CF3BD2AEE9F7493D938D8C513C8CB8B0"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_A3A207B5C1D2A23AF42AB7AD860C3236"
-        "OwnerKey" = "8:_CF3BD2AEE9F7493D938D8C513C8CB8B0"
+        "OwnerKey" = "8:_564ED75DDAD510E54573089EF77C7C89"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -183,13 +219,43 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_AF3B8720A84F415BBCCF13D101F8E3AE"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_B00F60F25F7649A89F9DB2EA93FD4018"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_BEB172E055E44930AED06F48D1D5F321"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_C2F47D80839D33CF3F79BF4D0E6E8A39"
         "OwnerKey" = "8:_CF3BD2AEE9F7493D938D8C513C8CB8B0"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
+        "MsmKey" = "8:_C3F1E833847B476AA534CBF638F791E9"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_CF3BD2AEE9F7493D938D8C513C8CB8B0"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_D3646B22334E4DD69D4FE6BF7E531C52"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -231,8 +297,20 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_F6627A3528D244BC90805D5ECC817551"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_15E10A49A895842576E0F5AFE5CAE54C"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_564ED75DDAD510E54573089EF77C7C89"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -245,12 +323,6 @@
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_7B676BB720E3B834688CD3FC493CF0B7"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_422085BE0A7C9E6441270095D0CAF97E"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -435,6 +507,26 @@
         }
         "File"
         {
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_04D0EEB9DF6C4CE3B807B287DE8DBFBC"
+            {
+            "SourcePath" = "8:..\\istakip\\Images\\folder_up.gif"
+            "TargetName" = "8:folder_up.gif"
+            "Tag" = "8:"
+            "Folder" = "8:_729FBC25FB75431F8AA2EE183D5A652E"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_0AB91FE6A5874B68DC358544365C6440"
             {
             "AssemblyRegister" = "3:1"
@@ -497,6 +589,26 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_123151EBBA1F4B9CA412F6EC1DCE9E81"
+            {
+            "SourcePath" = "8:..\\istakip\\Images\\report_ok.png"
+            "TargetName" = "8:report_ok.png"
+            "Tag" = "8:"
+            "Folder" = "8:_729FBC25FB75431F8AA2EE183D5A652E"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_15E10A49A895842576E0F5AFE5CAE54C"
             {
             "AssemblyRegister" = "3:1"
@@ -526,6 +638,66 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_1E13FE179F304F5EBABFCC2869921BFE"
+            {
+            "SourcePath" = "8:..\\istakip\\Images\\folder.gif"
+            "TargetName" = "8:folder.gif"
+            "Tag" = "8:"
+            "Folder" = "8:_729FBC25FB75431F8AA2EE183D5A652E"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_220F3A65EC7F43E9B47EC4026B74C8DD"
+            {
+            "SourcePath" = "8:..\\istakip\\Images\\kus.swf"
+            "TargetName" = "8:kus.swf"
+            "Tag" = "8:"
+            "Folder" = "8:_729FBC25FB75431F8AA2EE183D5A652E"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_2479BAF8804F4660BE29B4C3B107A76C"
+            {
+            "SourcePath" = "8:..\\istakip\\Images\\delete.png"
+            "TargetName" = "8:delete.png"
+            "Tag" = "8:"
+            "Folder" = "8:_729FBC25FB75431F8AA2EE183D5A652E"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_263F4BD1E3B55512FFB03A55D21C9978"
@@ -590,20 +762,20 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_422085BE0A7C9E6441270095D0CAF97E"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_460BCB6B39DA785CA56A5484135262BC"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:istakip, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:Telerik.Windows.Controls.Input, Version=2009.2.701.35, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_422085BE0A7C9E6441270095D0CAF97E"
+                    "_460BCB6B39DA785CA56A5484135262BC"
                     {
-                    "Name" = "8:istakip.exe"
+                    "Name" = "8:Telerik.Windows.Controls.Input.dll"
                     "Attributes" = "3:512"
                     }
                 }
-            "SourcePath" = "8:istakip.exe"
+            "SourcePath" = "8:Telerik.Windows.Controls.Input.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_F0186D5512CA446C97E754877795A793"
@@ -621,20 +793,20 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_460BCB6B39DA785CA56A5484135262BC"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_564ED75DDAD510E54573089EF77C7C89"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:Telerik.Windows.Controls.Input, Version=2009.2.701.35, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:ERPStudyo, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_460BCB6B39DA785CA56A5484135262BC"
+                    "_564ED75DDAD510E54573089EF77C7C89"
                     {
-                    "Name" = "8:Telerik.Windows.Controls.Input.dll"
+                    "Name" = "8:ERPStudyo.exe"
                     "Attributes" = "3:512"
                     }
                 }
-            "SourcePath" = "8:Telerik.Windows.Controls.Input.dll"
+            "SourcePath" = "8:ERPStudyo.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_F0186D5512CA446C97E754877795A793"
@@ -712,6 +884,26 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_7AD4C3833590420D960FA25E1518F0ED"
+            {
+            "SourcePath" = "8:..\\istakip\\Images\\logo.html"
+            "TargetName" = "8:logo.html"
+            "Tag" = "8:"
+            "Folder" = "8:_729FBC25FB75431F8AA2EE183D5A652E"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_7B676BB720E3B834688CD3FC493CF0B7"
@@ -838,6 +1030,66 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_AF3B8720A84F415BBCCF13D101F8E3AE"
+            {
+            "SourcePath" = "8:..\\istakip\\icon.ico"
+            "TargetName" = "8:icon.ico"
+            "Tag" = "8:"
+            "Folder" = "8:_F0186D5512CA446C97E754877795A793"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_B00F60F25F7649A89F9DB2EA93FD4018"
+            {
+            "SourcePath" = "8:..\\istakip\\Images\\photo.png"
+            "TargetName" = "8:photo.png"
+            "Tag" = "8:"
+            "Folder" = "8:_729FBC25FB75431F8AA2EE183D5A652E"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_BEB172E055E44930AED06F48D1D5F321"
+            {
+            "SourcePath" = "8:..\\istakip\\Images\\shopping_cart.png"
+            "TargetName" = "8:shopping_cart.png"
+            "Tag" = "8:"
+            "Folder" = "8:_729FBC25FB75431F8AA2EE183D5A652E"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_C2F47D80839D33CF3F79BF4D0E6E8A39"
             {
             "AssemblyRegister" = "3:1"
@@ -867,6 +1119,46 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_C3F1E833847B476AA534CBF638F791E9"
+            {
+            "SourcePath" = "8:..\\istakip\\Images\\rotate.png"
+            "TargetName" = "8:rotate.png"
+            "Tag" = "8:"
+            "Folder" = "8:_729FBC25FB75431F8AA2EE183D5A652E"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_D3646B22334E4DD69D4FE6BF7E531C52"
+            {
+            "SourcePath" = "8:..\\istakip\\Images\\customer.png"
+            "TargetName" = "8:customer.png"
+            "Tag" = "8:"
+            "Folder" = "8:_729FBC25FB75431F8AA2EE183D5A652E"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_DBE8D71A0F33F83A8CDCA42D1D2AA8EE"
@@ -993,6 +1285,26 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_F6627A3528D244BC90805D5ECC817551"
+            {
+            "SourcePath" = "8:..\\istakip\\Images\\rotate_cw.png"
+            "TargetName" = "8:rotate_cw.png"
+            "Tag" = "8:"
+            "Folder" = "8:_729FBC25FB75431F8AA2EE183D5A652E"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
         }
         "FileType"
         {
@@ -1031,6 +1343,17 @@
             "Property" = "8:TARGETDIR"
                 "Folders"
                 {
+                    "{9EF0B969-E518-4E46-987F-47570745A589}:_729FBC25FB75431F8AA2EE183D5A652E"
+                    {
+                    "Name" = "8:Images"
+                    "AlwaysCreate" = "11:FALSE"
+                    "Condition" = "8:"
+                    "Transitive" = "11:FALSE"
+                    "Property" = "8:_C889009C878E48599CA225BD3C3FDFDD"
+                        "Folders"
+                        {
+                        }
+                    }
                 }
             }
             "{1525181F-901A-416C-8A58-119130FE478E}:_F276E8E0ED8D4417AED7353442FCFAC5"
@@ -1061,7 +1384,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:ERP"
         "ProductCode" = "8:{1367E648-FB54-4CAA-803E-59B863AE74E5}"
-        "PackageCode" = "8:{DF010350-0D2C-4678-9899-4D5FD1275CEF}"
+        "PackageCode" = "8:{6A36ED45-6D02-42CA-928A-E029A5BCC770}"
         "UpgradeCode" = "8:{AF8BCD3A-FFB4-41BF-9211-C6B30D97B310}"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:FALSE"
@@ -1071,13 +1394,13 @@
         "Manufacturer" = "8:BarBarData"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
-        "Title" = "8:ERP"
+        "Title" = "8:BarBarData ERP"
         "Subject" = "8:"
         "ARPCONTACT" = "8:BarBarData"
         "Keywords" = "8:"
         "ARPCOMMENTS" = "8:"
         "ARPURLINFOABOUT" = "8:http://www.barbardata.com"
-        "ARPPRODUCTICON" = "8:"
+        "ARPPRODUCTICON" = "8:_AF3B8720A84F415BBCCF13D101F8E3AE"
         "ARPIconIndex" = "3:0"
         "SearchPath" = "8:"
         "UseSystemSearchPath" = "11:TRUE"
@@ -1180,60 +1503,32 @@
         }
         "Shortcut"
         {
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_0B21E5B56E434A498542BCF32E58179A"
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_65046269CDB14D499ECAF987D6CF8185"
             {
-            "Name" = "8:Tezgah"
+            "Name" = "8:Barış ERP"
             "Arguments" = "8:"
             "Description" = "8:"
             "ShowCmd" = "3:1"
             "IconIndex" = "3:0"
             "Transitive" = "11:FALSE"
-            "Target" = "8:"
+            "Target" = "8:_CF3BD2AEE9F7493D938D8C513C8CB8B0"
             "Folder" = "8:_BBEF778A3E494EA5AF2D70B8B0613E2D"
             "WorkingFolder" = "8:_F0186D5512CA446C97E754877795A793"
-            "Icon" = "8:"
+            "Icon" = "8:_AF3B8720A84F415BBCCF13D101F8E3AE"
             "Feature" = "8:"
             }
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_2534AFE7A06442A1857F972A5536C27A"
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_9BF5DFAD7A57471E9140056CCE5D5E7F"
             {
-            "Name" = "8:Tezgah"
+            "Name" = "8:Barış ERP"
             "Arguments" = "8:"
             "Description" = "8:"
             "ShowCmd" = "3:1"
             "IconIndex" = "3:0"
             "Transitive" = "11:FALSE"
-            "Target" = "8:"
+            "Target" = "8:_CF3BD2AEE9F7493D938D8C513C8CB8B0"
             "Folder" = "8:_F276E8E0ED8D4417AED7353442FCFAC5"
             "WorkingFolder" = "8:_F0186D5512CA446C97E754877795A793"
-            "Icon" = "8:"
-            "Feature" = "8:"
-            }
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_5B53FA54A6F44A38B5DB647A048E0BA7"
-            {
-            "Name" = "8:İş Takip"
-            "Arguments" = "8:"
-            "Description" = "8:"
-            "ShowCmd" = "3:1"
-            "IconIndex" = "3:0"
-            "Transitive" = "11:FALSE"
-            "Target" = "8:"
-            "Folder" = "8:_BBEF778A3E494EA5AF2D70B8B0613E2D"
-            "WorkingFolder" = "8:_F0186D5512CA446C97E754877795A793"
-            "Icon" = "8:"
-            "Feature" = "8:"
-            }
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_D1924EF2E8314DB39A590687BD032BDF"
-            {
-            "Name" = "8:İş Takip"
-            "Arguments" = "8:"
-            "Description" = "8:"
-            "ShowCmd" = "3:1"
-            "IconIndex" = "3:0"
-            "Transitive" = "11:FALSE"
-            "Target" = "8:"
-            "Folder" = "8:_F276E8E0ED8D4417AED7353442FCFAC5"
-            "WorkingFolder" = "8:_F0186D5512CA446C97E754877795A793"
-            "Icon" = "8:"
+            "Icon" = "8:_AF3B8720A84F415BBCCF13D101F8E3AE"
             "Feature" = "8:"
             }
         }
@@ -1637,7 +1932,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_CF3BD2AEE9F7493D938D8C513C8CB8B0"
             {
-            "SourcePath" = "8:..\\GeneralScreens\\obj\\Debug\\GeneralScreens.exe"
+            "SourcePath" = "8:..\\GeneralScreens\\obj\\Debug\\ERPMain.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_F0186D5512CA446C97E754877795A793"
