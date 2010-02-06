@@ -1,9 +1,12 @@
 ﻿<Window x:Class="istakip.ModulSiparis"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    Title="Stüdyo Sipariş - Barış Görsel Tanıtım" MinHeight="648" MinWidth="500" xmlns:my="clr-namespace:Microsoft.Windows.Controls;assembly=WPFToolkit">
+    Title="Stüdyo Sipariş - Barış Görsel Tanıtım" MinHeight="648" MinWidth="500" xmlns:my="clr-namespace:Microsoft.Windows.Controls;assembly=WPFToolkit" Icon="/ERPStudyo;component/icon.ico">
     <Grid Name="MainGrid">
-        <Grid Margin="10,128,10,10" Name="gridModule"></Grid>
         
+        <Grid Margin="10,128,10,10" Name="gridModule"></Grid>
+        <Grid Height="122" HorizontalAlignment="Left" Name="gridLogo" VerticalAlignment="Top" Width="150">
+            <Frame Name="logoFrame" Focusable="False" IsTabStop="False" Margin="0,0,0,0" ClipToBounds="True" />
+        </Grid>
     </Grid>
 </Window>

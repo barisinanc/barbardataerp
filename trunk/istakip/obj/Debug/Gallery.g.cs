@@ -217,7 +217,7 @@ namespace istakip {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/istakip;component/gallery.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/ERPStudyo;component/gallery.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\Gallery.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

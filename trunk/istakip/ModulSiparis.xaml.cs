@@ -39,11 +39,19 @@ namespace istakip
             menuler.SelectionChanged += new Menu.SelectionChangedEventHandler(menuler_SelectionChanged);
             MainGrid.Children.Add(menuler);
             menuler.Selected = Menu.MenuType.Photo;
-
+            //logoLoad();
             //cropControl crop = new cropControl();
             //MainGrid.Children.Add(crop);
         }
-
+        private void logoLoad()
+        {
+            try
+            {
+                Uri adresLogo = new Uri(AppDomain.CurrentDomain.BaseDirectory + "Images/logo.html", UriKind.RelativeOrAbsolute);
+                logoFrame.Source = adresLogo;
+            }
+            catch { }
+        }
         void menuler_SelectionChanged()
         {
             gridModule.Children.Clear();

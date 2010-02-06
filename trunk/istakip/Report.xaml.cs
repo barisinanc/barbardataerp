@@ -27,10 +27,10 @@ namespace istakip
         BarisGorselDLL.Barcode barkod;
         private void Tester()
         {            
-            if (!(SelectedCari == null || ListImages==null || ListSepet == null))
+            if (!(SelectedCari == null || ListImages==null || ListSepet == null || ListSepet.Count==0))
             {
                 barkod = new BarisGorselDLL.Barcode();
-                barkod.SetValues("0000000000", SelectedCari.Isim, _ListSepet.First().TeslimTarihi, "0", borc.ToString("N"));
+                barkod.SetValues("0000000000", SelectedCari.Isim, _ListSepet.First().TeslimTarihi, "0", borc.ToString("N"), ListSepet.First());
                 BitmapSource barcodeImage = PhotoConvert.BitmapImagetoBitmap(barkod.Create());
                 imageBarcode.Width = barcodeImage.Width;
                 imageBarcode.Height = barcodeImage.Height;
@@ -171,6 +171,7 @@ namespace istakip
                     img.ArsivNo = yeniArsiv.ArsivNo;
                     img.Save();
                 }
+
                 ArchiveStorage store = new ArchiveStorage(SelectedCari);
                 store.Save(ListImages);
                 barkod.BarcodeNo = yeniArsiv.ArsivNo;
@@ -182,6 +183,16 @@ namespace istakip
             }
 
             
+        }
+
+        private void imageBarcode_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ClickCount == 2)
+            {
+                barkod.Dialog = true;
+                barkod.yazdir();
+                barkod.Dialog = false;
+            }
         }
 
         

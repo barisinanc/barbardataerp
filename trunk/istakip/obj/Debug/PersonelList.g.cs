@@ -56,7 +56,7 @@ namespace istakip {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/istakip;component/personellist.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/ERPStudyo;component/personellist.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\PersonelList.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
