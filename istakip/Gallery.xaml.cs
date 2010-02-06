@@ -97,7 +97,7 @@ namespace istakip
             {
                 if (value != null && value.Count>0)
                 {
-                    //Path = Directory.GetParent(value.First().Path).FullName;
+                   //Path = Directory.GetParent(value.First().Path).FullName;
                     _ImageList2 = value;
                 }
             }

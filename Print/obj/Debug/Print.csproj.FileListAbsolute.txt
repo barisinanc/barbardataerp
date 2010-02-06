@@ -1,0 +1,12 @@
+D:\projeler\fototakip\barbardataerp\Print\bin\Debug\Print.exe
+D:\projeler\fototakip\barbardataerp\Print\bin\Debug\Print.pdb
+D:\projeler\fototakip\barbardataerp\Print\obj\Debug\ResolveAssemblyReference.cache
+D:\projeler\fototakip\barbardataerp\Print\obj\Debug\Window1.baml
+D:\projeler\fototakip\barbardataerp\Print\obj\Debug\Window1.g.cs
+D:\projeler\fototakip\barbardataerp\Print\obj\Debug\App.g.cs
+D:\projeler\fototakip\barbardataerp\Print\obj\Debug\Print_MarkupCompile.cache
+D:\projeler\fototakip\barbardataerp\Print\obj\Debug\Print.g.resources
+D:\projeler\fototakip\barbardataerp\Print\obj\Debug\Print.Properties.Resources.resources
+D:\projeler\fototakip\barbardataerp\Print\obj\Debug\Print.csproj.GenerateResource.Cache
+D:\projeler\fototakip\barbardataerp\Print\obj\Debug\Print.exe
+D:\projeler\fototakip\barbardataerp\Print\obj\Debug\Print.pdb

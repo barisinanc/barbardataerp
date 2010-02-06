@@ -63,7 +63,7 @@ namespace istakip {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/istakip;component/photoview.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/ERPStudyo;component/photoview.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\PhotoView.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

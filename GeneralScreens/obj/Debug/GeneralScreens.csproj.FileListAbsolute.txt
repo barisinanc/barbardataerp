@@ -49,8 +49,6 @@ D:\projeler\fototakip\barbardataerp\GeneralScreens\obj\Debug\ResolveAssemblyRefe
 D:\projeler\fototakip\barbardataerp\GeneralScreens\obj\Debug\Window1.baml
 D:\projeler\fototakip\barbardataerp\GeneralScreens\obj\Debug\Window1.g.cs
 D:\projeler\fototakip\barbardataerp\GeneralScreens\obj\Debug\App.g.cs
-D:\projeler\fototakip\barbardataerp\GeneralScreens\obj\Debug\GeneralScreens_MarkupCompile.cache
-D:\projeler\fototakip\barbardataerp\GeneralScreens\obj\Debug\GeneralScreens.g.resources
 D:\projeler\fototakip\barbardataerp\GeneralScreens\obj\Debug\GeneralScreens.Properties.Resources.resources
 D:\projeler\fototakip\barbardataerp\GeneralScreens\obj\Debug\GeneralScreens.csproj.GenerateResource.Cache
 D:\projeler\fototakip\barbardataerp\GeneralScreens\bin\Debug\Images\folder.gif
@@ -58,8 +56,6 @@ D:\projeler\fototakip\barbardataerp\GeneralScreens\bin\Debug\Images\delete.png
 D:\projeler\fototakip\barbardataerp\GeneralScreens\bin\Debug\Images\rotate.png
 D:\projeler\fototakip\barbardataerp\GeneralScreens\bin\Debug\Images\rotate_cw.png
 D:\projeler\fototakip\barbardataerp\GeneralScreens\bin\Debug\Images\folder_up.gif
-D:\projeler\fototakip\barbardataerp\GeneralScreens\bin\Debug\GeneralScreens.exe
-D:\projeler\fototakip\barbardataerp\GeneralScreens\bin\Debug\GeneralScreens.pdb
 D:\projeler\fototakip\barbardataerp\GeneralScreens\bin\Debug\arsiv.exe
 D:\projeler\fototakip\barbardataerp\GeneralScreens\bin\Debug\BarBarDataService.exe
 D:\projeler\fototakip\barbardataerp\GeneralScreens\bin\Debug\Baris2Import.exe
@@ -67,7 +63,6 @@ D:\projeler\fototakip\barbardataerp\GeneralScreens\bin\Debug\BarisGorselDLL.dll
 D:\projeler\fototakip\barbardataerp\GeneralScreens\bin\Debug\binaryreader.exe
 D:\projeler\fototakip\barbardataerp\GeneralScreens\bin\Debug\DatabaseSync.exe
 D:\projeler\fototakip\barbardataerp\GeneralScreens\bin\Debug\disposer.exe
-D:\projeler\fototakip\barbardataerp\GeneralScreens\bin\Debug\istakip.exe
 D:\projeler\fototakip\barbardataerp\GeneralScreens\bin\Debug\Telerik.Windows.Controls.dll
 D:\projeler\fototakip\barbardataerp\GeneralScreens\bin\Debug\Telerik.Windows.Controls.Input.dll
 D:\projeler\fototakip\barbardataerp\GeneralScreens\bin\Debug\DiscUtils.dll
@@ -82,7 +77,6 @@ D:\projeler\fototakip\barbardataerp\GeneralScreens\bin\Debug\BarisGorselDLL.pdb
 D:\projeler\fototakip\barbardataerp\GeneralScreens\bin\Debug\arsiv.pdb
 D:\projeler\fototakip\barbardataerp\GeneralScreens\bin\Debug\Telerik.Windows.Controls.Input.pdb
 D:\projeler\fototakip\barbardataerp\GeneralScreens\bin\Debug\Telerik.Windows.Controls.Input.xml
-D:\projeler\fototakip\barbardataerp\GeneralScreens\bin\Debug\istakip.pdb
 D:\projeler\fototakip\barbardataerp\GeneralScreens\bin\Debug\nftplib.pdb
 D:\projeler\fototakip\barbardataerp\GeneralScreens\bin\Debug\WPFToolkit.pdb
 D:\projeler\fototakip\barbardataerp\GeneralScreens\bin\Debug\disposer.pdb
@@ -93,5 +87,13 @@ D:\projeler\fototakip\barbardataerp\GeneralScreens\bin\Debug\Baris2Import.pdb
 D:\projeler\fototakip\barbardataerp\GeneralScreens\bin\Debug\de\Telerik.Windows.Controls.resources.dll
 D:\projeler\fototakip\barbardataerp\GeneralScreens\bin\Debug\es\Telerik.Windows.Controls.resources.dll
 D:\projeler\fototakip\barbardataerp\GeneralScreens\bin\Debug\tr\Telerik.Windows.Controls.resources.dll
-D:\projeler\fototakip\barbardataerp\GeneralScreens\obj\Debug\GeneralScreens.exe
-D:\projeler\fototakip\barbardataerp\GeneralScreens\obj\Debug\GeneralScreens.pdb
+D:\projeler\fototakip\barbardataerp\GeneralScreens\bin\Debug\ERPStudyo.exe
+D:\projeler\fototakip\barbardataerp\GeneralScreens\bin\Debug\ERPStudyo.pdb
+D:\projeler\fototakip\barbardataerp\GeneralScreens\bin\Debug\ERPMain.exe
+D:\projeler\fototakip\barbardataerp\GeneralScreens\bin\Debug\ERPMain.pdb
+D:\projeler\fototakip\barbardataerp\GeneralScreens\obj\Debug\ERPMain_MarkupCompile.cache
+D:\projeler\fototakip\barbardataerp\GeneralScreens\obj\Debug\ERPMain.g.resources
+D:\projeler\fototakip\barbardataerp\GeneralScreens\obj\Debug\ERPMain.exe
+D:\projeler\fototakip\barbardataerp\GeneralScreens\obj\Debug\ERPMain.pdb
+D:\projeler\fototakip\barbardataerp\GeneralScreens\bin\Debug\Images\kus.swf
+D:\projeler\fototakip\barbardataerp\GeneralScreens\bin\Debug\Images\logo.html

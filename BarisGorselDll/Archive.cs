@@ -34,6 +34,70 @@ namespace BarisGorselDLL
             return ArsivNo;
         }
 
+        public List<ImagePack> getImages()
+        {
+            Connect();
+            List<ImagePack> list = new List<ImagePack>();
+            SqlCommand cmd = new SqlCommand("ArsivDosyaListele", Connection);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@ArsivNo", ArsivNo);
+            DataTable dataTable = new DataTable();
+            cmd.ExecuteNonQuery();
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+            adapter.Fill(dataTable);
+            cmd.Dispose();
+            cmd = null;
+            adapter.Dispose();
+            adapter = null;
+            foreach (DataRow satir in dataTable.Rows)
+            {
+                ImagePack yeniImage = new ImagePack();
+                yeniImage.Id = Int32.Parse( satir["Id"].ToString());
+                yeniImage.ArsivNo = satir["ArsivNo"].ToString();
+                yeniImage.Name = satir["DosyaAdi"].ToString();
+                yeniImage.Adet = Int32.Parse(satir["Adet"].ToString());
+                yeniImage.Description = satir["Aciklama"].ToString();
+                yeniImage.IsFlagged = bool.Parse(satir["Secim"].ToString());
+                yeniImage.Date = DateTime.Parse(satir["Tarih"].ToString());
+                yeniImage.IsRaw = bool.Parse(satir["Ham"].ToString());
+                list.Add(yeniImage);
+                yeniImage = null;
+            }
+            dataTable.Dispose();
+            dataTable = null;
+            Disconnect();
+            ArchiveStorage storage = new ArchiveStorage();
+            //Dosya olanları veritabanındakiler ile eşleştirme
+            foreach (ImagePack imgFile in storage.getImages(ArsivNo))
+            {
+                if (list.Where(p => p.Name == imgFile.Name).Count() > 0)
+                {
+                    ImagePack img = list.Where(p => p.Name == imgFile.Name).First();
+                    img.Path = imgFile.Path;
+                }
+                else
+                {
+                    //Dosya ver da veritabanında yoksa
+                    ImagePack yeniImage = new ImagePack();
+                    yeniImage = imgFile;
+                    yeniImage.Adet = 1;
+                    yeniImage.Save();
+                    list.Add(yeniImage);
+                }
+            }
+            //veritabanında olup dosya yoksa
+            List<ImagePack> tempList = list;
+            foreach (ImagePack img in tempList)
+            {
+                if (img.Path == "" || img.Path == null)
+                {
+                    img.Delete();
+                    list.Remove(list.Where(p => p.Id==img.Id).First());
+                }
+            }
+            return list;
+        }
+
         public Archive sepettenArsiv(long sepetNo)
         {
             Archive yeniArsiv = new Archive();

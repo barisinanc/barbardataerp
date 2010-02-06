@@ -108,5 +108,60 @@ namespace BarisGorselDLL
             }
             return null;
         }
+
+        public List<ImagePack> getImages(string arsivNo)
+        {
+
+            string[] yol = Directory.GetDirectories(server, arsivNo + "*");
+            if (yol.Length > 0)
+            {
+                List<ImagePack> list = new List<ImagePack>();
+                IEnumerable<string> fileNames =
+                    Directory.GetFiles(yol.First() + "Ham").Where(f => !f.Contains(".thumb")).Where(
+                        f => f.EndsWith(".jpg")
+                            || f.EndsWith(".JPG")
+                            || f.EndsWith(".bmp")
+                            || f.EndsWith(".BMP")
+                            || f.EndsWith(".png")
+                            || f.EndsWith(".PNG")
+                            || f.EndsWith(".psd")
+                            || f.EndsWith(".PSD")
+                    );
+                foreach (string file in fileNames)
+                {
+                    ImagePack img = new ImagePack();
+                    img.ArsivNo = arsivNo;
+                    FileInfo fileInfo = new FileInfo(file);
+                    img.Name = fileInfo.Name;
+                    img.Path = file;
+                    img.IsRaw = true;
+                    list.Add(img);
+                }
+                fileNames =
+                   Directory.GetFiles(yol.First()).Where(f => !f.Contains(".thumb")).Where(
+                       f => f.EndsWith(".jpg")
+                           || f.EndsWith(".JPG")
+                           || f.EndsWith(".bmp")
+                           || f.EndsWith(".BMP")
+                           || f.EndsWith(".png")
+                           || f.EndsWith(".PNG")
+                           || f.EndsWith(".psd")
+                           || f.EndsWith(".PSD")
+                   );
+                foreach (string file in fileNames)
+                {
+                    ImagePack img = new ImagePack();
+                    img.ArsivNo = arsivNo;
+                    FileInfo fileInfo = new FileInfo(file);
+                    img.Name = fileInfo.Name;
+                    img.Path = file;
+                    img.IsRaw = false;
+                    list.Add(img);
+                }
+
+                return list;
+            }
+            return null;
+        }
     }
 }

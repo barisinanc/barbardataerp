@@ -177,7 +177,6 @@ namespace BarisGorselDLL
             cmd.Dispose();
             cmd = null;
             Disconnect();
-
         }
 
         public System.Drawing.Bitmap ImageRead()

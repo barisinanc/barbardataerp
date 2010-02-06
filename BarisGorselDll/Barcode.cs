@@ -63,12 +63,12 @@ namespace BarisGorselDLL
             Bitmap newBarcode = new Bitmap(275,140);
             Graphics graph = Graphics.FromImage(newBarcode);
             graph.DrawImage(imageBarcode, -10, 0);
-            Font footerFont = new Font("Arial", 12, FontStyle.Regular);
-            Font footerFont2 = new Font("Arial", 12, FontStyle.Regular);
+            Font footerFont = new Font("Times New Roman", 12, FontStyle.Regular);
+            Font footerFont2 = new Font("Times New Roman", 11, FontStyle.Regular);
             graph.DrawString(BarcodeNo.ToUpper().Trim(), footerFont, Brushes.Black, 5, 78);
             graph.DrawString(CariAdi, footerFont, Brushes.Black, 97, 78);
-            graph.DrawString(Aciklama, footerFont2, Brushes.Black, 5, 93);
-            graph.DrawString(Aciklama2, footerFont, Brushes.Black, 5, 110);
+            graph.DrawString(Aciklama, footerFont2, Brushes.Black, 5, 95);
+            graph.DrawString(Aciklama2, footerFont2, Brushes.Black, 5, 110);
             /*
             Font footerFont = new Font("Arial", 12, FontStyle.Regular);
             Font footerFont2 = new Font("Arial", 12, FontStyle.Regular);
@@ -79,11 +79,13 @@ namespace BarisGorselDLL
             return newBarcode;
         }
 
-        public void SetValues(string arsivNo,string Ad, DateTime date, string alinan, string borc)
+        public void SetValues(string arsivNo,string Ad, DateTime date, string alinan, string borc, Sepet sepet)
         {
             BarcodeNo = arsivNo;
             CariAdi = Ad;
-            Aciklama = "Teslim:" + date.Day.ToString() + "." + date.Month.ToString() + "." + date.Year.ToString().Substring(2, 2) + " " + date.Hour.ToString() + ":" + date.Minute.ToString();
+            Aciklama = "Teslim:" + date.Day.ToString().PadLeft(2, '0') + "." + date.Month.ToString().PadLeft(2, '0') + "." + date.Year.ToString().Substring(2, 2) + " " + date.Hour.ToString() + ":" + date.Minute.ToString();
+            if (sepet != null)
+            { Aciklama += " - " + sepet.Adi + " " + sepet.Marka; }
             Aciklama2 = "Alınan:" + alinan + "TL - Borç:" + borc + "TL";
         }
     }

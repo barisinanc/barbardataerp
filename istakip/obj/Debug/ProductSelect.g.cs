@@ -31,6 +31,8 @@ using System.Windows.Media.TextFormatting;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Telerik.Windows.Controls;
+using Telerik.Windows.Controls.Carousel;
+using Telerik.Windows.Data;
 
 
 namespace istakip {
@@ -269,7 +271,7 @@ namespace istakip {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/istakip;component/productselect.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/ERPStudyo;component/productselect.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\ProductSelect.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
