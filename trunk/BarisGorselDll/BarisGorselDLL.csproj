@@ -105,6 +105,7 @@
     <Compile Include="Sepet.cs" />
     <Compile Include="Settings.cs" />
     <Compile Include="Sube.cs" />
+    <Compile Include="Tasks.cs" />
     <Compile Include="UserControls\moneyTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
