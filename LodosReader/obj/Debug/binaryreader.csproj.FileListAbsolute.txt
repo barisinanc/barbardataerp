@@ -28,3 +28,13 @@ D:\projeler\fototakip\barbardataerp\LodosReader\obj\Debug\binaryreader.Propertie
 D:\projeler\fototakip\barbardataerp\LodosReader\obj\Debug\binaryreader.csproj.GenerateResource.Cache
 D:\projeler\fototakip\barbardataerp\LodosReader\obj\Debug\binaryreader.exe
 D:\projeler\fototakip\barbardataerp\LodosReader\obj\Debug\binaryreader.pdb
+C:\barbardataerp2\LodosReader\bin\Debug\binaryreader.exe.config
+C:\barbardataerp2\LodosReader\bin\Debug\binaryreader.exe
+C:\barbardataerp2\LodosReader\bin\Debug\binaryreader.pdb
+C:\barbardataerp2\LodosReader\obj\Debug\ResolveAssemblyReference.cache
+C:\barbardataerp2\LodosReader\obj\Debug\binaryreader.AboutBox1.resources
+C:\barbardataerp2\LodosReader\obj\Debug\binaryreader.Form1.resources
+C:\barbardataerp2\LodosReader\obj\Debug\binaryreader.Properties.Resources.resources
+C:\barbardataerp2\LodosReader\obj\Debug\binaryreader.csproj.GenerateResource.Cache
+C:\barbardataerp2\LodosReader\obj\Debug\binaryreader.exe
+C:\barbardataerp2\LodosReader\obj\Debug\binaryreader.pdb

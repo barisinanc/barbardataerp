@@ -20,3 +20,17 @@ D:\projeler\fototakip\barbardataerp\BarisGorselDll\bin\Debug\nftplib.pdb
 D:\projeler\fototakip\barbardataerp\BarisGorselDll\bin\Debug\BarcodeLib.pdb
 D:\projeler\fototakip\barbardataerp\BarisGorselDll\obj\Debug\BarisGorselDLL.dll
 D:\projeler\fototakip\barbardataerp\BarisGorselDll\obj\Debug\BarisGorselDLL.pdb
+C:\barbardataerp2\BarisGorselDll\obj\Debug\ResolveAssemblyReference.cache
+C:\barbardataerp2\BarisGorselDll\obj\Debug\BarisGorselDLL.dll
+C:\barbardataerp2\BarisGorselDll\obj\Debug\BarisGorselDLL.pdb
+C:\barbardataerp2\BarisGorselDll\bin\Debug\BarisGorselDLL.dll.config
+C:\barbardataerp2\BarisGorselDll\bin\Debug\BarisGorselDLL.dll
+C:\barbardataerp2\BarisGorselDll\bin\Debug\BarisGorselDLL.pdb
+C:\barbardataerp2\BarisGorselDll\bin\Debug\BarcodeLib.dll
+C:\barbardataerp2\BarisGorselDll\bin\Debug\DiscUtils.dll
+C:\barbardataerp2\BarisGorselDll\bin\Debug\Ionic.Zlib.dll
+C:\barbardataerp2\BarisGorselDll\bin\Debug\MagickNet.dll
+C:\barbardataerp2\BarisGorselDll\bin\Debug\nftplib.dll
+C:\barbardataerp2\BarisGorselDll\bin\Debug\PhotoShop.dll
+C:\barbardataerp2\BarisGorselDll\bin\Debug\nftplib.pdb
+C:\barbardataerp2\BarisGorselDll\bin\Debug\BarcodeLib.pdb

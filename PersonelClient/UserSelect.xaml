@@ -1,0 +1,11 @@
+﻿<Window x:Class="PersonelClient.UserSelect"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="UserSelect" Height="162" Width="300">
+    <Grid>
+        <Image Margin="12,12,0,0" Name="image1" Stretch="Uniform" Source="/PersonelClient;component/Images/user_info.gif" HorizontalAlignment="Left" Width="96" Height="98" VerticalAlignment="Top" />
+        <ComboBox Margin="114,39,12,60" Name="cmbUserName" />
+        <TextBlock Margin="114,12,73,0" Name="kullanciAdi" Text="Kullanıcı Adı" Height="21" VerticalAlignment="Top" />
+        <Button HorizontalAlignment="Right" Margin="0,0,12,14" Name="btnLogin" Width="75" Height="23" VerticalAlignment="Bottom">Giriş</Button>
+    </Grid>
+</Window>

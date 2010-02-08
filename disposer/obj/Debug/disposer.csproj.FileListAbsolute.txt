@@ -8,3 +8,8 @@ D:\projeler\fototakip\barbardataerp\disposer\bin\Debug\disposer.pdb
 D:\projeler\fototakip\barbardataerp\disposer\obj\Debug\ResolveAssemblyReference.cache
 D:\projeler\fototakip\barbardataerp\disposer\obj\Debug\disposer.exe
 D:\projeler\fototakip\barbardataerp\disposer\obj\Debug\disposer.pdb
+C:\barbardataerp2\disposer\bin\Debug\disposer.exe
+C:\barbardataerp2\disposer\bin\Debug\disposer.pdb
+C:\barbardataerp2\disposer\obj\Debug\ResolveAssemblyReference.cache
+C:\barbardataerp2\disposer\obj\Debug\disposer.exe
+C:\barbardataerp2\disposer\obj\Debug\disposer.pdb
