@@ -129,15 +129,17 @@ namespace BarisGorselDLL
             }
         }
 
-        public Bitmap PsdImage(string Path)
+        public static Bitmap Psd2Bitmap(string Path)
         {
             MagickNet.Magick.Init();
             MagickNet.Image img = new MagickNet.Image(Path);
-            string temp = System.IO.Path.GetTempPath()+System.IO.Path.GetFileNameWithoutExtension(Path)+".jpg";
-            img.Write(temp);
+            //string temp = System.IO.Path.GetTempPath()+System.IO.Path.GetFileNameWithoutExtension(Path)+".jpg";
+            
+            Bitmap bmp = new Bitmap(MagickNet.Image.ToBitmap(img));
             MagickNet.Magick.Term();
-            Bitmap bmp = new Bitmap(temp);
-            temp = null;
+            //temp = null;
+            img.Dispose();
+            img = null;
             return bmp;
         }
 
@@ -170,7 +172,17 @@ namespace BarisGorselDLL
 
         public static void ThumbCreate(string Path, Size size)
         {
-            Image img = Image.FromFile(Path);
+            FileInfo fileInfo = new FileInfo(Path);
+            Image img;
+            if (fileInfo.Extension.ToUpper() == "PSD")
+            {
+                img = Photo.Psd2Bitmap(Path);
+            }
+            else
+            {
+                img = Image.FromFile(Path);
+            }
+
             int height = size.Height;
             int width = size.Width;
             decimal ratio = ((decimal)img.Size.Width / (decimal)img.Size.Height);
@@ -197,8 +209,16 @@ namespace BarisGorselDLL
 
         public static void ThumbCreate(string Path)
         {
-            Image img = Image.FromFile(Path);
-            Path = System.IO.Path.ChangeExtension(Path, ".jpg");
+            FileInfo fileInfo = new FileInfo(Path);
+            Image img;
+            if (fileInfo.Extension.ToUpper() == ".PSD")
+            {
+                img = Photo.Psd2Bitmap(Path);
+            }
+            else
+            {
+                img = Image.FromFile(Path);
+            }
             int height = 300;
             int width = 300;
             decimal ratio = ((decimal)img.Size.Width / (decimal)img.Size.Height);
