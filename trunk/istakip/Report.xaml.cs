@@ -144,6 +144,9 @@ namespace istakip
                 yeniCikis.TeslimTarihi = x.TeslimTarihi;
                 yeniCikis.KullaniciId = x.KullaniciId;
                 sepetNo = yeniCikis.addOrder();
+                Task yeniTask = new Task();
+                yeniTask.SetTask(selectedKullanici, yeniCikis);
+                yeniTask.EndTask(yeniCikis);
                 borc += x.Fiyat - x.Indirim;
             }
             Account yeniHesap = new Account();
