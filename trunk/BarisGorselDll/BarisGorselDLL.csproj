@@ -33,7 +33,7 @@
   <ItemGroup>
     <Reference Include="BarcodeLib, Version=1.0.0.7, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\barcode image generator\BarcodeLib\bin\Debug\BarcodeLib.dll</HintPath>
+      <HintPath>..\istakip\bin\Debug\BarcodeLib.dll</HintPath>
     </Reference>
     <Reference Include="DiscUtils, Version=0.7.0.0, Culture=neutral, PublicKeyToken=60a04f11f1df810d, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -48,7 +48,7 @@
     </Reference>
     <Reference Include="nftplib, Version=0.2.1.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\nftplib\nftplib\bin\Debug\nftplib.dll</HintPath>
+      <HintPath>..\istakip\bin\Debug\nftplib.dll</HintPath>
     </Reference>
     <Reference Include="PhotoShop, Version=1.0.4.33208, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>

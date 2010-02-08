@@ -8,3 +8,8 @@ D:\projeler\fototakip\barbardataerp\BarBarDataService\bin\Debug\BarBarDataServic
 D:\projeler\fototakip\barbardataerp\BarBarDataService\obj\Debug\ResolveAssemblyReference.cache
 D:\projeler\fototakip\barbardataerp\BarBarDataService\obj\Debug\BarBarDataService.exe
 D:\projeler\fototakip\barbardataerp\BarBarDataService\obj\Debug\BarBarDataService.pdb
+C:\barbardataerp2\BarBarDataService\bin\Debug\BarBarDataService.exe
+C:\barbardataerp2\BarBarDataService\bin\Debug\BarBarDataService.pdb
+C:\barbardataerp2\BarBarDataService\obj\Debug\ResolveAssemblyReference.cache
+C:\barbardataerp2\BarBarDataService\obj\Debug\BarBarDataService.exe
+C:\barbardataerp2\BarBarDataService\obj\Debug\BarBarDataService.pdb
