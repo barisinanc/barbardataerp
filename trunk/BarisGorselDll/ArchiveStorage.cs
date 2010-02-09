@@ -76,7 +76,7 @@ namespace BarisGorselDLL
             }
             File.Copy(Image.Path, remotePath + Image.Name);
             //File.Copy(Image.ThumbPath, Photo.ThumbPathCreator(thumbPath));
-            File.Copy(Image.ThumbPath, thumbPath + System.IO.Path.GetFileNameWithoutExtension(Image.Path) + ".thumb");
+            File.Copy(Image.ThumbPath, thumbPath + System.IO.Path.GetFileName(Image.Path) + ".thumb");
             File.Delete(Image.Path);
 
             File.Delete(Image.ThumbPath);

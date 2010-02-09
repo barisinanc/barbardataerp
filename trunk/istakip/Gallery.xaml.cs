@@ -114,8 +114,8 @@ namespace istakip
                             || f.EndsWith(".BMP")
                             || f.EndsWith(".png")
                             || f.EndsWith(".PNG")
-                            //|| f.EndsWith(".psd")
-                           //|| f.EndsWith(".PSD")
+                            || f.EndsWith(".psd")
+                           || f.EndsWith(".PSD")
                     );
             
                 methodClear();
@@ -210,14 +210,8 @@ namespace istakip
             Image photo = new Image();
             photo.MouseDown += new MouseButtonEventHandler(photo_MouseDown);
             BitmapImage resim = null;
-            if (!img.Name.ToLower().EndsWith(".psd"))
-            {
                 resim = img.ThumbRead();
-            }
-            else
-            {
-                
-            }
+            
             photo.Uid = img.Id.ToString();
             photo.Source = resim;
             
