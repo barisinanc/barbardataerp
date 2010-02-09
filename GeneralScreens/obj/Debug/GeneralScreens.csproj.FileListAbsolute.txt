@@ -66,7 +66,6 @@ D:\projeler\fototakip\barbardataerp\GeneralScreens\bin\Debug\disposer.exe
 D:\projeler\fototakip\barbardataerp\GeneralScreens\bin\Debug\Telerik.Windows.Controls.dll
 D:\projeler\fototakip\barbardataerp\GeneralScreens\bin\Debug\Telerik.Windows.Controls.Input.dll
 D:\projeler\fototakip\barbardataerp\GeneralScreens\bin\Debug\DiscUtils.dll
-D:\projeler\fototakip\barbardataerp\GeneralScreens\bin\Debug\MagickNet.dll
 D:\projeler\fototakip\barbardataerp\GeneralScreens\bin\Debug\nftplib.dll
 D:\projeler\fototakip\barbardataerp\GeneralScreens\bin\Debug\WPFToolkit.dll
 D:\projeler\fototakip\barbardataerp\GeneralScreens\bin\Debug\BarcodeLib.dll
@@ -97,3 +96,4 @@ D:\projeler\fototakip\barbardataerp\GeneralScreens\obj\Debug\ERPMain.exe
 D:\projeler\fototakip\barbardataerp\GeneralScreens\obj\Debug\ERPMain.pdb
 D:\projeler\fototakip\barbardataerp\GeneralScreens\bin\Debug\Images\kus.swf
 D:\projeler\fototakip\barbardataerp\GeneralScreens\bin\Debug\Images\logo.html
+D:\projeler\fototakip\barbardataerp\GeneralScreens\bin\Debug\PhotoShop.dll

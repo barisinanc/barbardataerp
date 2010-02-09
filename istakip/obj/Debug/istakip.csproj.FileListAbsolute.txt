@@ -65,7 +65,6 @@ D:\projeler\fototakip\barbardataerp\istakip\bin\Debug\BarisGorselDLL.dll
 D:\projeler\fototakip\barbardataerp\istakip\bin\Debug\Telerik.Windows.Controls.dll
 D:\projeler\fototakip\barbardataerp\istakip\bin\Debug\Telerik.Windows.Controls.Input.dll
 D:\projeler\fototakip\barbardataerp\istakip\bin\Debug\WPFToolkit.dll
-D:\projeler\fototakip\barbardataerp\istakip\bin\Debug\MagickNet.dll
 D:\projeler\fototakip\barbardataerp\istakip\bin\Debug\nftplib.dll
 D:\projeler\fototakip\barbardataerp\istakip\bin\Debug\BarcodeLib.dll
 D:\projeler\fototakip\barbardataerp\istakip\bin\Debug\BarisGorselDLL.pdb
@@ -98,3 +97,4 @@ D:\projeler\fototakip\barbardataerp\istakip\obj\Debug\ERPStudyo.exe
 D:\projeler\fototakip\barbardataerp\istakip\obj\Debug\ERPStudyo.pdb
 D:\projeler\fototakip\barbardataerp\istakip\bin\Debug\Images\kus.swf
 D:\projeler\fototakip\barbardataerp\istakip\bin\Debug\Images\logo.html
+D:\projeler\fototakip\barbardataerp\istakip\bin\Debug\PhotoShop.dll

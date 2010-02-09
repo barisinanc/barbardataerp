@@ -131,6 +131,12 @@ namespace BarisGorselDLL
 
         public static Bitmap Psd2Bitmap(string Path)
         {
+            PhotoshopFile.PsdFile psd = new PhotoshopFile.PsdFile();
+            psd.Load(Path);
+            Bitmap bmp = PhotoshopFile.ImageDecoder.DecodeImage(psd);
+            
+
+            /*
             MagickNet.Magick.Init();
             MagickNet.Image img = new MagickNet.Image(Path);
             //string temp = System.IO.Path.GetTempPath()+System.IO.Path.GetFileNameWithoutExtension(Path)+".jpg";
@@ -140,6 +146,7 @@ namespace BarisGorselDLL
             //temp = null;
             img.Dispose();
             img = null;
+          * */
             return bmp;
         }
 
@@ -153,7 +160,7 @@ namespace BarisGorselDLL
                 File.SetAttributes(folderPath, FileAttributes.NotContentIndexed | FileAttributes.Hidden | FileAttributes.System);
             }
 
-            return folderPath + System.IO.Path.GetFileNameWithoutExtension(_Path) + ".thumb";
+            return folderPath + System.IO.Path.GetFileName(_Path) + ".thumb";
             
         }
 
@@ -245,8 +252,21 @@ namespace BarisGorselDLL
             GC.Collect();
         }
 
-      
 
+        public static byte[] BmpToBytes_Serialization(Bitmap bmp)
+        {
+            // stream to save the bitmap to
+            MemoryStream ms = new MemoryStream();
+            System.Runtime.Serialization.Formatters.Binary.BinaryFormatter bf = new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
+            bf.Serialize(ms, bmp);
+
+            // read to end
+            byte[] bmpBytes = ms.GetBuffer();
+            bmp.Dispose();
+            ms.Close();
+
+            return bmpBytes;
+        }
 
     }
 

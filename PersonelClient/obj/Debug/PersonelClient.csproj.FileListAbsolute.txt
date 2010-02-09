@@ -42,7 +42,6 @@ D:\projeler\fototakip\barbardataerp\PersonelClient\bin\Debug\BarBarDataService.e
 D:\projeler\fototakip\barbardataerp\PersonelClient\bin\Debug\BarisGorselDLL.dll
 D:\projeler\fototakip\barbardataerp\PersonelClient\bin\Debug\disposer.exe
 D:\projeler\fototakip\barbardataerp\PersonelClient\bin\Debug\WPFToolkit.dll
-D:\projeler\fototakip\barbardataerp\PersonelClient\bin\Debug\MagickNet.dll
 D:\projeler\fototakip\barbardataerp\PersonelClient\bin\Debug\DiscUtils.dll
 D:\projeler\fototakip\barbardataerp\PersonelClient\bin\Debug\BarcodeLib.dll
 D:\projeler\fototakip\barbardataerp\PersonelClient\bin\Debug\nftplib.dll
@@ -52,3 +51,4 @@ D:\projeler\fototakip\barbardataerp\PersonelClient\bin\Debug\WPFToolkit.pdb
 D:\projeler\fototakip\barbardataerp\PersonelClient\bin\Debug\BarcodeLib.pdb
 D:\projeler\fototakip\barbardataerp\PersonelClient\bin\Debug\disposer.pdb
 D:\projeler\fototakip\barbardataerp\PersonelClient\bin\Debug\nftplib.pdb
+D:\projeler\fototakip\barbardataerp\PersonelClient\bin\Debug\PhotoShop.dll

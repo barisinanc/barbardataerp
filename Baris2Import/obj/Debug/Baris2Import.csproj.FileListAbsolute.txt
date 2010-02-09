@@ -18,7 +18,6 @@ D:\projeler\fototakip\barbardataerp\Baris2Import\bin\Debug\Baris2Import.exe
 D:\projeler\fototakip\barbardataerp\Baris2Import\bin\Debug\Baris2Import.pdb
 D:\projeler\fototakip\barbardataerp\Baris2Import\bin\Debug\BarisGorselDLL.dll
 D:\projeler\fototakip\barbardataerp\Baris2Import\bin\Debug\DiscUtils.dll
-D:\projeler\fototakip\barbardataerp\Baris2Import\bin\Debug\MagickNet.dll
 D:\projeler\fototakip\barbardataerp\Baris2Import\bin\Debug\nftplib.dll
 D:\projeler\fototakip\barbardataerp\Baris2Import\bin\Debug\BarcodeLib.dll
 D:\projeler\fototakip\barbardataerp\Baris2Import\bin\Debug\BarisGorselDLL.pdb
@@ -42,3 +41,4 @@ C:\barbardataerp2\Baris2Import\bin\Debug\BarcodeLib.dll
 C:\barbardataerp2\Baris2Import\bin\Debug\BarisGorselDLL.pdb
 C:\barbardataerp2\Baris2Import\bin\Debug\nftplib.pdb
 C:\barbardataerp2\Baris2Import\bin\Debug\BarcodeLib.pdb
+D:\projeler\fototakip\barbardataerp\Baris2Import\bin\Debug\PhotoShop.dll
