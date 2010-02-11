@@ -119,7 +119,7 @@ namespace BarisGorselDLL
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("@ArsivNo", ArsivNo);
             cmd.Parameters.AddWithValue("@DosyaAdi", Name);
-            cmd.Parameters.AddWithValue("@Adet", Adet);
+            cmd.Parameters.AddWithValue("@_Adet", Adet);
             cmd.Parameters.AddWithValue("@Aciklama", Description);
             cmd.Parameters.AddWithValue("@Secim", IsFlagged);
             cmd.Parameters.AddWithValue("@Ham", IsRaw);
@@ -150,10 +150,10 @@ namespace BarisGorselDLL
                 newImage.Id = Convert.ToInt32(satir["Id"].ToString());
                 newImage.ArsivNo = satir["ArsivNo"].ToString();
                 newImage.Name = satir["DosyaAdi"].ToString();
-                newImage.Adet = Convert.ToInt32(satir["Adet"].ToString());
+                newImage.Adet = Convert.ToInt32(satir["_Adet"].ToString());
                 newImage.Description = satir["Aciklama"].ToString();
                 newImage.IsFlagged = bool.Parse(satir["Secim"].ToString());
-                newImage.Date = DateTime.Parse(satir["Tarih"].ToString());
+                newImage.Date = DateTime.Parse(satir["TarihBaslangic"].ToString());
                 newImage.IsRaw = bool.Parse(satir["Ham"].ToString());
                 // Dosyaların bulunup pakete eklenmesi
                 ArchiveStorage dosya = new ArchiveStorage();

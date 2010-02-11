@@ -55,10 +55,10 @@ namespace BarisGorselDLL
                 yeniImage.Id = Int32.Parse( satir["Id"].ToString());
                 yeniImage.ArsivNo = satir["ArsivNo"].ToString();
                 yeniImage.Name = satir["DosyaAdi"].ToString();
-                yeniImage.Adet = Int32.Parse(satir["Adet"].ToString());
+                yeniImage.Adet = Int32.Parse(satir["_Adet"].ToString());
                 yeniImage.Description = satir["Aciklama"].ToString();
                 yeniImage.IsFlagged = bool.Parse(satir["Secim"].ToString());
-                yeniImage.Date = DateTime.Parse(satir["Tarih"].ToString());
+                yeniImage.Date = DateTime.Parse(satir["TarihBaslangic"].ToString());
                 yeniImage.IsRaw = bool.Parse(satir["Ham"].ToString());
                 list.Add(yeniImage);
                 yeniImage = null;
@@ -67,7 +67,7 @@ namespace BarisGorselDLL
             dataTable = null;
             Disconnect();
             ArchiveStorage storage = new ArchiveStorage();
-            //Dosya olanları veritabanındakiler ile eşleştirme
+            //_Dosya olanları veritabanındakiler ile eşleştirme
             foreach (ImagePack imgFile in storage.getImages(ArsivNo))
             {
                 if (list.Where(p => p.Name == imgFile.Name).Count() > 0)
@@ -77,7 +77,7 @@ namespace BarisGorselDLL
                 }
                 else
                 {
-                    //Dosya ver da veritabanında yoksa
+                    //_Dosya ver da veritabanında yoksa
                     ImagePack yeniImage = new ImagePack();
                     yeniImage = imgFile;
                     yeniImage.Adet = 1;

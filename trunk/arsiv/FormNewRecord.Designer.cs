@@ -617,7 +617,7 @@
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(32, 13);
             this.label6.TabIndex = 4;
-            this.label6.Text = "Adet:";
+            this.label6.Text = "_Adet:";
             // 
             // textBoxProductPrice
             // 
