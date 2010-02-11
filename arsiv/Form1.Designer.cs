@@ -300,7 +300,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(58, 13);
             this.label1.TabIndex = 21;
-            this.label1.Text = "Adet listele";
+            this.label1.Text = "_Adet listele";
             // 
             // dataGridViewResult
             // 

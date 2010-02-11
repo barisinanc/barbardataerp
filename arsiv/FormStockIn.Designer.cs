@@ -101,7 +101,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(60, 13);
             this.label3.TabIndex = 3;
-            this.label3.Text = "Giren Adet:";
+            this.label3.Text = "Giren _Adet:";
             // 
             // label4
             // 

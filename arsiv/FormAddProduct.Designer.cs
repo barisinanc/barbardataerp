@@ -291,7 +291,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(29, 13);
             this.label2.TabIndex = 87;
-            this.label2.Text = "Adet";
+            this.label2.Text = "_Adet";
             // 
             // labelSelectedBarcode
             // 

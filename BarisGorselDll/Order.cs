@@ -23,7 +23,7 @@ namespace BarisGorselDLL
             if (CariNo != 0)
             { cmd.Parameters.AddWithValue("@CariNo", CariNo); }
             cmd.Parameters.AddWithValue("@UrunBarkodNo", BarkodNo);
-            cmd.Parameters.AddWithValue("@Adet", Adet);
+            cmd.Parameters.AddWithValue("@_Adet", Adet);
             cmd.Parameters.AddWithValue("@Indirim", Indirim);
             cmd.Parameters.AddWithValue("@Tutar", Fiyat);
             cmd.Parameters.AddWithValue("@SubeId", SubeId);
@@ -69,7 +69,7 @@ namespace BarisGorselDLL
             cmd.Parameters.AddWithValue("@Id", Id);
             cmd.Parameters.AddWithValue("@CariNo", CariNo);
             cmd.Parameters.AddWithValue("@UrunBarkodNo", BarkodNo);
-            cmd.Parameters.AddWithValue("@Adet", Adet);
+            cmd.Parameters.AddWithValue("@_Adet", Adet);
             cmd.Parameters.AddWithValue("@Indirim", Indirim);
             cmd.Parameters.AddWithValue("@Tutar", Fiyat);
             cmd.Parameters.AddWithValue("@SubeId", BarisGorselDLL.Properties.Settings.Default.SubeId);

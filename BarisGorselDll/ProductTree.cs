@@ -26,7 +26,7 @@ namespace BarisGorselDLL
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("@BarkodNo", AnaBarkodNo);
             cmd.Parameters.AddWithValue("@AltUrun", AltBarkodNo);
-            cmd.Parameters.AddWithValue("@Adet", Adet);
+            cmd.Parameters.AddWithValue("@_Adet", Adet);
             cmd.ExecuteNonQuery();
             cmd.Dispose();
             Disconnect();
@@ -50,7 +50,7 @@ namespace BarisGorselDLL
                 ProductTree urun = new ProductTree();
                 urun.BarkodNo = AnaBarkodNo;
                 urun.AnaBarkodNo = AnaBarkodNo;
-                urun.Adet = Convert.ToInt32(row["Adet"].ToString());
+                urun.Adet = Convert.ToInt32(row["_Adet"].ToString());
                 urun.Id = Convert.ToInt32(row["Id"].ToString());
                 urun.AltBarkodNo = row["AltUrun"].ToString();
                 urun.productGetByBarcode();
@@ -69,7 +69,7 @@ namespace BarisGorselDLL
             cmd.Parameters.AddWithValue("@Id", Id);
             cmd.Parameters.AddWithValue("@AnaBarkodNo", AnaBarkodNo);
             cmd.Parameters.AddWithValue("@AltBarkodNo", AltBarkodNo);
-            cmd.Parameters.AddWithValue("@Adet", Adet);
+            cmd.Parameters.AddWithValue("@_Adet", Adet);
             cmd.Parameters.AddWithValue("@Sil", Sil);
             cmd.ExecuteNonQuery();
             cmd.Dispose();

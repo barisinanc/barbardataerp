@@ -1,0 +1,12 @@
+﻿<Window x:Class="AutoFileDelete.Window1"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="Dosya Silici" Height="172" Width="301">
+    <Grid>
+        <Button Margin="0,51,12,60" Name="buttonSelect" HorizontalAlignment="Right" Width="74" Click="buttonSelect_Click">Klasörü Seç</Button>
+        <Label Height="28" Margin="12,12,11,0" Name="labelYol" VerticalAlignment="Top"></Label>
+        <Button Height="23" Margin="0,0,11,12" Name="buttonStart" VerticalAlignment="Bottom" Click="buttonStart_Click" HorizontalAlignment="Right" Width="75">Başlat</Button>
+        <my:RadNumericUpDown Height="28" Margin="12,46,0,0" Name="numericDays" Width="86" xmlns:my="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.Input" CustomUnit="Gün" HorizontalAlignment="Left" Value="3" VerticalAlignment="Top" Maximum="60" />
+        <Button Height="23" Margin="0,0,92,12" Name="buttonStop" VerticalAlignment="Bottom" IsEnabled="False" HorizontalAlignment="Right" Width="75" Click="buttonStop_Click">Durdur</Button>
+    </Grid>
+</Window>

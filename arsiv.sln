@@ -23,6 +23,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeneralScreens", "GeneralSc
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersonelClient", "PersonelClient\PersonelClient.csproj", "{70080A32-7206-4D27-8851-DEE92859B485}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XmppClient", "XmppClient\XmppClient.csproj", "{CF28C543-B7EF-40BC-9AA8-909D93184790}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoFileDelete", "AutoFileDelete\AutoFileDelete.csproj", "{7129027D-1B7E-4558-9314-2A8832D52504}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -139,6 +143,26 @@ Global
 		{70080A32-7206-4D27-8851-DEE92859B485}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{70080A32-7206-4D27-8851-DEE92859B485}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{70080A32-7206-4D27-8851-DEE92859B485}.Release|Win32.ActiveCfg = Release|Any CPU
+		{CF28C543-B7EF-40BC-9AA8-909D93184790}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF28C543-B7EF-40BC-9AA8-909D93184790}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF28C543-B7EF-40BC-9AA8-909D93184790}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{CF28C543-B7EF-40BC-9AA8-909D93184790}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{CF28C543-B7EF-40BC-9AA8-909D93184790}.Debug|Win32.ActiveCfg = Debug|Any CPU
+		{CF28C543-B7EF-40BC-9AA8-909D93184790}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF28C543-B7EF-40BC-9AA8-909D93184790}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF28C543-B7EF-40BC-9AA8-909D93184790}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{CF28C543-B7EF-40BC-9AA8-909D93184790}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{CF28C543-B7EF-40BC-9AA8-909D93184790}.Release|Win32.ActiveCfg = Release|Any CPU
+		{7129027D-1B7E-4558-9314-2A8832D52504}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7129027D-1B7E-4558-9314-2A8832D52504}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7129027D-1B7E-4558-9314-2A8832D52504}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{7129027D-1B7E-4558-9314-2A8832D52504}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{7129027D-1B7E-4558-9314-2A8832D52504}.Debug|Win32.ActiveCfg = Debug|Any CPU
+		{7129027D-1B7E-4558-9314-2A8832D52504}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7129027D-1B7E-4558-9314-2A8832D52504}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7129027D-1B7E-4558-9314-2A8832D52504}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{7129027D-1B7E-4558-9314-2A8832D52504}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{7129027D-1B7E-4558-9314-2A8832D52504}.Release|Win32.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

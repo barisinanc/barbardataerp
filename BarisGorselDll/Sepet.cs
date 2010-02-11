@@ -41,7 +41,7 @@ namespace BarisGorselDLL
                 yeniSepet.AnaFiyat = decimal.Parse(satir["AnaFiyat"].ToString());
                 yeniSepet.Indirim = decimal.Parse(satir["Indirim"].ToString());
                 yeniSepet.Kdv = Convert.ToInt32(satir["Kdv"].ToString());
-                yeniSepet.Adet = Convert.ToInt32(satir["Adet"].ToString());
+                yeniSepet.Adet = Convert.ToInt32(satir["_Adet"].ToString());
                 try {  yeniSepet.Arsivle = Convert.ToBoolean(satir["Arsivle"]); }
                 catch {  yeniSepet.Arsivle = false; }
                 yeniSepet.TeslimTarihi = DateTime.Parse(satir["TeslimTarihi"].ToString());

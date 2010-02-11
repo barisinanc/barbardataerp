@@ -90,6 +90,7 @@
     <Compile Include="Order.cs" />
     <Compile Include="Photo.cs" />
     <Compile Include="PhotoGallery.cs" />
+    <Compile Include="Print.cs" />
     <Compile Include="Product.cs" />
     <Compile Include="ProductGroup.cs" />
     <Compile Include="ProductTree.cs" />
@@ -113,6 +114,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="ClassDiagram1.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>PublicSettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
