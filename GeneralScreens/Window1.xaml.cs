@@ -24,6 +24,7 @@ namespace GeneralScreens
         public Window1()
         {
             InitializeComponent();
+            
         }
 
         private void button1_Click(object sender, RoutedEventArgs e)

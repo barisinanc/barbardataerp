@@ -23,6 +23,8 @@ namespace BarisGorselDLL
         private Kullanici _Personel;
         private Cari _Cari;
         private int _Id;
+        private string oldPath;
+        private string fileOrgName;
 
         /// <summary>
         /// After Printing
@@ -63,7 +65,17 @@ namespace BarisGorselDLL
             }
             set
             {
-                _Adet = value;
+                if (!(_Adet == null || _Adet == 0))
+                {
+                    _Adet = value;
+                    oldPath = Dosya.FullName;
+                    Dosya = new FileInfo(ServerPath(fileOrgName));
+                    UpdateServer();
+                }
+                else
+                {
+                    _Adet = value;
+                }
             }
         }
 
@@ -108,7 +120,19 @@ namespace BarisGorselDLL
             }
             set
             {
-                _Ebat = value;
+
+                if (_Ebat != null)
+                {
+                    _Ebat = value;
+                    oldPath = Dosya.FullName;
+                    Dosya = new FileInfo(ServerPath(fileOrgName));
+                    UpdateServer();
+                }
+                else
+                {
+                    _Ebat = value;
+                }
+                
             }
         }
 
@@ -123,7 +147,17 @@ namespace BarisGorselDLL
             }
             set
             {
-                _KartTipi = value;
+                if (_KartTipi != null)
+                {
+                    _KartTipi = value;
+                    oldPath = Dosya.FullName;
+                    Dosya = new FileInfo(ServerPath(fileOrgName));
+                    UpdateServer();
+                }
+                else
+                {
+                    _KartTipi = value;
+                }
             }
         }
 
@@ -134,6 +168,11 @@ namespace BarisGorselDLL
         {
             get
             {
+                if (_Siparis == null)
+                {
+                    _Siparis = new Order();
+                    _Siparis.SepetNo = 0;
+                }
                 return _Siparis;
             }
             set
@@ -183,7 +222,17 @@ namespace BarisGorselDLL
             }
             set
             {
-                _Onem = value;
+                if (_Onem != null)
+                {
+                    _Onem = value;
+                    oldPath = Dosya.FullName;
+                    Dosya = new FileInfo(ServerPath(fileOrgName));
+                    UpdateServer();
+                }
+                else
+                {
+                    _Onem = value;
+                }
             }
         }
 
@@ -194,11 +243,8 @@ namespace BarisGorselDLL
         {
             get
             {
+                _Server = Properties.Settings.Default.printServerPath;
                 return _Server;
-            }
-            set
-            {
-                _Server = value;
             }
         }
 
@@ -247,7 +293,74 @@ namespace BarisGorselDLL
             }
         }
 
-        
+
+        /// <summary>
+        /// Clientteki dosyadan sunucu için yer döndürür
+        /// </summary>
+        private string ServerPath(string fileName)
+        {
+            //[Tarih]+[Sepetno-PersonelAdi]+[Ebat-KartTürü]+[Adet-DosyaAdı]
+            fileOrgName = fileName;
+            return Server + DateTime.Now.ToString("dd.MM.yyyy")
+               + "\\" + Siparis.SepetNo.ToString().PadRight(11,'0') + "-" + Personel.Ad
+               + "\\" + Ebat.ToString().Replace("E", "") + KartTipi.ToString()
+               + "\\" + Adet.ToString() + "_" + fileName;
+        }
+
+
+        private void CopyServer(FileInfo clientFile)
+        {
+            string path = ServerPath(clientFile.Name);
+            if (!Directory.Exists(Directory.GetParent(path).FullName))
+            { Directory.GetParent(path).Create(); }
+            File.Copy(clientFile.FullName, path);
+            Dosya = new FileInfo(path);
+        }
+
+        private void DeleteServer()
+        {
+            Dosya.Delete();
+            CleanFolder(Dosya.FullName);
+        }
+
+        private void UpdateServer()
+        {
+            if (!Directory.GetParent(Dosya.FullName).Exists)
+            { Directory.GetParent(Dosya.FullName).Create(); }
+            File.Move(oldPath, Dosya.FullName);
+            CleanFolder(oldPath);
+        }
+
+        private void CleanFolder(string filePath)
+        {
+            IEnumerable<string> fileNames =
+                   Directory.GetFiles(Directory.GetParent(filePath).FullName).Where(
+                       f => f.EndsWith(".jpg")
+                           || f.EndsWith(".JPG")
+                           || f.EndsWith(".bmp")
+                           || f.EndsWith(".BMP")
+                           || f.EndsWith(".png")
+                           || f.EndsWith(".PNG")
+                           || f.EndsWith(".tiff")
+                           || f.EndsWith(".TIFF")
+                           || f.EndsWith(".tif")
+                           || f.EndsWith(".TIF")
+                   );
+            DirectoryInfo parent;
+            if (fileNames.Count() == 0)
+            {
+                parent = Directory.GetParent(Directory.GetParent(filePath).FullName);
+                Directory.GetParent(filePath).Delete();
+                if (parent.GetDirectories().Count() == 0)
+                {
+                    parent.Delete();
+                    if (parent.Parent.GetDirectories().Count() == 0)
+                    {
+                        parent.Parent.Delete();
+                    }
+                }
+            }
+        }
 
         public void Finished()
         {
@@ -259,12 +372,13 @@ namespace BarisGorselDLL
             cmd.Dispose();
             cmd = null;
             Disconnect();
-            //TODO biten işler dosyaları silinecek
+            DeleteServer();
         }
 
-        public void Save()
+        public void Save(FileInfo clientFile)
         {
-            //TODO iş dosyaları dizine kopyalanacak
+            CopyServer(clientFile);
+            
             Connect();
             SqlCommand cmd = new SqlCommand("BaskiEkle", Connection);
             cmd.CommandType = CommandType.StoredProcedure;
@@ -280,6 +394,7 @@ namespace BarisGorselDLL
             cmd.Dispose();
             cmd = null;
             Disconnect();
+
         }
 
         public void Delete()
@@ -292,7 +407,8 @@ namespace BarisGorselDLL
             cmd.Dispose();
             cmd = null;
             Disconnect();
-            //İş Dosyaları Silinecek
+            DeleteServer();
+            
         }
 
         public void Update()
@@ -309,7 +425,7 @@ namespace BarisGorselDLL
             cmd.Dispose();
             cmd = null;
             Disconnect();
-            //Dosyanın adedine göre ismi değişecek
+            
         }
 
         /// <summary>
