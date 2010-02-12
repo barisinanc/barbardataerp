@@ -21,9 +21,29 @@
           <NewMemberFileName>Print.cs</NewMemberFileName>
         </TypeIdentifier>
       </Enum>
+      <Delegate Name="BarisGorselDLL.Print.PrintedEventHandler" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Print.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+      <Delegate Name="BarisGorselDLL.Print.SavedEventHandler" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Print.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+      <Delegate Name="BarisGorselDLL.Print.DeletedEventHandler" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Print.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+      <Delegate Name="BarisGorselDLL.Print.UpdatedEventHandler" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Print.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
     </NestedTypes>
     <TypeIdentifier>
-      <HashCode>QASiAIhgoAACAAKABAQIEEAAYAEEQAAAQEBAAgAECAI=</HashCode>
+      <HashCode>QASiAIhwsAACAAKABAQIEEAEYAUEQAAAYEBAAgAESAI=</HashCode>
       <FileName>Print.cs</FileName>
     </TypeIdentifier>
   </Class>
