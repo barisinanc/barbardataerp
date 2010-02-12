@@ -146,5 +146,14 @@ namespace BarisGorselDLL.Properties {
                 return ((string)(this["fileServerPath"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("\\\\192.168.1.1\\Baskı\\")]
+        public string printServerPath {
+            get {
+                return ((string)(this["printServerPath"]));
+            }
+        }
     }
 }
