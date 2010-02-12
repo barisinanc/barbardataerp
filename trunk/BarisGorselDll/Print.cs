@@ -29,27 +29,30 @@ namespace BarisGorselDLL
         /// <summary>
         /// After Printing
         /// </summary>
-        public event EventHandler Printed;
-
+        public event PrintedEventHandler Printed;
+        public delegate void PrintedEventHandler();
         /// <summary>
         /// Print file saved
         /// </summary>
-        public event EventHandler Saved;
-
+        public event SavedEventHandler Saved;
+        public delegate void SavedEventHandler();
         /// <summary>
         /// Print query deleted
         /// </summary>
-        public event EventHandler Deleted;
-
-        public event EventHandler Updated;
-
+        public event DeletedEventHandler Deleted;
+        public delegate void DeletedEventHandler();
+        /// <summary>
+        /// Print query updated
+        /// </summary>
+        public event UpdatedEventHandler Updated;
+        public delegate void UpdatedEventHandler();
         
-        private Print(FileInfo file)
+        public Print(FileInfo file)
         {
             _Dosya = file;
         }
 
-        private Print()
+        public Print()
         {
 
         }
@@ -65,7 +68,7 @@ namespace BarisGorselDLL
             }
             set
             {
-                if (!(_Adet == null || _Adet == 0))
+                if ((_Adet != 0)&&_Adet!=value)
                 {
                     _Adet = value;
                     oldPath = Dosya.FullName;
@@ -121,7 +124,7 @@ namespace BarisGorselDLL
             set
             {
 
-                if (_Ebat != null)
+                if (_Ebat!=value)
                 {
                     _Ebat = value;
                     oldPath = Dosya.FullName;
@@ -147,7 +150,7 @@ namespace BarisGorselDLL
             }
             set
             {
-                if (_KartTipi != null)
+                if (_KartTipi!=value)
                 {
                     _KartTipi = value;
                     oldPath = Dosya.FullName;
@@ -190,10 +193,6 @@ namespace BarisGorselDLL
             {
                 return _TarihBaslangic;
             }
-            set
-            {
-                _TarihBaslangic = value;
-            }
         }
 
         /// <summary>
@@ -204,10 +203,6 @@ namespace BarisGorselDLL
             get
             {
                 return _TarihBitis;
-            }
-            set
-            {
-                _TarihBitis = value;
             }
         }
 
@@ -222,7 +217,7 @@ namespace BarisGorselDLL
             }
             set
             {
-                if (_Onem != null)
+                if (_Onem!=value)
                 {
                     _Onem = value;
                     oldPath = Dosya.FullName;
@@ -312,8 +307,11 @@ namespace BarisGorselDLL
         {
             string path = ServerPath(clientFile.Name);
             if (!Directory.Exists(Directory.GetParent(path).FullName))
-            { Directory.GetParent(path).Create(); }
-            File.Copy(clientFile.FullName, path);
+            {
+                string dir = Directory.GetParent(path).FullName;
+                Directory.CreateDirectory(dir);
+            }
+            File.Copy(clientFile.FullName, path, true);
             Dosya = new FileInfo(path);
         }
 
@@ -350,13 +348,13 @@ namespace BarisGorselDLL
             if (fileNames.Count() == 0)
             {
                 parent = Directory.GetParent(Directory.GetParent(filePath).FullName);
-                Directory.GetParent(filePath).Delete();
+                Directory.GetParent(filePath).Delete(true);
                 if (parent.GetDirectories().Count() == 0)
                 {
-                    parent.Delete();
+                    parent.Delete(true);
                     if (parent.Parent.GetDirectories().Count() == 0)
                     {
-                        parent.Parent.Delete();
+                        Directory.GetParent(parent.FullName).Delete(true);
                     }
                 }
             }
@@ -373,6 +371,8 @@ namespace BarisGorselDLL
             cmd = null;
             Disconnect();
             DeleteServer();
+            if (Printed != null)
+            { Printed(); }
         }
 
         public void Save(FileInfo clientFile)
@@ -382,7 +382,7 @@ namespace BarisGorselDLL
             Connect();
             SqlCommand cmd = new SqlCommand("BaskiEkle", Connection);
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@DosyaAdi", _Dosya.Name);
+            cmd.Parameters.AddWithValue("@DosyaAdi", fileOrgName);
             cmd.Parameters.AddWithValue("@Adet", _Adet);
             cmd.Parameters.AddWithValue("@Onem", _Onem.ToString("D"));
             cmd.Parameters.AddWithValue("@KullaniciId", _Personel.Id);
@@ -394,7 +394,8 @@ namespace BarisGorselDLL
             cmd.Dispose();
             cmd = null;
             Disconnect();
-
+            if (Saved != null)
+            { Saved(); }
         }
 
         public void Delete()
@@ -408,7 +409,8 @@ namespace BarisGorselDLL
             cmd = null;
             Disconnect();
             DeleteServer();
-            
+            if (Deleted != null)
+            { Deleted(); }
         }
 
         public void Update()
@@ -425,7 +427,8 @@ namespace BarisGorselDLL
             cmd.Dispose();
             cmd = null;
             Disconnect();
-            
+            if (Updated != null)
+            { Updated(); }
         }
 
         /// <summary>
@@ -449,13 +452,16 @@ namespace BarisGorselDLL
             {
                 Print yeniBaski = new Print();
                 yeniBaski._Id = Int32.Parse(satir["Id"].ToString());
-                yeniBaski._TarihBaslangic = DateTime.Parse(satir["Tarih"].ToString());
+                yeniBaski._TarihBaslangic = DateTime.Parse(satir["TarihBaslangic"].ToString());
                 yeniBaski._Adet = Int32.Parse(satir["Adet"].ToString());
                 yeniBaski._Ebat = (CardSize)Enum.Parse(typeof(CardSize), satir["Ebat"].ToString());
                 yeniBaski._KartTipi = (CardType)Enum.ToObject(typeof(CardType), int.Parse(satir["KartTipi"].ToString()));
                 yeniBaski._Personel = new Kullanici { Ad = satir["PersonelAdi"].ToString(), Id= int.Parse(satir["PersonelId"].ToString()) };
                 yeniBaski._Onem = (Priority)Enum.ToObject(typeof(Priority), int.Parse(satir["Onem"].ToString()));
-                yeniBaski._Siparis = new Order { SepetNo = long.Parse(satir["SpetNo"].ToString()), BarkodNo = satir["UrunBarkodNo"].ToString(), Adi = satir["Urun"].ToString(), Marka = satir["Marka"].ToString(), Model = satir["Model"].ToString() };
+                yeniBaski._Siparis = new Order { SepetNo = long.Parse(satir["SepetNo"].ToString()), BarkodNo = satir["UrunBarkodNo"].ToString(), Adi = satir["Urun"].ToString(), Marka = satir["Marka"].ToString(), Model = satir["Model"].ToString() };
+                //string path = satir["DosyaAdi"].ToString().Substring(satir["DosyaAdi"].ToString().IndexOf('_'));
+                yeniBaski._Dosya = new FileInfo(ServerPath(satir["DosyaAdi"].ToString()));
+                fileOrgName = satir["DosyaAdi"].ToString();
                 liste.Add(yeniBaski);
                 yeniBaski = null;
             }
@@ -494,7 +500,9 @@ namespace BarisGorselDLL
                 yeniBaski._KartTipi = (CardType)Enum.ToObject(typeof(CardType), int.Parse(satir["KartTipi"].ToString()));
                 yeniBaski._Personel = new Kullanici { Ad = satir["PersonelAdi"].ToString(), Id = int.Parse(satir["PersonelId"].ToString()) };
                 yeniBaski._Onem = (Priority)Enum.ToObject(typeof(Priority), int.Parse(satir["Onem"].ToString()));
-                yeniBaski._Siparis = new Order { SepetNo = long.Parse(satir["SpetNo"].ToString()), BarkodNo = satir["UrunBarkodNo"].ToString(), Adi = satir["Urun"].ToString(), Marka = satir["Marka"].ToString(), Model = satir["Model"].ToString() };
+                yeniBaski._Siparis = new Order { SepetNo = long.Parse(satir["SepetNo"].ToString()), BarkodNo = satir["UrunBarkodNo"].ToString(), Adi = satir["Urun"].ToString(), Marka = satir["Marka"].ToString(), Model = satir["Model"].ToString() };
+                //yeniBaski._Dosya = new FileInfo(ServerPath(satir["DosyaAdi"].ToString()));
+                //fileOrgName = satir["DosyaAdi"].ToString();
                 liste.Add(yeniBaski);
                 yeniBaski = null;
             }

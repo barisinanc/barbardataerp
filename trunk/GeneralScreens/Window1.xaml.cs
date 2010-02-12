@@ -27,6 +27,21 @@ namespace GeneralScreens
             
         }
 
+        private void bas()
+        {
+            BarisGorselDLL.Print print = new BarisGorselDLL.Print();
+            //print.Dosya = new System.IO.FileInfo("c:\folder.gif");
+            print.Adet = 1;
+            print.Ebat = BarisGorselDLL.Print.CardSize.E10x15;
+            print.KartTipi = BarisGorselDLL.Print.CardType.Parlak;
+            BarisGorselDLL.Kullanici kull = new BarisGorselDLL.Kullanici();
+            print.Personel = new BarisGorselDLL.Kullanici(1);//1=kullanıcı Id
+            //print.Save(new System.IO.FileInfo("c:\\folder.gif"));
+            List<BarisGorselDLL.Print> liste;// = print.GetList();
+            //liste.First().Finished();
+            liste = print.GetListFinished(10);
+        }
+
         private void button1_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
@@ -48,7 +63,8 @@ namespace GeneralScreens
         }
         private void baski_Click(object sender, RoutedEventArgs e)
         {
-            System.Windows.MessageBox.Show("Yapim Asamasinda:)");
+            bas();
+            //System.Windows.MessageBox.Show("Yapim Asamasinda:)");
         }
     }
 }
